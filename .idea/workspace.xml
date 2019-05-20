@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bf54f52d-76f4-4428-acb6-b0f2973c4583" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/mx/ipn/cic/biblioteca/AdminControl/config/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mx/ipn/cic/biblioteca/AdminControl/config/SecurityConfiguration.java" afterDir="false" />
-    </list>
+    <list default="true" id="bf54f52d-76f4-4428-acb6-b0f2973c4583" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -181,7 +179,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="1">
     <option name="x" value="-11" />
     <option name="width" value="1940" />
     <option name="height" value="2111" />
@@ -301,15 +299,15 @@
       <option name="presentableId" value="Default" />
       <updated>1558341651739</updated>
       <workItem from="1558341654229" duration="2270000" />
-      <workItem from="1558346378470" duration="416000" />
+      <workItem from="1558346378470" duration="663000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2686000" />
+    <option name="totallyTimeSpent" value="2933000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="0" width="1293" height="1407" extended-state="0" />
+    <frame x="-7" y="0" width="1293" height="1407" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
