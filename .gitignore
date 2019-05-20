@@ -40,7 +40,7 @@ hs_err_pid*
 application.properties
 
 
-/AdminControl/.idea/*
+/.idea/*
 *.iml
 
 \.DS_Store
