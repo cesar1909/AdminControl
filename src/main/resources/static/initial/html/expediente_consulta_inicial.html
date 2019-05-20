@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <title>Sistema de Seguimiento</title>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <!--     Fonts and icons     -->
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+    <link rel="icon" type="image/png" href="../img/LogotipoNegro.png">
+    <!-- CSS -->
+    <link href="../css/styles.css" rel="stylesheet" />
+    <link href="../css/dashboard.css" rel="stylesheet" />
+    <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"
+         rel = "stylesheet">
+      <script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
+      <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    <!-- Javascript -->
+      <script>
+         $(function() {
+            $( "#datepicker-13" ).datepicker();
+            $( "#datepicker-13" ).datepicker("show");
+         });
+      </script>
+
+    <!--<link href="../css/patientsList.css" rel="stylesheet"/>-->
+  </head>
+
+    <body>
+      <div class="orbit-spinner">
+          <div class="orbit"></div>
+          <div class="orbit"></div>
+          <div class="orbit"></div>
+        </div>
+
+        <div id="main" class="wrapper" hidden>
+            <!-- SideBar -->
+            <div class="sidebar" data-color="white" data-active-color="primary">
+                <div class="logo">
+                    <div class="center-logo">
+                        <img id="logo" src="../img/LogotipoNegro.png" alt="logo" />
+                        <br/>
+                        <p class="simple-text">Sistema de Seguimiento</p>
+                    </div>
+                </div>
+                <div class="sidebar-wrapper">
+                    <div id="contentSidebar">
+                        <ul class="nav">
+                            <li class="active">
+                                <a href="./patientsList.html">
+                                    <i class="material-icons">group</i> <p class="fontSize">Pacientes</p>
+                                </a>
+                            </li>
+                        </ul>
+
+                        <ul class="nav">
+                                <li >
+                                    <a href="./patientsList.html">
+                                        <i class="material-icons">account_circle</i> <p class="fontSize">Mis datos</p>
+                                    </a>
+                                </li>
+                        </ul>
+                            <ul class="nav">
+                                    <li >
+                                        <a href="./index.html">
+                                            <i class="material-icons">clear</i> <p class="fontSize">salir</p>
+                                        </a>
+                                    </li>
+                            </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Panel -->
+            <div class="main-panel">
+                <!-- Narvar -->
+                <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
+                    <div class="container-fluid">
+                        <div id="doctorID" class="collapse navbar-collapse justify-content-end">
+                                <i class="material-icons colorFontBlack">face</i><p class="h4 colorFontBlack">&nbsp;Dr. Manuel Chavez </p>
+                        </div>
+                    </div>
+                </nav>
+                <!-- End Navbar -->
+
+                <!-- Main Content  -->
+                <div class="content-fluid">
+
+
+                <h2>Consulta Inicial</h2>
+
+                <form>
+                   <!--date picker-->
+                   <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <p> Fecha de Valoración: <input type = "text" class="form-control" id = "datepicker-13"></p>
+                    </div>
+                   </div>
+                  <div class="form-row">
+
+                    <div class="form-group col-md-4">
+                    <label for="Creatinina_serica">Creatinina sérica</label>
+                      <input type="text" class="form-control" id="Creatinina_serica" placeholder="mg/dL">
+                    </div>
+                    <div class="form-group col-md-4">
+                    <label for="Depuracion_creatinina">Depuración creatinina</label>
+                      <input type="text" class="form-control" id="Depuracion_creatinina" placeholder="ml/min">
+                    </div>
+                    <div class="form-group col-md-4">
+                      <label for="InfeccionActiva">Infección áctiva</label>
+                      <select id="InfeccionActiva" class="form-control">
+                        <option selected>Si</option>
+                        <option>No</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="form-row">
+
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group col-md-4">
+                      <label for="inputECOG">ECOG</label>
+                      <select id="inputECOG" class="form-control">
+                        <option selected>Si</option>
+                        <option>No</option>
+                      </select>
+                    </div>
+                    <div class="form-group col-md-4">
+                      <label for="LesionesOseas">Lesiones óseas</label>
+                      <select id="LesionesOseas" class="form-control">
+                        <option selected>Si</option>
+                        <option>No</option>
+                      </select>
+                    </div>
+                    <div class="form-group col-md-4">
+                      <label for="NoLesionesOseas">Número de lesiones óseas</label>
+                      <input type="text" class="form-control" id="NoLesionesOseas" placeholder="(0-20)">
+                    </div>
+
+
+                  </div>
+                  <div class="form-row">
+                      <div class="form-group col-md-4">
+                      <label for="PlasmocitomasExtra">Plasmocitomas extramedulares</label>
+                      <select id="PlasmocitomasExtra" class="form-control">
+                        <option selected>Si</option>
+                        <option>No</option>
+                      </select>
+                      </div>
+                      <div class="form-group col-md-4">
+                      <label for="NoPlasmocitomas">Número de plasmocitomas</label>
+                      <input type="text" class="form-control" id="NoPlasmocitomas" placeholder="(0-20)">
+                      </div>
+                      <div class="form-group col-md-4">
+                      <label for="CelulasPlasmaticas">Células plasmáticas en Médula ósea</label>
+                      <input type="text" class="form-control" id="CelulasPlasmaticas" placeholder="%">
+                      </div>
+                  </div>
+                  <div class="form-row">
+                      <div class="form-group col-md-6">
+                      <label for="CelulasPlasmaticas_en_sangre_periferica">Células plasmáticas en sangre periférica</label>
+                      <input type="text" class="form-control" id="CelulasPlasmaticas_en_sangre_periferica" placeholder="%">
+                      </div>
+                      <div class="form-group col-md-2">
+                      <label for="IgG">IgG</label>
+                      <input type="text" class="form-control" id="IgG" placeholder="mg/dL">
+                      </div>
+                      <div class="form-group col-md-2">
+                      <label for="IgA">IgA</label>
+                      <input type="text" class="form-control" id="IgA" placeholder="mg/dL">
+                      </div>
+                      <div class="form-group col-md-2">
+                      <label for="IgM">IgM</label>
+                      <input type="text" class="form-control" id="IgM" placeholder="mg/dL">
+                      </div>
+                  </div>
+
+                  <div class="form-row">
+                  <div class="form-group col-md-6">
+                  </div>
+                  <div class="form-group col-md-4"></div>
+
+                  </div>
+
+                  <div class="form-row">
+                      <div class="form-group col-md-2">
+                      <label for="Inmunofijación tipo Ig">Inmunofijación tipo Ig</label>
+                      <input type="text" class="form-control" id="Inmunofijacion_tipo_Ig" placeholder="IgA">
+                      </div>
+                      <div class="form-group col-md-2">
+                      <label for="Inmunofijación tipo CLL">Inmunofijacion tipo CLL</label>
+                      <input type="text" class="form-control" id="Inmunofijacion_tipo_CLL" placeholder="Lambda">
+                      </div>
+                      <div class="form-group col-md-2">
+                      <label for="Cadenas ligeras Kappa ">Cadenas ligeras Kappa</label>
+                      <input type="text" class="form-control" id="Cadenas_ligeras_kappa" placeholder="mg/L">
+                      </div>
+                      <div class="form-group col-md-2">
+                      <label for="Cadenas ligeras Lambda">Cadenas ligeras Lambda</label>
+                      <input type="text" class="form-control" id="Cadenas_ligeras_lambda" placeholder="mg/dL">
+                      </div>
+                  </div>
+
+                  <div class="form-row">
+                      <div class="form-group col-md-3">
+                      <label for="Electroforesis de proteínas (suero)">Electroforesis de proteínas suero</label>
+                      <input type="text" class="form-control" id="Electroforesis_de_proteinas_suero" placeholder="g/dL">
+                      </div>
+                      <div class="form-group col-md-3">
+                      <label for="Electroforesis de proteínas (orina)">Electroforesis de proteínas orina</label>
+                      <input type="text" class="form-control" id="Electroforesis_de_proteinas_orina" placeholder="g/dL">
+                      </div>
+                      <div class="form-group col-md-3">
+                        <label for="inputProteinuriaBJ">Proteinuaria de Bence Jones</label>
+                        <select id="inputProteinuriaBJ" class="form-control">
+                          <option selected>No</option>
+                          <option>Si</option>
+                        </select>
+                        </div>
+                        <div class="form-group col-md-3">
+                          <label for="inputAmiloidosisSis">Amiloidosis sistémica</label>
+                          <select id="inputAmiloidosisSis" class="form-control">
+                            <option selected>No</option>
+                            <option>Si</option>
+                          </select>
+                          </div>
+                        </div>
+
+                          <div class="form-row">
+                              <div class="form-group col-md-3">
+                              <label for=" B2 Mircroglubina">B2 Mircroglubina</label>
+                              <input type="text" class="form-control" id="B2_mircroglubina" placeholder="mg/L">
+                              </div>
+                              <div class="form-group col-md-3">
+                              <label for=" Albumina">Albumina</label>
+                              <input type="text" class="form-control" id="Albumina" placeholder="g/dL">
+                              </div>
+                              <div class="form-group col-md-3">
+                              <label for=" Calcio sérico">Calcio sérico</label>
+                              <input type="text" class="form-control" id="Calcio_serico" placeholder="mg/dL">
+                              </div>
+                              <div class="form-group col-md-3">
+                              <label for=" Deshidrogenasa láctica">Deshidrogenasa láctica</label>
+                              <input type="text" class="form-control" id="Deshidrogenasa_lactica" placeholder="U/L">
+                              </div>
+                          </div>
+
+                          <div class="form-row">
+                              <div class="form-group col-md-3">
+                              <label for=" Hemoglobina"> Hemoglobina</label>
+                              <input type="text" class="form-control" id="Hemoglobina" placeholder="g/dL">
+                              </div>
+                              <div class="form-group col-md-3">
+                              <label for=" Hematocrito"> Hematocrito</label>
+                              <input type="text" class="form-control" id="Hematocrito" placeholder="%">
+                              </div>
+                              <div class="form-group col-md-3">
+                              <label for=" Leucocitos">Leucocitos</label>
+                              <input type="text" class="form-control" id="Leucocitos" placeholder="cels x 10(3)/uLL">
+                              </div>
+                              <div class="form-group col-md-3">
+                              <label for=" Linfocitos">Linfocitos</label>
+                              <input type="text" class="form-control" id="Linfocitos" placeholder="cels x 10(3)/uLL">
+                              </div>
+                          </div>
+
+                          <div class="form-row">
+                              <div class="form-group col-md-3">
+                              <label for="Neutrofilos">Neutrofilos</label>
+                              <input type="text" class="form-control" id="Neutrofilos" placeholder="cels x 10(3)/uL">
+                              </div>
+                              <div class="form-group col-md-3">
+                              <label for="Plaquetas">Plaquetas</label>
+                              <input type="text" class="form-control" id="Plaquetas" placeholder="cels x 10(3)/uL">
+                              </div>
+                              <div class="form-group col-md-3">
+                                <label for="inputDelecion17p">Deleción 17p</label>
+                                <select id="inputDelecion17p" class="form-control">
+                                  <option selected>No</option>
+                                  <option>Si</option>
+                                </select>
+                                </div>
+                                <div class="form-group col-md-3">
+                                  <label for="inputTranslocacion414">Translocación (4;14)</label>
+                                  <select id="inputTranslocacion414" class="form-control">
+                                    <option selected>No</option>
+                                    <option>Si</option>
+                                  </select>
+                                  </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group col-md-3">
+                                      <label for="inputTranslocacion1416">Translocación (14;16)</label>
+                                      <select id="inputTranslocacion1416" class="form-control">
+                                        <option selected>No</option>
+                                        <option>Si</option>
+                                      </select>
+                                      </div>
+                                      <div class="form-group col-md-3">
+                                      <label for="Fecha de Inicio tratamiento">Fecha de inicio de tratamiento</label>
+                                      <input type="text" class="form-control" id="Fecha_inicio_trat" placeholder="DD/MM/YYYY">
+                                      </div>
+                                  </div>
+
+
+                  </div>
+</form>
+
+                </div>
+            </div>
+        </div>
+        <div id="ohsnap"></div>
+    </body>
+</html>
+
+ <!-- JS Files -->
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+ <script src="../js/plugins/ohsnap.js"></script>
+ <script src="../js/patientsList.js"></script>
+ <script src="js/jquery-3.3.1.min.js"></script>

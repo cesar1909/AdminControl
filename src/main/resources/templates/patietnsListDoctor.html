@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <title>G O H E M A | Seguimiento</title>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <!--     Fonts and icons     -->
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+    <link rel="icon" type="image/png" th:href="@{/initial/newDesign/img/Logotipo_Color.png}">
+    <!-- CSS -->
+    <link th:href="@{/initial/newDesign/css/styles.css}" rel="stylesheet" />
+    <link th:href="@{/initial/newDesign/css/dashboard.css}" rel="stylesheet" />
+    <link th:href="@{/initial/newDesign/css/patientsAndDoctorsList.css}" rel="stylesheet"/>
+    <link th:href="@{/initial/newDesign/css/plugins/sweetalert2.min.css}" rel="stylesheet"/>
+    <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet" />
+</head>
+
+<body id="body">
+<div class="orbit-spinner">
+    <div class="orbit"></div>
+    <div class="orbit"></div>
+    <div class="orbit"></div>
+</div>
+
+<div id="main" class="wrapper" hidden>
+
+
+    <!-- Main Panel -->
+    <div class="main-panel">
+        <!-- Narvar -->
+        <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
+            <div class="container-fluid">
+                <div class="logo">
+                    <div class="center-logo">
+                        <img id="img_logo" th:src="@{/initial/newDesign/img/Logotipo_Blanco.png}" alt="logo" />
+                        <br/>
+                        <p class="simple-text">Sistema de Seguimiento</p>
+                    </div>
+                </div>
+                <div class="collapse navbar-collapse justify-content-end">
+                    <i class="material-icons">face</i><p class="h4">&nbsp;<span sec:authentication="principal.username">User</span></p>
+                    <a th:href="@{/logout}" id="SesonOff" >Cerrar Sesión <i class="material-icons">exit_to_app</i></a>                </div>
+            </div>
+        </nav>
+        <!-- End Navbar -->
+
+        <!-- Main Content  -->
+        <div class="content">
+            <div class="row">
+                <div id="divH1" class="col-lg-12 col-md-12 col-sm-12">
+                    <h3><b>Listado de Pacientes</b></h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <div class="form-group">
+                                        <form action="#" th:action="@{/patient/searchv2}">
+                                            <label for="txtFind" class="bmd-label-floating">Buscar Paciente</label>
+                                            <input type="text" name="name" class="form-control" id="txtFind">
+
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6" align="ritht">
+                                    <!--                                            <div th:with="someVariable=${Authentication.getPrincipal()}">-->
+                                    <div>
+                                        <a th:href="@{/doctor/newPatientForm}" class="btn btn-info" style="float: right;">
+                                            <i class="material-icons">person_add</i> <span>Agregar Paciente</span></a>
+                                        <!--                                                <button id="btnAddPatient" class="btn btn-info"><i class="material-icons">person_add</i> Agregar Paciente</button>-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <table id="DataTable" class="stripe" style="width:100%">
+                        <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Edad</th>
+                            <th>Género</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="patient : ${patients}">
+                            <td th:text="${patient.nombre} + ' ' + ${patient.apPat} + ' ' + ${patient.apMat}" ></td>
+                            <td th:text="${patient.edad}"></td>
+                            <td th:text="${patient.genero}"></td>
+                            <td>
+                                <a th:href="@{/finalconsult/newFinForm(id=${patient.idPaciente})}" class="btn btn-success" style="float: right;"><i class="material-icons">&#xE147;</i> <span>Consulta Final</span></a>
+                                <a th:href="@{/monthlyconsult/newMonthlyConsult(id=${patient.idPaciente})}" class="btn btn-success" style="float: right;" ><i class="material-icons">&#xE147;</i> <span>Consulta Mensual</span></a>
+                                <!-- <a href="#" id="btnAddConsultation" class="btn btn-info" style="float: right;"><i class="material-icons">note_add</i> <span>Agregar Consulta</span></a>-->
+                                <a th:href="@{/patient/info(id=${patient.idPaciente})}" class="btn btn-success" style="float: right;"><i class="material-icons">&#xE85D;</i> <span>Ver Detalles</span></a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- End Main Content -->
+    </div>
+</div>
+<div id="ohsnap"></div>
+</body>
+</html>
+
+<!-- JS Files -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script th:src="@{/initial/newDesign/js/plugins/popper.min.js}"></script>
+<script th:src="@{/initial/newDesign/js/plugins/bootstrap-material-design.min.js}"></script>
+<script th:src="@{/initial/newDesign/js/plugins/ohsnap.js}"></script>
+<script th:src="@{/initial/newDesign/js/plugins/sweetalert2.min.js}"></script>
+<script th:src="@{/initial/newDesign/js/constants/defaultsDataTable.js}"></script>
+<script th:src="@{/initial/newDesign/js/patientsAndDoctorsList.js}"></script>

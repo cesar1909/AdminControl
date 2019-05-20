@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>G O H E M A | Seguimiento</title>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <!--     Fonts and icons     -->
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+    <link rel="icon" type="image/png" th:href="@{/admin/img/Logotipo_Color.png}">
+    <!-- CSS -->
+    <link th:href="@{/admin/css/styles.css}" rel="stylesheet" />
+    <link th:href="@{/admin/css/dashboard.css}" rel="stylesheet" />
+    <link th:href="@{/admin/css/plugins/date-time-picker.css}" rel="stylesheet" >
+    <link th:href="@{/admin/css/mainAdmin.css}" rel="stylesheet" />
+    <link th:href="@{/admin/css/plugins/sweetalert2.min.css}" rel="stylesheet"/>
+    <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet" />     
+
+  </head>
+  
+    <body id="body">
+      <div class="orbit-spinner">
+          <div class="orbit"></div>
+          <div class="orbit"></div>
+          <div class="orbit"></div>
+        </div>
+        
+        <div id="main" class="wrapper" hidden>
+            
+           
+            <!-- Main Panel -->
+            <div class="main-panel">
+                <!-- Narvar -->
+                <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
+                    <div class="container-fluid">
+                        <div class="logo">
+                            <div class="center-logo">
+                                <img id="img_logo" th:src="@{/initial/img/Logotipo_Blanco.png}" alt="logo" />
+                                <br/>
+                                <p class="simple-text">Sistema de Seguimiento</p>
+                            </div>
+                        </div>
+                        <div class="collapse navbar-collapse justify-content-end">
+
+                            <i class="material-icons">face</i><p class="h4">&nbsp;Adm. Dra. Pamela Báez </p>
+                            <a th:href="@{/logout}" id="SesonOff" >Cerrar Sesión <i class="material-icons">exit_to_app</i></a>
+                        </div>
+                    </div>
+                </nav>
+                <!-- End Navbar -->
+
+<!-- Main Content (Arriba)  -->
+                <div class="content">
+                    <div class="row">
+                        <div id="divH" class="col-lg-12 col-md-12 col-sm-12  align_center">
+                            <h3></h3>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <div id="navTab" class="row">
+<!--Barra lateral-->
+                                <div class="col-md-2">
+                                    <ul class="nav nav-pills nav-pills-blue flex-column">
+                                        <li class="nav-item">
+                                            <a id="tabGeneral" class="nav-link active" href="#doctores" data-toggle="tab">Médicos</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a id="tabDisease" class="nav-link " href="#monitores" data-toggle="tab">Monitores</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a id="tabPagUnoIC" class="nav-link" href="#pacientes" data-toggle="tab">Pacientes</a>
+                                        </li>
+                                    
+                                    </ul>
+                                </div>
+<!--Fin Barra lateral-->
+
+                                <div class="col-md-10">
+                                        <div class="tab-content">
+<!--Doctores-->                     
+											<div class="tab-pane active" id="doctores">
+                                                <div class="row">
+                                                    <div id="divH1" class="col-lg-12 col-md-12 col-sm-12">
+                                                        <h3>Listado de Médicos</h3>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+							                        <div class="col-lg-12 col-md-12 col-sm-12">
+							                           <div class="card">
+							                                <div class="card-body">
+							                                    <div class="row">
+							                                        <div class="col-lg-4 col-md-4 col-sm-4">
+							                                            <div class="form-group">
+							                                                <label for="txtFind2" class="bmd-label-floating">Buscar Médico</label>
+							                                                <input type="text" class="form-control" id="txtFind2">
+							                                            </div>
+							                                        </div>
+							                                        <div class="col-lg-8 col-md-8 col-sm-8 btnAddPacient">
+                                                                        <div>
+                                                                            <a th:href="@{/admin/newDoctorForm}" class="btn btn-success" style="float: right;">
+                                                                                <i class="material-icons">person_add</i> <span>Agregar Médico</span></a>
+                                                                        </div>
+							                                        </div>
+							                                    </div>
+							                                </div>
+							                           </div>
+							                        </div>
+							                    </div>
+                                                <div class="row">
+                                                    <div class="col-lg-12 col-md-12 col-sm-12">
+                                                        <table id="DataTable" class="stripe" style="width:100%">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Nombre</th>
+                                                                    <th>Hospital</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                            <tr th:each="doctor : ${doctors}">
+                                                                <td th:text="${doctor.firstName} + ' ' + ${doctor.lastNameP} + ' ' + ${doctor.lastNameM}" ></td>
+                                                                <td th:text="${doctor.hospital} + ' '" ></td>
+                                                                <td>
+                                                                    <a th:href="@{/admin/deleteUser(id=${doctor.id})}" class="btn btn-danger" style="float: right;"><i class="material-icons">delete</i> <span>Eliminar</span></a>
+                                                                    <a th:href="@{/admin/editDoctor(id=${doctor.id})}" class="btn btn-success" style="float: right;"><i class="material-icons">edit</i> <span>Editar</span></a>
+                                                                    <a th:href="@{/admin/doctorDetails(id=${doctor.id })}" class="btn btn-success" style="float: right;"><i class="material-icons">&#xE85D;</i> <span>Ver Detalles</span></a>
+                                                                </td>
+                                                            </tr>
+                                                            </tbody>
+                                                    </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+<!--fin doctores-->
+
+<!--Monitores-->                                            
+                                            <div class="tab-pane" id="monitores">
+                                                <div class="tab-pane active" id="monitors">
+                                                <div class="row">
+                                                    <div id="divH2" class="col-lg-12 col-md-12 col-sm-12">
+                                                        <h3>Listado de Monitores</h3>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+							                        <div class="col-lg-12 col-md-12 col-sm-12">
+							                           <div class="card">
+							                                <div class="card-body">
+							                                    <div class="row">
+							                                        <div class="col-lg-4 col-md-4 col-sm-4">
+							                                            <div class="form-group">
+							                                                <label for="txtFind3" class="bmd-label-floating">Buscar Monitor</label>
+							                                                <input type="text" class="form-control" id="txtFind3">
+							                                            </div>
+							                                        </div>
+							                                        <div class="col-lg-8 col-md-8 col-sm-8 btnAddPacient">
+                                                                        <a th:href="@{/admin/newMonitorForm}" class="btn btn-success" style="float: right;">
+                                                                            <i class="material-icons">person_add</i> <span>Agregar Monitor</span></a>
+							                                        </div>
+							                                    </div>
+							                                </div>
+							                           </div>
+							                        </div>
+							                    </div>
+                                                <div class="row">
+                                                    <div class="col-lg-12 col-md-12 col-sm-12">
+                                                        <table id="DataTable2" class="stripe" style="width:100%">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Nombre</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                            <tr th:each="monitor : ${monitors}">
+                                                                <td th:text="${monitor.firstName} + ' ' + ${monitor.lastNameP} + ' ' + ${monitor.lastNameM}" ></td>
+                                                                <td>
+                                                                    <a th:href="@{/admin/deleteUser(id=${monitor.id})}" class="btn btn-danger" style="float: right;"><i class="material-icons">delete</i> <span>Eliminar</span></a>
+                                                                    <a th:href="@{/admin/editMonitor(id=${monitor.id})}" class="btn btn-success" style="float: right;"><i class="material-icons">edit</i> <span>Editar</span></a>
+                                                                    <a th:href="@{/admin/monitorDetails(id=${monitor.id})}" class="btn btn-success" style="float: right;"><i class="material-icons">&#xE85D;</i> <span>Ver Detalles</span></a>
+                                                                </td>
+                                                            </tr>
+                                                            </tbody>
+                                                    </table>
+                                                    </div>
+                                                </div>
+                                            	</div>
+                                            </div>
+<!--fin monitores-->
+
+<!--Pacientes-->
+											<div class="tab-pane" id="pacientes">
+                                                <div class="tab-pane active" id="patients">
+                                                <div class="row">
+                                                    <div id="divH3" class="col-lg-12 col-md-12 col-sm-12">
+                                                        <h3>Listado de Pacientes</h3>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-12 col-md-12 col-sm-12">
+                                                       <div class="card">
+                                                            <div class="card-body">
+                                                                <div class="row">
+                                                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                                                        <div class="form-group">
+                                                                            <label for="txtFind" class="bmd-label-floating">Buscar Paciente</label>
+                                                                            <input type="text" class="form-control" id="txtFind">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                       </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-12 col-md-12 col-sm-12">
+                                                        <table id="DataTable3" class="stripe" style="width:100%">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Nombre</th>
+                                                                    <th>Doctor tratante</th>
+                                                                    <!--<th>Ver información</th>-->
+                                                                    <!--<th>Editar información</th>-->
+                                                                    <!--<th>Eliminar</th>-->
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                            <tr th:each="patient : ${patients}">
+                                                                <td th:text="${patient.name} + ' ' + ${patient.lastnameP} + ' ' + ${patient.lastnameM}" ></td>
+                                                                <td th:text="${patient.idDoctor.firstName} + ' ' + ${patient.idDoctor.lastNameP} + ' ' + ${patient.idDoctor.lastNameM}"></td>
+
+                                                                <td>
+
+                                                                    <a th:href="@{/admin/deletePatient(id=${patient.id})}" class="btn btn-danger" style="float: right;"><i class="material-icons">delete</i> <span>Eliminar</span></a>
+                                                                    <!--<a th:href="@{/patient/edit(id=${patient.id})}" class="btn btn-info" style="float: right;"><i class="material-icons">edit</i> <span>Editar</span></a>-->
+                                                                    <a th:href="@{/patient/info(id=${patient.id})}" class="btn btn-success" style="float: right;"><i class="material-icons">&#xE85D;</i> <span>Ver Detalles</span></a>
+                                                                </td>
+                                                            </tr>
+                                                            </tbody>
+                                                    </table>
+                                                    </div>
+                                                </div>
+                                            	</div>
+                                        	</div>
+<!--fin pacientes-->
+
+             
+
+                                       	</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+                <!-- End Main Content -->
+
+        <div id="ohsnap"></div>
+    </body>
+</html>
+
+ <!-- JS Files -->
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+ <script src="http://momentjs.com/downloads/moment.min.js"></script>
+<script th:src="@{/admin/js/plugins/popper.min.js}"></script>
+<script th:src="@{/admin/js/plugins/bootstrap-material-design.min.js}"></script>
+<script th:src="@{/admin/js/plugins/ohsnap.js}"></script>
+<script th:src="@{/admin/js/plugins/date-time-picker.min.js}"></script>
+<script th:src="@{/admin/js/mainAdmin.js}"></script>

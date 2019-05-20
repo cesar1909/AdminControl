@@ -1,0 +1,674 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <title>G O H E M A | Seguimiento</title>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <!--     Fonts and icons     -->
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+    <link rel="icon" type="image/png" th:href="@{/initial/img/Logotipo_Color.png}">
+    <!-- CSS -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <link th:href="@{/prueba/css/styles.css}" rel="stylesheet" />
+    <link th:href="@{/prueba/css/dashboard.css}" rel="stylesheet" />
+    <link th:href="@{/prueba/css/plugins/date-time-picker.css}" rel="stylesheet" >
+    <link th:href="@{/prueba/css/addPatient.css}" rel="stylesheet" />
+</head>
+
+<body id="body">
+<div class="orbit-spinner">
+    <div class="orbit"></div>
+    <div class="orbit"></div>
+    <div class="orbit"></div>
+</div>
+
+<div id="main" class="wrapper" hidden>
+    <!-- SideBar -->
+<!--    <div class="sidebar" data-color="white" data-active-color="primary">-->
+<!--        <div class="logo">-->
+<!--            <div class="center-logo">-->
+<!--                <img id="img_logo" th:src="@{/initial/img/Logotipo_Blanco.png}" alt="logo" />-->
+<!--                <br/>-->
+<!--                <p class="simple-text">Sistema de Seguimiento</p>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="sidebar-wrapper">-->
+<!--            <div id="contentSidebar">-->
+<!--                <ul class="nav">-->
+<!--                    <li class="active">-->
+<!--                        <a th:href="@{/doctor/allPatients}">-->
+<!--                            <i class="material-icons">group</i> <p class="fontSize1_5">Pacientes</p>-->
+<!--                        </a>-->
+<!--                    </li>-->
+<!--                </ul>-->
+
+<!--                &lt;!&ndash;<ul class="nav">&ndash;&gt;-->
+<!--                &lt;!&ndash;<li >&ndash;&gt;-->
+<!--                &lt;!&ndash;<a href="./patientsList.html">&ndash;&gt;-->
+<!--                &lt;!&ndash;<i class="material-icons">account_circle</i> <p class="fontSize1_5">Mis datos</p>&ndash;&gt;-->
+<!--                &lt;!&ndash;</a>&ndash;&gt;-->
+<!--                &lt;!&ndash;</li>&ndash;&gt;-->
+<!--                &lt;!&ndash;</ul>&ndash;&gt;-->
+<!--                <ul class="nav">-->
+<!--                    <li >-->
+<!--                        <a th:href="@{/logout}">-->
+<!--                            <i class="material-icons">clear</i> <p class="fontSize1_5">salir</p>-->
+<!--                        </a>-->
+<!--                    </li>-->
+<!--                </ul>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+
+
+
+    <!-- Main Panel -->
+    <div class="main-panel">
+        <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
+            <div class="container-fluid">
+                <div class="logo">
+                    <div class="center-logo">
+                        <img id="img_logo" th:src="@{/initial/img/Logotipo_Blanco.png}" alt="logo" />
+                        <br/>
+                        <p class="simple-text">Sistema de Seguimiento</p>
+                    </div>
+                </div>
+                <div class="collapse navbar-collapse justify-content-end">
+
+                    <i class="material-icons">face</i><p class="h4">&nbsp;Adm. Dra. Pamela Báez </p>
+                    <a th:href="@{/logout}" id="SesonOff" >Cerrar Sesión <i class="material-icons">exit_to_app</i></a>
+                </div>
+            </div>
+        </nav>
+        <!-- Narvar -->
+<!--        <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">-->
+
+<!--            <div class="container-fluid">-->
+<!--                <div>-->
+<!--                    <h2 class="h2 colorBlue">Agregar Paciente</h2>-->
+<!--                </div>-->
+<!--                <div id="doctorID" class="collapse navbar-collapse justify-content-end">-->
+<!--                    <i class="material-icons colorFontBlack">face</i><p class="h4 colorFontBlack">&nbsp;Dr. Manuel Chavez </p>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </nav>-->
+        <!-- End Navbar -->
+
+        <!-- Main Content  -->
+        <div class="content">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div id="navTab" class="row">
+                        <div class="col-md-2">
+                            <ul class="nav nav-pills nav-pills-blue flex-column">
+                                <li class="nav-item">
+                                    <a id="tabGeneral" class="nav-link active" href="#tab1" data-toggle="tab">General</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a id="tabDisease" class="nav-link disabled" href="#tab2" data-toggle="tab">Antecedentes</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a id="tabPagUnoIC" class="nav-link disabled" href="#tab1IC" data-toggle="tab">Análisis 1</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a id="tabPagDosIC" class="nav-link disabled" href="#tab2IC" data-toggle="tab">Análisis 2</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a id="tabPagTresIC" class="nav-link disabled" href="#tab3IC" data-toggle="tab">Análisis 3</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-10">
+                            <form id="form1" th:action="@{/patient/register}"
+                                  th:object="${userModel}"
+                                  method="post">
+                               <div class="tab-content">
+                                <div class="tab-pane active" id="tab1">
+
+                                        <div class="row">
+                                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                                <div class="form-group">
+                                                    <label for="txtName" class="bmd-label-floating">Nombre(s)</label>
+                                                    <input type="text" class="form-control" id="txtName" maxlength="25" name="name" th:field="*{name}"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                                <div class="form-group">
+                                                    <label for="txtName" class="bmd-label-floating">Apellido Paterno</label>
+                                                    <input type="text" class="form-control" id="txtApPaterno" maxlength="25" th:field="*{lastnameP}"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                                <div class="form-group">
+                                                    <label for="txtName" class="bmd-label-floating">Apellido Materno</label>
+                                                    <input type="text" class="form-control" id="txtApMaterno" maxlength="25" th:field="*{lastnameM}"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <br/>
+                                        <div class="row">
+                                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                                <div class="form-group">
+                                                    <label for="slcGener">Genero</label>
+                                                    <select class="form-control selectpicker" data-style="btn btn-link" id="slcGener" name="gender" th:field="*{gender}">
+                                                        <option value="0" disabled selected>Selecciona Genero...</option>
+                                                        <option value="M">Mujer</option>
+                                                        <option value="H">Hombre</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                                <div class="form-group">
+                                                    <label for="txtCalendar">Fecha de Nacimiento</label>
+                                                    <input id="txtCalendar" type="text" class="mt10px input form-control" name="birthdate" th:field="*{birthdate}"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                                <fieldset >
+                                                    <div class="form-group">
+                                                        <label for="txtYears">Edad</label>
+                                                        <input type="text" id="txtYears" class="form-control" name="age" th:field="*{age}"/>
+                                                    </div>
+                                                </fieldset>
+                                            </div>
+                                        </div>
+                                        <br/>
+                                        <div class="row">
+                                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                                <div class="form-group">
+                                                    <label for="txtDiagnosisdate">Fecha Inicio</label>
+                                                    <input id="txtDiagnosisdate" type="text" class="mt10px input form-control" name="startDateOfTreatment" th:field="*{startDateOfTreatment}"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                                <div class="form-group">
+                                                    <label for="txtHeight" class="bmd-label-floating">Estatura (cm)</label>
+                                                    <input type="number" class="form-control" id="txtHeight" min="0" max="250" name="height" th:field="*{height}"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                                <div class="form-group">
+                                                    <label for="txtWeight" class="bmd-label-floating">Peso (kg)</label>
+                                                    <input type="number" class="form-control" id="txtWeight" min="0" max="150" name="weight" th:field="*{weight}"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <br/>
+                                        <div class="row">
+                                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                                <fieldset >
+                                                    <div class="form-group">
+                                                        <label for="txtIMC">IMC</label>
+                                                        <input type="text" id="txtIMC" class="form-control" name="bmi" th:field="*{bmi}"/>
+                                                    </div>
+                                                </fieldset>
+                                            </div>
+                                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                                <fieldset >
+                                                    <div class="form-group">
+                                                        <label for="txtSC">Superficie Corporal</label>
+                                                        <input type="text" id="txtSC" class="form-control" name="bodySup" th:field="*{bodySup}"/>
+                                                    </div>
+                                                </fieldset>
+                                            </div>
+                                        </div>
+                                        <br/>
+                                        <div class="row width_100">
+                                            <div class="col-lg-12 col-md-12 col-sm-12 align_right">
+                                                <button id="btnNext" type="button" class="btn btn-success">Siguiente</button>
+                                            </div>
+                                        </div>
+
+                                </div>
+                                <div class="tab-pane" id="tab2">
+
+                                        <div class="row">
+                                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                                <div class="form-group">
+                                                    <label for="slcDeabetes">Diabetes en Descontrol</label>
+                                                    <select class="form-control selectpicker" data-style="btn btn-link" id="slcDeabetes">
+                                                        <option value="0" disabled selected>Selecciona una opción...</option>
+                                                        <option value="Si">Si</option>
+                                                        <option value="No">No</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                                <div class="form-group">
+                                                    <label for="slcHipertension">Hipertensión en Descontrol</label>
+                                                    <select class="form-control selectpicker" data-style="btn btn-link" id="slcHipertension">
+                                                        <option value="0" disabled selected>Selecciona una opción...</option>
+                                                        <option value="Si">Si</option>
+                                                        <option value="No">No</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                                <div class="form-group">
+                                                    <label for="slcArritmias">Arritmias en Descontrol</label>
+                                                    <select class="form-control selectpicker" data-style="btn btn-link" id="slcArritmias">
+                                                        <option value="0" disabled selected>Selecciona una opción...</option>
+                                                        <option value="Si">Si</option>
+                                                        <option value="No">No</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <br/><br/>
+                                        <div class="row">
+                                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                                <div class="form-group">
+                                                    <label for="slcCardiopatia">Cardiopatía Isquémica III-IV</label>
+                                                    <select class="form-control selectpicker" data-style="btn btn-link" id="slcCardiopatia">
+                                                        <option value="0" disabled selected>Selecciona una opción...</option>
+                                                        <option value="Si">Si</option>
+                                                        <option value="No">No</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                                <div class="form-group">
+                                                    <label for="slcNeumopatia">Neumopatía Crónica Severa</label>
+                                                    <select class="form-control selectpicker" data-style="btn btn-link" id="slcNeumopatia">
+                                                        <option value="0" disabled selected>Selecciona una opción...</option>
+                                                        <option value="Si">Si</option>
+                                                        <option value="No">No</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                                <div class="form-group">
+                                                    <label for="slcHepatopatia">Hepatopatía child-pugh tipo B o C</label>
+                                                    <select class="form-control selectpicker" data-style="btn btn-link" id="slcHepatopatia">
+                                                        <option value="0" disabled selected>Selecciona una opción...</option>
+                                                        <option value="Si">Si</option>
+                                                        <option value="No">No</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <br/>
+                                        <div class="row width_100">
+                                            <div class="col-lg-6 col-md-6 col-sm-6 align_left">
+                                                <button id="btnBack2" type="button" class="btn btn-success">Regresar</button>
+                                            </div>
+                                            <div class="col-lg-6 col-md-6 col-sm-6 align_right">
+                                                <!--<button id="btnCancel" type="button" class="btn btn-danger">Cancelar</button>-->
+                                                <button id="btnNext2" type="button" class="btn btn-success">Siguiente</button>
+                                            </div>
+                                        </div>
+
+                                </div>
+
+
+
+
+                                <div class="tab-pane" id="tab1IC">
+
+                                        <div class="row">
+                                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                                <div class="form-group">
+                                                    <label for="txtSerica" class="bmd-label-floating">Creatinina Sérica (mg/dL)</label>
+                                                    <input type="number" class="form-control" id="txtSerica" min="0" max="10" name="serumCreatinine" th:field="*{serumCreatinine}"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                                <div class="form-group">
+                                                    <label for="txtDepuracion" class="bmd-label-floating">Depuración Creatinina (ml/min)</label>
+                                                    <input type="number" class="form-control" id="txtDepuracion" min="0" max="200" name="depCreatinine" th:field="*{depCreatinine}"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                                <div class="form-group">
+                                                    <label for="txtECOG" class="bmd-label-floating">ECOG</label>
+                                                    <input type="number" class="form-control" id="txtECOG" min="0" max="5" step=".01"  name="ecog" th:field="*{ecog}" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <br/>
+                                        <div class="row">
+                                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                                <div class="form-group">
+                                                    <label for="slcLesionesOseas">Lesiones Óseas</label>
+                                                    <select class="form-control selectpicker" data-style="btn btn-link" id="slcLesionesOseas"  name="boneInjuries" th:field="*{boneInjuries}" >
+                                                        <option value="0" disabled selected>Selecciona una opción...</option>
+                                                        <option value="Si">Si</option>
+                                                        <option value="No">No</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                                <div class="form-group">
+                                                    <label for="txtNumLesiones" class="bmd-label-floating">Número de lesiones óseas</label>
+                                                    <input type="number" class="form-control" id="txtNumLesiones" min="0" max="20"  name="boneInjuriesNumber" th:field="*{boneInjuriesNumber}" />
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                                <div class="form-group">
+                                                    <label for="slcPlasmocitomas">Plasmocitomas extramedulares</label>
+                                                    <select class="form-control selectpicker" data-style="btn btn-link" id="slcPlasmocitomas"  name="extramedullaryPlasmacytomas" th:field="*{extramedullaryPlasmacytomas}" >
+                                                        <option value="0" disabled selected>Selecciona una opción...</option>
+                                                        <option value="Si">Si</option>
+                                                        <option value="No">No</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <br/>
+                                        <div class="row">
+                                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                                <div class="form-group">
+                                                    <label for="txtNumPlasmocitomas" class="bmd-label-floating">Número de Plasmocitomas</label>
+                                                    <input type="number" class="form-control" id="txtNumPlasmocitomas" min="0" max="20"  name="plasmacytomasNumber" th:field="*{plasmacytomasNumber}" />
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                                <div class="form-group">
+                                                    <label for="slcActiva">Infección Activa</label>
+                                                    <select class="form-control selectpicker" data-style="btn btn-link" id="slcActiva"  name="active" th:field="*{active}" >
+                                                        <option value="0" disabled selected>Selecciona una opción...</option>
+                                                        <option value="Si">Si</option>
+                                                        <option value="No">No</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                                <div class="form-group">
+                                                    <label for="txtCelulasPlasmáticasMédulaÓsea" class="bmd-label-floating">Células plasmáticas en Médula ósea (%)</label>
+                                                    <input type="number" class="form-control" id="txtCelulasPlasmáticasMédulaÓsea" min="0" max="100"  name="plasmaCellsInBoneMarrow" th:field="*{plasmaCellsInBoneMarrow}"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <br/>
+                                        <div class="row">
+                                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                                <div class="form-group">
+                                                    <label for="txtCelulasPlasmáticasSangre" class="bmd-label-floating">Células plasmáticas en sangre P.(%)</label>
+                                                    <input type="number" class="form-control" id="txtCelulasPlasmáticasSangre" min="0" max="20"  name="plasmaCellsInBloodPerif" th:field="*{plasmaCellsInBloodPerif}" />
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                                <div class="form-group">
+                                                    <label for="txtIgG" class="bmd-label-floating">IgG (mg/dL)</label>
+                                                    <input type="number" class="form-control" id="txtIgG" min="0" max="15000"  name="igG" th:field="*{igG}" />
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                                <div class="form-group">
+                                                    <label for="txtIgA" class="bmd-label-floating">IgA (mg/dL)</label>
+                                                    <input type="number" class="form-control" id="txtIgA" min="0" max="10000"  name="igA" th:field="*{igA}"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row width_100">
+                                            <div class="col-lg-6 col-md-6 col-sm-6 align_left">
+                                                <button id="btnBack1_initialConsultation" type="button" class="btn btn-success">Regresar</button>
+                                            </div>
+                                            <div class="col-lg-6 col-md-6 col-sm-6 align_right">
+                                                <button id="btnNext1_initialConsultation" type="button" class="btn btn-success">Siguiente</button>
+                                            </div>
+                                        </div>
+
+                                </div>
+
+
+
+
+
+
+
+                                <div class="tab-pane" id="tab2IC">
+
+                                        <div class="row">
+                                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                                <div class="form-group">
+                                                    <label for="txtIgM" class="bmd-label-floating">IgM (mg/dL)</label>
+                                                    <input type="number" class="form-control" id="txtIgM" min="0" max="500"  name="igM" th:field="*{igM}"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                                <div class="form-group">
+                                                    <label for="slcInmunofijacionIg">Inmunofijación Tipo Ig</label>
+                                                    <select class="form-control selectpicker" data-style="btn btn-link" id="slcInmunofijacionIg"  name="inmIgTypeFixation" th:field="*{inmIgTypeFixation}">
+                                                        <option value="0" disabled selected>Selecciona una opción...</option>
+                                                        <option value="IgA">IgA</option>
+                                                        <option value="IgG">IgG</option>
+                                                        <option value="No secretor">No secretor</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                                <div class="form-group">
+                                                    <label for="slcInmunofijacionCLL">Inmunofijacion Tipo CLL</label>
+                                                    <select class="form-control selectpicker" data-style="btn btn-link" id="slcInmunofijacionCLL"  name="inmCllTypeFixation" th:field="*{inmCllTypeFixation}">
+                                                        <option value="0" disabled selected>Selecciona una opción...</option>
+                                                        <option value="Lambda">Lambda</option>
+                                                        <option value="Kappa">Kappa</option>
+                                                        <option value="No secretor">No secretor</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <br/>
+                                        <div class="row">
+                                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                                <div class="form-group">
+                                                    <label for="txtCadenasKappa" class="bmd-label-floating">Cadenas Ligeras Kappa (mg/L)</label>
+                                                    <input type="number" class="form-control" id="txtCadenasKappa" min="0" max="1000"  name="lightChainsKappa" th:field="*{lightChainsKappa}"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                                <div class="form-group">
+                                                    <label for="txtCadenasLambda" class="bmd-label-floating">Cadenas Ligeras Lambda (mg/L)</label>
+                                                    <input type="number" class="form-control" id="txtCadenasLambda" min="0" max="1000"  name="lightChainsLambda" th:field="*{lightChainsLambda}"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                                <div class="form-group">
+                                                    <label for="txtProteinasSuero" class="bmd-label-floating">Electroforesis de proteínas suero (g/dL)</label>
+                                                    <input type="number" class="form-control" id="txtProteinasSuero" min="0" max="10000"  name="electroForesisDeProteinasSuero" th:field="*{electroForesisDeProteinasSuero}"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <br/>
+                                        <div class="row">
+                                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                                <div class="form-group">
+                                                    <label for="txtProteinasOrina" class="bmd-label-floating">Electroforesis de proteínas orina (g/dL)</label>
+                                                    <input type="number" class="form-control" id="txtProteinasOrina" min="0" max="10000"  name="electroForesisDeProteinasOrina" th:field="*{electroForesisDeProteinasOrina}"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                                <div class="form-group">
+                                                    <label for="slcProteinuria">Proteinuria de Bence-Jones</label>
+                                                    <select class="form-control selectpicker" data-style="btn btn-link" id="slcProteinuria"  name="benceJonesProteinuria" th:field="*{benceJonesProteinuria}">
+                                                        <option value="0" disabled selected>Selecciona una opción...</option>
+                                                        <option value="Si">Si</option>
+                                                        <option value="No">No</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                                <div class="form-group">
+                                                    <label for="slcAmiloidosis">Amiloidosis sistémica</label>
+                                                    <select class="form-control selectpicker" data-style="btn btn-link" id="slcAmiloidosis"  name="dystemicAmyloidosis" th:field="*{dystemicAmyloidosis}">
+                                                        <option value="0" disabled selected>Selecciona una opción...</option>
+                                                        <option value="Si">Si</option>
+                                                        <option value="No">No</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <br/>
+                                        <div class="row">
+                                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                                <div class="form-group">
+                                                    <label for="txtB2Microglobulina" class="bmd-label-floating">B2 microglobulina (mg/L)</label>
+                                                    <input type="number" class="form-control" id="txtB2Microglobulina" min="0.01" max="10" step=".01"  name="b2Microglobulin" th:field="*{b2Microglobulin}"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                                <div class="form-group">
+                                                    <label for="txtAlbumina" class="bmd-label-floating">Albumina (g/dL)</label>
+                                                    <input type="number" class="form-control" id="txtAlbumina" min="0.01" max="6" step=".01"  name="albumin" th:field="*{albumin}"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                                <div class="form-group">
+                                                    <label for="CalcioSer" class="bmd-label-floating">Calcio sérico (mg/dL)</label>
+                                                    <input type="number" class="form-control" id="CalcioSer" min="5" max="20"  name="serumCalcium" th:field="*{serumCalcium}"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row width_100">
+                                            <div class="col-lg-6 col-md-6 col-sm-6 align_left">
+                                                <button id="btnBack2_initialConsultation" type="button" class="btn btn-success">Regresar</button>
+                                            </div>
+                                            <div class="col-lg-6 col-md-6 col-sm-6 align_right">
+                                                <button id="btnNext2_initialConsultation" type="button" class="btn btn-success">Siguiente</button>
+                                            </div>
+                                        </div>
+
+                                </div>
+
+
+
+
+
+
+                                <div class="tab-pane" id="tab3IC">
+
+                                        <div class="row">
+                                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                                <div class="form-group">
+                                                    <label for="txtDeshidrogenasa" class="bmd-label-floating">Deshidrogenasa Lactica (U/L)</label>
+                                                    <input type="number" class="form-control" id="txtDeshidrogenasa" min="10" max="2000"  name="lacticDehydrogenase" th:field="*{lacticDehydrogenase}"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                                <div class="form-group">
+                                                    <label for="txtHemoglobina" class="bmd-label-floating">Hemoglobina (g/dL)</label>
+                                                    <input type="number" class="form-control" id="txtHemoglobina" min="1" max="20"  name="hemoglobin" th:field="*{hemoglobin}"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                                <div class="form-group">
+                                                    <label for="txtHematocrito" class="bmd-label-floating">Hematocrito (%)</label>
+                                                    <input type="number" class="form-control" id="txtHematocrito" min="3" max="60"  name="hematocrit" th:field="*{hematocrit}"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <br/>
+                                        <div class="row">
+                                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                                <div class="form-group">
+                                                    <label for="txtLeucocitos" class="bmd-label-floating">Leucocitos (cels x 10(3)/uL)</label>
+                                                    <input type="number" class="form-control" id="txtLeucocitos" min="0" max="100000"  name="leukocytes" th:field="*{leukocytes}"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                                <div class="form-group">
+                                                    <label for="txtLinfocitos" class="bmd-label-floating">Linfocitos (cels x 10(3)/uL)</label>
+                                                    <input type="number" class="form-control" id="txtLinfocitos" min="0" max="100000"  name="lymphocytes" th:field="*{lymphocytes}"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                                <div class="form-group">
+                                                    <label for="txtNeutrofilos" class="bmd-label-floating">Neutrofilos (cels x 10(3)/uL)</label>
+                                                    <input type="number" class="form-control" id="txtNeutrofilos" min="0" max="100000"  name="neutrophils" th:field="*{neutrophils}"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <br/>
+                                        <div class="row">
+                                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                                <div class="form-group">
+                                                    <label for="txtPlaquetas" class="bmd-label-floating">Plaquetas (cels x 10(3)/uL)</label>
+                                                    <input type="number" class="form-control" id="txtPlaquetas" min="0" max="2000000"  name="platelets" th:field="*{platelets}"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                                <div class="form-group">
+                                                    <label for="deletionSeventeenP">Delecion 17 p</label>
+                                                    <select class="form-control selectpicker" data-style="btn btn-link" id="deletionSeventeenP"  name="deletionSeventeenP" th:field="*{deletionSeventeenP}">
+                                                        <option value="0" disabled selected>Selecciona una opción...</option>
+                                                        <option value="Si">Si</option>
+                                                        <option value="No">No</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                                <div class="form-group">
+                                                    <label for="translocationFourToFourteen">Translocación (4;14)</label>
+                                                    <select class="form-control selectpicker" data-style="btn btn-link" id="translocationFourToFourteen"  name="translocationFourToFourteen" th:field="*{translocationFourToFourteen}">
+                                                        <option value="0" disabled selected>Selecciona una opción...</option>
+                                                        <option value="Si">Si</option>
+                                                        <option value="No">No</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <br/>
+                                        <div class="row">
+                                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                                <div class="form-group">
+                                                    <label for="slcTranslocación1416">Translocación (14;16)</label>
+                                                    <select class="form-control selectpicker" data-style="btn btn-link" id="slcTranslocación1416"  name="translocationFourteenToSixteen" th:field="*{translocationFourteenToSixteen}">
+                                                        <option value="0" disabled selected>Selecciona una opción...</option>
+                                                        <option value="Si">Si</option>
+                                                        <option value="No">No</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <!--<div class="col-lg-4 col-md-4 col-sm-4">-->
+                                                <!--<div class="form-group">-->
+                                                    <!--<label for="txtDateInicioTratamiento">Fecha de inicio de tratamiento</label>-->
+                                                    <!--<input id="txtDateInicioTratamiento" type="text" class="mt10px input form-control"  name="bmi" th:field="*{}"/>-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+                                        </div>
+                                        <div class="row width_100">
+                                            <div class="col-lg-6 col-md-6 col-sm-6 align_left">
+                                                <button id="btnBack3_initialConsultation" type="button" class="btn btn-success">Regresar</button>
+                                            </div>
+                                            <div class="col-lg-6 col-md-6 col-sm-6 align_right">
+                                                <!--<button id="btnCancel_initialConsultation" type="button" class="btn btn-danger">Cancelar</button>-->
+                                                <button id="btnSave_initialConsultation" type="submit" class="btn btn-success" form="form1">Guardar</button>
+                                            </div>
+                                        </div>
+
+                                </div>
+
+
+
+
+
+
+                            </div>
+                </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Main Content -->
+</div>
+</div>
+<div id="ohsnap"></div>
+</body>
+</html>
+
+<!-- JS Files -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="http://momentjs.com/downloads/moment.min.js"></script>
+<script type="text/javascript" th:src="@{/initial/js/plugins/popper.min.js}"></script>
+<script type="text/javascript" th:src="@{/initial/js/plugins/bootstrap-material-design.min.js}"></script>
+<script type="text/javascript" th:src="@{/initial/js/plugins/ohsnap.js}"></script>
+<script type="text/javascript" th:src="@{/initial/js/plugins/date-time-picker.min.js}"></script>
+<script type="text/javascript" th:src="@{/initial/js/addPatientJulio.js}"></script>
+<!--<script src="../js/initialConsultation.js"></script>-->

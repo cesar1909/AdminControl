@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+  <head>
+    <title>G O H E M A | Seguimiento</title>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <!--     Fonts and icons     -->
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+      <link rel="icon" type="image/png" th:href="@{/initial/img/Logotipo_Color.png}">
+    <!-- CSS -->
+      <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+      <link th:href="@{/prueba/css/styles.css}" rel="stylesheet" />
+      <link th:href="@{/prueba/css/dashboard.css}" rel="stylesheet" />
+      <link th:href="@{/prueba/css/plugins/date-time-picker.css}" rel="stylesheet" >
+      <link th:href="@{/prueba/css/addPatient.css}" rel="stylesheet" />
+  </head>
+  
+    <body id="body">
+      <div class="orbit-spinner">
+          <div class="orbit"></div>
+          <div class="orbit"></div>
+          <div class="orbit"></div>
+        </div>
+        
+        <div id="main" class="wrapper" hidden>
+            <!-- SideBar -->
+<!--            <div class="sidebar" data-color="white" data-active-color="primary">-->
+<!--                <div class="logo">-->
+<!--                    <div class="center-logo">-->
+<!--                        <img id="img_logo" th:src="@{/initial/img/Logotipo_Blanco.png}" alt="logo" />-->
+<!--                        <br/>-->
+<!--                        <p class="simple-text">Sistema de Seguimiento</p>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="sidebar-wrapper">-->
+<!--                    <div id="contentSidebar">-->
+<!--                        <ul class="nav">-->
+<!--                            <li class="active">-->
+<!--                                <a th:href="@{/doctor/allPatients}">-->
+<!--                                    <i class="material-icons">group</i> <p class="fontSize1_5">Pacientes</p>-->
+<!--                                </a>-->
+<!--                            </li>-->
+<!--                        </ul>-->
+
+<!--                        &lt;!&ndash;<ul class="nav">&ndash;&gt;-->
+<!--                                &lt;!&ndash;<li >&ndash;&gt;-->
+<!--                                    &lt;!&ndash;<a href="./patientsList.html">&ndash;&gt;-->
+<!--                                        &lt;!&ndash;<i class="material-icons">account_circle</i> <p class="fontSize1_5">Mis datos</p>&ndash;&gt;-->
+<!--                                    &lt;!&ndash;</a>&ndash;&gt;-->
+<!--                                &lt;!&ndash;</li>&ndash;&gt;-->
+<!--                        &lt;!&ndash;</ul>&ndash;&gt;-->
+<!--                            <ul class="nav">-->
+<!--                                    <li >-->
+<!--                                        <a th:href="@{/logout}">-->
+<!--                                            <i class="material-icons">clear</i> <p class="fontSize1_5">salir</p>-->
+<!--                                        </a>-->
+<!--                                    </li>-->
+<!--                            </ul>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+           
+            <!-- Main Panel -->
+            <div class="main-panel">
+                <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
+                    <div class="container-fluid">
+                        <div class="logo">
+                            <div class="center-logo">
+                                <img id="img_logo" th:src="@{/initial/img/Logotipo_Blanco.png}" alt="logo" />
+                                <br/>
+                                <p class="simple-text">Sistema de Seguimiento</p>
+                            </div>
+                        </div>
+                        <div class="collapse navbar-collapse justify-content-end">
+
+                            <i class="material-icons">face</i><p class="h4">&nbsp;Adm. Dra. Pamela Báez </p>
+                            <a th:href="@{/logout}" id="SesonOff" >Cerrar Sesión <i class="material-icons">exit_to_app</i></a>
+                        </div>
+                    </div>
+                </nav>
+                <!-- Narvar -->
+<!--                <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">-->
+<!--                    -->
+<!--                    <div class="container-fluid">-->
+<!--                        <div>-->
+<!--                            <h2 class="h2 colorBlue">Agregar Consulta Final</h2>-->
+<!--                        </div>-->
+<!--                        <div id="doctorID" class="collapse navbar-collapse justify-content-end">-->
+<!--                            <i class="material-icons colorFontBlack">face</i><p class="h4 colorFontBlack">&nbsp;Dr. Manuel Chavez </p>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </nav>-->
+                <!-- End Navbar -->
+
+                <!-- Main Content  -->
+                <div class="content">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <div id="navTab" class="row">
+                                <div class="col-md-2">
+                                    <ul class="nav nav-pills nav-pills-blue flex-column">
+                                        <li class="nav-item">
+                                            <a id="tabConsulta1" class="nav-link active" href="#tab1" data-toggle="tab">Pestaña 1</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a id="tabConsulta2" class="nav-link disabled" href="#tab2" data-toggle="tab">Pestaña 2</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a id="tabConsulta3" class="nav-link disabled" href="#tab3" data-toggle="tab">Pestaña 3</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-10">
+                                    <h2><span><i class="material-icons">note_add</i> Agregar Consulta Final</span></h2>
+                                    <form id="form1" th:action="@{/finalconsult/register/}"
+                                          th:object="${finalconsulModel}"
+                                          method="post">
+                                        <br>
+                                        <div class="tab-content">
+
+                                            <div class="tab-pane active" id="tab1">
+
+                                                    <div class="form-row">
+                                                        <div class="form-group col-md-4">
+                                                            <label for="txtDateInicioTratamiento">Fecha de Valoración</label>
+                                                            <input id="txtDateInicioTratamiento" type="text" class="mt10px input form-control" name="dateOfRealization" th:field="*{dateOfRealization}">
+                                                        </div>
+
+                                                        <div class="form-group col-md-4">
+                                                            <label for="Albumina">Albumina</label>
+                                                            <input type="number" class="form-control" id="Albumina" placeholder="g/dL"name="albumin" th:field="*{albumin}">
+                                                        </div>
+                                                        <div class="form-group col-md-4">
+                                                            <label for="Calcio_serico">Calcio sérico</label>
+                                                            <input type="number" class="form-control" id="Calcio_serico" placeholder="mg/dL" name="serumCalcium" th:field="*{serumCalcium}">
+                                                        </div>
+                                                    </div>
+                                                <br>
+                                                    <div class="form-row">
+                                                        <div class="form-group col-md-4">
+                                                            <label for="Deshidrogenasa_Lactica">Deshidrogenasa Láctica</label>
+                                                            <input type="number" class="form-control" id="Deshidrogenasa_Lactica" placeholder="U/L" name="lacticDehydrogenase" th:field="*{lacticDehydrogenase}">
+                                                        </div>
+                                                        <div class="form-group col-md-4">
+                                                            <label for="Hemoglobina">Hemoglobina</label>
+                                                            <input type="number" class="form-control" id="Hemoglobina" placeholder="g/dL" name="hemoglobin" th:field="*{hemoglobin}">
+                                                        </div>
+                                                        <div class="form-group col-md-4">
+                                                            <label for="Hematocrito">Hematocrito</label>
+                                                            <input type="number" class="form-control" id="Hematocrito" placeholder="%" name="hematocrit" th:field="*{hematocrit}">
+                                                        </div>
+                                                    </div>
+                                                <br>
+                                                    <div class="form-row">
+                                                        <div class="form-group col-md-4">
+                                                            <label for="Leucocitos">Leucocitos</label>
+                                                            <input type="number" class="form-control" id="Leucocitos" placeholder="cels x 10(3)/uL" name="leukocytes" th:field="*{leukocytes}">
+                                                        </div>
+                                                        <div class="form-group col-md-4">
+                                                            <label for="Linfocitos">Linfocitos</label>
+                                                            <input type="number" class="form-control" id="Linfocitos" placeholder="cels x 10(3)/uL" name="lymphocytes" th:field="*{lymphocytes}">
+                                                        </div>
+                                                        <div class="form-group col-md-4">
+                                                            <label for="Neutrofilos">Neutrofilos</label>
+                                                            <input type="number" class="form-control" id="Neutrofilos" placeholder="cels x 10(3)/uL" name="neutrophils" th:field="*{neutrophils}">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-row">
+                                                        <div class="form-group col-md-6">
+                                                        </div>
+                                                        <div class="form-group col-md-4"></div>
+                                                        <div class="form-group col-md-2">
+                                                            <button id="btnNext1" type="button" class="btn btn-success">Siguiente</button>
+                                                        </div>
+                                                    </div>
+
+                                            </div>
+
+                                            <div class="tab-pane" id="tab2">
+                                                    <div class="form-row">
+                                                        <div class="form-group col-md-4">
+                                                            <label for="Plaquetas">Plaquetas</label>
+                                                            <input type="number" class="form-control" id="Plaquetas" placeholder="cels x 10(3)/uL" name="platelets" th:field="*{platelets}">
+                                                        </div>
+                                                        <div class="form-group col-md-4">
+                                                            <label for="IgG">IgG</label>
+                                                            <input type="number" class="form-control" id="IgG" placeholder="mg/dL" name="igG" th:field="*{igG}">
+                                                        </div>
+                                                        <div class="form-group col-md-4">
+                                                            <label for="IgA">IgA</label>
+                                                            <input type="number" class="form-control" id="IgA" placeholder="mg/dL" name="igA" th:field="*{igA}">
+                                                        </div>
+                                                    </div>
+                                                <br>
+                                                    <div class="form-row">
+                                                        <div class="form-group col-md-4">
+                                                            <label for="IgM">IgM</label>
+                                                            <input type="number" class="form-control" id="IgM" placeholder="mg/dL" name="igM" th:field="*{igM}">
+                                                        </div>
+                                                        <div class="form-group col-md-4">
+                                                            <label for="Cadenas_Ligeras_Kappa">Cadenas Ligeras Kappa</label>
+                                                            <input type="number" class="form-control" id="Cadenas_Ligeras_Kappa" placeholder="mg/dL" name="lightChainsKappa" th:field="*{lightChainsKappa}">
+                                                        </div>
+                                                        <div class="form-group col-md-4">
+                                                            <label for="Cadenas_Ligeras_Lambda">Cadenas Ligeras Lambda</label>
+                                                            <input type="number" class="form-control" id="Cadenas_Ligeras_Lambda" placeholder="%" name="lightChainsLambda" th:field="*{lightChainsLambda}">
+                                                        </div>
+                                                    </div>
+                                                <br>
+                                                    <div class="form-row">
+                                                        <div class="form-group col-md-4">
+                                                            <label for="celplasmo">Celulas plasmáticas en Médula Ósea</label>
+                                                            <input type="number" class="form-control" id="celplasmo" placeholder="%" name="celPlasmaticEnMedulaOsea" th:field="*{celPlasmaticEnMedulaOsea}">
+                                                        </div>
+                                                        <div class="form-group col-md-4">
+                                                            <label for="electroforesis">Electroforesis de proteinas Suero</label>
+                                                             <input type="number" class="form-control" id="electroforesis" placeholder="g/L" name="electroForesisDeProteinasSuero" th:field="*{electroForesisDeProteinasSuero}">
+                                                        </div>
+                                                        <div class="form-group col-md-4">
+                                                            <label for="electroforesis">Electroforesis de proteinas Orina</label>
+                                                            <input type="number" class="form-control" id="electroforesis2" placeholder="g/L" name="electroForesisDeProteinasOrina" th:field="*{electroForesisDeProteinasOrina}">
+                                                        </div>
+                                                    </div>
+                                                <br>
+                                                    <div class="form-row">
+                                                        <div class="form-group col-md-4">
+                                                            <label for="inmunofijacionig">Inmunofijación Tipo Ig</label>
+                                                            <select id="inmunofijacionig" class="form-control" name="inmFijacionTipoIg" th:field="*{inmFijacionTipoIg}">
+                                                                <option value="Negativa" selected>Negativa</option>
+                                                                <option value="IgA">IgA</option>
+                                                                <option value="IgG">IgG</option>
+                                                                <option value="No secretor">No secretor</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                <br>
+                                                    <div class="form-row">
+                                                        <div class="form-group col-md-2">
+                                                            <button id="btnBack2" type="button" class="btn btn-success">Anterior</button>
+                                                        </div>
+                                                        <div class="form-group col-md-8"></div>
+                                                        <div class="form-group col-md-2">
+                                                            <button id="btnNext2" type="button" class="btn btn-success">Siguiente</button>
+                                                        </div>
+                                                    </div>
+
+                                            </div>
+                                            <div class="tab-pane" id="tab3">
+                                                    <div class="form-row">
+                                                        <div class="form-group col-md-4">
+                                                            <label for="inmunofijacioncll">Inmunofijación Tipo CLL</label>
+                                                            <select id="inmunofijacioncll" class="form-control" name="inmFijacionTipoCll" th:field="*{inmFijacionTipoCll}">
+                                                                <option value="Negativo" selected>Negativa</option>
+                                                                <option value="Lambda">Lambda</option>
+                                                                <option value="Kappa">Kappa</option>
+                                                                <option value="No secretor">No secretor</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group col-md-4">
+                                                            <label for="minres">Enfermedad Minima Residual</label>
+                                                            <input type="number" class="form-control" id="minres" placeholder="0 - 1000" name="enfermedadMinimaResidual" th:field="*{enfermedadMinimaResidual}">
+                                                        </div>
+                                                        <div class="form-group col-md-4">
+                                                            <label for="Toxicidad_Renal">Respuesta al tratamiento</label>
+                                                            <select id="Toxicidad_Renal" class="form-control" name="repuestaATratamiento" th:field="*{repuestaATratamiento}">
+                                                                <option value="RCs" selected>RCs</option>
+                                                                <option value="RC">RC</option>
+                                                                <option value="MBRP">MBRP</option>
+                                                                <option value="RP">RP</option>
+                                                                <option value="EE">EE</option>
+                                                                <option value="PE">PE</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                <br>
+                                                    <div class="form-row">
+                                                        <div class="form-group col-md-12">
+                                                            <label for="comment">Observaciones:</label>
+                                                            <textarea id="comment" rows="20" class="form-control" name="comentariosExtrax" th:field="*{comentariosExtrax}"></textarea>
+                                                        </div>
+                                                        <div>
+                                                            <input class="form-control"
+                                                                   type="hidden"
+                                                                   th:value="${paciente.id}" id="idPatient" name="idPatient" />
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-row">
+                                                        <div class="form-group col-md-2">
+                                                            <button id="btnBack3" type="button" class="btn btn-success">Anterior</button>
+                                                        </div>
+                                                        <div class="form-group col-md-8"></div>
+                                                        <div class="form-group col-md-2">
+                                                            <button id="btnSave" type="submit" class="btn btn-success">Guardar</button>
+                                                        </div>
+                                                    </div>
+
+                                            </div>
+
+                                        </div>
+                                    </form>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Main Content -->
+            </div>
+        </div>
+        <div id="ohsnap"></div>
+    </body>
+</html>
+
+ <!-- JS Files -->
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+ <script src="http://momentjs.com/downloads/moment.min.js"></script>
+<script type="text/javascript" th:src="@{/initial/js/plugins/popper.min.js}"></script>
+<script type="text/javascript" th:src="@{/initial/js/plugins/bootstrap-material-design.min.js}"></script>
+<script type="text/javascript" th:src="@{/initial/js/plugins/ohsnap.js}"></script>
+<script type="text/javascript" th:src="@{/initial/js/plugins/date-time-picker.min.js}"></script>
+<script type="text/javascript" th:src="@{/initial/js/finalConsultationJulio.js}"></script>
+<!--<script src="../js/initialConsultation.js"></script>-->

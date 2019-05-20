@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Nuevo Libro</title>
+</head>
+<body>
+
+	<form action="#"
+	 	th:action="@{/book/register}" 
+		th:object="${bookModel}"
+		method="post">
+		
+		<input th:field="*{id}" hidden="true">
+		<input placeholder="Título:" th:field="*{title}"> 
+		<input placeholder="Autor:" th:field="*{author}"> 
+		<input placeholder="Editorial:" th:field="*{editorial}">
+		<input type="number" placeholder="Páginas:" th:field="*{pages}">
+		<input type="number" placeholder="Existencia:" th:field="*{stock}"> 
+		<input placeholder="Edición:" th:field="*{edition}"> 
+		
+		<input
+			type="submit" value="Registrar!">
+
+	</form>
+
+</body>
+</html>

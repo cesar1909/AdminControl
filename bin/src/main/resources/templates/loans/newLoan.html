@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Nuevo préstamo</title>
+</head>
+<body>
+
+	<form action="#" 
+		th:action="@{/loan/register}"
+		method="post">
+		
+		<input name="startDate"
+				placeholder="Fecha inicio" 
+				type="date">
+		
+		<input name="endDate"
+				placeholder="Fecha fin" 
+				type="date" >
+				
+		Usuario:
+		<select id="userId" name="userId">
+			
+			<option value="0" th:text="---Seleccione---"></option>
+			
+			<option th:each="user : ${usuarios}" 
+			        th:value="${user.id}" 
+			        th:text="${user.fullName()}"></option>
+		</select>
+		
+		Libro:
+		<select id="bookId" name="bookId">
+			
+			<option value="0" th:text="---Seleccione---"></option>
+			
+			<option th:each="book : ${libros}" 
+			        th:value="${book.id}" 
+			        th:text="${book.title}"></option>
+		</select>
+		
+		<button type="submit">Guardar!</button>
+	
+	</form>
+
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Nuevo usuario</title>
+</head>
+<body>
+
+	<form action="#" 
+		th:action="@{/user/register}"
+		th:object="${userModel}"
+		method="post">
+
+		<input th:field="*{id}" hidden="true">
+
+		<input name="name" placeholder="Nombre:" th:field="*{name}">
+		<input name="lastnameP" placeholder="Apellido Paterno:" th:field="*{lastnameP}">
+		<input name="lastnameM" placeholder="Apellido Materno:" th:field="*{lastnameM}">
+		<input type="number" name="age" placeholder="Edad" th:field="*{age}">
+		<textarea name="address" placeholder="Dirección:" th:field="*{address}"></textarea>
+		
+		<input type="submit" value="Registrar!">
+
+	</form>
+
+</body>
+</html>

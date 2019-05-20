@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Todos los Préstamos</title>
+</head>
+<body>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Título del Libro</th>
+				<th>Nombre del Usuario</th>
+				<th>Fecha Préstamo</th>
+				<th>Fecha Devolución</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="prestamo : ${prestamos}">
+				<td th:text="${prestamo.id}"></td>
+				<td th:text="${prestamo.book.title}"></td>
+				<td th:text="${prestamo.user.fullName()}"></td>
+				<td th:text="${prestamo.formattedStartDate()}"></td>
+				<td th:text="${#dates.format(prestamo.endDate,'dd-MMMM-yyyy')}"></td>
+				<td><a href="#" th:href="@{'/loan/edit/'+${prestamo.id}}">
+						<button>Editar</button>
+				</a></td>
+				<td><a href="#" th:href="@{'/loan/delete/'+${prestamo.id}}">
+						<button>Eliminar</button>
+				</a></td>
+			</tr>
+
+		</tbody>
+	</table>
+
+</body>
+</html>
