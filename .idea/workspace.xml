@@ -36,8 +36,8 @@
       <file leaf-file-name="SecurityConfiguration.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/mx/ipn/cic/biblioteca/AdminControl/config/SecurityConfiguration.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="874">
-              <caret line="62" lean-forward="true" selection-start-line="62" selection-end-line="62" />
+            <state relative-caret-position="736">
+              <caret line="61" lean-forward="true" selection-start-line="61" selection-end-line="61" />
             </state>
           </provider>
         </entry>
@@ -52,6 +52,7 @@
       <list>
         <option value="$PROJECT_DIR$/src/main/java/mx/ipn/cic/biblioteca/AdminControl/controllers/AdminController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
+        <option value="D:/Downloads/register_medico_postman.txt" />
         <option value="$PROJECT_DIR$/src/main/java/mx/ipn/cic/biblioteca/AdminControl/config/SecurityConfiguration.java" />
       </list>
     </option>
@@ -300,12 +301,12 @@
       <option name="presentableId" value="Default" />
       <updated>1558341651739</updated>
       <workItem from="1558341654229" duration="2270000" />
-      <workItem from="1558346378470" duration="59000" />
+      <workItem from="1558346378470" duration="416000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2329000" />
+    <option name="totallyTimeSpent" value="2686000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="1293" height="1407" extended-state="0" />
@@ -393,10 +394,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://D:/Downloads/register_medico_postman.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="14" column="154" lean-forward="true" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="154" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/mx/ipn/cic/biblioteca/AdminControl/config/SecurityConfiguration.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="874">
-          <caret line="62" lean-forward="true" selection-start-line="62" selection-end-line="62" />
+        <state relative-caret-position="736">
+          <caret line="61" lean-forward="true" selection-start-line="61" selection-end-line="61" />
         </state>
       </provider>
     </entry>
