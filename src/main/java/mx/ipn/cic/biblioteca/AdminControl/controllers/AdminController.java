@@ -218,12 +218,14 @@ public class AdminController {
 				this.doctorService.register(dr);
 	      
 			} else{
+				System.out.println("password:: "+password);
+				System.out.println("password:: "+password.replaceAll("[,]",""));
 		  		DoctorModel dr = new DoctorModel(
 						firstName,
 						lastNameP,
 						lastNameM,
 						email,
-						password,
+						password.replaceAll("[,]",""),
 						Arrays.asList(getRol),
 						birthdate,
 						gender,
