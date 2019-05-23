@@ -341,5 +341,10 @@ public class AdminController {
         return "redirect:/admin/mainAdmin";
     }
 
+    @GetMapping(path = "/expediente")
+    public void getExpedienteGeneral(){
+
+    }
+
 
 }

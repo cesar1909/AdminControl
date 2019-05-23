@@ -52,7 +52,7 @@ public class DoctorController {
 		List<FindPatientsByEmailResult> findAll = this.userRepository.findPatientsByEmail(this.userServiceImpl.getEmailUser());
 
 		ModelAndView mav = new ModelAndView("patietnsListDoctor");
-		System.out.println("MAV QUERY: "+findAll);
+		//System.out.println("MAV QUERY: "+findAll);
 		mav.addObject("patients", findAll);
 		return mav;
 

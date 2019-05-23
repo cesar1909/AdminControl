@@ -196,22 +196,33 @@
                                                         <h3>Listado de Pacientes</h3>
                                                     </div>
                                                 </div>
-                                                <div class="row">
-                                                    <div class="col-lg-12 col-md-12 col-sm-12">
-                                                       <div class="card">
-                                                            <div class="card-body">
-                                                                <div class="row">
-                                                                    <div class="col-lg-4 col-md-4 col-sm-4">
-                                                                        <div class="form-group">
-                                                                            <label for="txtFind" class="bmd-label-floating">Buscar Paciente</label>
-                                                                            <input type="text" class="form-control" id="txtFind">
+                                                    <div class="row">
+                                                        <div class="col-lg-12 col-md-12 col-sm-12">
+                                                            <div class="card">
+                                                                <div class="card-body">
+                                                                    <div class="row">
+                                                                        <div class="col-lg-6 col-md-6 col-sm-6">
+                                                                            <div class="form-group">
+                                                                                <form action="#" th:action="@{/patient/searchv2}">
+                                                                                    <label for="txtFind" class="bmd-label-floating">Buscar Paciente</label>
+                                                                                    <input type="text" name="name" class="form-control" id="txtFind">
+
+                                                                                </form>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-6 col-md-6 col-sm-6" align="ritht">
+                                                                            <!--                                            <div th:with="someVariable=${Authentication.getPrincipal()}">-->
+                                                                            <div>
+                                                                                <a th:href="@{/doctor/newPatientForm}" class="btn btn-info" style="float: right;">
+                                                                                    <i class="material-icons">cloud_download</i> <span>Descargar Expediente</span></a>
+                                                                                <!--                                                <button id="btnAddPatient" class="btn btn-info"><i class="material-icons">person_add</i> Agregar Paciente</button>-->
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                       </div>
+                                                        </div>
                                                     </div>
-                                                </div>
                                                 <div class="row">
                                                     <div class="col-lg-12 col-md-12 col-sm-12">
                                                         <table id="DataTable3" class="stripe" style="width:100%">
