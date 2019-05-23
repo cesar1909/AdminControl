@@ -49,6 +49,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/main/java/mx/ipn/cic/biblioteca/AdminControl/controllers/AdminController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/NewPatientSucess.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/patientDetails.html" />
         <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
         <option value="D:/Downloads/register_medico_postman.txt" />
         <option value="$PROJECT_DIR$/src/main/java/mx/ipn/cic/biblioteca/AdminControl/config/SecurityConfiguration.java" />
@@ -247,6 +249,14 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="AdminControl" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AdminControl" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -381,6 +391,40 @@
           <folding>
             <element signature="e#269#270#0" expanded="true" />
             <element signature="e#334#335#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/NewPatientSucess.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="24" column="32" lean-forward="true" selection-start-line="24" selection-start-column="32" selection-end-line="24" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/patientDetails.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="74">
+          <caret line="733" column="34" lean-forward="true" selection-start-line="733" selection-start-column="34" selection-end-line="733" selection-end-column="34" />
+          <folding>
+            <element signature="e#35663#35670#0" expanded="true" />
+            <element signature="e#35670#35674#0" expanded="true" />
+            <element signature="e#35758#35765#0" expanded="true" />
+            <element signature="e#35765#35769#0" expanded="true" />
+            <element signature="e#35862#35869#0" expanded="true" />
+            <element signature="e#35869#35873#0" expanded="true" />
+            <element signature="e#35957#35964#0" expanded="true" />
+            <element signature="e#35964#35968#0" expanded="true" />
+            <element signature="e#36054#36061#0" expanded="true" />
+            <element signature="e#36061#36065#0" expanded="true" />
+            <element signature="e#36147#36154#0" expanded="true" />
+            <element signature="e#36154#36158#0" expanded="true" />
+            <element signature="e#36244#36251#0" expanded="true" />
+            <element signature="e#36251#36255#0" expanded="true" />
+            <element signature="e#36339#36346#0" expanded="true" />
+            <element signature="e#36346#36350#0" expanded="true" />
+            <element signature="e#36433#36440#0" expanded="true" />
+            <element signature="e#36440#36444#0" expanded="true" />
           </folding>
         </state>
       </provider>
