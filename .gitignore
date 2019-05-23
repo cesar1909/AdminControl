@@ -44,3 +44,5 @@ application.properties
 *.iml
 
 \.DS_Store
+
+\.idea/
