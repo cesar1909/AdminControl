@@ -1,6 +1,5 @@
 package mx.ipn.cic.biblioteca.AdminControl.services;
 import mx.ipn.cic.biblioteca.AdminControl.model.User;
-import mx.ipn.cic.biblioteca.AdminControl.model.DoctorModel;
 import mx.ipn.cic.biblioteca.AdminControl.model.Role;
 import mx.ipn.cic.biblioteca.AdminControl.repositories.UserRepository;
 //import mx.ipn.cic.biblioteca.AdminControl.web.dto.UserRegistrationDto;
@@ -12,10 +11,8 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.stream.Collectors;
 
@@ -99,4 +96,47 @@ public class UserServiceImpl implements UserDetailsService {
         this.userRepository.deleteById(idToDelete);
         return true;
     }
+
+    public boolean updateCity(String city, Long id){
+        this.userRepository.updateCity(city, id);
+        return true;
+    }
+
+    public boolean updateDoctorWithoutPassword(Long id, String firstName, String lastNameP,
+                                               String lastNameM, String email, String birthdate,
+                                               String gender, String phone, String mobilePhone,
+                                               String professionalLicense, String city,
+                                               String hospital){
+        this.userRepository.updateUserWithoutPassword(id, firstName, lastNameP, lastNameM, email, birthdate,
+                gender, phone, mobilePhone, professionalLicense, city, hospital);
+        return true;
+    }
+
+    public boolean updateDoctor(Long id, String firstName, String lastNameP,
+                                               String lastNameM, String email, String birthdate,
+                                               String gender, String phone, String mobilePhone,
+                                               String professionalLicense, String city,
+                                               String hospital, String password){
+        this.userRepository.updateUser(id, firstName, lastNameP, lastNameM, email, birthdate,
+                gender, phone, mobilePhone, professionalLicense, city, hospital, password);
+        return true;
+    }
+
+    public boolean updateMonitorWithoutPassword(Long id, String firstName, String lastNameP,
+                                               String lastNameM, String email, String birthdate,
+                                               String gender, String phone, String mobilePhone){
+        this.userRepository.updateMonitorWithoutPassword(id, firstName, lastNameP, lastNameM, email, birthdate,
+                gender, phone, mobilePhone);
+        return true;
+    }
+
+    public boolean updateMonitor(Long id, String firstName, String lastNameP,
+                                String lastNameM, String email, String birthdate,
+                                String gender, String phone, String mobilePhone,
+                               String password){
+        this.userRepository.updateMonitor(id, firstName, lastNameP, lastNameM, email, birthdate,
+                gender, phone, mobilePhone, password);
+        return true;
+    }
+
 }

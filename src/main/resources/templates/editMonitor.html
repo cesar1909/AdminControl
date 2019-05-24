@@ -82,7 +82,7 @@
                                             <div class="col-lg-4 col-md-4 col-sm-4">
                                                 <fieldset enabled>
                                                     <div class="form-group">
-                                                        <label for="txtName" class="bmd-label-floating">Apellido Paterno</label>
+                                                        <label for="txtApPaterno" class="bmd-label-floating">Apellido Paterno</label>
                                                         <input type="text" class="form-control" id="txtApPaterno" maxlength="25" th:field="*{lastNameP}" />
                                                     </div>
                                                 </fieldset>
@@ -90,7 +90,7 @@
                                             <div class="col-lg-4 col-md-4 col-sm-4">
                                                 <fieldset enabled>
                                                     <div class="form-group">
-                                                        <label for="txtName" class="bmd-label-floating">Apellido Materno</label>
+                                                        <label for="txtApMaterno" class="bmd-label-floating">Apellido Materno</label>
                                                         <input type="text" class="form-control" id="txtApMaterno" maxlength="25" th:field="*{lastNameM}"/>
                                                     </div>
                                                 </fieldset>
@@ -121,8 +121,8 @@
                                             <div class="col-lg-4 col-md-4 col-sm-4">
                                                 <fieldset enabled>
                                                     <div class="form-group">
-                                                        <label for="txtName" class="bmd-label-floating">Telefono movil</label>
-                                                        <input type="text" class="form-control" id="txtApMaterno" maxlength="25" name="telm" th:field="*{mobilePhone}"/>
+                                                        <label for="telmovil" class="bmd-label-floating">Telefono movil</label>
+                                                        <input type="text" class="form-control" id="telmovil" maxlength="25" name="telm" th:field="*{mobilePhone}"/>
                                                     </div>
                                                 </fieldset>
                                             </div>
@@ -132,31 +132,31 @@
                                             <div class="col-lg-4 col-md-4 col-sm-4">
                                                 <fieldset enabled>
                                                     <div class="form-group">
-                                                        <label for="txtName" class="bmd-label-floating">Telefono fijo</label>
-                                                        <input type="text" class="form-control" id="txtApMaterno" maxlength="25" name="telf" th:field="*{phone}"/>
+                                                        <label for="telfijo" class="bmd-label-floating">Telefono fijo</label>
+                                                        <input type="text" class="form-control" id="telfijo" maxlength="25" name="telf" th:field="*{phone}"/>
                                                     </div>
                                                 </fieldset>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-4">
                                                 <fieldset enabled>
                                                     <div class="form-group">
-                                                        <label for="txtName" class="bmd-label-floating">Correo electronico</label>
-                                                        <input type="text" class="form-control" id="txtApMaterno" maxlength="25" name="email" th:field="*{email}"/>
+                                                        <label for="txtemail" class="bmd-label-floating">Correo electronico</label>
+                                                        <input type="text" class="form-control" id="txtemail" maxlength="25" name="email" th:field="*{email}"/>
                                                     </div>
                                                 </fieldset>
-                                            </div>
-                                            <div class="col-lg-4 col-md-4 col-sm-4">
-                                                <div class="form-group">
-                                                    <label hidden for="txtName" class="bmd-label-floating">Contraseña</label>
-                                                    <input hidden type="text" class="form-control" id="txtApMaterno" maxlength="25" name="password" th:field="*{password}"/>
-                                                </div>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-lg-4 col-md-4 col-sm-4">
                                                 <div class="form-group">
-                                                    <label hidden for="txtName" class="bmd-label-floating">Confirmar Contraseña</label>
-                                                    <input hidden type="text" class="form-control" id="txtApMaterno" maxlength="25" name="password1"/>
+                                                    <label for="txtpass" class="bmd-label-floating">Contraseña</label>
+                                                    <input type="password" class="form-control" id="txtpass" maxlength="25" name="password" th:field="*{password}"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                                <div class="form-group">
+                                                    <label for="txtpass1" class="bmd-label-floating">Confirmar Contraseña</label>
+                                                    <input type="password" class="form-control" id="txtpass1" maxlength="25" name="password1"/>
                                                 </div>
                                              </div>
                                         </div>
