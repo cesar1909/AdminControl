@@ -146,6 +146,9 @@ public class DoctorController {
 		return "NewPatientSucess";
 	}
 
+	@GetMapping("/ajaxExample")
+	public void ajaxExample(){
 
+	}
 	
 }
