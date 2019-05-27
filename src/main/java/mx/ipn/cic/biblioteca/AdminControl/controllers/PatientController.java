@@ -353,6 +353,20 @@ public class PatientController {
 		return ajaxString;
 	}
 
+	@GetMapping(path = "/getFinalInfo")
+	public @ResponseBody String getFinalInfo(@RequestParam("id") Integer id){
+		String respuesta = null;
+		if (id == null){
+			System.out.println("NO SE RECIBIO ID");
+			respuesta =  "<br>Llamada correcta al controlador<br>";
+		}
+		else {
+			System.out.println("ID CON VALOR = " + id);
+			respuesta = "<br>Llamada fallida al controlador<br>";
+		}
+		return respuesta;
+	}
+
 //	@GetMapping(path = "/editv2/{id}")
 //	public ModelAndView editv2(@PathVariable("id") Integer identificador){
 //		PatientModel userFound = this.userService.findById(identificador);

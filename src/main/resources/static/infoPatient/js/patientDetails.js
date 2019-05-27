@@ -12,18 +12,24 @@ $(window).on('load', () => {
         $("#main").removeAttr("hidden").fadeIn(200)
     }, 2400);
 
+    $.ajax({
+        url : '/patient/getFinalInfo',
+        function(){
+            $('#result').load('/patient/getFinalInfo', "id="+$('#idPatient').val())
+        }
+    });
 
-        $.ajax({
-            url : '/patient/finalInfo',
-            success : function(data) {
-                if (data.valueOf() == null) {
 
-                }else {
-                    $( "#finalEmpty" ).remove();
-                    $('#result').html(data);
-                }
-            }
-        });
+        // $.ajax({
+        //     url : '/patient/finalInfo',
+        //     success : function(data) {
+        //         if (data.valueOf() == null) {
+        //         }else {
+        //             $( "#finalEmpty" ).remove();
+        //             $('#result').html(data);
+        //         }
+        //     }
+        // });
 
 });
 
