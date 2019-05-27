@@ -327,6 +327,13 @@ public class PatientController {
 
 		LinkedList<MonthlyConsultation> monthlyConsultations = this.monthlyConsultationService.findByPatientId(userFound);
 		FinalConsultation finalConsultation = this.finalConsultationService.findByPatientId(identificador);
+		if(finalConsultation ==null){
+			System.out.println("CONSULTA FINAL NULA");
+		}else if (finalConsultation == null){
+			System.out.println("CONSULTA FINAL VACIA");
+		}else {
+			System.out.println();
+		}
 //		for(MonthlyConsultation tmp : monthlyConsultations){
 //			System.out.println(tmp.getDateOfRealization());
 //			System.out.println(tmp.getIdMonthlyConsultation());
@@ -338,6 +345,12 @@ public class PatientController {
 		mav.addObject("final", finalConsultation);
 
 		return mav;
+	}
+
+	@GetMapping(path = "/finalInfo")
+	public @ResponseBody String finalInfo(){
+		String ajaxString = "<br>String traido de un controlador con Ajax<br>";
+		return ajaxString;
 	}
 
 //	@GetMapping(path = "/editv2/{id}")

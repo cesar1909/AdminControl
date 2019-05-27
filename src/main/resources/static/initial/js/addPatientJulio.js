@@ -12,6 +12,7 @@ $(window).on('load', () => {
     setTimeout(()=>{
         $("#main").removeAttr("hidden").fadeIn(200)
     }, 2400);
+    document.getElementById("btnSave_initialConsultation").disabled = true;
 });
 
 $(window).ready(() =>{
@@ -339,10 +340,7 @@ const addPatient = (() => {
             errores = errores.concat("-Depuración creatinina fuera del rango 0 a 200\n");
         }
         if (txtECOG.val() == "" || txtECOG.val() <0 || txtECOG.val()>2  ){
-            errores = errores.concat("-Asigne un valor a ECOG entre 0 y 2\n");
-        }
-        if (txtECOG.val()>2){
-            errores = errores.concat("-ECOG mayor a 2, paciente no puede pertenecer a la investigación\n");
+            errores = errores.concat("-ECOG fuera del rango 0 a 2, paciente no puede pertenecer a la investigación\n");
         }
         if (slcActiva.val() == "Si" ) {
             errores = errores.concat("-Infección activa, debe esperar la resolución\n");
@@ -433,6 +431,7 @@ const addPatient = (() => {
             tabPagTresIC.addClass('active');
             tab2IC.removeClass('active');
             tab3IC.addClass('active');
+            document.getElementById("btnSave_initialConsultation").disabled = false;
         }
         
     });

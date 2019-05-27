@@ -11,6 +11,20 @@ $(window).on('load', () => {
     setTimeout(()=>{
         $("#main").removeAttr("hidden").fadeIn(200)
     }, 2400);
+
+
+        $.ajax({
+            url : '/patient/finalInfo',
+            success : function(data) {
+                if (data.valueOf() == null) {
+
+                }else {
+                    $( "#finalEmpty" ).remove();
+                    $('#result').html(data);
+                }
+            }
+        });
+
 });
 
 $(window).ready(() =>{
@@ -30,6 +44,7 @@ window.onload = function() {
 function createTable(selectedValue){
     window.alert(selectedValue.valueOf());
     $( 'select[name="var2"]' ).append( selectedValue );
+
 
 
 // return [
