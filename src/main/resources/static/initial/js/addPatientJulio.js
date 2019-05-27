@@ -243,12 +243,12 @@ const addPatient = (() => {
             tab1.removeClass('active');
             tab2.addClass('active');
        }
-        
+
     });
 
     //Segunda pantalla
     btnNext2.click(()=>{
-        
+
         if(slcDeabetes.val() == "Si" ||
             slcHipertension.val() == "Si" ||
             slcArritmias.val() == "Si" ||
@@ -380,7 +380,7 @@ const addPatient = (() => {
             aux = aux.concat(errores.toString());
             swal(aux.toString());
         }
-        else{ 
+        else{
             tabPagUnoIC.removeClass('active');
             tabPagDosIC.removeClass('disabled');
             tabPagDosIC.addClass('active');

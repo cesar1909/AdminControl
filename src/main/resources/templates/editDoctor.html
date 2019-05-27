@@ -14,6 +14,9 @@
     <link th:href="@{/admin/css/dashboard.css}" rel="stylesheet" />
     <link th:href="@{/admin/css/plugins/date-time-picker.css}" rel="stylesheet" >
     <link th:href="@{/admin/css/mainAdmin.css}" rel="stylesheet" />
+
+    <!-- Para los popup JULIO -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 
 <body id="body">
@@ -73,7 +76,8 @@
                                 <div class="tab-pane active" id="tab1">
                                     <form id="form1" th:action="@{/admin/editDoctor}"
                                           th:object="${doctor}"
-                                          method="post">
+                                          method="post"
+                                          onSubmit="return Validar()">
                                         <div class="row">
                                                 <input hidden type="text" class="form-control" name="id" id="id" th:field="*{id}"/>
                                             <div class="col-lg-4 col-md-4 col-sm-4">
@@ -238,4 +242,4 @@
 <script th:src="@{/admin/js/plugins/bootstrap-material-design.min.js}"></script>
 <script th:src="@{/admin/js/plugins/ohsnap.js}"></script>
 <script th:src="@{/admin/js/plugins/date-time-picker.min.js}"></script>
-<script th:src="@{/admin/js/addDoctor.js}"></script>
+<script th:src="@{/admin/js/addDoctorJulio.js}"></script>
