@@ -60,21 +60,8 @@ public class AdminController {
         String roles = "ROLE_ADMIN";
         Role getRol = this.roleRepositoy.findByRol(roles);
 
-	    if(getRol == null) {
-        AdminModel admin = new AdminModel(
-                firstName,
-                lastNameP,
-                lastNameM,
-                email,
-                password,
-                Arrays.asList(new Role(roles)),
-                birthdate,
-                gender
-        		);
-        System.out.println("REGISTRAMOS ADMIN");
-        this.adminRepository.save(admin);
-	    }else {
-	    	
+	    if(getRol != null) {
+        
 	        AdminModel admin = new AdminModel(
 	                firstName,
 	                lastNameP,
@@ -87,6 +74,10 @@ public class AdminController {
 	        );
 	        System.out.println("REGISTRAMOS ADMIN");
 	        this.adminRepository.save(admin);
+	    }
+	    else {
+	        System.out.println("NO HAY ROLES REGISTRADOS");	    	
+	    	
 	    }
 	    
 

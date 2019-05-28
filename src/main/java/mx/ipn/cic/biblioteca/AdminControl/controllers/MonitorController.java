@@ -58,23 +58,8 @@ public class MonitorController {
         String roles = "ROLE_MONITOR";
         Role getRol = this.roleRepositoy.findByRol(roles);
 
-        if(getRol == null) {
-  	        MonitorModel monitor = new MonitorModel(
-  	                firstName,
-  	                lastNameP,
-  	                lastNameM,
-  	                email,
-  	                password,
-  	                Arrays.asList(new Role(roles)),
-  	                birthdate,
-  	                gender,
-  	                phone,
-  	                mobilePhone);
+        if(getRol != null) {
 
-  	              System.out.println("REGISTRAMOS MONITOR CREAMOS ROL");
-  	              this.monitorService.register(monitor);
-  	      
-  			} else{
   	  	        MonitorModel monitor = new MonitorModel(
   	  	                firstName,
   	  	                lastNameP,
@@ -90,6 +75,8 @@ public class MonitorController {
   	  	              System.out.println("REGISTRAMOS MONITOR ROL YA CREADO, SOLO ASIGNADO");
   	  	              this.monitorService.register(monitor);
   	  	      
+  			}else {
+				System.out.println("NO HAY ROLES REGISTRADOS");
   			}
 
         return "redirect:/admin/mainAdmin";
