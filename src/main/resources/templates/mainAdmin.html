@@ -15,7 +15,11 @@
     <link th:href="@{/admin/css/plugins/date-time-picker.css}" rel="stylesheet" >
     <link th:href="@{/admin/css/mainAdmin.css}" rel="stylesheet" />
     <link th:href="@{/admin/css/plugins/sweetalert2.min.css}" rel="stylesheet"/>
-    <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet" />     
+    <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet" />
+
+      <!-- Para los popup JULIO -->
+      <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 
   </head>
   
@@ -115,15 +119,16 @@
                                                             <thead>
                                                                 <tr>
                                                                     <th>Nombre</th>
-                                                                    <th>Hospital</th>
+                                                                    <th>Correo electrónico</th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
                                                             <tr th:each="doctor : ${doctors}">
-                                                                <td th:text="${doctor.firstName} + ' ' + ${doctor.lastNameP} + ' ' + ${doctor.lastNameM}" ></td>
-                                                                <td th:text="${doctor.hospital} + ' '" ></td>
+                                                                <td th:text="${doctor.firstName} + ' ' + ${doctor.lastNameP} + ' ' + ${doctor.lastNameM} +' '+ ${doctor.id} " ></td>
+                                                                <td th:text="${doctor.email} + ' '" ></td>
+
                                                                 <td>
-                                                                    <a th:href="@{/admin/deleteUser(id=${doctor.id})}" class="btn btn-danger" style="float: right;"><i class="material-icons">delete</i> <span>Eliminar</span></a>
+                                                                    <a th:onclick="${'deseaEliminarDoctor(' + doctor.id + ');'}" class="btn btn-danger" style="float: right;"  ><i class="material-icons">delete</i> <span>Eliminar</span></a>
                                                                     <a th:href="@{/admin/editDoctor(id=${doctor.id})}" class="btn btn-success" style="float: right;"><i class="material-icons">edit</i> <span>Editar</span></a>
                                                                     <a th:href="@{/admin/doctorDetails(id=${doctor.id })}" class="btn btn-success" style="float: right;"><i class="material-icons">&#xE85D;</i> <span>Ver Detalles</span></a>
                                                                 </td>
@@ -169,13 +174,15 @@
                                                             <thead>
                                                                 <tr>
                                                                     <th>Nombre</th>
+                                                                    <th>Correo electrónico</th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
                                                             <tr th:each="monitor : ${monitors}">
                                                                 <td th:text="${monitor.firstName} + ' ' + ${monitor.lastNameP} + ' ' + ${monitor.lastNameM}" ></td>
+                                                                <td th:text="${monitor.email}" ></td>
                                                                 <td>
-                                                                    <a th:href="@{/admin/deleteUser(id=${monitor.id})}" class="btn btn-danger" style="float: right;"><i class="material-icons">delete</i> <span>Eliminar</span></a>
+                                                                    <a th:onclick="${'deseaEliminarMonitor(' + monitor.id + ');'}" class="btn btn-danger" style="float: right;"  ><i class="material-icons">delete</i> <span>Eliminar</span></a>
                                                                     <a th:href="@{/admin/editMonitor(id=${monitor.id})}" class="btn btn-success" style="float: right;"><i class="material-icons">edit</i> <span>Editar</span></a>
                                                                     <a th:href="@{/admin/monitorDetails(id=${monitor.id})}" class="btn btn-success" style="float: right;"><i class="material-icons">&#xE85D;</i> <span>Ver Detalles</span></a>
                                                                 </td>
@@ -241,8 +248,9 @@
                                                                 <td th:text="${patient.idDoctor.firstName} + ' ' + ${patient.idDoctor.lastNameP} + ' ' + ${patient.idDoctor.lastNameM}"></td>
 
                                                                 <td>
+                                                                    <a th:onclick="${'deseaEliminarPaciente(' + patient.id + ');'}" class="btn btn-danger" style="float: right;"  ><i class="material-icons">delete</i> <span>Eliminar</span></a>
 
-                                                                    <a th:href="@{/admin/deletePatient(id=${patient.id})}" class="btn btn-danger" style="float: right;"><i class="material-icons">delete</i> <span>Eliminar</span></a>
+                                                                    <!--<a th:href="@{/admin/deletePatient(id=${patient.id})}" class="btn btn-danger" style="float: right;"><i class="material-icons">delete</i> <span>Eliminar</span></a>-->
                                                                     <!--<a th:href="@{/patient/edit(id=${patient.id})}" class="btn btn-info" style="float: right;"><i class="material-icons">edit</i> <span>Editar</span></a>-->
                                                                     <a th:href="@{/patient/info(id=${patient.id})}" class="btn btn-success" style="float: right;"><i class="material-icons">&#xE85D;</i> <span>Ver Detalles</span></a>
                                                                 </td>
