@@ -69,11 +69,12 @@
                         <div class="col-md-10">
                             <div class="tab-content">
                                 <div class="tab-pane active" id="tab1">
-                                    <form id="form1" th:action="@{/monitor/register}"
+                                    <form id="form1" th:action="@{/admin/editMonitor}"
                                           th:object="${monitorModel}"
                                           method="post"
                                           onSubmit="return Validar()">
                                         <div class="row">
+                                            <input hidden type="text" class="form-control" name="id" id="id" th:field="*{id}"/>
                                             <div class="col-lg-4 col-md-4 col-sm-4">
                                                 <fieldset enabled>
                                                     <div class="form-group">

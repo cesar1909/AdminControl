@@ -370,7 +370,7 @@ public class PatientController {
 							"                            <fieldset disabled>\n" +
 							"                                <div class=\"form-group\">\n" +
 							"                                  <label for=\"txtCalendar\">Fecha de Valoración Final</label>\n" +
-							"                                  <input id=\"txtCalendar\" type=\"text\" class=\"mt10px input form-control\" name=\"dateOfRealization\" th:value=\"${final?.dateOfRealization}\">\n" +
+							"                                  <input id=\"txtCalendar\" type=\"text\" class=\"mt10px input form-control\" name=\"dateOfRealization\" value =" +finalConsultation.getDateOfRealization() + " \">\n" +
 							"                                </div>\n" +
 							"                            </fieldset>\n" +
 							"                          </div>\n" +
@@ -378,7 +378,7 @@ public class PatientController {
 							"                            <fieldset disabled>\n" +
 							"                                <div class=\"form-group\">\n" +
 							"                                  <label for=\"Albumina\">Albumina (g/dL)</label>\n" +
-							"                                  <input type=\"text\" class=\"form-control\" id=\"Albumina\" placeholder=\"g/dL\"name=\"albumin\" th:value=\"${final?.albumin}\">\n" +
+							"                                  <input type=\"text\" class=\"form-control\" id=\"Albumina\" placeholder=\"g/dL\"name=\"albumin\" value =" +finalConsultation.getAlbumin() + " \">\n" +
 							"                                </div>\n" +
 							"                            </fieldset>\n" +
 							"                          </div>\n" +
@@ -386,7 +386,7 @@ public class PatientController {
 							"                            <fieldset disabled>\n" +
 							"                                <div class=\"form-group\">\n" +
 							"                                  <label for=\"Calcio_serico\">Calcio sérico (mg/dL)</label>\n" +
-							"                                  <input type=\"text\" class=\"form-control\" id=\"Calcio_serico\" placeholder=\"mg/dL\" name=\"serumCalcium\" th:value=\"${final?.serumCalcium}\">\n" +
+							"                                  <input type=\"text\" class=\"form-control\" id=\"Calcio_serico\" placeholder=\"mg/dL\" name=\"serumCalcium\" value =" +finalConsultation.getSerumCalcium() + " \">\n" +
 							"                                </div>\n" +
 							"                            </fieldset>\n" +
 							"                          </div>\n" +
@@ -397,7 +397,7 @@ public class PatientController {
 							"                            <fieldset disabled>\n" +
 							"                                <div class=\"form-group\">\n" +
 							"                                  <label for=\"Deshidrogenasa_Lactica\">Deshidrogenasa Lactica (U/L)</label>\n" +
-							"                                  <input type=\"text\" class=\"form-control\" id=\"Deshidrogenasa_Lactica\" placeholder=\"U/L\" name=\"lacticDehydrogenase\" th:value=\"${final?.lacticDehydrogenase}\">\n" +
+							"                                  <input type=\"text\" class=\"form-control\" id=\"Deshidrogenasa_Lactica\" placeholder=\"U/L\" name=\"lacticDehydrogenase\" value =" +finalConsultation.getAlbumin() + " \">\n" +
 							"                                </div>\n" +
 							"                            </fieldset>\n" +
 							"                          </div>\n" +
@@ -405,7 +405,7 @@ public class PatientController {
 							"                            <fieldset disabled>\n" +
 							"                                <div class=\"form-group\">\n" +
 							"                                  <label for=\"Hemoglobina\">Hemoglobina (g/dL)</label>\n" +
-							"                                  <input type=\"text\" class=\"form-control\" id=\"Hemoglobina\" placeholder=\"g/dL\" name=\"hemoglobin\" th:value=\"${final?.hemoglobin}\">\n" +
+							"                                  <input type=\"text\" class=\"form-control\" id=\"Hemoglobina\" placeholder=\"g/dL\" name=\"hemoglobin\" value =" +finalConsultation.getHemoglobin() + " \">\n" +
 							"                                </div>\n" +
 							"                            </fieldset>\n" +
 							"                          </div>\n" +
@@ -413,7 +413,7 @@ public class PatientController {
 							"                            <fieldset disabled>\n" +
 							"                                <div class=\"form-group\">\n" +
 							"                                  <label for=\"Hematocrito\">Hematocrito (%)</label>\n" +
-							"                                  <input type=\"text\" class=\"form-control\" id=\"Hematocrito\" placeholder=\"%\" name=\"hematocrit\" th:value=\"${final?.hematocrit}\">\n" +
+							"                                  <input type=\"text\" class=\"form-control\" id=\"Hematocrito\" placeholder=\"%\" name=\"hematocrit\" value =" +finalConsultation.getAlbumin() + " \">\n" +
 							"                                </div>\n" +
 							"                            </fieldset>\n" +
 							"                          </div>\n" +
@@ -424,7 +424,7 @@ public class PatientController {
 							"                            <fieldset disabled>\n" +
 							"                                <div class=\"form-group\">\n" +
 							"                                  <label for=\"Leucocitos\">Leucocitos (cels x 10(3)/uL)</label>\n" +
-							"                                  <input type=\"text\" class=\"form-control\" id=\"Leucocitos\" placeholder=\"cels x 10(3)/uL\" name=\"leukocytes\" th:value=\"${final?.leukocytes}\">\n" +
+							"                                  <input type=\"text\" class=\"form-control\" id=\"Leucocitos\" placeholder=\"cels x 10(3)/uL\" name=\"leukocytes\" value =" +finalConsultation.getAlbumin() + " \">\n" +
 							"                                </div>\n" +
 							"                            </fieldset>\n" +
 							"                          </div>\n" +
@@ -432,7 +432,7 @@ public class PatientController {
 							"                            <fieldset disabled>\n" +
 							"                                <div class=\"form-group\">\n" +
 							"                                  <label for=\"Linfocitos\">Linfocitos (cels x 10(3)/uL)</label>\n" +
-							"                                  <input type=\"text\" class=\"form-control\" id=\"Linfocitos\" placeholder=\"cels x 10(3)/uL\" name=\"lymphocytes\" th:value=\"${final?.lymphocytes}\">\n" +
+							"                                  <input type=\"text\" class=\"form-control\" id=\"Linfocitos\" placeholder=\"cels x 10(3)/uL\" name=\"lymphocytes\" value =" +finalConsultation.getAlbumin() + " \">\n" +
 							"                                </div>\n" +
 							"                            </fieldset>\n" +
 							"                          </div>\n" +
@@ -440,7 +440,7 @@ public class PatientController {
 							"                            <fieldset disabled>\n" +
 							"                                <div class=\"form-group\">\n" +
 							"                                  <label for=\"Neutrofilos\">Neutrofilos (cels x 10(3)/uL)</label>\n" +
-							"                                  <input type=\"text\" class=\"form-control\" id=\"Neutrofilos\" placeholder=\"cels x 10(3)/uL\" name=\"neutrophils\" th:value=\"${final?.neutrophils}\">\n" +
+							"                                  <input type=\"text\" class=\"form-control\" id=\"Neutrofilos\" placeholder=\"cels x 10(3)/uL\" name=\"neutrophils\" value =" +finalConsultation.getNeutrophils() + " \">\n" +
 							"                                </div>\n" +
 							"                            </fieldset>\n" +
 							"                          </div>\n" +
@@ -451,7 +451,7 @@ public class PatientController {
 							"                          <fieldset disabled>\n" +
 							"                              <div class=\"form-group\">\n" +
 							"                                <label for=\"Plaquetas\">Plaquetas (cels x 10(3)/uL)</label>\n" +
-							"                                <input type=\"text\" class=\"form-control\" id=\"Plaquetas\" placeholder=\"cels x 10(3)/uL\" name=\"platelets\" th:value=\"${final?.platelets}\">\n" +
+							"                                <input type=\"text\" class=\"form-control\" id=\"Plaquetas\" placeholder=\"cels x 10(3)/uL\" name=\"platelets\" value =" +finalConsultation.getPlatelets() + " \">\n" +
 							"                              </div>\n" +
 							"                          </fieldset>\n" +
 							"                        </div>\n" +
@@ -459,7 +459,7 @@ public class PatientController {
 							"                          <fieldset disabled>\n" +
 							"                              <div class=\"form-group\">\n" +
 							"                                <label for=\"IgG\">IgG (mg/dL)</label>\n" +
-							"                                <input type=\"text\" class=\"form-control\" id=\"IgG\" placeholder=\"mg/dL\" name=\"igG\" th:value=\"${final?.igG}\">\n" +
+							"                                <input type=\"text\" class=\"form-control\" id=\"IgG\" placeholder=\"mg/dL\" name=\"igG\" value =" +finalConsultation.getIgG() + " \">\n" +
 							"                              </div>\n" +
 							"                          </fieldset>\n" +
 							"                        </div>\n" +
@@ -467,7 +467,7 @@ public class PatientController {
 							"                          <fieldset disabled>\n" +
 							"                              <div class=\"form-group\">\n" +
 							"                                <label for=\"IgA\">IgA (mg/dL)</label>\n" +
-							"                                <input type=\"text\" class=\"form-control\" id=\"IgA\" placeholder=\"mg/dL\" name=\"igA\" th:value=\"${final?.igA}\">\n" +
+							"                                <input type=\"text\" class=\"form-control\" id=\"IgA\" placeholder=\"mg/dL\" name=\"igA\" value =\" +finalConsultation.getIgG() + \" \">\n" +
 							"                              </div>\n" +
 							"                          </fieldset>\n" +
 							"                        </div>\n" +
