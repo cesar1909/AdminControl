@@ -349,7 +349,15 @@ public class PatientController {
 		return ajaxString;
 	}
 
-	//@RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(path = "/getMonthlyInfo")
+	public @ResponseBody String getMonthlyInfo(@RequestParam("idConsulta") Integer idConsulta, @RequestParam("idPaciente") Integer idPaciente){
+		String respuesta = null;
+
+
+
+		return respuesta;
+	}
+
 	@GetMapping(path = "/getFinalInfo")
 	public @ResponseBody String getFinalInfo(@RequestParam("id") Integer id){
 

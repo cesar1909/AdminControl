@@ -57,6 +57,23 @@ function getFinalInfoJs(identificadorJs) {
     });
 }
 
+function getMonthlyInfo(idJs) {
+    $.ajax({
+        url: "/patient/getMonthlyInfo" + "?id=" + identificadorJs,
+        success: function(data) {
+            if (data == "no data") {
+                console.log("Datos nulos");
+            }
+            else {
+                console.log("Datos desde el servidor");
+                $( "#noConsultation" ).remove();
+                $('#result').html(data);
+                // $('#result').load('/patient/getFinalInfo', "identificador=" + identificadorJs)
+            }
+        }
+    });
+}
+
 function createTable(selectedValue){
     window.alert(selectedValue.valueOf());
     $( 'select[name="var2"]' ).append( selectedValue );
