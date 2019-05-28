@@ -11,7 +11,21 @@ $(window).on('load', () => {
     setTimeout(()=>{
         $("#main").removeAttr("hidden").fadeIn(200)
     }, 2400);
-});
+
+    });
+
+        // $.ajax({
+        //     url : '/patient/finalInfo',
+        //     success : function(data) {
+        //         if (data.valueOf() == null) {
+        //         }else {
+        //             $( "#finalEmpty" ).remove();
+        //             $('#result').html(data);
+        //         }
+        //     }
+        // });
+
+// });
 
 $(window).ready(() =>{
     $('#body').bootstrapMaterialDesign();
@@ -26,10 +40,22 @@ window.onload = function() {
     }
     $( 'select[name="inptProduct"]' ).append( optionsAsString );};
 
+function getFinalInfoJs(identificadorJs) {
+    $.ajax({
+        url: "/patient/getFinalInfo" + "?id=" + identificadorJs,
+        success: function(data) {
+            console.log("Nos comunicamos con Spring");
+            $( "#noConsultation" ).remove();
+            $('#result').html(data);
+            // $('#result').load('/patient/getFinalInfo', "identificador=" + identificadorJs)
+        }
+    });
+}
 
 function createTable(selectedValue){
     window.alert(selectedValue.valueOf());
     $( 'select[name="var2"]' ).append( selectedValue );
+
 
 
 // return [
