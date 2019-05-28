@@ -12,13 +12,7 @@ $(window).on('load', () => {
         $("#main").removeAttr("hidden").fadeIn(200)
     }, 2400);
 
-    $.ajax({
-        url : '/patient/getFinalInfo',
-        function(){
-            $('#result').load('/patient/getFinalInfo', "id="+$('#idPatient').val())
-        }
     });
-
 
         // $.ajax({
         //     url : '/patient/finalInfo',
@@ -31,7 +25,7 @@ $(window).on('load', () => {
         //     }
         // });
 
-});
+// });
 
 $(window).ready(() =>{
     $('#body').bootstrapMaterialDesign();
@@ -46,6 +40,17 @@ window.onload = function() {
     }
     $( 'select[name="inptProduct"]' ).append( optionsAsString );};
 
+function getFinalInfoJs(identificadorJs) {
+    $.ajax({
+        url: "/patient/getFinalInfo" + "?id=" + identificadorJs,
+        success: function(data) {
+            console.log("Nos comunicamos con Spring");
+            $( "#noConsultation" ).remove();
+            $('#result').html(data);
+            // $('#result').load('/patient/getFinalInfo', "identificador=" + identificadorJs)
+        }
+    });
+}
 
 function createTable(selectedValue){
     window.alert(selectedValue.valueOf());
