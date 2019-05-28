@@ -175,6 +175,18 @@ public class AdminController {
 	    	System.out.println("nombre: "+nombre);
 		  return nombre;
 	  }
+
+	  @PostMapping(path = "/editCity")
+      public String editCity(
+              @RequestParam(name = "city") String city,
+              @RequestParam(name = "id") String id
+              ){
+        Long identificador = Long.parseLong(id);
+        this.userService.updateCity(city, identificador);
+          System.out.println("PRUEBA EDITAR CIUDAD");
+
+          return "redirect:/admin/mainAdmin";
+      }
 	  
     @PostMapping(path = "/editDoctor")
     public String editDoctor(
@@ -182,7 +194,7 @@ public class AdminController {
             @RequestParam(name = "lastNameP") String lastNameP,
             @RequestParam(name = "lastNameM") String lastNameM,
             @RequestParam(name = "email") String email,
-            @RequestParam(name = "password") String password,
+            @RequestParam(name = "password", required = false) String password,
 
             @RequestParam(name = "birthdate") String birthdate,
             @RequestParam(name = "gender") String gender,
@@ -193,53 +205,19 @@ public class AdminController {
             @RequestParam(name = "hospital") String hospital,
             @RequestParam(name = "id") String identificador
     ){
-        String roles = "ROLE_DOCTOR";
+
         Long id = Long.parseLong(identificador);
-        Role getRol = this.roleRepositoy.findByRol(roles);
 
-	      if(getRol == null) {
-	  		DoctorModel dr = new DoctorModel(
-					firstName,
-					lastNameP,
-					lastNameM,
-					email,
-					password,
-					Arrays.asList(new Role(roles)),
-					birthdate,
-					gender,
-					phone,
-					mobilePhone,
-					professionalLicense,
-					city,
-					hospital
-					);
-
-				System.out.println("REGISTRAMOS MEDICO");
-				this.doctorService.register(dr);
-	      
-			} else{
-				System.out.println("password:: "+password);
-				System.out.println("password:: "+password.replaceAll("[,]",""));
-		  		DoctorModel dr = new DoctorModel(
-						firstName,
-						lastNameP,
-						lastNameM,
-						email,
-						password.replaceAll("[,]",""),
-						Arrays.asList(getRol),
-						birthdate,
-						gender,
-						phone,
-						mobilePhone,
-						professionalLicense,
-						city,
-						hospital
-						);
-		  			dr.setId(id);
-					System.out.println("REGISTRAMOS MEDICO ROL CREADO");
-					this.doctorService.register(dr);
-			}
-
+        System.out.println("EDITAMOS MEDICO NUEVA FORMA");
+        if (password.equals("")){
+            System.out.println("Contraseña vacia");
+            this.userService.updateDoctorWithoutPassword(id, firstName, lastNameP, lastNameM, email, birthdate,
+                    gender, phone, mobilePhone, professionalLicense, city, hospital);
+        }else{
+            System.out.println("Nuevo Password: " + password);
+            this.userService.updateDoctor(id, firstName, lastNameP, lastNameM, email, birthdate,
+                    gender, phone, mobilePhone, professionalLicense, city, hospital, password);
+        }
 
         return "redirect:/admin/mainAdmin";
 
@@ -274,7 +252,7 @@ public class AdminController {
             @RequestParam(name = "lastNameP") String lastNameP,
             @RequestParam(name = "lastNameM") String lastNameM,
             @RequestParam(name = "email") String email,
-            @RequestParam(name = "password") String password,
+            @RequestParam(name = "password", required = false) String password,
 
             @RequestParam(name = "birthdate") String birthdate,
             @RequestParam(name = "gender") String gender,
@@ -282,65 +260,26 @@ public class AdminController {
             @RequestParam(name = "mobilePhone") String mobilePhone,
             @RequestParam(name = "id") String identificador
     ){
-//        String roles = "ROLE_MONITOR";
-//        Long id = Long.parseLong(identificador);
-//
-//        MonitorModel monitor = new MonitorModel(
-//                firstName,
-//                lastNameP,
-//                lastNameM,
-//                email,
-//                password,
-//                Arrays.asList(new Role(roles)),
-//                birthdate,
-//                gender,
-//                phone,
-//                mobilePhone
-//        );
-//        monitor.setId(id);
-//
-//        System.out.println("EDITAMOS MONITOR mmm");
-//        this.userRepository.save(monitor);
 
-        String roles = "ROLE_MONITOR";
         Long id = Long.parseLong(identificador);
-        Role getRol = this.roleRepositoy.findByRol(roles);
 
-        if(getRol == null) {
-  	        MonitorModel monitor = new MonitorModel(
-  	                firstName,
-  	                lastNameP,
-  	                lastNameM,
-  	                email,
-  	                password,
-  	                Arrays.asList(new Role(roles)),
-  	                birthdate,
-  	                gender,
-  	                phone,
-  	                mobilePhone);
-
-  	              System.out.println("REGISTRAMOS MONITOR CREAMOS ROL");
-  	              this.monitorService.register(monitor);
-  	      
-  			} else{
-  	  	        MonitorModel monitor = new MonitorModel(
-  	  	                firstName,
-  	  	                lastNameP,
-  	  	                lastNameM,
-  	  	                email,
-  	  	                password,
-  	  	                Arrays.asList(getRol),
-  	  	                birthdate,
-  	  	                gender,
-  	  	                phone,
-  	  	                mobilePhone);
-  	                  monitor.setId(id);
-  	  	              System.out.println("REGISTRAMOS MONITOR ROL YA CREADO, SOLO ASIGNADO");
-  	  	              this.monitorService.register(monitor);
-  	  	      
-  			}
+        System.out.println("EDITAMOS MONITOR NUEVA FORMA");
+        if (password.equals("")){
+            System.out.println("Contraseña vacia");
+            this.userService.updateMonitorWithoutPassword(id, firstName, lastNameP, lastNameM, email, birthdate,
+                    gender, phone, mobilePhone);
+        }else{
+            System.out.println("Nuevo Password: " + password);
+            this.userService.updateMonitor(id, firstName, lastNameP, lastNameM, email, birthdate,
+                    gender, phone, mobilePhone, password);
+        }
 
         return "redirect:/admin/mainAdmin";
+    }
+
+    @GetMapping(path = "/expediente")
+    public void getExpedienteGeneral(){
+
     }
 
 

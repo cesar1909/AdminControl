@@ -14,6 +14,9 @@
     <link th:href="@{/admin/css/dashboard.css}" rel="stylesheet" />
     <link th:href="@{/admin/css/plugins/date-time-picker.css}" rel="stylesheet" >
     <link th:href="@{/admin/css/mainAdmin.css}" rel="stylesheet" />
+
+      <!-- Para los popup JULIO -->
+      <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   </head>
   
     <body id="body">
@@ -67,9 +70,10 @@
                                 <div class="col-md-10">
                                         <div class="tab-content">
                                             <div class="tab-pane active" id="tab1">
-                                                <form id="form1" th:action="@{/doctor/register}"
+                                                <form id="form1"  th:action="@{/doctor/register}"
                                                       th:object="${doctorModel}"
-                                                       method="post">
+                                                       method="post"
+                                                      onSubmit="return Validar()">
                                                     <div class="row">
                                                         <div class="col-lg-4 col-md-4 col-sm-4">
                                                             <div class="form-group">
@@ -150,18 +154,18 @@
                                                                 <input type="text" class="form-control" id="email" maxlength="45" name="email" th:field="*{email}"/>
                                                             </div>
                                                         </div>
-                                                        <div class="col-lg-4 col-md-4 col-sm-4">
-                                                            <div class="form-group">
-                                                                <label for="txtName" class="bmd-label-floating">Contraseña</label>
-                                                                <input type="text" class="form-control" id="password" maxlength="25" name="password" th:field="*{password}"/>
-                                                            </div>
-                                                        </div>
                                                     </div>
                                                         <div class="row">
                                                             <div class="col-lg-4 col-md-4 col-sm-4">
                                                                 <div class="form-group">
+                                                                    <label for="txtName" class="bmd-label-floating">Contraseña</label>
+                                                                    <input type="password" class="form-control" id="password" maxlength="25" name="password" th:field="*{password}"/>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                                                <div class="form-group">
                                                                     <label for="txtName" class="bmd-label-floating">Confirmar Contraseña</label>
-                                                                    <input type="text" class="form-control" id="password1" maxlength="25" name="password1"/>
+                                                                    <input type="password" class="form-control" id="password1" maxlength="25" name="password1"/>
                                                                 </div>
                                                                    </div>
                                                                 <br>
@@ -173,7 +177,7 @@
                                                     <button id="btnReset" type="reset" class="btn btn-success" form="form1"><i class="material-icons">settings_backup_restore</i> <span>Descartar</span></button>
                                                 </div>
                                                 <div id="divButtons2" class="col-lg-2 col-md-2 col-sm-2">
-                                                    <button id="btnSave" type="submit" class="btn btn-success" form="form1"><i class="material-icons">save_alt</i> <span>Guardar</span></button>
+                                                    <button id="btnSave"  type="submit" class="btn btn-success" form="form1" ><i class="material-icons">save_alt</i> <span>Guardar</span></button>
                                                 </div>
                                             </div>
                                             <div class="row">
@@ -204,4 +208,4 @@
  <script th:src="@{/admin/js/plugins/bootstrap-material-design.min.js}"></script>
  <script th:src="@{/admin/js/plugins/ohsnap.js}"></script>
  <script th:src="@{/admin/js/plugins/date-time-picker.min.js}"></script>
- <script th:src="@{/admin/js/addDoctor.js}"></script>
+ <script th:src="@{/admin/js/addDoctorJulio.js}"></script>

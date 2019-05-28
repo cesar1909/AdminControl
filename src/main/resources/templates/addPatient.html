@@ -1,4 +1,4 @@
-<!doctype html>
+ <!doctype html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
@@ -13,9 +13,9 @@
     <!-- CSS -->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-    <link th:href="@{/prueba/css/styles.css}" rel="stylesheet" />
-    <link th:href="@{/prueba/css/dashboard.css}" rel="stylesheet" />
-    <link th:href="@{/prueba/css/plugins/date-time-picker.css}" rel="stylesheet" >
+    <link th:href="@{/initial/newDesign/css/styles.css}" rel="stylesheet" />
+    <link th:href="@{/initial/newDesign/css/dashboard.css}" rel="stylesheet" />
+    <link th:href="@{/initial/newDesign/css/plugins/sweetalert2.min.css}" rel="stylesheet"/>
     <link th:href="@{/prueba/css/addPatient.css}" rel="stylesheet" />
 </head>
 
@@ -217,15 +217,20 @@
                                             </div>
                                         </div>
                                         <br/>
+
                                         <div class="row width_100">
-                                            <div class="col-lg-12 col-md-12 col-sm-12 align_right">
+                                            <div id="divButtons3" class="col-lg-10 col-md-10 col-sm-10">
+                                                <a onclick="goBack()" class="btn btn-danger"><i class="material-icons">cancel</i> <span>Cancelar</span></a>
+                                                <script> function goBack() {window.history.back();}</script>
+                                            </div>
+                                            <div class="col-lg-2 col-md-2 col-sm-2 align_right">
                                                 <button id="btnNext" type="button" class="btn btn-success">Siguiente</button>
                                             </div>
                                         </div>
 
                                 </div>
                                 <div class="tab-pane" id="tab2">
-
+                                         <br/>
                                         <div class="row">
                                             <div class="col-lg-4 col-md-4 col-sm-4">
                                                 <div class="form-group">

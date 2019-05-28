@@ -14,6 +14,9 @@
     <link th:href="@{/admin/css/dashboard.css}" rel="stylesheet" />
     <link th:href="@{/admin/css/plugins/date-time-picker.css}" rel="stylesheet" >
     <link th:href="@{/admin/css/mainAdmin.css}" rel="stylesheet" />
+
+    <!-- Para los popup JULIO -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 
 <body id="body">
@@ -64,7 +67,7 @@
                                 </li>
 
                                 <li class="nav-item">
-                                    <a id="tabLogin" class="nav-link active" href="#tab2" data-toggle="tab"> Cambiar Contraseña</a>
+                                    <!--<a id="tabLogin" class="nav-link active" href="#tab2" data-toggle="tab"> Cambiar Contraseña</a>-->
                                 </li>
                             </ul>
                         </div>
@@ -73,10 +76,10 @@
                                 <div class="tab-pane active" id="tab1">
                                     <form id="form1" th:action="@{/admin/editDoctor}"
                                           th:object="${doctor}"
-                                          method="post">
+                                          method="post"
+                                          onSubmit="return Validar()">
                                         <div class="row">
                                                 <input hidden type="text" class="form-control" name="id" id="id" th:field="*{id}"/>
-                                                <input hidden type="text" class="form-control" name="password" id="password" th:field="*{password}"/>
                                             <div class="col-lg-4 col-md-4 col-sm-4">
                                                 <fieldset enabled>
                                                     <div class="form-group">
@@ -188,7 +191,7 @@
                                             </div>
                                                 <div class="col-lg-4 col-md-4 col-sm-4">
                                                      <div class="form-group">
-                                                        <label for="txtName" class="bmd-label-floating">Confirmar Nueva Contraseña</label>
+                                                        <label for="password1" class="bmd-label-floating">Confirmar Nueva Contraseña</label>
                                                         <input  type="password" class="form-control" id="password1" maxlength="25" name="password1"/>
                                                      </div>
                                                 </div>
@@ -239,4 +242,4 @@
 <script th:src="@{/admin/js/plugins/bootstrap-material-design.min.js}"></script>
 <script th:src="@{/admin/js/plugins/ohsnap.js}"></script>
 <script th:src="@{/admin/js/plugins/date-time-picker.min.js}"></script>
-<script th:src="@{/admin/js/addDoctor.js}"></script>
+<script th:src="@{/admin/js/addDoctorJulio.js}"></script>
