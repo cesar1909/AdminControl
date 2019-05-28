@@ -122,21 +122,21 @@ public class UserServiceImpl implements UserDetailsService {
         return true;
     }
 
-    public boolean updateMonitorWithoutPassword(Long id, String firstName, String lastNameP,
-                                               String lastNameM, String email, String birthdate,
-                                               String gender, String phone, String mobilePhone){
-        this.userRepository.updateMonitorWithoutPassword(id, firstName, lastNameP, lastNameM, email, birthdate,
-                gender, phone, mobilePhone);
-        return true;
-    }
-
-    public boolean updateMonitor(Long id, String firstName, String lastNameP,
-                                String lastNameM, String email, String birthdate,
-                                String gender, String phone, String mobilePhone,
-                               String password){
-        this.userRepository.updateMonitor(id, firstName, lastNameP, lastNameM, email, birthdate,
-                gender, phone, mobilePhone, password);
-        return true;
-    }
+//    public boolean updateMonitorWithoutPassword(Long id, String firstName, String lastNameP,
+//                                               String lastNameM, String email, String birthdate,
+//                                               String gender, String phone, String mobilePhone){
+//        this.userRepository.updateMonitorWithoutPassword(id, firstName, lastNameP, lastNameM, email, birthdate,
+//                gender, phone, mobilePhone);
+//        return true;
+//    }
+//
+//    public boolean updateMonitor(Long id, String firstName, String lastNameP,
+//                                String lastNameM, String email, String birthdate,
+//                                String gender, String phone, String mobilePhone,
+//                               String password){
+//        this.userRepository.updateMonitor(id, firstName, lastNameP, lastNameM, email, birthdate,
+//                gender, phone, mobilePhone, password);
+//        return true;
+//    }
 
 }

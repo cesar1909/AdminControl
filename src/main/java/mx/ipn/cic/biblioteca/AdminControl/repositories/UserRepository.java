@@ -52,20 +52,20 @@ public interface UserRepository extends UserBaseRepository <User>{
 								   @Param("hospital") String hospital, @Param("password") String password);
 
 
-	@Modifying
-	@Query(value = "UPDATE user u SET u.first_name = :firstName, u.last_namep = :lastNameP, u.last_namem = :lastNameM, " +
-			"u.email = :email, u.fecha_nac = :birthdate, u.genero = :gender, u.telefono_fijo = :phone, u.telefono_movil = :mobilePhone, " +
-			"WHERE u.id = :id", nativeQuery=true)
-	void updateMonitorWithoutPassword(@Param("id") Long id, @Param("firstName") String firstName, @Param("lastNameP") String lastNameP,
-								   @Param("lastNameM") String lastNameM, @Param("email") String email, @Param("birthdate") String birthdate,
-								   @Param("gender") String gender, @Param("phone") String phone, @Param("mobilePhone") String mobilePhone);
-
-	@Modifying
-	@Query(value = "UPDATE user u SET u.first_name = :firstName, u.last_namep = :lastNameP, u.last_namem = :lastNameM, " +
-			"u.email = :email, u.fecha_nac = :birthdate, u.genero = :gender, u.telefono_fijo = :phone, u.telefono_movil = :mobilePhone, " +
-			"u.password = :password WHERE u.id = :id", nativeQuery=true)
-	void updateMonitor(@Param("id") Long id, @Param("firstName") String firstName, @Param("lastNameP") String lastNameP,
-					@Param("lastNameM") String lastNameM, @Param("email") String email, @Param("birthdate") String birthdate,
-					@Param("gender") String gender, @Param("phone") String phone, @Param("mobilePhone") String mobilePhone,
-					   @Param("password") String password);
+//	@Modifying
+//	@Query(value = "UPDATE user u SET u.first_name = :firstName, u.last_namep = :lastNameP, u.last_namem = :lastNameM, " +
+//			"u.email = :email, u.fecha_nac = :birthdate, u.genero = :gender, u.telefono_fijo = :phone, u.telefono_movil = :mobilePhone, " +
+//			"WHERE u.id = :id", nativeQuery=true)
+//	void updateMonitorWithoutPassword(@Param("id") Long id, @Param("firstName") String firstName, @Param("lastNameP") String lastNameP,
+//								   @Param("lastNameM") String lastNameM, @Param("email") String email, @Param("birthdate") String birthdate,
+//								   @Param("gender") String gender, @Param("phone") String phone, @Param("mobilePhone") String mobilePhone);
+//
+//	@Modifying
+//	@Query(value = "UPDATE user u SET u.first_name = :firstName, u.last_namep = :lastNameP, u.last_namem = :lastNameM, " +
+//			"u.email = :email, u.fecha_nac = :birthdate, u.genero = :gender, u.telefono_fijo = :phone, u.telefono_movil = :mobilePhone, " +
+//			"u.password = :password WHERE u.id = :id", nativeQuery=true)
+//	void updateMonitor(@Param("id") Long id, @Param("firstName") String firstName, @Param("lastNameP") String lastNameP,
+//					@Param("lastNameM") String lastNameM, @Param("email") String email, @Param("birthdate") String birthdate,
+//					@Param("gender") String gender, @Param("phone") String phone, @Param("mobilePhone") String mobilePhone,
+//					   @Param("password") String password);
 }

@@ -3,6 +3,7 @@ package mx.ipn.cic.biblioteca.AdminControl.controllers;
 
 import mx.ipn.cic.biblioteca.AdminControl.model.*;
 import mx.ipn.cic.biblioteca.AdminControl.repositories.IAdminRepository;
+import mx.ipn.cic.biblioteca.AdminControl.repositories.IMonitorRepository;
 import mx.ipn.cic.biblioteca.AdminControl.repositories.IRoleRepositoy;
 import mx.ipn.cic.biblioteca.AdminControl.repositories.UserBaseRepository;
 import mx.ipn.cic.biblioteca.AdminControl.services.MonitorService;
@@ -45,6 +46,9 @@ public class AdminController {
     
     @Autowired
     IRoleRepositoy roleRepositoy;
+    
+    @Autowired
+    IMonitorRepository monitorRepository;
     
     @PostMapping(path = "/register")
     public String register(
@@ -253,15 +257,16 @@ public class AdminController {
     ){
 
         Long id = Long.parseLong(identificador);
-
+        
+        System.out.println("IDENTIFICADOR:: "+identificador);
         System.out.println("EDITAMOS MONITOR NUEVA FORMA");
         if (password.equals("")){
             System.out.println("Contraseña vacia");
-            this.userService.updateMonitorWithoutPassword(id, firstName, lastNameP, lastNameM, email, birthdate,
+            this.monitorRepository.updateMonitorWithoutPassword(id, firstName, lastNameP, lastNameM, email, birthdate,
                     gender, phone, mobilePhone);
         }else{
             System.out.println("Nuevo Password: " + password);
-            this.userService.updateMonitor(id, firstName, lastNameP, lastNameM, email, birthdate,
+            this.monitorRepository.updateMonitor(id, firstName, lastNameP, lastNameM, email, birthdate,
                     gender, phone, mobilePhone, password);
         }
 
