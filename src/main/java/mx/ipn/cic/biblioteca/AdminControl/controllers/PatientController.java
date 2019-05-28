@@ -352,17 +352,244 @@ public class PatientController {
 	//@RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
 	@GetMapping(path = "/getFinalInfo")
 	public @ResponseBody String getFinalInfo(@RequestParam("id") Integer id){
-		System.out.println(id);
+
 		String respuesta = null;
-		if (id == null){
-			System.out.println("NO SE RECIBIO ID");
-			respuesta =  "<br>Llamada correcta al controlador<br>";
+
+		//Probamos nuestra conexion con el cliente
+		if (id == null){ System.out.println("NO SE RECIBIO ID"); }
+		else { System.out.println("ID CON VALOR = " + id); }
+
+		//Buscamos la consulta final
+		FinalConsultation finalConsultation = this.finalConsultationService.findByPatientId(id);
+		if (finalConsultation == null){
+			respuesta = "no data";
 		}
 		else {
-			System.out.println("NO SE RECIBIO ID");
-			respuesta =  "<br>Llamada correcta al controlador<br>";
-			System.out.println("ID CON VALOR = " + id);
-			respuesta = "<br>Llamada fallida al controlador<br>";
+			respuesta = "                        <div class=\"row\">\n" +
+							"                          <div class=\"col-lg-4 col-md-4 col-sm-4\">\n" +
+							"                            <fieldset disabled>\n" +
+							"                                <div class=\"form-group\">\n" +
+							"                                  <label for=\"txtCalendar\">Fecha de Valoración Final</label>\n" +
+							"                                  <input id=\"txtCalendar\" type=\"text\" class=\"mt10px input form-control\" name=\"dateOfRealization\" th:value=\"${final?.dateOfRealization}\">\n" +
+							"                                </div>\n" +
+							"                            </fieldset>\n" +
+							"                          </div>\n" +
+							"                          <div class=\"col-lg-4 col-md-4 col-sm-4\">\n" +
+							"                            <fieldset disabled>\n" +
+							"                                <div class=\"form-group\">\n" +
+							"                                  <label for=\"Albumina\">Albumina (g/dL)</label>\n" +
+							"                                  <input type=\"text\" class=\"form-control\" id=\"Albumina\" placeholder=\"g/dL\"name=\"albumin\" th:value=\"${final?.albumin}\">\n" +
+							"                                </div>\n" +
+							"                            </fieldset>\n" +
+							"                          </div>\n" +
+							"                          <div class=\"col-lg-4 col-md-4 col-sm-4\">\n" +
+							"                            <fieldset disabled>\n" +
+							"                                <div class=\"form-group\">\n" +
+							"                                  <label for=\"Calcio_serico\">Calcio sérico (mg/dL)</label>\n" +
+							"                                  <input type=\"text\" class=\"form-control\" id=\"Calcio_serico\" placeholder=\"mg/dL\" name=\"serumCalcium\" th:value=\"${final?.serumCalcium}\">\n" +
+							"                                </div>\n" +
+							"                            </fieldset>\n" +
+							"                          </div>\n" +
+							"                      </div>\n" +
+							"                      <br />\n" +
+							"                      <div class=\"row\">\n" +
+							"                          <div class=\"col-lg-4 col-md-4 col-sm-4\">\n" +
+							"                            <fieldset disabled>\n" +
+							"                                <div class=\"form-group\">\n" +
+							"                                  <label for=\"Deshidrogenasa_Lactica\">Deshidrogenasa Lactica (U/L)</label>\n" +
+							"                                  <input type=\"text\" class=\"form-control\" id=\"Deshidrogenasa_Lactica\" placeholder=\"U/L\" name=\"lacticDehydrogenase\" th:value=\"${final?.lacticDehydrogenase}\">\n" +
+							"                                </div>\n" +
+							"                            </fieldset>\n" +
+							"                          </div>\n" +
+							"                          <div class=\"col-lg-4 col-md-4 col-sm-4\">\n" +
+							"                            <fieldset disabled>\n" +
+							"                                <div class=\"form-group\">\n" +
+							"                                  <label for=\"Hemoglobina\">Hemoglobina (g/dL)</label>\n" +
+							"                                  <input type=\"text\" class=\"form-control\" id=\"Hemoglobina\" placeholder=\"g/dL\" name=\"hemoglobin\" th:value=\"${final?.hemoglobin}\">\n" +
+							"                                </div>\n" +
+							"                            </fieldset>\n" +
+							"                          </div>\n" +
+							"                          <div class=\"col-lg-4 col-md-4 col-sm-4\">\n" +
+							"                            <fieldset disabled>\n" +
+							"                                <div class=\"form-group\">\n" +
+							"                                  <label for=\"Hematocrito\">Hematocrito (%)</label>\n" +
+							"                                  <input type=\"text\" class=\"form-control\" id=\"Hematocrito\" placeholder=\"%\" name=\"hematocrit\" th:value=\"${final?.hematocrit}\">\n" +
+							"                                </div>\n" +
+							"                            </fieldset>\n" +
+							"                          </div>\n" +
+							"                      </div>\n" +
+							"                      <br />\n" +
+							"                      <div class=\"row\">\n" +
+							"                          <div class=\"col-lg-4 col-md-4 col-sm-4\">\n" +
+							"                            <fieldset disabled>\n" +
+							"                                <div class=\"form-group\">\n" +
+							"                                  <label for=\"Leucocitos\">Leucocitos (cels x 10(3)/uL)</label>\n" +
+							"                                  <input type=\"text\" class=\"form-control\" id=\"Leucocitos\" placeholder=\"cels x 10(3)/uL\" name=\"leukocytes\" th:value=\"${final?.leukocytes}\">\n" +
+							"                                </div>\n" +
+							"                            </fieldset>\n" +
+							"                          </div>\n" +
+							"                          <div class=\"col-lg-4 col-md-4 col-sm-4\">\n" +
+							"                            <fieldset disabled>\n" +
+							"                                <div class=\"form-group\">\n" +
+							"                                  <label for=\"Linfocitos\">Linfocitos (cels x 10(3)/uL)</label>\n" +
+							"                                  <input type=\"text\" class=\"form-control\" id=\"Linfocitos\" placeholder=\"cels x 10(3)/uL\" name=\"lymphocytes\" th:value=\"${final?.lymphocytes}\">\n" +
+							"                                </div>\n" +
+							"                            </fieldset>\n" +
+							"                          </div>\n" +
+							"                          <div class=\"col-lg-4 col-md-4 col-sm-4\">\n" +
+							"                            <fieldset disabled>\n" +
+							"                                <div class=\"form-group\">\n" +
+							"                                  <label for=\"Neutrofilos\">Neutrofilos (cels x 10(3)/uL)</label>\n" +
+							"                                  <input type=\"text\" class=\"form-control\" id=\"Neutrofilos\" placeholder=\"cels x 10(3)/uL\" name=\"neutrophils\" th:value=\"${final?.neutrophils}\">\n" +
+							"                                </div>\n" +
+							"                            </fieldset>\n" +
+							"                          </div>\n" +
+							"                      </div>\n" +
+							"                      <br />\n" +
+							"                      <div class=\"row\">\n" +
+							"                        <div class=\"col-lg-4 col-md-4 col-sm-4\">\n" +
+							"                          <fieldset disabled>\n" +
+							"                              <div class=\"form-group\">\n" +
+							"                                <label for=\"Plaquetas\">Plaquetas (cels x 10(3)/uL)</label>\n" +
+							"                                <input type=\"text\" class=\"form-control\" id=\"Plaquetas\" placeholder=\"cels x 10(3)/uL\" name=\"platelets\" th:value=\"${final?.platelets}\">\n" +
+							"                              </div>\n" +
+							"                          </fieldset>\n" +
+							"                        </div>\n" +
+							"                        <div class=\"col-lg-4 col-md-4 col-sm-4\">\n" +
+							"                          <fieldset disabled>\n" +
+							"                              <div class=\"form-group\">\n" +
+							"                                <label for=\"IgG\">IgG (mg/dL)</label>\n" +
+							"                                <input type=\"text\" class=\"form-control\" id=\"IgG\" placeholder=\"mg/dL\" name=\"igG\" th:value=\"${final?.igG}\">\n" +
+							"                              </div>\n" +
+							"                          </fieldset>\n" +
+							"                        </div>\n" +
+							"                        <div class=\"col-lg-4 col-md-4 col-sm-4\">\n" +
+							"                          <fieldset disabled>\n" +
+							"                              <div class=\"form-group\">\n" +
+							"                                <label for=\"IgA\">IgA (mg/dL)</label>\n" +
+							"                                <input type=\"text\" class=\"form-control\" id=\"IgA\" placeholder=\"mg/dL\" name=\"igA\" th:value=\"${final?.igA}\">\n" +
+							"                              </div>\n" +
+							"                          </fieldset>\n" +
+							"                        </div>\n" +
+							"                      </div>\n" +
+							"                      <br />\n" +
+							"                      <div class=\"row\">\n" +
+							"                        <div class=\"col-lg-4 col-md-4 col-sm-4\">\n" +
+							"                          <fieldset disabled>\n" +
+							"                              <div class=\"form-group\">\n" +
+							"                                <label for=\"IgM\">IgM (mg/dL)</label>\n" +
+							"                                <input type=\"text\" class=\"form-control\" id=\"IgM\" placeholder=\"mg/dL\" name=\"igM\" th:value=\"${final?.igM}\">\n" +
+							"                              </div>\n" +
+							"                          </fieldset>\n" +
+							"                        </div>\n" +
+							"                        <div class=\"col-lg-4 col-md-4 col-sm-4\">\n" +
+							"                          <fieldset disabled>\n" +
+							"                              <div class=\"form-group\">\n" +
+							"                                <label for=\"Cadenas_Ligeras_Kappa\">Cadenas Ligeras Kappa (mg/L)</label>\n" +
+							"                                <input type=\"text\" class=\"form-control\" id=\"Cadenas_Ligeras_Kappa\" placeholder=\"mg/dL\" name=\"lightChainsKappa\" th:value=\"${final?.lightChainsKappa}\">\n" +
+							"                              </div>\n" +
+							"                          </fieldset>\n" +
+							"                        </div>\n" +
+							"                        <div class=\"col-lg-4 col-md-4 col-sm-4\">\n" +
+							"                          <fieldset disabled>\n" +
+							"                              <div class=\"form-group\">\n" +
+							"                                <label for=\"Cadenas_Ligeras_Lambda\">Cadenas Ligeras Lambda (mg/L)</label>\n" +
+							"                                <input type=\"text\" class=\"form-control\" id=\"Cadenas_Ligeras_Lambda\" placeholder=\"%\" name=\"lightChainsLambda\" th:value=\"${final?.lightChainsLambda}\">\n" +
+							"                              </div>\n" +
+							"                          </fieldset>\n" +
+							"                        </div>\n" +
+							"                      </div>\n" +
+							"                      <br />\n" +
+							"                      <div class=\"row\">\n" +
+							"                          <div class=\"col-lg-4 col-md-4 col-sm-4\">\n" +
+							"                            <fieldset disabled>\n" +
+							"                                <div class=\"form-group\">\n" +
+							"                                  <label for=\"celplasmo\">Células plasmáticas en Médula ósea (%)</label>\n" +
+							"                                  <input type=\"text\" class=\"form-control\" id=\"celplasmo\" placeholder=\"%\" name=\"celPlasmaticEnMedulaOsea\" th:value=\"${final?.celPlasmaticEnMedulaOsea}\">\n" +
+							"                                </div>\n" +
+							"                            </fieldset>\n" +
+							"                          </div>\n" +
+							"                          <div class=\"col-lg-4 col-md-4 col-sm-4\">\n" +
+							"                            <fieldset disabled>\n" +
+							"                                <div class=\"form-group\">\n" +
+							"                                  <label for=\"electroforesis\">Electroforesis de proteínas Suero</label>\n" +
+							"                                  <input type=\"text\" class=\"form-control\" id=\"electroforesis\" placeholder=\"g/L\" name=\"electroForesisDeProteinasSuero\" th:value=\"${final?.electroForesisDeProteinasSuero}\">\n" +
+							"                                </div>\n" +
+							"                            </fieldset>\n" +
+							"                          </div>\n" +
+							"                        <div class=\"col-lg-4 col-md-4 col-sm-4\">\n" +
+							"                          <fieldset disabled>\n" +
+							"                            <div class=\"form-group col-md-4\">\n" +
+							"                              <label for=\"electroforesis2\">Electroforesis de proteinas Orina</label>\n" +
+							"                              <input type=\"text\" class=\"form-control\" id=\"electroforesis2\" placeholder=\"g/L\" name=\"electroForesisDeProteinasOrina\" th:value=\"${final?.electroForesisDeProteinasOrina}\">\n" +
+							"                            </div>\n" +
+							"                          </fieldset>\n" +
+							"                        </div>\n" +
+							"\n" +
+							"                      </div>\n" +
+							"                      <br />\n" +
+							"                      <div class=\"row\">\n" +
+							"                        <div class=\"col-lg-4 col-md-4 col-sm-4\">\n" +
+							"                          <fieldset disabled>\n" +
+							"                            <div class=\"form-group\">\n" +
+							"                              <label for=\"inmunofijacionig\">Inmunofijación Tipo Ig</label>\n" +
+							"                              <select id=\"inmunofijacionig\" class=\"form-control\" name=\"inmFijacionTipoIg\" th:value=\"${final?.inmFijacionTipoIg}\">\n" +
+							"                                <option value=\"Negativa\">Negativa</option>\n" +
+							"                                <option value=\"IgA\">IgA</option>\n" +
+							"                                <option value=\"IgG\">IgG</option>\n" +
+							"                                <option value=\"No secretor\">No secretor</option>\n" +
+							"                              </select>\n" +
+							"                            </div>\n" +
+							"                          </fieldset>\n" +
+							"                        </div>\n" +
+							"                          <div class=\"col-lg-4 col-md-4 col-sm-4\">\n" +
+							"                            <fieldset disabled>\n" +
+							"                                <div class=\"form-group\">\n" +
+							"                                  <label for=\"inmunofijacioncll\">Inmunofijacion Tipo CLL</label>\n" +
+							"                                  <select id=\"inmunofijacioncll\" class=\"form-control\" name=\"inmFijacionTipoCll\" th:value=\"${final?.inmFijacionTipoCll}\">\n" +
+							"                                    <option value=\"Negativo\">Negativa</option>\n" +
+							"                                    <option value=\"Lambda\">Lambda</option>\n" +
+							"                                    <option value=\"Kappa\">Kappa</option>\n" +
+							"                                    <option value=\"No secretor\">No secretor</option>\n" +
+							"                                  </select>                                </div>\n" +
+							"                            </fieldset>\n" +
+							"                          </div>\n" +
+							"                          <div class=\"col-lg-4 col-md-4 col-sm-4\">\n" +
+							"                            <fieldset disabled>\n" +
+							"                                <div class=\"form-group\">\n" +
+							"                                  <label for=\"minres\">Enfermedad mínima residual (eventos x10(-7))</label>\n" +
+							"                                  <input type=\"text\" class=\"form-control\" id=\"minres\" placeholder=\"0 - 1000\" name=\"enfermedadMinimaResidual\" th:value=\"${final?.enfermedadMinimaResidual}\">\n" +
+							"                                </div>\n" +
+							"                            </fieldset>\n" +
+							"                          </div>\n" +
+							"                      </div>\n" +
+							"                      <br />\n" +
+							"                    <div class=\"row\">\n" +
+							"                      <div class=\"col-lg-4 col-md-4 col-sm-4\">\n" +
+							"                        <fieldset disabled>\n" +
+							"                          <div class=\"form-group\">\n" +
+							"                            <label for=\"Toxicidad_Renal\">Respuesta a tratamiento</label>\n" +
+							"                            <select id=\"Toxicidad_Renal\" class=\"form-control\" name=\"repuestaATratamiento\" th:value=\"${final?.repuestaATratamiento}\">\n" +
+							"                              <option value=\"RCs\">RCs</option>\n" +
+							"                              <option value=\"RC\">RC</option>\n" +
+							"                              <option value=\"MBRP\">MBRP</option>\n" +
+							"                              <option value=\"RP\">RP</option>\n" +
+							"                              <option value=\"EE\">EE</option>\n" +
+							"                              <option value=\"PE\">PE</option>\n" +
+							"                            </select>                          </div>\n" +
+							"                        </fieldset>\n" +
+							"                      </div>\n" +
+							"                    </div>\n" +
+							"                      <div class=\"row\">\n" +
+							"                          <div class=\"col-lg-12 col-md-12 col-sm-12\">\n" +
+							"                            <div class=\"form-group\">\n" +
+							"                              <textarea disabled id=\"comment\" rows=\"20\" class=\"form-control\" name=\"comentariosExtrax\">[[${final?.comentariosExtrax}]]</textarea>\n" +
+							"                              <label for=\"comment\"\n" +
+							"                                >Observaciones</label\n" +
+							"                              >\n" +
+							"                            </div>\n" +
+							"                          </div>\n" +
+							"                      </div>";
 		}
 		return respuesta;
 	}

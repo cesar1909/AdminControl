@@ -44,10 +44,15 @@ function getFinalInfoJs(identificadorJs) {
     $.ajax({
         url: "/patient/getFinalInfo" + "?id=" + identificadorJs,
         success: function(data) {
-            console.log("Nos comunicamos con Spring");
-            $( "#noConsultation" ).remove();
-            $('#result').html(data);
-            // $('#result').load('/patient/getFinalInfo', "identificador=" + identificadorJs)
+            if (data == "no data") {
+                console.log("Datos nulos");
+            }
+            else {
+                console.log("Datos desde el servidor");
+                $( "#noConsultation" ).remove();
+                $('#result').html(data);
+                // $('#result').load('/patient/getFinalInfo', "identificador=" + identificadorJs)
+            }
         }
     });
 }
