@@ -397,7 +397,7 @@ public class PatientController {
 							"                            <fieldset disabled>\n" +
 							"                                <div class=\"form-group\">\n" +
 							"                                  <label for=\"Deshidrogenasa_Lactica\">Deshidrogenasa Lactica (U/L)</label>\n" +
-							"                                  <input type=\"text\" class=\"form-control\" id=\"Deshidrogenasa_Lactica\" placeholder=\"U/L\" name=\"lacticDehydrogenase\" value =" +finalConsultation.getAlbumin() + " \">\n" +
+							"                                  <input type=\"text\" class=\"form-control\" id=\"Deshidrogenasa_Lactica\" placeholder=\"U/L\" name=\"lacticDehydrogenase\" value =" +finalConsultation.getLacticDehydrogenase() + " \">\n" +
 							"                                </div>\n" +
 							"                            </fieldset>\n" +
 							"                          </div>\n" +
@@ -413,7 +413,7 @@ public class PatientController {
 							"                            <fieldset disabled>\n" +
 							"                                <div class=\"form-group\">\n" +
 							"                                  <label for=\"Hematocrito\">Hematocrito (%)</label>\n" +
-							"                                  <input type=\"text\" class=\"form-control\" id=\"Hematocrito\" placeholder=\"%\" name=\"hematocrit\" value =" +finalConsultation.getAlbumin() + " \">\n" +
+							"                                  <input type=\"text\" class=\"form-control\" id=\"Hematocrito\" placeholder=\"%\" name=\"hematocrit\" value =" +finalConsultation.getHematocrit() + " \">\n" +
 							"                                </div>\n" +
 							"                            </fieldset>\n" +
 							"                          </div>\n" +
@@ -424,7 +424,7 @@ public class PatientController {
 							"                            <fieldset disabled>\n" +
 							"                                <div class=\"form-group\">\n" +
 							"                                  <label for=\"Leucocitos\">Leucocitos (cels x 10(3)/uL)</label>\n" +
-							"                                  <input type=\"text\" class=\"form-control\" id=\"Leucocitos\" placeholder=\"cels x 10(3)/uL\" name=\"leukocytes\" value =" +finalConsultation.getAlbumin() + " \">\n" +
+							"                                  <input type=\"text\" class=\"form-control\" id=\"Leucocitos\" placeholder=\"cels x 10(3)/uL\" name=\"leukocytes\" value =" +finalConsultation.getLeukocytes() + " \">\n" +
 							"                                </div>\n" +
 							"                            </fieldset>\n" +
 							"                          </div>\n" +
@@ -432,7 +432,7 @@ public class PatientController {
 							"                            <fieldset disabled>\n" +
 							"                                <div class=\"form-group\">\n" +
 							"                                  <label for=\"Linfocitos\">Linfocitos (cels x 10(3)/uL)</label>\n" +
-							"                                  <input type=\"text\" class=\"form-control\" id=\"Linfocitos\" placeholder=\"cels x 10(3)/uL\" name=\"lymphocytes\" value =" +finalConsultation.getAlbumin() + " \">\n" +
+							"                                  <input type=\"text\" class=\"form-control\" id=\"Linfocitos\" placeholder=\"cels x 10(3)/uL\" name=\"lymphocytes\" value =" +finalConsultation.getLymphocytes() + " \">\n" +
 							"                                </div>\n" +
 							"                            </fieldset>\n" +
 							"                          </div>\n" +
@@ -467,7 +467,7 @@ public class PatientController {
 							"                          <fieldset disabled>\n" +
 							"                              <div class=\"form-group\">\n" +
 							"                                <label for=\"IgA\">IgA (mg/dL)</label>\n" +
-							"                                <input type=\"text\" class=\"form-control\" id=\"IgA\" placeholder=\"mg/dL\" name=\"igA\" value =\" +finalConsultation.getIgG() + \" \">\n" +
+							"                                <input type=\"text\" class=\"form-control\" id=\"IgA\" placeholder=\"mg/dL\" name=\"igA\" value =" +finalConsultation.getIgA() + " \">\n" +
 							"                              </div>\n" +
 							"                          </fieldset>\n" +
 							"                        </div>\n" +
@@ -478,7 +478,7 @@ public class PatientController {
 							"                          <fieldset disabled>\n" +
 							"                              <div class=\"form-group\">\n" +
 							"                                <label for=\"IgM\">IgM (mg/dL)</label>\n" +
-							"                                <input type=\"text\" class=\"form-control\" id=\"IgM\" placeholder=\"mg/dL\" name=\"igM\" th:value=\"${final?.igM}\">\n" +
+							"                                <input type=\"text\" class=\"form-control\" id=\"IgM\" placeholder=\"mg/dL\" name=\"igM\" value =" +finalConsultation.getIgM() + " \">\n" +
 							"                              </div>\n" +
 							"                          </fieldset>\n" +
 							"                        </div>\n" +
@@ -486,7 +486,7 @@ public class PatientController {
 							"                          <fieldset disabled>\n" +
 							"                              <div class=\"form-group\">\n" +
 							"                                <label for=\"Cadenas_Ligeras_Kappa\">Cadenas Ligeras Kappa (mg/L)</label>\n" +
-							"                                <input type=\"text\" class=\"form-control\" id=\"Cadenas_Ligeras_Kappa\" placeholder=\"mg/dL\" name=\"lightChainsKappa\" th:value=\"${final?.lightChainsKappa}\">\n" +
+							"                                <input type=\"text\" class=\"form-control\" id=\"Cadenas_Ligeras_Kappa\" placeholder=\"mg/dL\" name=\"lightChainsKappa\" value =" +finalConsultation.getLightChainsKappa() + " \">\n" +
 							"                              </div>\n" +
 							"                          </fieldset>\n" +
 							"                        </div>\n" +
@@ -494,7 +494,7 @@ public class PatientController {
 							"                          <fieldset disabled>\n" +
 							"                              <div class=\"form-group\">\n" +
 							"                                <label for=\"Cadenas_Ligeras_Lambda\">Cadenas Ligeras Lambda (mg/L)</label>\n" +
-							"                                <input type=\"text\" class=\"form-control\" id=\"Cadenas_Ligeras_Lambda\" placeholder=\"%\" name=\"lightChainsLambda\" th:value=\"${final?.lightChainsLambda}\">\n" +
+							"                                <input type=\"text\" class=\"form-control\" id=\"Cadenas_Ligeras_Lambda\" placeholder=\"%\" name=\"lightChainsLambda\" value =" +finalConsultation.getLightChainsLambda() + " \">\n" +
 							"                              </div>\n" +
 							"                          </fieldset>\n" +
 							"                        </div>\n" +
@@ -505,7 +505,7 @@ public class PatientController {
 							"                            <fieldset disabled>\n" +
 							"                                <div class=\"form-group\">\n" +
 							"                                  <label for=\"celplasmo\">Células plasmáticas en Médula ósea (%)</label>\n" +
-							"                                  <input type=\"text\" class=\"form-control\" id=\"celplasmo\" placeholder=\"%\" name=\"celPlasmaticEnMedulaOsea\" th:value=\"${final?.celPlasmaticEnMedulaOsea}\">\n" +
+							"                                  <input type=\"text\" class=\"form-control\" id=\"celplasmo\" placeholder=\"%\" name=\"celPlasmaticEnMedulaOsea\" value =" +finalConsultation.getCelPlasmaticEnMedulaOsea() + " \">\n" +
 							"                                </div>\n" +
 							"                            </fieldset>\n" +
 							"                          </div>\n" +
@@ -513,19 +513,18 @@ public class PatientController {
 							"                            <fieldset disabled>\n" +
 							"                                <div class=\"form-group\">\n" +
 							"                                  <label for=\"electroforesis\">Electroforesis de proteínas Suero</label>\n" +
-							"                                  <input type=\"text\" class=\"form-control\" id=\"electroforesis\" placeholder=\"g/L\" name=\"electroForesisDeProteinasSuero\" th:value=\"${final?.electroForesisDeProteinasSuero}\">\n" +
+							"                                  <input type=\"text\" class=\"form-control\" id=\"electroforesis\" placeholder=\"g/L\" name=\"electroForesisDeProteinasSuero\" value =" +finalConsultation.getElectroForesisDeProteinasSuero() + " \">\n" +
 							"                                </div>\n" +
 							"                            </fieldset>\n" +
 							"                          </div>\n" +
 							"                        <div class=\"col-lg-4 col-md-4 col-sm-4\">\n" +
 							"                          <fieldset disabled>\n" +
 							"                            <div class=\"form-group col-md-4\">\n" +
-							"                              <label for=\"electroforesis2\">Electroforesis de proteinas Orina</label>\n" +
-							"                              <input type=\"text\" class=\"form-control\" id=\"electroforesis2\" placeholder=\"g/L\" name=\"electroForesisDeProteinasOrina\" th:value=\"${final?.electroForesisDeProteinasOrina}\">\n" +
+							"                              <label for=\"electroforesis2\">Electroforesis de proteínas Orina</label>\n" +
+							"                              <input type=\"text\" class=\"form-control\" id=\"electroforesis2\" placeholder=\"g/L\" name=\"electroForesisDeProteinasOrina\" value =" +finalConsultation.getElectroForesisDeProteinasOrina() + " \">\n" +
 							"                            </div>\n" +
 							"                          </fieldset>\n" +
 							"                        </div>\n" +
-							"\n" +
 							"                      </div>\n" +
 							"                      <br />\n" +
 							"                      <div class=\"row\">\n" +
@@ -533,7 +532,7 @@ public class PatientController {
 							"                          <fieldset disabled>\n" +
 							"                            <div class=\"form-group\">\n" +
 							"                              <label for=\"inmunofijacionig\">Inmunofijación Tipo Ig</label>\n" +
-							"                              <select id=\"inmunofijacionig\" class=\"form-control\" name=\"inmFijacionTipoIg\" th:value=\"${final?.inmFijacionTipoIg}\">\n" +
+							"                              <select id=\"inmunofijacionig\" class=\"form-control\" name=\"inmFijacionTipoIg\" value =" +finalConsultation.getInmFijacionTipoIg() + " \">\n" +
 							"                                <option value=\"Negativa\">Negativa</option>\n" +
 							"                                <option value=\"IgA\">IgA</option>\n" +
 							"                                <option value=\"IgG\">IgG</option>\n" +
@@ -546,7 +545,7 @@ public class PatientController {
 							"                            <fieldset disabled>\n" +
 							"                                <div class=\"form-group\">\n" +
 							"                                  <label for=\"inmunofijacioncll\">Inmunofijacion Tipo CLL</label>\n" +
-							"                                  <select id=\"inmunofijacioncll\" class=\"form-control\" name=\"inmFijacionTipoCll\" th:value=\"${final?.inmFijacionTipoCll}\">\n" +
+							"                                  <select id=\"inmunofijacioncll\" class=\"form-control\" name=\"inmFijacionTipoCll\" value =" +finalConsultation.getInmFijacionTipoCll() + " \">\n" +
 							"                                    <option value=\"Negativo\">Negativa</option>\n" +
 							"                                    <option value=\"Lambda\">Lambda</option>\n" +
 							"                                    <option value=\"Kappa\">Kappa</option>\n" +
@@ -554,42 +553,43 @@ public class PatientController {
 							"                                  </select>                                </div>\n" +
 							"                            </fieldset>\n" +
 							"                          </div>\n" +
-							"                          <div class=\"col-lg-4 col-md-4 col-sm-4\">\n" +
-							"                            <fieldset disabled>\n" +
-							"                                <div class=\"form-group\">\n" +
-							"                                  <label for=\"minres\">Enfermedad mínima residual (eventos x10(-7))</label>\n" +
-							"                                  <input type=\"text\" class=\"form-control\" id=\"minres\" placeholder=\"0 - 1000\" name=\"enfermedadMinimaResidual\" th:value=\"${final?.enfermedadMinimaResidual}\">\n" +
-							"                                </div>\n" +
-							"                            </fieldset>\n" +
-							"                          </div>\n" +
-							"                      </div>\n" +
-							"                      <br />\n" +
-							"                    <div class=\"row\">\n" +
-							"                      <div class=\"col-lg-4 col-md-4 col-sm-4\">\n" +
-							"                        <fieldset disabled>\n" +
-							"                          <div class=\"form-group\">\n" +
-							"                            <label for=\"Toxicidad_Renal\">Respuesta a tratamiento</label>\n" +
-							"                            <select id=\"Toxicidad_Renal\" class=\"form-control\" name=\"repuestaATratamiento\" th:value=\"${final?.repuestaATratamiento}\">\n" +
-							"                              <option value=\"RCs\">RCs</option>\n" +
-							"                              <option value=\"RC\">RC</option>\n" +
-							"                              <option value=\"MBRP\">MBRP</option>\n" +
-							"                              <option value=\"RP\">RP</option>\n" +
-							"                              <option value=\"EE\">EE</option>\n" +
-							"                              <option value=\"PE\">PE</option>\n" +
-							"                            </select>                          </div>\n" +
-							"                        </fieldset>\n" +
-							"                      </div>\n" +
-							"                    </div>\n" +
-							"                      <div class=\"row\">\n" +
-							"                          <div class=\"col-lg-12 col-md-12 col-sm-12\">\n" +
-							"                            <div class=\"form-group\">\n" +
-							"                              <textarea disabled id=\"comment\" rows=\"20\" class=\"form-control\" name=\"comentariosExtrax\">[[${final?.comentariosExtrax}]]</textarea>\n" +
-							"                              <label for=\"comment\"\n" +
-							"                                >Observaciones</label\n" +
-							"                              >\n" +
-							"                            </div>\n" +
-							"                          </div>\n" +
-							"                      </div>";
+							"                                                    <div class=\"col-lg-4 col-md-4 col-sm-4\">\n" +
+					"                            <fieldset disabled>\n" +
+					"                                <div class=\"form-group\">\n" +
+					"                                  <label for=\"minres\">Enfermedad mínima residual (eventos x10(-7))</label>\n" +
+					"                                  <input type=\"text\" class=\"form-control\" id=\"minres\" placeholder=\"0 - 1000\" name=\"enfermedadMinimaResidual\" value =" +finalConsultation.getEnfermedadMinimaResidual() + " \">\n" +
+					"                                </div>\n" +
+					"                            </fieldset>\n" +
+					"                          </div>\n" +
+					"                      </div>\n" +
+					"                      <br />\n" +
+					"                    <div class=\"row\">\n" +
+					"                      <div class=\"col-lg-4 col-md-4 col-sm-4\">\n" +
+					"                        <fieldset disabled>\n" +
+					"                          <div class=\"form-group\">\n" +
+					"                            <label for=\"Toxicidad_Renal\">Respuesta a tratamiento</label>\n" +
+					"                            <select id=\"Toxicidad_Renal\" class=\"form-control\" name=\"repuestaATratamiento\" value =" +finalConsultation.getRepuestaATratamiento() + " \">\n" +
+					"                              <option value=\"RCs\">RCs</option>\n" +
+					"                              <option value=\"RC\">RC</option>\n" +
+					"                              <option value=\"MBRP\">MBRP</option>\n" +
+					"                              <option value=\"RP\">RP</option>\n" +
+					"                              <option value=\"EE\">EE</option>\n" +
+					"                              <option value=\"PE\">PE</option>\n" +
+					"                            </select>                          </div>\n" +
+					"                        </fieldset>\n" +
+					"                      </div>\n" +
+					"                    </div>\n" +
+					"                      <div class=\"row\">\n" +
+					"                          <div class=\"col-lg-12 col-md-12 col-sm-12\">\n" +
+					"                            <div class=\"form-group\">\n" +
+					"                              <label for=\"comment\"\n" +
+					"                                >Observaciones</label\n" +
+					"                              >\n" +
+					"                              <textarea disabled id=\"comment\" rows=\"20\" class=\"form-control\" name=\"comentariosExtrax\">" + finalConsultation.getComentariosExtrax() + "</textarea>\n" +
+
+					"                            </div>\n" +
+					"                          </div>\n" +
+					"                      </div>";
 		}
 		return respuesta;
 	}
