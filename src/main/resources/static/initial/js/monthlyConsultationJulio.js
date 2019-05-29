@@ -79,7 +79,7 @@ const initialConsultation = (() => {
                 errores = errores.concat("-Hemoglobina: fuera del rango 1 a 20\n");
             }
             if(Hematocrito.val()< 3 || Hematocrito.val()> 20 || Hematocrito.val() == ""){
-                errores = errores.concat("-Hematocrito: fuera del rango 1 a 20\n");
+                errores = errores.concat("-Hematocrito: fuera del rango 3 a 20\n");
             }
             if(Leucocitos.val()< 0 || Leucocitos.val()> 100000 || Leucocitos.val() == ""){
                 errores = errores.concat("-Leucocitos: fuera del rango 0 a 100,000\n");
@@ -123,10 +123,10 @@ const initialConsultation = (() => {
         }
 
         if(Cadenas_Ligeras_Kappa.val()< 0 || Cadenas_Ligeras_Kappa.val()> 1000 || Cadenas_Ligeras_Kappa.val() == ""){
-                errores = errores.concat("-Cadenas_Ligeras_Kappa: fuera del rango 0 a 1,000\n");
+                errores = errores.concat("-Cadenas Ligeras Kappa: fuera del rango 0 a 1,000\n");
         }
         if(Cadenas_Ligeras_Lambda.val()< 0 || Cadenas_Ligeras_Lambda.val()> 500 || Cadenas_Ligeras_Lambda.val() == ""){
-                errores = errores.concat("-Cadenas_Ligeras_Lambda: fuera del rango 0 a 1,000\n");
+                errores = errores.concat("-Cadenas Ligeras Lambda: fuera del rango 0 a 1,000\n");
         }
         if(Toxicidad_Hematologica_Serie_Roja.val()< 0 || Toxicidad_Hematologica_Serie_Roja.val()> 5 || Toxicidad_Hematologica_Serie_Roja.val() == ""){
                 errores = errores.concat("-Toxicidad Toxicidad Hematológica - Serie Roja: fuera del rango 0 a 5\n");
@@ -151,10 +151,10 @@ const initialConsultation = (() => {
         }
     });
 
-    // btnSave.click(()=>{
-    //     swal("Consulta Mensual Registrada", "", "success");
-    //
-    // });
+    btnSave.click(()=>{
+         swal("Consulta Mensual Registrada", "", "success");
+
+    });
 
     btnBack2.click(()=>{
         tabConsulta1.addClass('active');
