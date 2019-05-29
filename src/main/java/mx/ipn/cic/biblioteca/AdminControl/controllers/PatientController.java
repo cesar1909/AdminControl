@@ -370,7 +370,18 @@ public class PatientController {
 		String respuesta = null;
 		System.out.println("NUESTO ID DE CONSULTA ES: " + idConsulta);
 		System.out.println("NUESTRO ID DE PACIENTE ES: " + idPaciente);
-		respuesta = "<h3>Aqui deberian ir los datos</h3>";
+		PatientModel userFound = this.userService.findById(idPaciente);
+		LinkedList<MonthlyConsultation> monthlyConsultations = this.monthlyConsultationService.findByPatientId(userFound);
+		
+//		if (monthlyConsultations.size() == 0){
+//			System.out.println("NO SE ENCONTRARON CONSULTAS MENSUALES");
+//		}
+//		else {
+//			System.out.println("NUMERO DE CONSULTAS MENSUAJES: " + monthlyConsultations.size());
+//			for(MonthlyConsultation tmp : monthlyConsultations){
+//
+//			}
+//		}
 
 		return respuesta;
 	}

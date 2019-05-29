@@ -68,7 +68,7 @@ function verifyMonthly(idPat) {
             else {
                 console.log("Datos desde el servidor");
                 $( "#noConsultation2" ).remove();
-                $('#result2').html(data);
+                //$('#result2').html(data);
                 // $('#result').load('/patient/getFinalInfo', "identificador=" + identificadorJs)
             }
         }
@@ -77,9 +77,12 @@ function verifyMonthly(idPat) {
 
 
 function getMonthlyInfo(idCon) {
-    var idPatient = document.getElementById("myvar2");
+    var id = idCon.valueOf();
+    var idPatient = document.getElementById("myvarid").textContent;
+    console.log(id);
+    console.log(idPatient);
     $.ajax({
-        url: "/patient/getMonthlyInfo" + "?idConsulta=" + idCon + "?idPaciente=" + idPatient,
+        url: "/patient/getMonthlyInfo" + "?idConsulta=" + idCon + "&idPaciente=" + idPatient,
         success: function(data) {
                 console.log("Nos comunicamos con el controlador de consulta mensual");
                 $('#result2').html(data);
