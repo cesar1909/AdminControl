@@ -349,11 +349,28 @@ public class PatientController {
 		return ajaxString;
 	}
 
+	@GetMapping(path = "/verifyMonthly")
+	public @ResponseBody String verifyMonthly(@RequestParam("idPaciente") Integer idPaciente){
+		String respuesta = null;
+		PatientModel userFound = this.userService.findById(idPaciente);
+		LinkedList<MonthlyConsultation> monthlyConsultations = this.monthlyConsultationService.findByPatientId(userFound);
+		if (monthlyConsultations.size() == 0){
+			System.out.println("NO SE ENCONTRARON CONSULTAS MENSUALES");
+			respuesta = "no data";
+		}
+		else {
+			System.out.println("NUMERO DE CONSULTAS MENSUAJES: " + monthlyConsultations.size());
+			respuesta = "<h3>SI HAY CONSUTLAS MENSUAJES, AUN NO LAS MUESTRO JEJE</h3>";
+		}
+		return respuesta;
+	}
+
 	@GetMapping(path = "/getMonthlyInfo")
 	public @ResponseBody String getMonthlyInfo(@RequestParam("idConsulta") Integer idConsulta, @RequestParam("idPaciente") Integer idPaciente){
 		String respuesta = null;
-
-
+		System.out.println("NUESTO ID DE CONSULTA ES: " + idConsulta);
+		System.out.println("NUESTRO ID DE PACIENTE ES: " + idPaciente);
+		respuesta = "<h3>Aqui deberian ir los datos</h3>";
 
 		return respuesta;
 	}

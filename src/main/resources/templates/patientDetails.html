@@ -46,7 +46,7 @@
                 </a>
               </li>
                 <li id="navLink3" class="nav-item">
-                  <a class="nav-link" href="#tab3" data-toggle="tab">
+                  <a th:onclick="${'verifyMonthly(' + user.id +');'}" class="nav-link" href="#tab3" data-toggle="tab">
                     <p class="fontSize1_5">Consultas Mensuales</p>
                   </a>
                 </li>
@@ -74,22 +74,27 @@
         <!-- Main Content  -->
         <div class="content">
           <div class="row">
-            <h4><span><i class="material-icons">assignment</i><b> Información del paciente</b></span></h4>
-
-          </div>
-          <br>
-          <div class="row">
-            <div id="divH1" class="col-lg-12 col-md-12 col-sm-12">
-              <form id="patientName" th:action="@{/patient/info}">
-                <h3 th:text="*{user.getFullName()}"><i class="material-icons">person</i></h3>
-              </form>
+            <div class="col-lg-4 col-md-4 col-sm-4">
+              <h4><span><i class="material-icons">assignment</i><b> Información del paciente</b></span></h4>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4">
+              <h3 th:text="*{user.getFullName()}"><i class="material-icons">person</i></h3>
             </div>
           </div>
+          <!--<br>-->
+          <!--<div class="row">-->
+            <!--<div id="divH1" class="col-lg-12 col-md-12 col-sm-12">-->
+              <!--<form id="patientName" th:action="@{/patient/info}">-->
+                <!--<h3 th:text="*{user.getFullName()}"><i class="material-icons">person</i></h3>-->
+              <!--</form>-->
+            <!--</div>-->
+          <!--</div>-->
           <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12">  
               <form id="formDetails"
                     th:action="@{/patient/info}">
                 <span id="myvar" style="display:none" th:text="${monthly.size()}"></span>
+                <span id="myvarid" style="display:none" th:text="${user.id}"></span>
 <!--                <input hidden type="number" id="idPatient" class="form-control" name="id" th:field="*{user.id}">-->
 <!--                <span id="myvar2" style="display:none" th:name="var2"></span>-->
                 <input type="number" id="idPatient" class="form-control" hidden="true" name="id" th:value="${user.id}">
@@ -179,7 +184,7 @@
 <!--                        </fieldset>-->
 <!--                      </div>-->
                     </div>
-                    <br/>
+                    <!--<br/>-->
 <!--                    <div class="row">-->
 <!--                      <div class="col-lg-4 col-md-4 col-sm-4">-->
 <!--                        <fieldset disabled>-->
@@ -206,7 +211,7 @@
 <!--                        </fieldset>-->
 <!--                      </div>-->
 <!--                    </div>-->
-                    <br/>
+                    <!--<br/>-->
 <!--                    <div class="row">-->
 <!--                      <div class="col-lg-4 col-md-4 col-sm-4">-->
 <!--                        <fieldset disabled>-->
@@ -591,40 +596,42 @@
                     </div>
                   </div>
                   <div class="tab-pane" id="tab3">
-                    <div class="row">
+                    <div class="row" id="noConsultation2">
                       <div class="col-lg-12 col-md-12 col-sm-12">
                         <h3 >NO HAY CONSULTAS MENSUALES REGISTRADAS.</h3>
                       </div>
                     </div>
-                                        <!--                    <div class="row">-->
-<!--                        <div class="col-lg-12 col-md-12 col-sm-12">-->
-<!--                           <div class="card CardDetails">-->
-<!--                                <div class="card-body">-->
-<!--                                    <div class="row">-->
-<!--                                        <div class="col-lg-4 col-md-4 col-sm-4">-->
-<!--                                        </div>-->
-<!--                                        <div class="col-lg-4 col-md-4 col-sm-4">-->
-<!--                                            <div class="form-group">-->
-<!--                                              <label for="slcSelectCicle">Selecciona un ciclo</label>-->
-<!--                                                <select class="form-control selectpicker" data-style="btn btn-link" id="slcSelectCicle" name="inptProduct" onChange="createTable(this.value);">-->
-<!--                                                    <option value="0" disabled selected>Selecciona un ciclo...</option>&ndash;&gt;&ndash;&gt;-->
-<!--                                                    <option value="1">1</option>&ndash;&gt;&ndash;&gt;-->
-<!--                                                    <option value="2">2</option>&ndash;&gt;&ndash;&gt;-->
-<!--                                                    <option value="3">3</option>&ndash;&gt;&ndash;&gt;-->
-<!--                                                    <option value="4">4</option>&ndash;&gt;&ndash;&gt;-->
-<!--                                                   <option value="5">5</option>&ndash;&gt;&ndash;&gt;-->
-<!--                                                    <option value="6">6</option>&ndash;&gt;&ndash;&gt;-->
-<!--                                                    <option value="7">7</option>&ndash;&gt;&ndash;&gt;-->
-<!--                                                    <option value="8">8</option>&ndash;&gt;&ndash;&gt;-->
-<!--                                                </select>-->
-<!--                                            </div>-->
-<!--                                        </div>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                           </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="row">-->
+                    <div class="row" id="selectConsult">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                           <div class="card CardDetails">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-lg-4 col-md-4 col-sm-4">
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-sm-4">
+                                            <div class="form-group">
+                                              <label for="slcSelectCicle">Selecciona un ciclo</label>
+                                                <select class="form-control selectpicker" data-style="btn btn-link" id="slcSelectCicle" name="inptProduct" onchange="createTable();">
+                                                    <!--<option value="0" disabled selected>Selecciona un ciclo...</option>&ndash;&gt;&ndash;&gt;-->
+                                                    <!--<option value="1">1</option>&ndash;&gt;&ndash;&gt;-->
+                                                    <!--<option value="2">2</option>&ndash;&gt;&ndash;&gt;-->
+                                                    <!--<option value="3">3</option>&ndash;&gt;&ndash;&gt;-->
+                                                    <!--<option value="4">4</option>&ndash;&gt;&ndash;&gt;-->
+                                                   <!--<option value="5">5</option>&ndash;&gt;&ndash;&gt;-->
+                                                    <!--<option value="6">6</option>&ndash;&gt;&ndash;&gt;-->
+                                                    <!--<option value="7">7</option>&ndash;&gt;&ndash;&gt;-->
+                                                    <!--<option value="8">8</option>&ndash;&gt;&ndash;&gt;-->
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                           </div>
+                        </div>
+                    </div>
+                    <div id="result2"></div>
+
+                    <!--                    <div class="row">-->
 <!--                      <div class="col-lg-4 col-md-4 col-sm-4">-->
 <!--                        <fieldset disabled>-->
 <!--                            <div class="form-group">-->
