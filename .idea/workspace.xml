@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bf54f52d-76f4-4428-acb6-b0f2973c4583" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/initial/js/finalConsultationJulio.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/initial/js/finalConsultationJulio.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/initial/js/monthlyConsultationJulio.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/initial/js/monthlyConsultationJulio.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/addFinalConsultation.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/addFinalConsultation.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/addMonthlyConsultation.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/addMonthlyConsultation.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -39,20 +35,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/resources/templates/addFinalConsultation.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-138">
-              <caret line="276" column="94" lean-forward="true" selection-start-line="276" selection-start-column="94" selection-end-line="276" selection-end-column="94" />
+            <state relative-caret-position="192">
+              <caret line="136" column="147" selection-start-line="136" selection-start-column="140" selection-end-line="136" selection-end-column="147" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/static/initial/js/finalConsultationJulio.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="77">
-              <caret line="257" column="33" selection-start-line="257" selection-start-column="33" selection-end-line="257" selection-end-column="33" />
+            <state relative-caret-position="362">
+              <caret line="252" lean-forward="true" selection-start-line="252" selection-end-line="252" />
             </state>
           </provider>
         </entry>
@@ -62,6 +58,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>txtDateTrasplante</find>
+      <find>albumin</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -99,7 +96,7 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="4">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="1000" />
     <option name="y" value="27" />
     <option name="width" value="920" />
@@ -546,17 +543,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/addFinalConsultation.html">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/initial/js/finalConsultationJulio.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-138">
-          <caret line="276" column="94" lean-forward="true" selection-start-line="276" selection-start-column="94" selection-end-line="276" selection-end-column="94" />
+        <state relative-caret-position="362">
+          <caret line="252" lean-forward="true" selection-start-line="252" selection-end-line="252" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/initial/js/finalConsultationJulio.js">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/addFinalConsultation.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="77">
-          <caret line="257" column="33" selection-start-line="257" selection-start-column="33" selection-end-line="257" selection-end-column="33" />
+        <state relative-caret-position="192">
+          <caret line="136" column="147" selection-start-line="136" selection-start-column="140" selection-end-line="136" selection-end-column="147" />
         </state>
       </provider>
     </entry>

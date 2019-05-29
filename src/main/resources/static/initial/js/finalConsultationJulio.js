@@ -79,7 +79,7 @@ const initialConsultation = (() => {
     //----------Functions----------//
 
 btnNext1.click(()=>{
-     /*
+
     var errores = new String("");
 
 
@@ -115,17 +115,17 @@ btnNext1.click(()=>{
             aux = aux.concat(errores.toString());
             swal(aux.toString());
         }
-        else{*/
+        else{
             tabConsulta1.removeClass('active');
         tabConsulta2.removeClass('disabled');
         tabConsulta2.addClass('active');
         tab1.removeClass('active');
         tab2.addClass('active');
-        //}
+        }
         
     });
 btnNext2.click(()=>{
-      /* var errores = new String("");
+       var errores = new String("");
         if(Plaquetas.val()< 0 || Plaquetas.val()> 2000000 || Plaquetas.val() == ""){
                 errores = errores.concat("-Plaquetas: fuera del rango 0 a 2,000,000\n");
         }
@@ -171,13 +171,13 @@ btnNext2.click(()=>{
                 aux = aux.concat(errores.toString());
                 swal(aux.toString());
             }
-        else{*/
+        else{
             tabConsulta2.removeClass('active');
             tabConsulta3.removeClass('disabled');
             tabConsulta3.addClass('active');
             tab2.removeClass('active');
             tab3.addClass('active');
-       //}
+       }
         
     });
 
@@ -275,21 +275,20 @@ $('input[type="checkbox"]').on('change', function(e){
     } else {
          swal("Campos trasplante deshabilitados");
 
-
-         $("txtDateTrasplante").val('');
-         $("celCD34").val(0);
-         $("txtDateInjertoMie").val('');
-         $("txtDateInjertoPla").val('0');
-         $("Toxicidad_Hematologica_Plaquetas").val('0');
-         $("Toxicidad_Hepatica").val('0');
-         $("Toxicidad_Renal").val('0');
-         $("Toxicidad_neuropatia_periferica").val('0');
-         $("Toxicidad_Hematologica_Neutrofilos").val('0');
-         $("Toxicidad_Hematologica_Serie_Roja").val('0');
-         $("Sitio_de_infeccion").val('Ninguna');
-         $("Toxicidad_Infecciosa").val('0');
-         $("Toxicidad_Gastrointestinal-Nausea").val('0');
-         $("Reaccion_a_infusion_de_medicamentos").val('0');
+         $("#txtDateTrasplante").val('');
+         $("#celCD34").val(0);
+         $("#txtDateInjertoMie").val('');
+         $("#txtDateInjertoPla").val('0');
+         $("#Toxicidad_Hematologica_Plaquetas").val('0');
+         $("#Toxicidad_Hepatica").val('0');
+         $("#Toxicidad_Renal").val('0');
+         $("#Toxicidad_neuropatia_periferica").val('0');
+         $("#Toxicidad_Hematologica_Neutrofilos").val('0');
+         $("#Toxicidad_Hematologica_Serie_Roja").val('0');
+         $("#Sitio_de_infeccion").val('Ninguna');
+         $("#Toxicidad_Infecciosa").val('0');
+         $("#Toxicidad_Gastrointestinal-Nausea").val('0');
+         $("#Reaccion_a_infusion_de_medicamentos").val('0');
 
          document.getElementById("txtDateTrasplante").setAttribute("disabled",true);
          document.getElementById("celCD34").setAttribute("disabled",true);
