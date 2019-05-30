@@ -57,7 +57,7 @@ const patientList = (() => {
 function deseaEliminarDoctor (idDoctor){
     var resultado = false;
     swal({
-      title: "¿Desea eliminar el doctor?",
+      title: "¿Desea eliminaral medico?",
       text: "Si elimina, no podrá recuperar la información!",
       icon: "warning",
       buttons: true,
