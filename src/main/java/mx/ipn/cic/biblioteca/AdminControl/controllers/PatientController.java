@@ -711,6 +711,21 @@ public class PatientController {
 		mav.addObject("users", searchResult);
 		return mav;
 	}
+
+//	@GetMapping(path="/buscador")
+//	public  ModelAndView buscador(
+//			@RequestParam(name="name", required = false) String name,
+//			@RequestParam(name="age", required = false) String age,
+//			@RequestParam(name="name", required = false) String name
+//			){
+//
+//		List<PatientModel> searchResult = this.userService.search(name);
+//
+//		ModelAndView mav = new ModelAndView("patientsList");
+//
+//		mav.addObject("users", searchResult);
+//		return mav;
+//	}
 	
 //	//Recupera todo lo que hay en el modelo Patient
 //	@GetMapping(path="/allpatients")
