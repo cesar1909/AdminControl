@@ -5,6 +5,8 @@
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
     <!--     Fonts and icons     -->
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css"/>
@@ -51,7 +53,7 @@
                         </a>
                     </li>
                     <li id="navLink4" class="nav-item">
-                        <a class="nav-link" href="#tab4" data-toggle="tab">
+                        <a th:onclick="${'getFinalInfoJs(' + user.id +');'}" class="nav-link" href="#tab4" data-toggle="tab">
                             <p class="fontSize1_5">Consulta Final</p>
                         </a>
                     </li>
@@ -865,253 +867,279 @@
                                     </div>
                                 </div>
                             </div>
+                    </form>
                             <div class="tab-pane" id="tab4">
-                                <div class="row">
-                                    <div class="col-lg-4 col-md-4 col-sm-4">
-                                        <fieldset enabled>
-                                            <div class="form-group">
-                                                <label for="txtCalendar">Fecha de Valoración Final</label>
-                                                <input id="txtCalendar" type="text" class="mt10px input form-control" name="dateOfRealization" th:value="${final?.dateOfRealization}">
-                                            </div>
-                                        </fieldset>
-                                    </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-4">
-                                        <fieldset enabled>
-                                            <div class="form-group">
-                                                <label for="Albumina">Albumina (g/dL)</label>
-                                                <input type="text" class="form-control" id="Albumina" placeholder="g/dL"name="albumin" th:value="*{final?.albumin}">
-                                            </div>
-                                        </fieldset>
-                                    </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-4">
-                                        <fieldset enabled>
-                                            <div class="form-group">
-                                                <label for="Calcio_serico">Calcio sérico (mg/dL)</label>
-                                                <input type="text" class="form-control" id="Calcio_serico" placeholder="mg/dL" name="serumCalcium" th:value="${final?.serumCalcium}">
-                                            </div>
-                                        </fieldset>
-                                    </div>
-                                </div>
-                                <br />
-                                <div class="row">
-                                    <div class="col-lg-4 col-md-4 col-sm-4">
-                                        <fieldset enabled>
-                                            <div class="form-group">
-                                                <label for="Deshidrogenasa_Lactica">Deshidrogenasa Lactica (U/L)</label>
-                                                <input type="text" class="form-control" id="Deshidrogenasa_Lactica" placeholder="U/L" name="lacticDehydrogenase" th:value="${final?.lacticDehydrogenase}">
-                                            </div>
-                                        </fieldset>
-                                    </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-4">
-                                        <fieldset enabled>
-                                            <div class="form-group">
-                                                <label for="Hemoglobina">Hemoglobina (g/dL)</label>
-                                                <input type="text" class="form-control" id="Hemoglobina" placeholder="g/dL" name="hemoglobin" th:value="${final?.hemoglobin}">
-                                            </div>
-                                        </fieldset>
-                                    </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-4">
-                                        <fieldset enabled>
-                                            <div class="form-group">
-                                                <label for="Hematocrito">Hematocrito (%)</label>
-                                                <input type="text" class="form-control" id="Hematocrito" placeholder="%" name="hematocrit" th:value="${final?.hematocrit}">
-                                            </div>
-                                        </fieldset>
-                                    </div>
-                                </div>
-                                <br />
-                                <div class="row">
-                                    <div class="col-lg-4 col-md-4 col-sm-4">
-                                        <fieldset enabled>
-                                            <div class="form-group">
-                                                <label for="Leucocitos">Leucocitos (cels x 10(3)/uL)</label>
-                                                <input type="text" class="form-control" id="Leucocitos" placeholder="cels x 10(3)/uL" name="leukocytes" th:value="${final?.leukocytes}">
-                                            </div>
-                                        </fieldset>
-                                    </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-4">
-                                        <fieldset enabled>
-                                            <div class="form-group">
-                                                <label for="Linfocitos">Linfocitos (cels x 10(3)/uL)</label>
-                                                <input type="text" class="form-control" id="Linfocitos" placeholder="cels x 10(3)/uL" name="lymphocytes" th:value="${final?.lymphocytes}">
-                                            </div>
-                                        </fieldset>
-                                    </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-4">
-                                        <fieldset enabled>
-                                            <div class="form-group">
-                                                <label for="Neutrofilos">Neutrofilos (cels x 10(3)/uL)</label>
-                                                <input type="text" class="form-control" id="Neutrofilos" placeholder="cels x 10(3)/uL" name="neutrophils" th:value="${final?.neutrophils}">
-                                            </div>
-                                        </fieldset>
-                                    </div>
-                                </div>
-                                <br />
-                                <div class="row">
-                                    <div class="col-lg-4 col-md-4 col-sm-4">
-                                        <fieldset enabled>
-                                            <div class="form-group">
-                                                <label for="Plaquetas">Plaquetas (cels x 10(3)/uL)</label>
-                                                <input type="text" class="form-control" id="Plaquetas" placeholder="cels x 10(3)/uL" name="platelets" th:value="${final?.platelets}">
-                                            </div>
-                                        </fieldset>
-                                    </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-4">
-                                        <fieldset enabled>
-                                            <div class="form-group">
-                                                <label for="IgG">IgG (mg/dL)</label>
-                                                <input type="text" class="form-control" id="IgG" placeholder="mg/dL" name="igG" th:value="${final?.igG}">
-                                            </div>
-                                        </fieldset>
-                                    </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-4">
-                                        <fieldset enabled>
-                                            <div class="form-group">
-                                                <label for="IgA">IgA (mg/dL)</label>
-                                                <input type="text" class="form-control" id="IgA" placeholder="mg/dL" name="igA" th:value="${final?.igA}">
-                                            </div>
-                                        </fieldset>
-                                    </div>
-                                </div>
-                                <br />
-                                <div class="row">
-                                    <div class="col-lg-4 col-md-4 col-sm-4">
-                                        <fieldset enabled>
-                                            <div class="form-group">
-                                                <label for="IgM">IgM (mg/dL)</label>
-                                                <input type="text" class="form-control" id="IgM" placeholder="mg/dL" name="igM" th:value="${final?.igM}">
-                                            </div>
-                                        </fieldset>
-                                    </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-4">
-                                        <fieldset enabled>
-                                            <div class="form-group">
-                                                <label for="Cadenas_Ligeras_Kappa">Cadenas Ligeras Kappa (mg/L)</label>
-                                                <input type="text" class="form-control" id="Cadenas_Ligeras_Kappa" placeholder="mg/dL" name="lightChainsKappa" th:value="${final?.lightChainsKappa}">
-                                            </div>
-                                        </fieldset>
-                                    </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-4">
-                                        <fieldset enabled>
-                                            <div class="form-group">
-                                                <label for="Cadenas_Ligeras_Lambda">Cadenas Ligeras Lambda (mg/L)</label>
-                                                <input type="text" class="form-control" id="Cadenas_Ligeras_Lambda" placeholder="%" name="lightChainsLambda" th:value="${final?.lightChainsLambda}">
-                                            </div>
-                                        </fieldset>
-                                    </div>
-                                </div>
-                                <br />
-                                <div class="row">
-                                    <div class="col-lg-4 col-md-4 col-sm-4">
-                                        <fieldset enabled>
-                                            <div class="form-group">
-                                                <label for="celplasmo">Células plasmáticas en Médula ósea (%)</label>
-                                                <input type="text" class="form-control" id="celplasmo" placeholder="%" name="celPlasmaticEnMedulaOsea" th:value="${final?.celPlasmaticEnMedulaOsea}">
-                                            </div>
-                                        </fieldset>
-                                    </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-4">
-                                        <fieldset enabled>
-                                            <div class="form-group">
-                                                <label for="electroforesis">Electroforesis de proteínas Suero</label>
-                                                <input type="text" class="form-control" id="electroforesis" placeholder="g/L" name="electroForesisDeProteinasSuero" th:value="${final?.electroForesisDeProteinasSuero}">
-                                            </div>
-                                        </fieldset>
-                                    </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-4">
-                                        <fieldset enabled>
-                                            <div class="form-group col-md-4">
-                                                <label for="electroforesis2">Electroforesis de proteinas Orina</label>
-                                                <input type="text" class="form-control" id="electroforesis2" placeholder="g/L" name="electroForesisDeProteinasOrina" th:value="${final?.electroForesisDeProteinasOrina}">
-                                            </div>
-                                        </fieldset>
-                                    </div>
-
-                                </div>
-                                <br />
-                                <div class="row">
-                                    <div class="col-lg-4 col-md-4 col-sm-4">
-                                        <fieldset enabled>
-                                            <div class="form-group">
-                                                <label for="inmunofijacionig">Inmunofijación Tipo Ig</label>
-                                                <select id="inmunofijacionig" class="form-control" name="inmFijacionTipoIg" th:value="${final?.inmFijacionTipoIg}">
-                                                    <option value="Negativa">Negativa</option>
-                                                    <option value="IgA">IgA</option>
-                                                    <option value="IgG">IgG</option>
-                                                    <option value="No secretor">No secretor</option>
-                                                </select>
-                                            </div>
-                                        </fieldset>
-                                    </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-4">
-                                        <fieldset enabled>
-                                            <div class="form-group">
-                                                <label for="inmunofijacioncll">Inmunofijacion Tipo CLL</label>
-                                                <select id="inmunofijacioncll" class="form-control" name="inmFijacionTipoCll" th:value="${final?.inmFijacionTipoCll}">
-                                                    <option value="Negativo">Negativa</option>
-                                                    <option value="Lambda">Lambda</option>
-                                                    <option value="Kappa">Kappa</option>
-                                                    <option value="No secretor">No secretor</option>
-                                                </select>                                </div>
-                                        </fieldset>
-                                    </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-4">
-                                        <fieldset enabled>
-                                            <div class="form-group">
-                                                <label for="minres">Enfermedad mínima residual (eventos x10(-7))</label>
-                                                <input type="text" class="form-control" id="minres" placeholder="0 - 1000" name="enfermedadMinimaResidual" th:value="${final?.enfermedadMinimaResidual}">
-                                            </div>
-                                        </fieldset>
-                                    </div>
-                                </div>
-                                <br />
-                                <div class="row">
-                                    <div class="col-lg-4 col-md-4 col-sm-4">
-                                        <fieldset enabled>
-                                            <div class="form-group">
-                                                <label for="Toxicidad_Renal">Respuesta a tratamiento</label>
-                                                <select id="Toxicidad_Renal" class="form-control" name="repuestaATratamiento" th:value="${final?.repuestaATratamiento}">
-                                                    <option value="RCs">RCs</option>
-                                                    <option value="RC">RC</option>
-                                                    <option value="MBRP">MBRP</option>
-                                                    <option value="RP">RP</option>
-                                                    <option value="EE">EE</option>
-                                                    <option value="PE">PE</option>
-                                                </select>                          </div>
-                                        </fieldset>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-lg-12 col-md-12 col-sm-12">
-                                        <div class="form-group">
-                                            <textarea enabled id="comment" rows="20" class="form-control" name="comentariosExtrax" th:value="${final?.comentariosExtrax}">[[${final?.comentariosExtrax}]]</textarea>
-                                            <label for="comment"
-                                            >Observaciones</label
-                                            >
+                                    <div id="finalEmpty" class="row ex">
+                                        <div  id="noConsultation" class="col-lg-12 col-md-12 col-sm-12">
+                                            <h3 >NO HAY CONSULTA FINAL REGISTRADA.</h3>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div id="divButtons1" class="col-lg-10 col-md-10 col-sm-10">
-                                <button id="btnReset" type="reset" class="btn btn-info"><i class="material-icons">settings_backup_restore</i> <span>Borrar Cambios</span></button>
+                                    <div id="result"></div>
+                                    <div class="row">
+                                        <div id="divButtonsFinal" class="col-lg-8 col-md-8 col-sm-8">
+                                            <button id="btnReset2" type="reset" class="btn btn-info"><i class="material-icons">settings_backup_restore</i> <span>Borrar Cambios</span></button>
 
-                            </div>
-                            <div id="divButtons2" class="col-lg-2 col-md-2 col-sm-2">
-                                <button id="btnSave" type="submit" class="btn btn-info"><i class="material-icons">save_alt</i> <span>Guardar</span></button>
+                                        </div>
+                                        <div id="divButtonsFinal2" class="col-lg-4 col-md-4 col-sm-4">
+                                            <!--<button onclick="submitFinal()" class="btn btn-info"><i class="material-icons">save_alt</i> <span>Guardar Consulta Final</span></button>-->
+                                            <a onclick="subirForm()" class="btn btn-info"><i class="material-icons">save_alt</i> <span>Guardar Consulta Final</span></a>
+
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div id="divButtonsFinal3" class="col-lg-8 col-md-8 col-sm-8">
+                                            <a onclick="goBack()" class="btn btn-danger"><i class="material-icons">cancel</i> <span>Cancelar</span></a>
+                                            <script> function goBack() {window.history.back();}</script>
+                                        </div>
+                                    </div>
+
+
+                                <!--<div class="row">-->
+                                    <!--<div class="col-lg-4 col-md-4 col-sm-4">-->
+                                        <!--<fieldset enabled>-->
+                                            <!--<div class="form-group">-->
+                                                <!--<label for="txtCalendar">Fecha de Valoración Final</label>-->
+                                                <!--<input id="txtCalendar" type="text" class="mt10px input form-control" name="dateOfRealization" th:value="${final?.dateOfRealization}">-->
+                                            <!--</div>-->
+                                        <!--</fieldset>-->
+                                    <!--</div>-->
+                                    <!--<div class="col-lg-4 col-md-4 col-sm-4">-->
+                                        <!--<fieldset enabled>-->
+                                            <!--<div class="form-group">-->
+                                                <!--<label for="Albumina">Albumina (g/dL)</label>-->
+                                                <!--<input type="text" class="form-control" id="Albumina" placeholder="g/dL"name="albumin" th:value="*{final?.albumin}">-->
+                                            <!--</div>-->
+                                        <!--</fieldset>-->
+                                    <!--</div>-->
+                                    <!--<div class="col-lg-4 col-md-4 col-sm-4">-->
+                                        <!--<fieldset enabled>-->
+                                            <!--<div class="form-group">-->
+                                                <!--<label for="Calcio_serico">Calcio sérico (mg/dL)</label>-->
+                                                <!--<input type="text" class="form-control" id="Calcio_serico" placeholder="mg/dL" name="serumCalcium" th:value="${final?.serumCalcium}">-->
+                                            <!--</div>-->
+                                        <!--</fieldset>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                                <!--<br />-->
+                                <!--<div class="row">-->
+                                    <!--<div class="col-lg-4 col-md-4 col-sm-4">-->
+                                        <!--<fieldset enabled>-->
+                                            <!--<div class="form-group">-->
+                                                <!--<label for="Deshidrogenasa_Lactica">Deshidrogenasa Lactica (U/L)</label>-->
+                                                <!--<input type="text" class="form-control" id="Deshidrogenasa_Lactica" placeholder="U/L" name="lacticDehydrogenase" th:value="${final?.lacticDehydrogenase}">-->
+                                            <!--</div>-->
+                                        <!--</fieldset>-->
+                                    <!--</div>-->
+                                    <!--<div class="col-lg-4 col-md-4 col-sm-4">-->
+                                        <!--<fieldset enabled>-->
+                                            <!--<div class="form-group">-->
+                                                <!--<label for="Hemoglobina">Hemoglobina (g/dL)</label>-->
+                                                <!--<input type="text" class="form-control" id="Hemoglobina" placeholder="g/dL" name="hemoglobin" th:value="${final?.hemoglobin}">-->
+                                            <!--</div>-->
+                                        <!--</fieldset>-->
+                                    <!--</div>-->
+                                    <!--<div class="col-lg-4 col-md-4 col-sm-4">-->
+                                        <!--<fieldset enabled>-->
+                                            <!--<div class="form-group">-->
+                                                <!--<label for="Hematocrito">Hematocrito (%)</label>-->
+                                                <!--<input type="text" class="form-control" id="Hematocrito" placeholder="%" name="hematocrit" th:value="${final?.hematocrit}">-->
+                                            <!--</div>-->
+                                        <!--</fieldset>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                                <!--<br />-->
+                                <!--<div class="row">-->
+                                    <!--<div class="col-lg-4 col-md-4 col-sm-4">-->
+                                        <!--<fieldset enabled>-->
+                                            <!--<div class="form-group">-->
+                                                <!--<label for="Leucocitos">Leucocitos (cels x 10(3)/uL)</label>-->
+                                                <!--<input type="text" class="form-control" id="Leucocitos" placeholder="cels x 10(3)/uL" name="leukocytes" th:value="${final?.leukocytes}">-->
+                                            <!--</div>-->
+                                        <!--</fieldset>-->
+                                    <!--</div>-->
+                                    <!--<div class="col-lg-4 col-md-4 col-sm-4">-->
+                                        <!--<fieldset enabled>-->
+                                            <!--<div class="form-group">-->
+                                                <!--<label for="Linfocitos">Linfocitos (cels x 10(3)/uL)</label>-->
+                                                <!--<input type="text" class="form-control" id="Linfocitos" placeholder="cels x 10(3)/uL" name="lymphocytes" th:value="${final?.lymphocytes}">-->
+                                            <!--</div>-->
+                                        <!--</fieldset>-->
+                                    <!--</div>-->
+                                    <!--<div class="col-lg-4 col-md-4 col-sm-4">-->
+                                        <!--<fieldset enabled>-->
+                                            <!--<div class="form-group">-->
+                                                <!--<label for="Neutrofilos">Neutrofilos (cels x 10(3)/uL)</label>-->
+                                                <!--<input type="text" class="form-control" id="Neutrofilos" placeholder="cels x 10(3)/uL" name="neutrophils" th:value="${final?.neutrophils}">-->
+                                            <!--</div>-->
+                                        <!--</fieldset>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                                <!--<br />-->
+                                <!--<div class="row">-->
+                                    <!--<div class="col-lg-4 col-md-4 col-sm-4">-->
+                                        <!--<fieldset enabled>-->
+                                            <!--<div class="form-group">-->
+                                                <!--<label for="Plaquetas">Plaquetas (cels x 10(3)/uL)</label>-->
+                                                <!--<input type="text" class="form-control" id="Plaquetas" placeholder="cels x 10(3)/uL" name="platelets" th:value="${final?.platelets}">-->
+                                            <!--</div>-->
+                                        <!--</fieldset>-->
+                                    <!--</div>-->
+                                    <!--<div class="col-lg-4 col-md-4 col-sm-4">-->
+                                        <!--<fieldset enabled>-->
+                                            <!--<div class="form-group">-->
+                                                <!--<label for="IgG">IgG (mg/dL)</label>-->
+                                                <!--<input type="text" class="form-control" id="IgG" placeholder="mg/dL" name="igG" th:value="${final?.igG}">-->
+                                            <!--</div>-->
+                                        <!--</fieldset>-->
+                                    <!--</div>-->
+                                    <!--<div class="col-lg-4 col-md-4 col-sm-4">-->
+                                        <!--<fieldset enabled>-->
+                                            <!--<div class="form-group">-->
+                                                <!--<label for="IgA">IgA (mg/dL)</label>-->
+                                                <!--<input type="text" class="form-control" id="IgA" placeholder="mg/dL" name="igA" th:value="${final?.igA}">-->
+                                            <!--</div>-->
+                                        <!--</fieldset>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                                <!--<br />-->
+                                <!--<div class="row">-->
+                                    <!--<div class="col-lg-4 col-md-4 col-sm-4">-->
+                                        <!--<fieldset enabled>-->
+                                            <!--<div class="form-group">-->
+                                                <!--<label for="IgM">IgM (mg/dL)</label>-->
+                                                <!--<input type="text" class="form-control" id="IgM" placeholder="mg/dL" name="igM" th:value="${final?.igM}">-->
+                                            <!--</div>-->
+                                        <!--</fieldset>-->
+                                    <!--</div>-->
+                                    <!--<div class="col-lg-4 col-md-4 col-sm-4">-->
+                                        <!--<fieldset enabled>-->
+                                            <!--<div class="form-group">-->
+                                                <!--<label for="Cadenas_Ligeras_Kappa">Cadenas Ligeras Kappa (mg/L)</label>-->
+                                                <!--<input type="text" class="form-control" id="Cadenas_Ligeras_Kappa" placeholder="mg/dL" name="lightChainsKappa" th:value="${final?.lightChainsKappa}">-->
+                                            <!--</div>-->
+                                        <!--</fieldset>-->
+                                    <!--</div>-->
+                                    <!--<div class="col-lg-4 col-md-4 col-sm-4">-->
+                                        <!--<fieldset enabled>-->
+                                            <!--<div class="form-group">-->
+                                                <!--<label for="Cadenas_Ligeras_Lambda">Cadenas Ligeras Lambda (mg/L)</label>-->
+                                                <!--<input type="text" class="form-control" id="Cadenas_Ligeras_Lambda" placeholder="%" name="lightChainsLambda" th:value="${final?.lightChainsLambda}">-->
+                                            <!--</div>-->
+                                        <!--</fieldset>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                                <!--<br />-->
+                                <!--<div class="row">-->
+                                    <!--<div class="col-lg-4 col-md-4 col-sm-4">-->
+                                        <!--<fieldset enabled>-->
+                                            <!--<div class="form-group">-->
+                                                <!--<label for="celplasmo">Células plasmáticas en Médula ósea (%)</label>-->
+                                                <!--<input type="text" class="form-control" id="celplasmo" placeholder="%" name="celPlasmaticEnMedulaOsea" th:value="${final?.celPlasmaticEnMedulaOsea}">-->
+                                            <!--</div>-->
+                                        <!--</fieldset>-->
+                                    <!--</div>-->
+                                    <!--<div class="col-lg-4 col-md-4 col-sm-4">-->
+                                        <!--<fieldset enabled>-->
+                                            <!--<div class="form-group">-->
+                                                <!--<label for="electroforesis">Electroforesis de proteínas Suero</label>-->
+                                                <!--<input type="text" class="form-control" id="electroforesis" placeholder="g/L" name="electroForesisDeProteinasSuero" th:value="${final?.electroForesisDeProteinasSuero}">-->
+                                            <!--</div>-->
+                                        <!--</fieldset>-->
+                                    <!--</div>-->
+                                    <!--<div class="col-lg-4 col-md-4 col-sm-4">-->
+                                        <!--<fieldset enabled>-->
+                                            <!--<div class="form-group col-md-4">-->
+                                                <!--<label for="electroforesis2">Electroforesis de proteinas Orina</label>-->
+                                                <!--<input type="text" class="form-control" id="electroforesis2" placeholder="g/L" name="electroForesisDeProteinasOrina" th:value="${final?.electroForesisDeProteinasOrina}">-->
+                                            <!--</div>-->
+                                        <!--</fieldset>-->
+                                    <!--</div>-->
+
+                                <!--</div>-->
+                                <!--<br />-->
+                                <!--<div class="row">-->
+                                    <!--<div class="col-lg-4 col-md-4 col-sm-4">-->
+                                        <!--<fieldset enabled>-->
+                                            <!--<div class="form-group">-->
+                                                <!--<label for="inmunofijacionig">Inmunofijación Tipo Ig</label>-->
+                                                <!--<select id="inmunofijacionig" class="form-control" name="inmFijacionTipoIg" th:value="${final?.inmFijacionTipoIg}">-->
+                                                    <!--<option value="Negativa">Negativa</option>-->
+                                                    <!--<option value="IgA">IgA</option>-->
+                                                    <!--<option value="IgG">IgG</option>-->
+                                                    <!--<option value="No secretor">No secretor</option>-->
+                                                <!--</select>-->
+                                            <!--</div>-->
+                                        <!--</fieldset>-->
+                                    <!--</div>-->
+                                    <!--<div class="col-lg-4 col-md-4 col-sm-4">-->
+                                        <!--<fieldset enabled>-->
+                                            <!--<div class="form-group">-->
+                                                <!--<label for="inmunofijacioncll">Inmunofijacion Tipo CLL</label>-->
+                                                <!--<select id="inmunofijacioncll" class="form-control" name="inmFijacionTipoCll" th:value="${final?.inmFijacionTipoCll}">-->
+                                                    <!--<option value="Negativo">Negativa</option>-->
+                                                    <!--<option value="Lambda">Lambda</option>-->
+                                                    <!--<option value="Kappa">Kappa</option>-->
+                                                    <!--<option value="No secretor">No secretor</option>-->
+                                                <!--</select>                                </div>-->
+                                        <!--</fieldset>-->
+                                    <!--</div>-->
+                                    <!--<div class="col-lg-4 col-md-4 col-sm-4">-->
+                                        <!--<fieldset enabled>-->
+                                            <!--<div class="form-group">-->
+                                                <!--<label for="minres">Enfermedad mínima residual (eventos x10(-7))</label>-->
+                                                <!--<input type="text" class="form-control" id="minres" placeholder="0 - 1000" name="enfermedadMinimaResidual" th:value="${final?.enfermedadMinimaResidual}">-->
+                                            <!--</div>-->
+                                        <!--</fieldset>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                                <!--<br />-->
+                                <!--<div class="row">-->
+                                    <!--<div class="col-lg-4 col-md-4 col-sm-4">-->
+                                        <!--<fieldset enabled>-->
+                                            <!--<div class="form-group">-->
+                                                <!--<label for="Toxicidad_Renal">Respuesta a tratamiento</label>-->
+                                                <!--<select id="Toxicidad_Renal" class="form-control" name="repuestaATratamiento" th:value="${final?.repuestaATratamiento}">-->
+                                                    <!--<option value="RCs">RCs</option>-->
+                                                    <!--<option value="RC">RC</option>-->
+                                                    <!--<option value="MBRP">MBRP</option>-->
+                                                    <!--<option value="RP">RP</option>-->
+                                                    <!--<option value="EE">EE</option>-->
+                                                    <!--<option value="PE">PE</option>-->
+                                                <!--</select>                          </div>-->
+                                        <!--</fieldset>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                                <!--<div class="row">-->
+                                    <!--<div class="col-lg-12 col-md-12 col-sm-12">-->
+                                        <!--<div class="form-group">-->
+                                            <!--<textarea enabled id="comment" rows="20" class="form-control" name="comentariosExtrax" th:value="${final?.comentariosExtrax}">[[${final?.comentariosExtrax}]]</textarea>-->
+                                            <!--<label for="comment"-->
+                                            <!--&gt;Observaciones</label-->
+                                            <!--&gt;-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                <!--</div>-->
                             </div>
                         </div>
-                        <div class="row">
-                            <div id="divButtons3" class="col-lg-8 col-md-8 col-sm-8">
-                                <a onclick="goBack()" class="btn btn-danger"><i class="material-icons">cancel</i> <span>Cancelar</span></a>
-                                <script> function goBack() {window.history.back();}</script>
-                            </div>
-                        </div>
+                        <!--<div class="row">-->
+                            <!--<div id="divButtons1" class="col-lg-10 col-md-10 col-sm-10">-->
+                                <!--<button id="btnReset" type="reset" class="btn btn-info"><i class="material-icons">settings_backup_restore</i> <span>Borrar Cambios</span></button>-->
+
+                            <!--</div>-->
+                            <!--<div id="divButtons2" class="col-lg-2 col-md-2 col-sm-2">-->
+                                <!--<button id="btnSave" type="submit" class="btn btn-info"><i class="material-icons">save_alt</i> <span>Guardar</span></button>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="row">-->
+                            <!--<div id="divButtons3" class="col-lg-8 col-md-8 col-sm-8">-->
+                                <!--<a onclick="goBack()" class="btn btn-danger"><i class="material-icons">cancel</i> <span>Cancelar</span></a>-->
+                                <!--<script> function goBack() {window.history.back();}</script>-->
+                            <!--</div>-->
+                        <!--</div>-->
 
 
                         <!--<p><input type="submit" value="Submit" /> <input type="reset" value="Borrar Cambios" /></p>-->
-                    </form>
+
                 </div>
             </div>
         </div>
@@ -1129,4 +1157,4 @@
 <script type="text/javascript" th:src="@{/infoPatient/js/plugins/bootstrap-material-design.min.js}"></script>
 <script type="text/javascript" th:src="@{/infoPatient/js/plugins/ohsnap.js}"></script>
 <script type="text/javascript" th:src="@{/infoPatient/js/plugins/date-time-picker.min.js}"></script>
-<script type="text/javascript" th:src="@{/infoPatient/js/patientDetails.js}"></script>
+<script type="text/javascript" th:src="@{/infoPatient/js/editPatient.js}"></script>

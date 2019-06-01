@@ -183,6 +183,41 @@ public class FinalConsultation {
 		this.toxicities = toxicities;
 	}
 
+    public FinalConsultation(Integer idPatient, PatientModel patientModel, String dateOfRealization, String albumin,
+                             String serumCalcium, String lacticDehydrogenase, String hemoglobin, String hematocrit, String leukocytes,
+                             String lymphocytes, String neutrophils, String platelets, String igG, String igA, String igM,
+                             String lightChainsKappa, String lightChainsLambda, String celPlasmaticEnMedulaOsea,
+                             String electroForesisDeProteinasSuero, String electroForesisDeProteinasOrina, String inmFijacionTipoIg,
+                             String inmFijacionTipoCll, String enfermedadMinimaResidual, String repuestaATratamiento,
+                             String comentariosExtrax) {
+        super();
+        this.idPatient = idPatient;
+        this.patientModel = patientModel;
+        this.dateOfRealization = dateOfRealization;
+        this.albumin = albumin;
+        this.serumCalcium = serumCalcium;
+        this.lacticDehydrogenase = lacticDehydrogenase;
+        this.hemoglobin = hemoglobin;
+        this.hematocrit = hematocrit;
+        this.leukocytes = leukocytes;
+        this.lymphocytes = lymphocytes;
+        this.neutrophils = neutrophils;
+        this.platelets = platelets;
+        this.igG = igG;
+        this.igA = igA;
+        this.igM = igM;
+        this.lightChainsKappa = lightChainsKappa;
+        this.lightChainsLambda = lightChainsLambda;
+        this.celPlasmaticEnMedulaOsea = celPlasmaticEnMedulaOsea;
+        this.electroForesisDeProteinasSuero = electroForesisDeProteinasSuero;
+        this.electroForesisDeProteinasOrina = electroForesisDeProteinasOrina;
+        this.inmFijacionTipoIg = inmFijacionTipoIg;
+        this.inmFijacionTipoCll = inmFijacionTipoCll;
+        this.enfermedadMinimaResidual = enfermedadMinimaResidual;
+        this.repuestaATratamiento = repuestaATratamiento;
+        this.comentariosExtrax = comentariosExtrax;
+    }
+
     
     // Métodos de acceso
     public Integer getIdPatient() {
