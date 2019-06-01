@@ -16,6 +16,12 @@ $(window).ready(() =>{
     });
 });
 
+window.onload = function() {
+    var sizeArray = document.getElementById("myvar");
+    var optionsAsString = "";
+        optionsAsString += "<option value='" + (+sizeArray.textContent+1) + "'>" + (+sizeArray.textContent+1) + "</option>";
+    $( 'select[name="treatmentCycleNum"]' ).append( optionsAsString );};
+
 
 
 const initialConsultation = (() => {
