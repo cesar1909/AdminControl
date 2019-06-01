@@ -1,5 +1,6 @@
 //package mx.ipn.cic.biblioteca.AdminControl.controllers;
 //
+//import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.stereotype.Controller;
 //import org.springframework.web.bind.annotation.PostMapping;
 //import org.springframework.web.bind.annotation.RequestMapping;
@@ -7,13 +8,17 @@
 //
 //import mx.ipn.cic.biblioteca.AdminControl.model.DoctorModel;
 //import mx.ipn.cic.biblioteca.AdminControl.model.PatientModel;
+//import mx.ipn.cic.biblioteca.AdminControl.repositories.IPatientRepository;
 //
 //@Controller
-//@RequestMapping("/edit")
-//public class EditarPacienteCI {
+//@RequestMapping("/editpatientconsult")
+//public class EditarConsultaInicial {
+//	
+//	@Autowired
+//	IPatientRepository patientRepository;
 //
 //	
-//	@PostMapping(path = "/register")
+//	@PostMapping(path = "/inicial")
 //	public String register(
 //			@RequestParam(name = "id", required = false) Integer id,
 //			@RequestParam(name = "name") String name,
@@ -65,69 +70,55 @@
 //			@RequestParam(name = "idDoctor", required = false) String idDoctor
 //			) {
 //
-//		Long idUsr = null;
-//		if (idDoctor == null) {
-//			System.out.println("PREPARANDO PARA REGISTRAR");
-//			idUsr = this.userRepository.findIdByEmail(this.userServiceImpl.getEmailUser());
-//		} else {
-//			System.out.println("Preparando para EDITAR");
-//			idUsr = Long.parseLong(idDoctor);
-//		}
-//			DoctorModel drm = this.doctorService.findById(idUsr);
-//
-//
-//			// Proceso de registro
-//			PatientModel user = new PatientModel(
-//					//paciente
-//					id,
-//					name.replaceAll("[,]",""),
-//					lastnameP.replaceAll("[,]",""),
-//					lastnameM.replaceAll("[,]",""),
-//					birthdate.replaceAll("[,]",""),
-//					age.replaceAll("[,]",""),
-//					gender.replaceAll("[,]",""),
-//					height.replaceAll("[,]",""),
-//					weight.replaceAll("[,]",""),
-//					bmi.replaceAll("[,]",""),
-//					bodySup.replaceAll("[,]",""),
-//					//consultainicial
-//					startDateOfTreatment.replaceAll("[,]",""),
-//					serumCreatinine.replaceAll("[,]",""),
-//					depCreatinine.replaceAll("[,]",""),
-//					ecog.replaceAll("[,]",""),
-//					boneInjuries.replaceAll("[,]",""),
-//					boneInjuriesNumber.replaceAll("[,]",""),
-//					extramedullaryPlasmacytomas.replaceAll("[,]",""),
-//					plasmacytomasNumber.replaceAll("[,]",""),
-//					active.replaceAll("[,]",""),
-//					plasmaCellsInBoneMarrow.replaceAll("[,]",""),
-//					plasmaCellsInBloodPerif.replaceAll("[,]",""),
-//					igG.replaceAll("[,]",""),
-//					igA.replaceAll("[,]",""),
-//					igM.replaceAll("[,]",""),
-//					inmIgTypeFixation.replaceAll("[,]",""),
-//					inmCllTypeFixation.replaceAll("[,]",""),
-//					lightChainsKappa.replaceAll("[,]",""),
-//					lightChainsLambda.replaceAll("[,]",""),
-//					electroForesisDeProteinasSuero.replaceAll("[,]",""),
-//					electroForesisDeProteinasOrina.replaceAll("[,]",""),
-//					benceJonesProteinuria.replaceAll("[,]",""),
-//					dystemicAmyloidosis.replaceAll("[,]",""),
-//					b2Microglobulin.replaceAll("[,]",""),
-//					albumin.replaceAll("[,]",""),
-//					serumCalcium.replaceAll("[,]",""),
-//					lacticDehydrogenase.replaceAll("[,]",""),
-//					hemoglobin.replaceAll("[,]",""),
-//					hematocrit.replaceAll("[,]",""),
-//					lymphocytes.replaceAll("[,]",""),
-//					leukocytes.replaceAll("[,]",""),
-//					neutrophils.replaceAll("[,]",""),
-//					platelets.replaceAll("[,]",""),
-//					deletionSeventeenP.replaceAll("[,]",""),
-//					translocationFourToFourteen.replaceAll("[,]",""),
-//					translocationFourteenToSixteen.replaceAll("[,]",""),
-//					drm
-//			);
+//		this.patientRepository.updateInitialConsult(
+//		id,
+//		name
+//		lastnameP
+//		lastnameM
+//		birthdate
+//		age
+//		gender
+//		height
+//		weight
+//		bmi
+//		bodySup
+//		//consultainicial
+//		startDateOfTreatment
+//		serumCreatinine
+//		depCreatinine
+//		ecog
+//		boneInjuries
+//		boneInjuriesNumber
+//		extramedullaryPlasmacytomas
+//		plasmacytomasNumber
+//		active
+//		plasmaCellsInBoneMarrow
+//		plasmaCellsInBloodPerif
+//		igG
+//		igA
+//		igM
+//		inmIgTypeFixation
+//		inmCllTypeFixation
+//		lightChainsKappa
+//		lightChainsLambda
+//		electroForesisDeProteinasSuero
+//		electroForesisDeProteinasOrina
+//		benceJonesProteinuria
+//		dystemicAmyloidosis
+//		b2Microglobulin
+//		albumin
+//		serumCalcium
+//		lacticDehydrogenase
+//		hemoglobin
+//		hematocrit
+//		lymphocytes
+//		leukocytes
+//		neutrophils
+//		platelets
+//		deletionSeventeenP
+//		translocationFourToFourteen
+//		translocationFourteenToSixteen
+//		);
 //
 //			if (id == null) {
 //				System.out.println("USER patient: " + user);

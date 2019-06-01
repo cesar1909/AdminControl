@@ -15,6 +15,7 @@ import java.util.Optional;
 import javax.transaction.Transactional;
 
 @Transactional
+@Repository
 public interface IFinalConsultationRepository extends JpaRepository<FinalConsultation, Integer>{
     FinalConsultation findByIdPatient(Integer id);
 
