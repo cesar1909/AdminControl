@@ -147,7 +147,7 @@ function subirForm() {
     $.ajax({
         type: "POST",
         contentType: "application/json",
-        url: "/monitor/editFinalConsultation",
+        url: "/editpatientconsult/final",
         data: JSON.stringify(data),
         timeout: 600000,
         success: function (response) {
@@ -159,6 +159,8 @@ function subirForm() {
                 text: false,
                 button: "Ok"
             });
+            getFinalInfoJs(data.idPatient);
+
         },
         error: function (jqXHR, textStatus, errorThrown) {
             console.log("Error en la comunicación con spring");

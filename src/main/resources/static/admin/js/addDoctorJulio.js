@@ -65,9 +65,7 @@ function Validar (){
         telm.val()==""||
         cel.val()==""||
         city.val()==""||
-        email.val()==""||
-        password.val()==""||
-        password1.val()=="")
+        email.val()=="")
     {
         errores = errores.concat("Todos los campos deben ser llenados obligatoriamente");
     }
