@@ -69,11 +69,11 @@ public class FinalConsultationController {
            @RequestParam(name ="enfermedadMinimaResidual") String enfermedadMinimaResidual,
            @RequestParam(name ="repuestaATratamiento") String repuestaATratamiento,
            @RequestParam(name ="comentariosExtrax") String comentariosExtrax,
-           @RequestParam(name ="dateOfTransplant") String dateOfTransplant,
-           @RequestParam(name ="numberOfCD34Infused") String numberOfCD34Infused,
-           @RequestParam(name ="myeloidGraftDate") String myeloidGraftDate,
-           @RequestParam(name ="datePlateletGraft") String datePlateletGraft,
-           @RequestParam(name ="toxicities") String toxicities 
+           @RequestParam(name ="dateOfTransplant", required = false) String dateOfTransplant,
+           @RequestParam(name ="numberOfCD34Infused", required = false) String numberOfCD34Infused,
+           @RequestParam(name ="myeloidGraftDate", required = false) String myeloidGraftDate,
+           @RequestParam(name ="datePlateletGraft", required = false) String datePlateletGraft,
+           @RequestParam(name ="toxicities", required = false) String toxicities
            ){
 
         // Proceso de registro

@@ -593,278 +593,278 @@
                                     <!--                      </div>-->
                                 </div>
                             </div>
-<!--                            <div class="tab-pane" id="tab3">-->
-<!--                                <div class="row">-->
-<!--                                    <div class="col-lg-12 col-md-12 col-sm-12">-->
-<!--                                        <div class="card CardDetails">-->
-<!--                                            <div class="card-body">-->
-<!--                                                <div class="row">-->
-<!--                                                    <div class="col-lg-4 col-md-4 col-sm-4">-->
-<!--                                                    </div>-->
-<!--                                                    <div class="col-lg-4 col-md-4 col-sm-4">-->
-<!--                                                        <div class="form-group">-->
-<!--                                                            <label for="slcSelectCicle">Selecciona un ciclo</label>-->
-<!--                                                            <select class="form-control selectpicker" data-style="btn btn-link" id="slcSelectCicle" name="inptProduct" onChange="createTable(this.value);">-->
-<!--                                                                &lt;!&ndash;                                                    <option value="0" disabled selected>Selecciona un ciclo...</option>&ndash;&gt;-->
-<!--                                                                &lt;!&ndash;                                                    <option value="1">1</option>&ndash;&gt;-->
-<!--                                                                &lt;!&ndash;                                                    <option value="2">2</option>&ndash;&gt;-->
-<!--                                                                &lt;!&ndash;                                                    <option value="3">3</option>&ndash;&gt;-->
-<!--                                                                &lt;!&ndash;                                                    <option value="4">4</option>&ndash;&gt;-->
-<!--                                                                &lt;!&ndash;                                                    <option value="5">5</option>&ndash;&gt;-->
-<!--                                                                &lt;!&ndash;                                                    <option value="6">6</option>&ndash;&gt;-->
-<!--                                                                &lt;!&ndash;                                                    <option value="7">7</option>&ndash;&gt;-->
-<!--                                                                &lt;!&ndash;                                                    <option value="8">8</option>&ndash;&gt;-->
-<!--                                                            </select>-->
-<!--                                                        </div>-->
-<!--                                                    </div>-->
-<!--                                                </div>-->
-<!--                                            </div>-->
-<!--                                        </div>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                                <div class="row">-->
-<!--                                    <div class="col-lg-4 col-md-4 col-sm-4">-->
-<!--                                        <fieldset enabled>-->
-<!--                                            <div class="form-group">-->
-<!--                                                <label for="txtFechaValoracionCiclo">Fecha de Valoración</label>-->
-<!--                                                <input type="text" id="txtFechaValoracionCiclo" class="form-control" th:value="${monthly?.getFirst().dateOfRealization}">-->
-<!--                                            </div>-->
-<!--                                        </fieldset>-->
-<!--                                    </div>-->
-<!--                                    <div class="col-lg-4 col-md-4 col-sm-4">-->
-<!--                                        <fieldset enabled>-->
-<!--                                            <div class="form-group">-->
-<!--                                                <label for="txtAlbuminaCiclo">Albumina (g/dL)</label>-->
-<!--                                                <input type="text" id="txtAlbuminaCiclo" class="form-control" th:value="${monthly?.getFirst()?.albumin}"/>-->
-<!--                                            </div>-->
-<!--                                        </fieldset>-->
-<!--                                    </div>-->
-<!--                                    <div class="col-lg-4 col-md-4 col-sm-4">-->
-<!--                                        <fieldset enabled>-->
-<!--                                            <div class="form-group">-->
-<!--                                                <label for="txtCalcioSericoCiclo">Calcio sérico (mg/dL)</label>-->
-<!--                                                <input type="text" id="txtCalcioSericoCiclo" class="form-control" th:value="${monthly?.getFirst()?.serumCalcium}"/>-->
-<!--                                            </div>-->
-<!--                                        </fieldset>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                                <br/>-->
-<!--                                <div class="row">-->
-<!--                                    <div class="col-lg-4 col-md-4 col-sm-4">-->
-<!--                                        <fieldset enabled>-->
-<!--                                            <div class="form-group">-->
-<!--                                                <label for="txtDeshidrogenasaLacticaCiclo">Deshidrogenasa Lactica (U/L)</label>-->
-<!--                                                <input type="text" id="txtDeshidrogenasaLacticaCiclo" class="form-control" th:value="${monthly?.getFirst()?.lacticDehydrogenase}"/>-->
-<!--                                            </div>-->
-<!--                                        </fieldset>-->
-<!--                                    </div>-->
-<!--                                    <div class="col-lg-4 col-md-4 col-sm-4">-->
-<!--                                        <fieldset enabled>-->
-<!--                                            <div class="form-group">-->
-<!--                                                <label for="txtHemoglobinaCiclo">Hemoglobina (g/dL)</label>-->
-<!--                                                <input type="text" id="txtHemoglobinaCiclo" class="form-control" th:value="${monthly?.getFirst()?.hemoglobin}"/>-->
-<!--                                            </div>-->
-<!--                                        </fieldset>-->
-<!--                                    </div>-->
-<!--                                    <div class="col-lg-4 col-md-4 col-sm-4">-->
-<!--                                        <fieldset enabled>-->
-<!--                                            <div class="form-group">-->
-<!--                                                <label for="txtHematocritoCiclo">Hematocrito (%)</label>-->
-<!--                                                <input type="text" id="txtHematocritoCiclo" class="form-control" th:value="${monthly?.getFirst()?.hematocrit}"/>-->
-<!--                                            </div>-->
-<!--                                        </fieldset>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                                <br />-->
-<!--                                <div class="row">-->
-<!--                                    <div class="col-lg-4 col-md-4 col-sm-4">-->
-<!--                                        <fieldset enabled>-->
-<!--                                            <div class="form-group">-->
-<!--                                                <label for="txtLeucocitosCiclo">Leucocitos (cels x 10(3)/uL)</label>-->
-<!--                                                <input type="text" id="txtLeucocitosCiclo" class="form-control" th:value="${monthly?.getFirst()?.leukocytes}"/>-->
-<!--                                            </div>-->
-<!--                                        </fieldset>-->
-<!--                                    </div>-->
-<!--                                    <div class="col-lg-4 col-md-4 col-sm-4">-->
-<!--                                        <fieldset enabled>-->
-<!--                                            <div class="form-group">-->
-<!--                                                <label for="txtLinfocitosCiclo">Linfocitos (cels x 10(3)/uL)</label>-->
-<!--                                                <input type="text" id="txtLinfocitosCiclo" class="form-control" th:value="${monthly?.getFirst()?.lymphocytes}"/>-->
-<!--                                            </div>-->
-<!--                                        </fieldset>-->
-<!--                                    </div>-->
-<!--                                    <div class="col-lg-4 col-md-4 col-sm-4">-->
-<!--                                        <fieldset enabled>-->
-<!--                                            <div class="form-group">-->
-<!--                                                <label for="txtNeutrofilosCiclo">Neutrofilos (cels x 10(3)/uL)</label>-->
-<!--                                                <input type="text" id="txtNeutrofilosCiclo" class="form-control" th:value="${monthly?.getFirst()?.neutrophils}"/>-->
-<!--                                            </div>-->
-<!--                                        </fieldset>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                                <br/>-->
-<!--                                <div class="row">-->
-<!--                                    <div class="col-lg-4 col-md-4 col-sm-4">-->
-<!--                                        <fieldset enabled>-->
-<!--                                            <div class="form-group">-->
-<!--                                                <label for="txtPlaquetasCiclo">Plaquetas (cels x 10(3)/uL)</label>-->
-<!--                                                <input type="text" id="txtPlaquetasCiclo" class="form-control" th:value="${monthly?.getFirst()?.platelets}"/>-->
-<!--                                            </div>-->
-<!--                                        </fieldset>-->
-<!--                                    </div>-->
-<!--                                    <div class="col-lg-4 col-md-4 col-sm-4">-->
-<!--                                        <fieldset enabled>-->
-<!--                                            <div class="form-group">-->
-<!--                                                <label for="txtIgGCiclo">IgG (mg/dL)</label>-->
-<!--                                                <input type="text" id="txtIgGCiclo" class="form-control" th:value="${monthly?.getFirst()?.igG}"/>-->
-<!--                                            </div>-->
-<!--                                        </fieldset>-->
-<!--                                    </div>-->
-<!--                                    <div class="col-lg-4 col-md-4 col-sm-4">-->
-<!--                                        <fieldset enabled>-->
-<!--                                            <div class="form-group">-->
-<!--                                                <label for="txtIgACiclo">IgA (mg/dL)</label>-->
-<!--                                                <input type="text" id="txtIgACiclo" class="form-control" th:value="${monthly?.getFirst()?.igA}"/>-->
-<!--                                            </div>-->
-<!--                                        </fieldset>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                                <br />-->
-<!--                                <div class="row">-->
-<!--                                    <div class="col-lg-4 col-md-4 col-sm-4">-->
-<!--                                        <fieldset enabled>-->
-<!--                                            <div class="form-group">-->
-<!--                                                <label for="txtIgMCiclo">IgM (mg/dL)</label>-->
-<!--                                                <input type="text" id="txtIgMCiclo" class="form-control" th:value="${monthly?.getFirst()?.igM}"/>-->
-<!--                                            </div>-->
-<!--                                        </fieldset>-->
-<!--                                    </div>-->
-<!--                                    <div class="col-lg-4 col-md-4 col-sm-4">-->
-<!--                                        <fieldset enabled>-->
-<!--                                            <div class="form-group">-->
-<!--                                                <label for="txtCadenasKappaCiclo">Cadenas Ligeras Kappa (mg/L)</label>-->
-<!--                                                <input type="text" id="txtCadenasKappaCiclo" class="form-control" th:value="${monthly?.getFirst()?.lightChainsKappa}"/>-->
-<!--                                            </div>-->
-<!--                                        </fieldset>-->
-<!--                                    </div>-->
-<!--                                    <div class="col-lg-4 col-md-4 col-sm-4">-->
-<!--                                        <fieldset enabled>-->
-<!--                                            <div class="form-group">-->
-<!--                                                <label for="txtCadenasLambdaCiclo">Cadenas Ligeras Lambda (mg/L)</label>-->
-<!--                                                <input type="text" id="txtCadenasLambdaCiclo" class="form-control" th:value="${monthly?.getFirst()?.lightChainsLambda}"/>-->
-<!--                                            </div>-->
-<!--                                        </fieldset>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                                <br/>-->
-<!--                                <div class="row">-->
-<!--                                    <div class="col-lg-4 col-md-4 col-sm-4">-->
-<!--                                        <fieldset enabled>-->
-<!--                                            <div class="form-group">-->
-<!--                                                <label for="txtToxicidadSerieRojaCiclo">Toxicidad Hematologica - Serie Roja</label>-->
-<!--                                                <input type="text" id="txtToxicidadSerieRojaCiclo" class="form-control" th:value="${monthly?.getFirst()?.toxHemtoRedSerie}"/>-->
-<!--                                            </div>-->
-<!--                                        </fieldset>-->
-<!--                                    </div>-->
-<!--                                    <div class="col-lg-4 col-md-4 col-sm-4">-->
-<!--                                        <fieldset enabled>-->
-<!--                                            <div class="form-group">-->
-<!--                                                <label for="txtToxicidadNeutrofilosCiclo">Toxicidad Hematologica - Neutrofilos</label>-->
-<!--                                                <input type="text" id="txtToxicidadNeutrofilosCiclo" class="form-control" th:value="${monthly?.getFirst()?.toxHemtoNeutrophils}"/>-->
-<!--                                            </div>-->
-<!--                                        </fieldset>-->
-<!--                                    </div>-->
-<!--                                    <div class="col-lg-4 col-md-4 col-sm-4">-->
-<!--                                        <fieldset enabled>-->
-<!--                                            <div class="form-group">-->
-<!--                                                <label for="txtToxicidadPlaquetasCiclo">Toxicidad Hematologica - Plaquetas</label>-->
-<!--                                                <input type="text" id="txtToxicidadPlaquetasCiclo" class="form-control" th:value="${monthly?.getFirst()?.toxHemtoPlatelets}"/>-->
-<!--                                            </div>-->
-<!--                                        </fieldset>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                                <br/>-->
-<!--                                <div class="row">-->
-<!--                                    <div class="col-lg-4 col-md-4 col-sm-4">-->
-<!--                                        <fieldset enabled>-->
-<!--                                            <div class="form-group">-->
-<!--                                                <label for="txtToxicidadHepaticaCiclo">Toxicidad Hepática</label>-->
-<!--                                                <input type="text" id="txtToxicidadHepaticaCiclo" class="form-control" th:value="${monthly?.getFirst()?.toxHepatics}"/>-->
-<!--                                            </div>-->
-<!--                                        </fieldset>-->
-<!--                                    </div>-->
-<!--                                    <div class="col-lg-4 col-md-4 col-sm-4">-->
-<!--                                        <fieldset enabled>-->
-<!--                                            <div class="form-group">-->
-<!--                                                <label for="txtToxicidadRenalCiclo">Toxicidad Renal</label>-->
-<!--                                                <input type="text" id="txtToxicidadRenalCiclo" class="form-control" th:value="${monthly?.getFirst()?.toxRenal}"/>-->
-<!--                                            </div>-->
-<!--                                        </fieldset>-->
-<!--                                    </div>-->
-<!--                                    <div class="col-lg-4 col-md-4 col-sm-4">-->
-<!--                                        <fieldset enabled>-->
-<!--                                            <div class="form-group">-->
-<!--                                                <label for="txtToxicidadInfecciosaCiclo">Toxicidad Infecciosa</label>-->
-<!--                                                <input type="text" id="txtToxicidadInfecciosaCiclo" class="form-control" th:value="${monthly?.getFirst()?.toxInfectious}"/>-->
-<!--                                            </div>-->
-<!--                                        </fieldset>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                                <br/>-->
-<!--                                <div class="row">-->
-<!--                                    <div class="col-lg-4 col-md-4 col-sm-4">-->
-<!--                                        <fieldset enabled>-->
-<!--                                            <div class="form-group">-->
-<!--                                                <label for="txtSitioInfeccionCiclo">Sitio de infección</label>-->
-<!--                                                <input type="text" id="txtSitioInfeccionCiclo" class="form-control" th:value="${monthly?.getFirst()?.infectionSite}"/>-->
-<!--                                            </div>-->
-<!--                                        </fieldset>-->
-<!--                                    </div>-->
-<!--                                    <div class="col-lg-4 col-md-4 col-sm-4">-->
-<!--                                        <fieldset enabled>-->
-<!--                                            <div class="form-group">-->
-<!--                                                <label for="txtToxicidadNauseaCiclo">Toxicidad gastrointestinal - Nausea</label>-->
-<!--                                                <input type="text" id="txtToxicidadNauseaCiclo" class="form-control" th:value="${monthly?.getFirst()?.toxGastroNausea}"/>-->
-<!--                                            </div>-->
-<!--                                        </fieldset>-->
-<!--                                    </div>-->
-<!--                                    <div class="col-lg-4 col-md-4 col-sm-4">-->
-<!--                                        <fieldset enabled>-->
-<!--                                            <div class="form-group">-->
-<!--                                                <label for="txtToxicidadDiarreaCiclo">Toxicidad gastrointestinal - Diarrea</label>-->
-<!--                                                <input type="text" id="txtToxicidadDiarreaCiclo" class="form-control" th:value="${monthly?.getFirst()?.toxGastroDiarrhea}"/>-->
-<!--                                            </div>-->
-<!--                                        </fieldset>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                                <br/>-->
-<!--                                <div class="row">-->
-<!--                                    <div class="col-lg-4 col-md-4 col-sm-4">-->
-<!--                                        <fieldset enabled>-->
-<!--                                            <div class="form-group">-->
-<!--                                                <label for="txtToxicidadNeuropatiaCiclo">Toxicidad neuropatía periférica</label>-->
-<!--                                                <input type="text" id="txtToxicidadNeuropatiaCiclo" class="form-control" th:value="${monthly?.getFirst()?.toxNeuroatiaPerif}"/>-->
-<!--                                            </div>-->
-<!--                                        </fieldset>-->
-<!--                                    </div>-->
-<!--                                    <div class="col-lg-4 col-md-4 col-sm-4">-->
-<!--                                        <fieldset enabled>-->
-<!--                                            <div class="form-group">-->
-<!--                                                <label for="txtReaccionMedicamentoCiclo">Reacción a infusión de medicamentos</label>-->
-<!--                                                <input type="text" id="txtReaccionMedicamentoCiclo" class="form-control" th:value="${monthly?.getFirst()?.infusionMedReaction}"/>-->
-<!--                                            </div>-->
-<!--                                        </fieldset>-->
-<!--                                    </div>-->
-<!--                                    <div class="col-lg-4 col-md-4 col-sm-4">-->
-<!--                                        <fieldset enabled>-->
-<!--                                            <div class="form-group">-->
-<!--                                                <label for="txtReaccionAdversaCiclo">Reaccion adversa otra</label>-->
-<!--                                                <input type="text" id="txtReaccionAdversaCiclo" class="form-control" th:value="${monthly?.getFirst()?.adverseReaction}"/>-->
-<!--                                            </div>-->
-<!--                                        </fieldset>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                            </div>-->
+                            <div class="tab-pane" id="tab3">
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12 col-sm-12">
+                                        <div class="card CardDetails">
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                                    </div>
+                                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                                        <div class="form-group">
+                                                            <label for="slcSelectCicle">Selecciona un ciclo</label>
+                                                            <select class="form-control selectpicker" data-style="btn btn-link" id="slcSelectCicle" name="inptProduct" onChange="createTable(this.value);">
+                                                                <!--                                                    <option value="0" disabled selected>Selecciona un ciclo...</option>-->
+                                                                <!--                                                    <option value="1">1</option>-->
+                                                                <!--                                                    <option value="2">2</option>-->
+                                                                <!--                                                    <option value="3">3</option>-->
+                                                                <!--                                                    <option value="4">4</option>-->
+                                                                <!--                                                    <option value="5">5</option>-->
+                                                                <!--                                                    <option value="6">6</option>-->
+                                                                <!--                                                    <option value="7">7</option>-->
+                                                                <!--                                                    <option value="8">8</option>-->
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                        <fieldset enabled>
+                                            <div class="form-group">
+                                                <label for="txtFechaValoracionCiclo">Fecha de Valoración</label>
+                                                <input type="text" id="txtFechaValoracionCiclo" class="form-control" th:value="${monthly?.getFirst().dateOfRealization}">
+                                            </div>
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                        <fieldset enabled>
+                                            <div class="form-group">
+                                                <label for="txtAlbuminaCiclo">Albumina (g/dL)</label>
+                                                <input type="text" id="txtAlbuminaCiclo" class="form-control" th:value="${monthly?.getFirst()?.albumin}"/>
+                                            </div>
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                        <fieldset enabled>
+                                            <div class="form-group">
+                                                <label for="txtCalcioSericoCiclo">Calcio sérico (mg/dL)</label>
+                                                <input type="text" id="txtCalcioSericoCiclo" class="form-control" th:value="${monthly?.getFirst()?.serumCalcium}"/>
+                                            </div>
+                                        </fieldset>
+                                    </div>
+                                </div>
+                                <br/>
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                        <fieldset enabled>
+                                            <div class="form-group">
+                                                <label for="txtDeshidrogenasaLacticaCiclo">Deshidrogenasa Lactica (U/L)</label>
+                                                <input type="text" id="txtDeshidrogenasaLacticaCiclo" class="form-control" th:value="${monthly?.getFirst()?.lacticDehydrogenase}"/>
+                                            </div>
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                        <fieldset enabled>
+                                            <div class="form-group">
+                                                <label for="txtHemoglobinaCiclo">Hemoglobina (g/dL)</label>
+                                                <input type="text" id="txtHemoglobinaCiclo" class="form-control" th:value="${monthly?.getFirst()?.hemoglobin}"/>
+                                            </div>
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                        <fieldset enabled>
+                                            <div class="form-group">
+                                                <label for="txtHematocritoCiclo">Hematocrito (%)</label>
+                                                <input type="text" id="txtHematocritoCiclo" class="form-control" th:value="${monthly?.getFirst()?.hematocrit}"/>
+                                            </div>
+                                        </fieldset>
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                        <fieldset enabled>
+                                            <div class="form-group">
+                                                <label for="txtLeucocitosCiclo">Leucocitos (cels x 10(3)/uL)</label>
+                                                <input type="text" id="txtLeucocitosCiclo" class="form-control" th:value="${monthly?.getFirst()?.leukocytes}"/>
+                                            </div>
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                        <fieldset enabled>
+                                            <div class="form-group">
+                                                <label for="txtLinfocitosCiclo">Linfocitos (cels x 10(3)/uL)</label>
+                                                <input type="text" id="txtLinfocitosCiclo" class="form-control" th:value="${monthly?.getFirst()?.lymphocytes}"/>
+                                            </div>
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                        <fieldset enabled>
+                                            <div class="form-group">
+                                                <label for="txtNeutrofilosCiclo">Neutrofilos (cels x 10(3)/uL)</label>
+                                                <input type="text" id="txtNeutrofilosCiclo" class="form-control" th:value="${monthly?.getFirst()?.neutrophils}"/>
+                                            </div>
+                                        </fieldset>
+                                    </div>
+                                </div>
+                                <br/>
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                        <fieldset enabled>
+                                            <div class="form-group">
+                                                <label for="txtPlaquetasCiclo">Plaquetas (cels x 10(3)/uL)</label>
+                                                <input type="text" id="txtPlaquetasCiclo" class="form-control" th:value="${monthly?.getFirst()?.platelets}"/>
+                                            </div>
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                        <fieldset enabled>
+                                            <div class="form-group">
+                                                <label for="txtIgGCiclo">IgG (mg/dL)</label>
+                                                <input type="text" id="txtIgGCiclo" class="form-control" th:value="${monthly?.getFirst()?.igG}"/>
+                                            </div>
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                        <fieldset enabled>
+                                            <div class="form-group">
+                                                <label for="txtIgACiclo">IgA (mg/dL)</label>
+                                                <input type="text" id="txtIgACiclo" class="form-control" th:value="${monthly?.getFirst()?.igA}"/>
+                                            </div>
+                                        </fieldset>
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                        <fieldset enabled>
+                                            <div class="form-group">
+                                                <label for="txtIgMCiclo">IgM (mg/dL)</label>
+                                                <input type="text" id="txtIgMCiclo" class="form-control" th:value="${monthly?.getFirst()?.igM}"/>
+                                            </div>
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                        <fieldset enabled>
+                                            <div class="form-group">
+                                                <label for="txtCadenasKappaCiclo">Cadenas Ligeras Kappa (mg/L)</label>
+                                                <input type="text" id="txtCadenasKappaCiclo" class="form-control" th:value="${monthly?.getFirst()?.lightChainsKappa}"/>
+                                            </div>
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                        <fieldset enabled>
+                                            <div class="form-group">
+                                                <label for="txtCadenasLambdaCiclo">Cadenas Ligeras Lambda (mg/L)</label>
+                                                <input type="text" id="txtCadenasLambdaCiclo" class="form-control" th:value="${monthly?.getFirst()?.lightChainsLambda}"/>
+                                            </div>
+                                        </fieldset>
+                                    </div>
+                                </div>
+                                <br/>
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                        <fieldset enabled>
+                                            <div class="form-group">
+                                                <label for="txtToxicidadSerieRojaCiclo">Toxicidad Hematologica - Serie Roja</label>
+                                                <input type="text" id="txtToxicidadSerieRojaCiclo" class="form-control" th:value="${monthly?.getFirst()?.toxHemtoRedSerie}"/>
+                                            </div>
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                        <fieldset enabled>
+                                            <div class="form-group">
+                                                <label for="txtToxicidadNeutrofilosCiclo">Toxicidad Hematologica - Neutrofilos</label>
+                                                <input type="text" id="txtToxicidadNeutrofilosCiclo" class="form-control" th:value="${monthly?.getFirst()?.toxHemtoNeutrophils}"/>
+                                            </div>
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                        <fieldset enabled>
+                                            <div class="form-group">
+                                                <label for="txtToxicidadPlaquetasCiclo">Toxicidad Hematologica - Plaquetas</label>
+                                                <input type="text" id="txtToxicidadPlaquetasCiclo" class="form-control" th:value="${monthly?.getFirst()?.toxHemtoPlatelets}"/>
+                                            </div>
+                                        </fieldset>
+                                    </div>
+                                </div>
+                                <br/>
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                        <fieldset enabled>
+                                            <div class="form-group">
+                                                <label for="txtToxicidadHepaticaCiclo">Toxicidad Hepática</label>
+                                                <input type="text" id="txtToxicidadHepaticaCiclo" class="form-control" th:value="${monthly?.getFirst()?.toxHepatics}"/>
+                                            </div>
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                        <fieldset enabled>
+                                            <div class="form-group">
+                                                <label for="txtToxicidadRenalCiclo">Toxicidad Renal</label>
+                                                <input type="text" id="txtToxicidadRenalCiclo" class="form-control" th:value="${monthly?.getFirst()?.toxRenal}"/>
+                                            </div>
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                        <fieldset enabled>
+                                            <div class="form-group">
+                                                <label for="txtToxicidadInfecciosaCiclo">Toxicidad Infecciosa</label>
+                                                <input type="text" id="txtToxicidadInfecciosaCiclo" class="form-control" th:value="${monthly?.getFirst()?.toxInfectious}"/>
+                                            </div>
+                                        </fieldset>
+                                    </div>
+                                </div>
+                                <br/>
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                        <fieldset enabled>
+                                            <div class="form-group">
+                                                <label for="txtSitioInfeccionCiclo">Sitio de infección</label>
+                                                <input type="text" id="txtSitioInfeccionCiclo" class="form-control" th:value="${monthly?.getFirst()?.infectionSite}"/>
+                                            </div>
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                        <fieldset enabled>
+                                            <div class="form-group">
+                                                <label for="txtToxicidadNauseaCiclo">Toxicidad gastrointestinal - Nausea</label>
+                                                <input type="text" id="txtToxicidadNauseaCiclo" class="form-control" th:value="${monthly?.getFirst()?.toxGastroNausea}"/>
+                                            </div>
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                        <fieldset enabled>
+                                            <div class="form-group">
+                                                <label for="txtToxicidadDiarreaCiclo">Toxicidad gastrointestinal - Diarrea</label>
+                                                <input type="text" id="txtToxicidadDiarreaCiclo" class="form-control" th:value="${monthly?.getFirst()?.toxGastroDiarrhea}"/>
+                                            </div>
+                                        </fieldset>
+                                    </div>
+                                </div>
+                                <br/>
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                        <fieldset enabled>
+                                            <div class="form-group">
+                                                <label for="txtToxicidadNeuropatiaCiclo">Toxicidad neuropatía periférica</label>
+                                                <input type="text" id="txtToxicidadNeuropatiaCiclo" class="form-control" th:value="${monthly?.getFirst()?.toxNeuroatiaPerif}"/>
+                                            </div>
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                        <fieldset enabled>
+                                            <div class="form-group">
+                                                <label for="txtReaccionMedicamentoCiclo">Reacción a infusión de medicamentos</label>
+                                                <input type="text" id="txtReaccionMedicamentoCiclo" class="form-control" th:value="${monthly?.getFirst()?.infusionMedReaction}"/>
+                                            </div>
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                        <fieldset enabled>
+                                            <div class="form-group">
+                                                <label for="txtReaccionAdversaCiclo">Reaccion adversa otra</label>
+                                                <input type="text" id="txtReaccionAdversaCiclo" class="form-control" th:value="${monthly?.getFirst()?.adverseReaction}"/>
+                                            </div>
+                                        </fieldset>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="tab-pane" id="tab4">
                                 <div class="row">
                                     <div class="col-lg-4 col-md-4 col-sm-4">
@@ -879,7 +879,7 @@
                                         <fieldset enabled>
                                             <div class="form-group">
                                                 <label for="Albumina">Albumina (g/dL)</label>
-                                                <input type="text" class="form-control" id="Albumina" placeholder="g/dL"name="albumin" th:field="*{final?.albumin}">
+                                                <input type="text" class="form-control" id="Albumina" placeholder="g/dL"name="albumin" th:value="*{final?.albumin}">
                                             </div>
                                         </fieldset>
                                     </div>
