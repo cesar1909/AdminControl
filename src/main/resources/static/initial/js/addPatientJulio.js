@@ -104,6 +104,7 @@ const addPatient = (() => {
     const slcAmiloidosis = $('#slcAmiloidosis');
     const txtB2Microglobulina = $('#txtB2Microglobulina');
     const txtAlbumina = $('#txtAlbumina');
+    const txtCalcioSer = $('#CalcioSer');
 
 
 
@@ -403,6 +404,10 @@ const addPatient = (() => {
         if(txtAlbumina.val()< 0.01 || txtAlbumina.val()> 6 || txtAlbumina.val() == ""){
             errores = errores.concat("-Albumina: fuera del rango 0.01 a 6\n");
         }
+        if(txtCalcioSer.val()< 5 || txtCalcioSer.val()> 20 || txtCalcioSer.val() == ""){
+                    errores = errores.concat("-Calcio sérico: fuera del rango 5 a 20\n");
+        }
+
         
         if (errores.toString() != "") 
         {

@@ -111,6 +111,7 @@ function deseaEliminarMonitor (idMonitor){
         resultado = true;
 
              location.href = "/admin/deleteUser?id="+idMonitor;
+
       } else {
         swal("Eliminacion cancelada");
         resultado = false;
@@ -144,3 +145,5 @@ function deseaEliminarPaciente (idPaciente){
     });
 
 }
+
+

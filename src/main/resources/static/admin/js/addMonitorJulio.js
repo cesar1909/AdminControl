@@ -79,6 +79,7 @@ function Validar (){
         return false;
     }
     else{
+
         swal("Monitor Registrado", "", "success");
         return true;
 
@@ -86,3 +87,4 @@ function Validar (){
 
 
 }
+

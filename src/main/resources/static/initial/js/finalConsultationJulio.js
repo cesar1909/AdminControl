@@ -177,7 +177,7 @@ btnNext2.click(()=>{
             tabConsulta3.addClass('active');
             tab2.removeClass('active');
             tab3.addClass('active');
-       }
+      }
         
     });
 
@@ -226,10 +226,15 @@ btnNext2.click(()=>{
     //---------------------------//
 })();
 
+var botonMarcado;
 //PAra antes de enviar los datos
 function Validar (){
 
         const minres = $('#minres');
+        const txtDateTrasplante =$("#txtDateTrasplante");
+        const celCD34 = $("#celCD34");
+        const txtDateInjertoMie = $("#txtDateInjertoMie");
+        const txtDateInjertoPla = $("#txtDateInjertoPla");
 
         var errores = new String("");
 
@@ -237,6 +242,23 @@ function Validar (){
         if(minres.val()< 0 || minres.val()> 1000 || minres.val() == ""){
             errores = errores.concat("-Enfermedad mínima residual (eventos: fuera del rango 0 a 1,000\n");
         }
+        if (botonMarcado == true) //Solo si se habilito el check
+        {
+
+             if(txtDateTrasplante.val() == ""){
+                 errores = errores.concat("-Seleccione Fecha de trasplante\n");
+              }
+              if(celCD34.val()< 0 || celCD34.val()> 10 || celCD34.val() == ""){
+                  errores = errores.concat("-Número de CD34 infundidas fuera del rango 0 a 10\n");
+               }
+              if(txtDateInjertoMie.val() == ""){
+               errores = errores.concat("-Seleccione  Fecha injerto mieloide\n");
+              }
+              if(txtDateInjertoPla.val() == ""){
+             errores = errores.concat("-Seleccione  Fecha injerto plaquetario\n");
+            }
+        }
+
 
         if (errores.toString() != "")
         {
@@ -254,6 +276,7 @@ function Validar (){
 //Esperamso que se checke la parte del trasplante
 $('input[type="checkbox"]').on('change', function(e){
     if (this.checked) {
+       botonMarcado = true;
         swal("Campos trasplante habilitados");
         document.getElementById("txtDateTrasplante").removeAttribute("disabled");
        document.getElementById("celCD34").removeAttribute("disabled");
@@ -273,12 +296,13 @@ $('input[type="checkbox"]').on('change', function(e){
 
 
     } else {
+        botonMarcado = false;
          swal("Campos trasplante deshabilitados");
 
          $("#txtDateTrasplante").val('');
          $("#celCD34").val(0);
          $("#txtDateInjertoMie").val('');
-         $("#txtDateInjertoPla").val('0');
+         $("#txtDateInjertoPla").val('');
          $("#Toxicidad_Hematologica_Plaquetas").val('0');
          $("#Toxicidad_Hepatica").val('0');
          $("#Toxicidad_Renal").val('0');
