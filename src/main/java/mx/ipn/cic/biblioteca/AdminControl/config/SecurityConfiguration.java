@@ -31,42 +31,45 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	private SimpleAuthenticationSuccessHandler successHandler;
 
 
-//    @Override
-//    protected void configure(HttpSecurity http) throws Exception {
-//        http
-//                .authorizeRequests()
-//                .antMatchers(
-//                        "/registration**",
-//                        "/js/**",
-//                        "/css/**",
-//                        "/img/**",
-//                        "/webjars/**").permitAll()
-//                .antMatchers("/patient/**","/monthlyconsult/**","/finalconsult/**").hasAnyRole("ADMIN","DOCTOR","MONITOR")
-//                .antMatchers("/admin/**").hasRole("ADMIN")
-//                .antMatchers("/monitor/**").hasAnyRole("ADMIN","MONITOR")
-//                .antMatchers("/doctor/**").hasAnyRole("ADMIN","DOCTOR")
-//                .anyRequest().authenticated()
-//                .and()
-//                .formLogin()
-//                .loginPage("/login")
-//                .defaultSuccessUrl("/success",true)
-//                .permitAll()
-//                .and()
-//                .logout()
-//                .invalidateHttpSession(true)
-//                .clearAuthentication(true)
-//                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-//                .logoutSuccessUrl("/login?logout")
-//                .permitAll();
-//    }
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
 
+        http
+                .csrf().disable()
+                .authorizeRequests()
+                .antMatchers(
+                        "/registration**",
+                        "/js/**",
+                        "/css/**",
+                        "/img/**",
+                        "/webjars/**").permitAll()
+                .antMatchers("/patient/**","/monthlyconsult/**","/finalconsult/**").hasAnyRole("ADMIN","DOCTOR","MONITOR")
+                .antMatchers("/admin/**").hasRole("ADMIN")
+                .antMatchers("/monitor/**").hasAnyRole("ADMIN","MONITOR")
+                .antMatchers("/doctor/**").hasAnyRole("ADMIN","DOCTOR")
+                .anyRequest().authenticated()
+                .and()
+                .formLogin()
+                .loginPage("/login")
+                .defaultSuccessUrl("/success",true)
+                .permitAll()
+                .and()
+                .logout()
+                .invalidateHttpSession(true)
+                .clearAuthentication(true)
+                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                .logoutSuccessUrl("/login?logout")
+                .permitAll();
 
- 	//Habilita las peticiones de terceros
- 	@Override
-    protected void configure(HttpSecurity httpSecurity) throws Exception {
-        //httpSecurity.authorizeRequests().antMatchers("/").permitAll();
-    	httpSecurity.csrf().disable();
     }
+
+
+// 	//Habilita las peticiones de terceros
+// 	@Override
+//    protected void configure(HttpSecurity httpSecurity) throws Exception {
+//        //httpSecurity.authorizeRequests().antMatchers("/").permitAll();
+//    	httpSecurity.csrf().disable();
+//    }
 
     //Test que simula el passwordecoder sin usar bcrypt
 
