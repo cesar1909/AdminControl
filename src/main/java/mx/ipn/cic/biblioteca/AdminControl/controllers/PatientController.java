@@ -24,7 +24,9 @@ import mx.ipn.cic.biblioteca.AdminControl.services.DoctorService;
 import mx.ipn.cic.biblioteca.AdminControl.services.PatientService;
 import mx.ipn.cic.biblioteca.AdminControl.model.User;
 import mx.ipn.cic.biblioteca.AdminControl.projections.FindPatientsByEmailResult;
+import mx.ipn.cic.biblioteca.AdminControl.projections.FindFullNameByEmailResult;
 import mx.ipn.cic.biblioteca.AdminControl.repositories.IDoctorRepository;
+import mx.ipn.cic.biblioteca.AdminControl.repositories.IPatientRepository;
 import mx.ipn.cic.biblioteca.AdminControl.repositories.UserRepository;
 //import mx.ipn.cic.biblioteca.AdminControl.ResultQueries.findPatientsByEmailResult;
 import mx.ipn.cic.biblioteca.AdminControl.model.DoctorModel;
@@ -52,13 +54,44 @@ public class PatientController {
 
 	@Autowired
 	IDoctorRepository iDoctorRepository;
+	
+	@Autowired
+	IPatientRepository patientRepository;
 
 	@GetMapping(path = "")
 	public String redirectToAll() {
 		System.out.println("Redicreccionamiento correcto a PatientController");
 		return "redirect:/login";
 	}
+	@GetMapping(path = "/allPatients")
+	public ModelAndView allUsers() {
+		List<FindPatientsByEmailResult> findAll = this.userRepository.findPatientsByEmail(this.userServiceImpl.getEmailUser());
 
+		ModelAndView mav = new ModelAndView("patietnsListDoctor");
+		//System.out.println("MAV QUERY: "+findAll);
+		mav.addObject("patients", findAll);
+		return mav;
+
+	}
+
+	
+	//El nombre completo se obtiene así:
+	@GetMapping(path = "/fullname")
+	@ResponseBody
+	public String nameUser() {
+		String nombrec = null;
+//		System.out.println("EMAIL:: "+this.userServiceImpl.getEmailUser());
+		List<FindFullNameByEmailResult> fullname = this.userRepository.findFullNameByEmail(this.userServiceImpl.getEmailUser());		
+		//System.out.println("fullname:: "+fullname);
+		for (FindFullNameByEmailResult b : fullname) {
+			nombrec = b.getNombreCompleto();
+			System.out.println("b:::"+b.getNombreCompleto());
+		}
+//		ModelAndView mav = new ModelAndView("patietnsListDoctor");
+//		System.out.println(mav);
+//		mav.addObject("fullname", fullname);
+		return nombrec;
+	}
 	// @RequestMapping(path = "/newUserForm",
 	// method = RequestMethod.GET)
 //	@GetMapping(path = "/newForm")
