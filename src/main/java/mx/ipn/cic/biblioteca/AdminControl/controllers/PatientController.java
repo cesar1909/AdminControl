@@ -24,7 +24,9 @@ import mx.ipn.cic.biblioteca.AdminControl.services.DoctorService;
 import mx.ipn.cic.biblioteca.AdminControl.services.PatientService;
 import mx.ipn.cic.biblioteca.AdminControl.model.User;
 import mx.ipn.cic.biblioteca.AdminControl.projections.FindPatientsByEmailResult;
+import mx.ipn.cic.biblioteca.AdminControl.projections.FindFullNameByEmailResult;
 import mx.ipn.cic.biblioteca.AdminControl.repositories.IDoctorRepository;
+import mx.ipn.cic.biblioteca.AdminControl.repositories.IPatientRepository;
 import mx.ipn.cic.biblioteca.AdminControl.repositories.UserRepository;
 //import mx.ipn.cic.biblioteca.AdminControl.ResultQueries.findPatientsByEmailResult;
 import mx.ipn.cic.biblioteca.AdminControl.model.DoctorModel;
@@ -52,13 +54,44 @@ public class PatientController {
 
 	@Autowired
 	IDoctorRepository iDoctorRepository;
+	
+	@Autowired
+	IPatientRepository patientRepository;
 
 	@GetMapping(path = "")
 	public String redirectToAll() {
 		System.out.println("Redicreccionamiento correcto a PatientController");
 		return "redirect:/login";
 	}
+	@GetMapping(path = "/allPatients")
+	public ModelAndView allUsers() {
+		List<FindPatientsByEmailResult> findAll = this.userRepository.findPatientsByEmail(this.userServiceImpl.getEmailUser());
 
+		ModelAndView mav = new ModelAndView("patietnsListDoctor");
+		//System.out.println("MAV QUERY: "+findAll);
+		mav.addObject("patients", findAll);
+		return mav;
+
+	}
+
+	
+	//El nombre completo se obtiene así:
+	@GetMapping(path = "/fullname")
+	@ResponseBody
+	public String nameUser() {
+		String nombrec = null;
+//		System.out.println("EMAIL:: "+this.userServiceImpl.getEmailUser());
+		List<FindFullNameByEmailResult> fullname = this.userRepository.findFullNameByEmail(this.userServiceImpl.getEmailUser());		
+		//System.out.println("fullname:: "+fullname);
+		for (FindFullNameByEmailResult b : fullname) {
+			nombrec = b.getNombreCompleto();
+			System.out.println("b:::"+b.getNombreCompleto());
+		}
+//		ModelAndView mav = new ModelAndView("patietnsListDoctor");
+//		System.out.println(mav);
+//		mav.addObject("fullname", fullname);
+		return nombrec;
+	}
 	// @RequestMapping(path = "/newUserForm",
 	// method = RequestMethod.GET)
 //	@GetMapping(path = "/newForm")
@@ -232,52 +265,52 @@ public class PatientController {
 			PatientModel user = new PatientModel(
 					//paciente
 					id,
-					name,
-					lastnameP,
-					lastnameM,
-					birthdate,
-					age,
-					gender,
-					height,
-					weight,
-					bmi,
-					bodySup,
+					name.replaceAll("[,]",""),
+					lastnameP.replaceAll("[,]",""),
+					lastnameM.replaceAll("[,]",""),
+					birthdate.replaceAll("[,]",""),
+					age.replaceAll("[,]",""),
+					gender.replaceAll("[,]",""),
+					height.replaceAll("[,]",""),
+					weight.replaceAll("[,]",""),
+					bmi.replaceAll("[,]",""),
+					bodySup.replaceAll("[,]",""),
 					//consultainicial
-					startDateOfTreatment,
-					serumCreatinine,
-					depCreatinine,
-					ecog,
-					boneInjuries,
-					boneInjuriesNumber,
-					extramedullaryPlasmacytomas,
-					plasmacytomasNumber,
-					active,
-					plasmaCellsInBoneMarrow,
-					plasmaCellsInBloodPerif,
-					igG,
-					igA,
-					igM,
-					inmIgTypeFixation,
-					inmCllTypeFixation,
-					lightChainsKappa,
-					lightChainsLambda,
-					electroForesisDeProteinasSuero,
-					electroForesisDeProteinasOrina,
-					benceJonesProteinuria,
-					dystemicAmyloidosis,
-					b2Microglobulin,
-					albumin,
-					serumCalcium,
-					lacticDehydrogenase,
-					hemoglobin,
-					hematocrit,
-					lymphocytes,
-					leukocytes,
-					neutrophils,
-					platelets,
-					deletionSeventeenP,
-					translocationFourToFourteen,
-					translocationFourteenToSixteen,
+					startDateOfTreatment.replaceAll("[,]",""),
+					serumCreatinine.replaceAll("[,]",""),
+					depCreatinine.replaceAll("[,]",""),
+					ecog.replaceAll("[,]",""),
+					boneInjuries.replaceAll("[,]",""),
+					boneInjuriesNumber.replaceAll("[,]",""),
+					extramedullaryPlasmacytomas.replaceAll("[,]",""),
+					plasmacytomasNumber.replaceAll("[,]",""),
+					active.replaceAll("[,]",""),
+					plasmaCellsInBoneMarrow.replaceAll("[,]",""),
+					plasmaCellsInBloodPerif.replaceAll("[,]",""),
+					igG.replaceAll("[,]",""),
+					igA.replaceAll("[,]",""),
+					igM.replaceAll("[,]",""),
+					inmIgTypeFixation.replaceAll("[,]",""),
+					inmCllTypeFixation.replaceAll("[,]",""),
+					lightChainsKappa.replaceAll("[,]",""),
+					lightChainsLambda.replaceAll("[,]",""),
+					electroForesisDeProteinasSuero.replaceAll("[,]",""),
+					electroForesisDeProteinasOrina.replaceAll("[,]",""),
+					benceJonesProteinuria.replaceAll("[,]",""),
+					dystemicAmyloidosis.replaceAll("[,]",""),
+					b2Microglobulin.replaceAll("[,]",""),
+					albumin.replaceAll("[,]",""),
+					serumCalcium.replaceAll("[,]",""),
+					lacticDehydrogenase.replaceAll("[,]",""),
+					hemoglobin.replaceAll("[,]",""),
+					hematocrit.replaceAll("[,]",""),
+					lymphocytes.replaceAll("[,]",""),
+					leukocytes.replaceAll("[,]",""),
+					neutrophils.replaceAll("[,]",""),
+					platelets.replaceAll("[,]",""),
+					deletionSeventeenP.replaceAll("[,]",""),
+					translocationFourToFourteen.replaceAll("[,]",""),
+					translocationFourteenToSixteen.replaceAll("[,]",""),
 					drm
 			);
 

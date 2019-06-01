@@ -124,7 +124,7 @@
                                                             </thead>
                                                             <tbody>
                                                             <tr th:each="doctor : ${doctors}">
-                                                                <td th:text="${doctor.firstName} + ' ' + ${doctor.lastNameP} + ' ' + ${doctor.lastNameM} +' '+ ${doctor.id} " ></td>
+                                                                <td th:text="${doctor.firstName} + ' ' + ${doctor.lastNameP} + ' ' + ${doctor.lastNameM} " ></td>
                                                                 <td th:text="${doctor.email} + ' '" ></td>
 
                                                                 <td>
@@ -220,7 +220,7 @@
                                                                         <div class="col-lg-6 col-md-6 col-sm-6" align="ritht">
                                                                             <!--                                            <div th:with="someVariable=${Authentication.getPrincipal()}">-->
                                                                             <div>
-                                                                                <a th:href="@{/doctor/newPatientForm}" class="btn btn-info" style="float: right;">
+                                                                                <a th:href="@{/admin/expediente}" class="btn btn-info" style="float: right;">
                                                                                     <i class="material-icons">cloud_download</i> <span>Descargar Expediente</span></a>
                                                                                 <!--                                                <button id="btnAddPatient" class="btn btn-info"><i class="material-icons">person_add</i> Agregar Paciente</button>-->
                                                                             </div>

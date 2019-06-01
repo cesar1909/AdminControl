@@ -46,3 +46,5 @@ application.properties
 \.DS_Store
 
 \.idea/
+
+exceldatabase\.xlsx
