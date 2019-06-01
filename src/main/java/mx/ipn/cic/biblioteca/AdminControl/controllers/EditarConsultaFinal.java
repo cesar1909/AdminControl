@@ -17,9 +17,10 @@ public class EditarConsultaFinal {
 	
 	@Autowired
 	private PatientService userService;
+	@Autowired
 	private IFinalConsultationRepository finalConsultationRepository;
 
-    @PostMapping(path = "/final/")
+    @PostMapping(path = "/final")
     public String register(
     	   @RequestParam(name = "idPatient") Integer idPatient,
            @RequestParam(name = "dateOfRealization") String dateRealization,
@@ -54,8 +55,14 @@ public class EditarConsultaFinal {
 
         // Proceso de registro
         if(idPatient!=0 & dateOfTransplant!=null & numberOfCD34Infused!=null &
-        myeloidGraftDate!=null & datePlateletGraft!=null & toxicities!=null) {
-        	System.out.println("NUEVO UPDATE");
+            myeloidGraftDate!=null & datePlateletGraft!=null & toxicities!=null) {
+        	
+        	System.out.println("NUEVO UPDATE CON VARIABLES");
+        	System.out.println("idPatient:: "+idPatient);
+        	System.out.println("dateRealization:: "+dateRealization);
+        	System.out.println("albumin:: "+albumin);
+        	System.out.println("serumCalcium:: "+serumCalcium);
+        	
         	this.finalConsultationRepository.updateFinalConsult(
         			idPatient,
             		dateRealization,
@@ -88,7 +95,14 @@ public class EditarConsultaFinal {
                     toxicities        			
         			);
             }else if(idPatient!=0) {
-            	this.finalConsultationRepository.updateFinalConsultWithoutNewVariables(
+            	System.out.println("NUEVO UPDATE CON VARIABLES");
+            	System.out.println("NUEVO UPDATE CON VARIABLES");
+            	System.out.println("idPatient:: "+idPatient);
+            	System.out.println("dateRealization:: "+dateRealization);
+            	System.out.println("albumin:: "+albumin);
+            	System.out.println("serumCalcium:: "+serumCalcium);
+            	
+               	this.finalConsultationRepository.updateFinalConsultWithoutNewVariables(
             			idPatient,
                 		dateRealization,
                 		albumin,
@@ -111,9 +125,11 @@ public class EditarConsultaFinal {
                         inmFijacionTipoIg,inmFijacionTipoCll,
                         enfermedadMinimaResidual,
                         repuestaATratamiento,
-                        comentariosExtrax   			
+                        comentariosExtrax       			
             			);
-            }else {
+            }
+        else {
+            	
                 return "redirect:/doctor/allPatients";
             }
         

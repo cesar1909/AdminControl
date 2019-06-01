@@ -12,41 +12,43 @@ import java.lang.Integer;
 import java.util.List;
 import java.util.Optional;
 
-@Repository
+import javax.transaction.Transactional;
+
+@Transactional
 public interface IFinalConsultationRepository extends JpaRepository<FinalConsultation, Integer>{
     FinalConsultation findByIdPatient(Integer id);
 
 	@Modifying
 	@Query(value = "UPDATE consulta_final cf SET "
-			+ "cf.fecha_realizacion = :fecha_realizacion,"
-			+ "cf.albumina = :albumina,"
-			+ "cf.calcio_serico = :calcio_serico,"
-			+ "cf.deshidrogenasa_lactica = :deshidrogenasa_lactica,"
-			+ "cf.hemoglobina = :hemoglobina,"
-			+ "cf.hematocrito = :hematocrito,"
-			+ "cf.leucocitos = :leucocitos,"
-			+ "cf.linfocitos = :linfocitos,"
-			+ "cf.neutrofilos = :neutrofilos,"
-			+ "cf.plaquetas = :plaquetas,"
-			+ "cf.igg = :igg,"
-			+ "cf.iga = :iga,"
-			+ "cf.igm = :igm,"
-			+ "cf.cadenas_ligeras_kappa = :cadenas_ligeras_kappa,"
-			+ "cf.cadenas_ligeras_lambda = :cadenas_ligeras_lambda,"
-			+ "cf.cel_plasmatic_en_medula_osea = :cel_plasmatic_en_medula_osea,"
-			+ "cf.electro_foresis_de_proteinas_suero = :electro_foresis_de_proteinas_suero,"
-			+ "cf.electro_foresis_de_proteinas_orina = :electro_foresis_de_proteinas_orina,"
-			+ "cf.inm_fijacion_tipo_ig = :inm_fijacion_tipo_ig,"
-			+ "cf.inm_fijacion_tipo_cll = :inm_fijacion_tipo_cll,"
-			+ "cf.enfermedad_minima_residual = :enfermedad_minima_residual,"
-			+ "cf.repuestaatratamiento = :repuestaatratamiento,"
-			+ "cf.comentarios_extrax = :comentarios_extrax,"
-			+ "cf.fecha_de_trasplante = :fecha_de_trasplante,"
-			+ "cf.numcd34infundidas = :numcd34infundidas,"
-			+ "cf.fecha_injerto_mieloide = :fecha_injerto_mieloide,"
-			+ "cf.fecha_injerto_plaquetario = :fecha_injerto_plaquetario,"
-			+ "cf.toxicidades = :toxicidades"
-			+ "  WHERE cf.idPatient = :idpatient", nativeQuery=true
+			+ "cf.fecha_realizacion = :fecha_realizacion, "
+			+ "cf.albumina = :albumina, "
+			+ "cf.calcio_serico = :calcio_serico, "
+			+ "cf.deshidrogenasa_lactica = :deshidrogenasa_lactica, "
+			+ "cf.hemoglobina = :hemoglobina, "
+			+ "cf.hematocrito = :hematocrito, "
+			+ "cf.leucocitos = :leucocitos, "
+			+ "cf.linfocitos = :linfocitos, "
+			+ "cf.neutrofilos = :neutrofilos, "
+			+ "cf.plaquetas = :plaquetas, "
+			+ "cf.igg = :igg, "
+			+ "cf.iga = :iga, "
+			+ "cf.igm = :igm, "
+			+ "cf.cadenas_ligeras_kappa = :cadenas_ligeras_kappa, "
+			+ "cf.cadenas_ligeras_lambda = :cadenas_ligeras_lambda, "
+			+ "cf.cel_plasmatic_en_medula_osea = :cel_plasmatic_en_medula_osea, "
+			+ "cf.electro_foresis_de_proteinas_suero = :electro_foresis_de_proteinas_suero, "
+			+ "cf.electro_foresis_de_proteinas_orina = :electro_foresis_de_proteinas_orina, "
+			+ "cf.inm_fijacion_tipo_ig = :inm_fijacion_tipo_ig, "
+			+ "cf.inm_fijacion_tipo_cll = :inm_fijacion_tipo_cll, "
+			+ "cf.enfermedad_minima_residual = :enfermedad_minima_residual, "
+			+ "cf.repuestaatratamiento = :repuestaatratamiento, "
+			+ "cf.comentarios_extrax = :comentarios_extrax, "
+			+ "cf.fecha_de_trasplante = :fecha_de_trasplante, "
+			+ "cf.numcd34infundidas = :numcd34infundidas, "
+			+ "cf.fecha_injerto_mieloide = :fecha_injerto_mieloide, "
+			+ "cf.fecha_injerto_plaquetario = :fecha_injerto_plaquetario, "
+			+ "cf.toxicidades = :toxicidades "
+			+ "WHERE cf.idpaciente = :idpatient", nativeQuery=true
 			)
 	void updateFinalConsult(
 			   @Param("idpatient") Integer idpatient,
@@ -104,8 +106,8 @@ public interface IFinalConsultationRepository extends JpaRepository<FinalConsult
 			+ "cf.inm_fijacion_tipo_cll = :inm_fijacion_tipo_cll,"
 			+ "cf.enfermedad_minima_residual = :enfermedad_minima_residual,"
 			+ "cf.repuestaatratamiento = :repuestaatratamiento,"
-			+ "cf.comentarios_extrax = :comentarios_extrax"
-			+ "  WHERE cf.idPatient = :idpatient", nativeQuery=true
+			+ "cf.comentarios_extrax = :comentarios_extrax "
+			+ "WHERE cf.idpaciente = :idpatient", nativeQuery=true
 			)
 	void updateFinalConsultWithoutNewVariables(
 			   @Param("idpatient") Integer idpatient,
