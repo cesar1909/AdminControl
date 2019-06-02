@@ -39,14 +39,14 @@
                 <ul class="nav nav-pills nav-pills-primary flex-column">
                     <li id="navLink1" class="active nav-item">
                         <a class="nav-link active" href="#tab1" data-toggle="tab">
-                            <p class="fontSize1_5">Información del Paciente</p>
+                            <p class="fontSize1_5">General y Consulta Inicial</p>
                         </a>
                     </li>
-                    <li id="navLink2" class="nav-item">
-                        <a class="nav-link" href="#tab2" data-toggle="tab">
-                            <p class="fontSize1_5">Consulta Inicial</p>
-                        </a>
-                    </li>
+                    <!--<li id="navLink2" class="nav-item">-->
+                        <!--<a class="nav-link" href="#tab2" data-toggle="tab">-->
+                            <!--<p class="fontSize1_5">Consulta Inicial</p>-->
+                        <!--</a>-->
+                    <!--</li>-->
                     <li id="navLink3" class="nav-item">
                         <a th:onclick="${'verifyMonthly(' + user.id +');'}" class="nav-link" href="#tab3" data-toggle="tab">
                             <p class="fontSize1_5">Consultas Mensuales</p>
@@ -88,7 +88,7 @@
             <br>
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12">
-                    <form method="post" th:action="@{/patient/register}">
+                    <form method="post" th:action="@{/editpatientinitialconsult/inicial}">
                         <span id="myvar" style="display:none" th:text="${monthly.size()}"></span>
                         <span id="myvarid" style="display:none" th:text="${user.id}"></span>
                         <input type="text" id="nombreid" class="form-control" hidden="true" name="nombre" th:field="*{user.name}">
@@ -167,71 +167,8 @@
                                             </div>
                                         </fieldset>
                                     </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-4">
-                                        <!--<fieldset enabled>-->
-                                            <!--<div class="form-group">-->
-                                                <!--<label for="txtFechaDiagnostico">Fecha de Diagnóstico</label>-->
-                                                <!--<input type="text" id="txtFechaDiagnostico" class="form-control" name="startDateOfTreatment" th:field="*{startDateOfTreatment}"/>-->
-                                            <!--</div>-->
-                                        <!--</fieldset>-->
-                                    </div>
-                                    <!--                      <div class="col-lg-4 col-md-4 col-sm-4">-->
-                                    <!--                        <fieldset disabled>-->
-                                    <!--                          <div class="form-group">-->
-                                    <!--                            <label for="txtDiabetes">Diabetes en descontrol</label>-->
-                                    <!--                            <input type="text" id="txtDiabetes" class="form-control" />-->
-                                    <!--                          </div>-->
-                                    <!--                        </fieldset>-->
-                                    <!--                      </div>-->
                                 </div>
                                 <br/>
-                                <!--                    <div class="row">-->
-                                <!--                      <div class="col-lg-4 col-md-4 col-sm-4">-->
-                                <!--                        <fieldset disabled>-->
-                                <!--                          <div class="form-group">-->
-                                <!--                            <label for="txtHipertension">Hipertensión en descontrol</label>-->
-                                <!--                            <input type="text" id="txtHipertension" class="form-control" />-->
-                                <!--                          </div>-->
-                                <!--                        </fieldset> -->
-                                <!--                      </div>-->
-                                <!--                      <div class="col-lg-4 col-md-4 col-sm-4">-->
-                                <!--                        <fieldset disabled>-->
-                                <!--                          <div class="form-group">-->
-                                <!--                            <label for="txtArritmias">Arritmias en descontrol</label>-->
-                                <!--                            <input type="text" id="txtArritmias" class="form-control" />-->
-                                <!--                          </div>-->
-                                <!--                        </fieldset> -->
-                                <!--                      </div>-->
-                                <!--                      <div class="col-lg-4 col-md-4 col-sm-4">-->
-                                <!--                        <fieldset disabled>-->
-                                <!--                          <div class="form-group">-->
-                                <!--                            <label for="txtCardiopatia">Cardiopatía Isquémica III-IV</label>-->
-                                <!--                            <input type="text" id="txtCardiopatia" class="form-control" />-->
-                                <!--                          </div>-->
-                                <!--                        </fieldset>-->
-                                <!--                      </div>-->
-                                <!--                    </div>-->
-                                <br/>
-                                <!--                    <div class="row">-->
-                                <!--                      <div class="col-lg-4 col-md-4 col-sm-4">-->
-                                <!--                        <fieldset disabled>-->
-                                <!--                          <div class="form-group">-->
-                                <!--                            <label for="txtNeumopatia">Neumopatía Crónica Severa</label>-->
-                                <!--                            <input type="text" id="txtNeumopatia" class="form-control" />-->
-                                <!--                          </div>-->
-                                <!--                        </fieldset>-->
-                                <!--                      </div>-->
-                                <!--                      <div class="col-lg-4 col-md-4 col-sm-4">-->
-                                <!--                        <fieldset disabled>-->
-                                <!--                          <div class="form-group">-->
-                                <!--                            <label for="txtHepatopatia">Hepatopatía Crónica</label>-->
-                                <!--                            <input type="text" id="txtHepatopatia" class="form-control" />-->
-                                <!--                          </div>-->
-                                <!--                        </fieldset>-->
-                                <!--                      </div>-->
-                                <!--                    </div>-->
-                            </div>
-                            <div class="tab-pane" id="tab2">
                                 <div class="row">
                                     <div class="col-lg-4 col-md-4 col-sm-4">
                                         <fieldset enabled>
@@ -324,7 +261,6 @@
                                         </fieldset>
                                     </div>
                                 </div>
-                                <br/>
                                 <div class="row">
                                     <div class="col-lg-4 col-md-4 col-sm-4">
                                         <fieldset enabled>
@@ -585,17 +521,26 @@
                                                 </select>                            </div>
                                         </fieldset>
                                     </div>
-                                    <!--                      <div class="col-lg-4 col-md-4 col-sm-4">-->
-                                    <!--                        <fieldset disabled>-->
-                                    <!--                            <div class="form-group">-->
-                                    <!--                              <label for="txtDateInicioTratamiento">Fecha de inicio de tratamiento</label>-->
-                                    <!--                              <input type="text" id="txtDateInicioTratamiento" class="form-control" />-->
-                                    <!--                            </div>-->
-                                    <!--                        </fieldset>-->
-                                    <!--                      </div>-->
+                                </div>
+                                <div class="row">
+                                    <div id="divButtonsInic1" class="col-lg-8 col-md-8 col-sm-8">
+                                        <button id="btnReset3" type="reset" class="btn btn-info"><i class="material-icons">settings_backup_restore</i> <span>Borrar Cambios</span></button>
+
+                                    </div>
+                                    <div id="divButtonsInic2" class="col-lg-4 col-md-4 col-sm-4">
+                                        <button type="submit" class="btn btn-info"><i class="material-icons">save_alt</i> <span>Guardar General/Consulta Inicial</span></button>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div id="divButtonsInic3" class="col-lg-8 col-md-8 col-sm-8">
+                                        <a onclick="goBack()" class="btn btn-danger"><i class="material-icons">cancel</i> <span>Cancelar</span></a>
+                                        <script> function goBack() {window.history.back();}</script>
+                                    </div>
                                 </div>
                             </div>
+
                     </form>
+
 
 
                             <div class="tab-pane" id="tab3">
@@ -634,18 +579,18 @@
                                 </div>
                                 <div id="result2"></div>
                                 <div class="row">
-                                    <div id="divButtonsMonth" class="col-lg-8 col-md-8 col-sm-8">
-                                        <button id="btnReset4" type="reset" class="btn btn-info"><i class="material-icons">settings_backup_restore</i> <span>Borrar Cambios</span></button>
+                                    <div id="divButtonsMonth1" class="col-lg-8 col-md-8 col-sm-8">
+                                        <button id="btnReset" type="reset" class="btn btn-info"><i class="material-icons">settings_backup_restore</i> <span>Borrar Cambios</span></button>
 
                                     </div>
-                                    <div id="divButtonsFinal5" class="col-lg-4 col-md-4 col-sm-4">
+                                    <div id="divButtonsMonth2" class="col-lg-4 col-md-4 col-sm-4">
                                         <!--<button onclick="submitFinal()" class="btn btn-info"><i class="material-icons">save_alt</i> <span>Guardar Consulta Final</span></button>-->
                                         <a onclick="subirFormMensual()" class="btn btn-info"><i class="material-icons">save_alt</i> <span>Guardar Consulta Mensual</span></a>
 
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div id="divButtonsFinal6" class="col-lg-8 col-md-8 col-sm-8">
+                                    <div id="divButtonsMonth3" class="col-lg-8 col-md-8 col-sm-8">
                                         <a onclick="goBack()" class="btn btn-danger"><i class="material-icons">cancel</i> <span>Cancelar</span></a>
                                         <script> function goBack() {window.history.back();}</script>
                                     </div>

@@ -38,7 +38,7 @@ public class MonthlyConsultationController {
         System.out.println(id);
         PatientModel patientModel = this.userService.findById(id);
         ModelAndView mav = new ModelAndView("addMonthlyConsultation", "monthlyConsultationModel", new MonthlyConsultation());
-        List<MonthlyConsultation> monthly= this.consultationService.findAll();
+        List<MonthlyConsultation> monthly= this.consultationService.findByPatientId(patientModel);
         mav.addObject("paciente", patientModel);
         mav.addObject("monthly", monthly);
         return mav;

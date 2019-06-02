@@ -68,6 +68,9 @@ function verifyMonthly(idPat) {
             if (data == "no data") {
                 $( "#selectConsult" ).remove();
                 console.log("Datos nulos");
+                $( "#divButtonsMonth1" ).remove();
+                $( "#divButtonsMonth2" ).remove();
+                $( "#divButtonsMonth3" ).remove();
             }
             else {
                 console.log("Datos desde el servidor");

@@ -124,9 +124,9 @@ public class EditarConsultaInicial {
 			iddoc
 			);			
 		}else{
-			return "redirect:/doctor/allPatients";
+			return "redirect:/monitor/editPatient" + "?id=" + id;
 		}
-		return "redirect:/doctor/allPatients";
+		return "redirect:/monitor/editPatient" + "?id=" + id;
 
 		}
 
