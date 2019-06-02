@@ -75,21 +75,14 @@ public class PatientController {
 	}
 
 
-	//El nombre completo se obtiene así:
 	@GetMapping(path = "/fullname")
-	@ResponseBody
-	public String nameUser() {
+	public @ResponseBody String nameUser() {
 		String nombrec = null;
-//		System.out.println("EMAIL:: "+this.userServiceImpl.getEmailUser());
 		List<FindFullNameByEmailResult> fullname = this.userRepository.findFullNameByEmail(this.userServiceImpl.getEmailUser());
-		//System.out.println("fullname:: "+fullname);
 		for (FindFullNameByEmailResult b : fullname) {
 			nombrec = b.getNombreCompleto();
 			System.out.println("b:::"+b.getNombreCompleto());
 		}
-//		ModelAndView mav = new ModelAndView("patietnsListDoctor");
-//		System.out.println(mav);
-//		mav.addObject("fullname", fullname);
 		return nombrec;
 	}
 	// @RequestMapping(path = "/newUserForm",
