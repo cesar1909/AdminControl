@@ -57,19 +57,6 @@ const patientList = (() => {
 })();
 
 
-function selecTipoConsultaAAA (idPaciente, nombrePaciente){
-    alert("Dentro");
-    swal({
-            title: 'Title',
-            html: "Some Text" +
-                "<br>" +
-                '<button type="button" role="button" class="btn btn-success">' + 'Button1' + '</button>' +
-                '<button type="button" role="button" class="btn btn-success">' + 'Button2' + '</button>',
-            showCancelButton: false,
-            showConfirmButton: false
-        });
-
- }
 
  function selecTipoConsulta (idPaciente){
      Swal.fire({
@@ -88,7 +75,23 @@ function selecTipoConsultaAAA (idPaciente, nombrePaciente){
          showConfirmButton: false
      }).then((result) => {
          if (result.value) {
-            alert("Hola");
+            //alert("Hola");
         }
         })
  }
+
+
+//Julio
+//Cuando cargue el la pag pedimos el ajax y ponemos el nombre de usuario
+$(document).ready(function() {
+   //alert("Cambia el nombre!! desde AJAX);
+   $("#nameUSER").text('Prueba');
+   $.ajax({
+       url: "/patient/fullname",
+       success: function(data) {
+              //alert(data);
+              $("#nameUSER").text("Médico: "+data);
+           }
+   });
+
+});

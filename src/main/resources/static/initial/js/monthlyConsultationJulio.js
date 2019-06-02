@@ -179,4 +179,22 @@ const initialConsultation = (() => {
     return{
     }
     //---------------------------//
-})()
+})();
+
+
+//Cuando cargue el la pag pedimos el ajax y ponemos el nombre de usuario
+$(document).ready(function() {
+   //alert("Cambia el nombre!! desde AJAX);
+   $("#nameUSER").text('Prueba');
+   $.ajax({
+       url: "/patient/fullname",
+       success: function(data) {
+              //alert(data);
+              $("#nameUSER").text("Médico: "+data);
+           }
+   });
+
+});
+
+
+
