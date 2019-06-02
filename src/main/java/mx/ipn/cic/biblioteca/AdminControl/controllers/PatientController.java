@@ -849,10 +849,7 @@ public class PatientController {
 					"                            <div class=\"form-group\">\n" +
 					"                              <label for=\"inmunofijacionig\">Inmunofijación Tipo Ig</label>\n" +
 					"                              <select id=\"inmunofijacionig\" class=\"form-control\" name=\"inmFijacionTipoIg\" value =" +finalConsultation.getInmFijacionTipoIg() + " \">\n" +
-					"                                <option value=\"Negativa\">Negativa</option>\n" +
-					"                                <option value=\"IgA\">IgA</option>\n" +
-					"                                <option value=\"IgG\">IgG</option>\n" +
-					"                                <option value=\"No secretor\">No secretor</option>\n" +
+					"                              <option selected value =" +finalConsultation.getInmFijacionTipoIg() + ">" +finalConsultation.getInmFijacionTipoIg() + "</option>\n" +
 					"                              </select>\n" +
 					"                            </div>\n" +
 					"                          </fieldset>\n" +
@@ -861,11 +858,8 @@ public class PatientController {
 					"                            <fieldset disabled>\n" +
 					"                                <div class=\"form-group\">\n" +
 					"                                  <label for=\"inmunofijacioncll\">Inmunofijacion Tipo CLL</label>\n" +
-					"                                  <select id=\"inmunofijacioncll\" class=\"form-control\" name=\"inmFijacionTipoCll\" value =" +finalConsultation.getInmFijacionTipoCll() + " \">\n" +
-					"                                    <option value=\"Negativo\">Negativa</option>\n" +
-					"                                    <option value=\"Lambda\">Lambda</option>\n" +
-					"                                    <option value=\"Kappa\">Kappa</option>\n" +
-					"                                    <option value=\"No secretor\">No secretor</option>\n" +
+					"                                  <select id=\"inmunofijacioncll\" class=\"form-control\" name=\"inmFijacionTipoCll\" \">\n" +
+					"                              <option selected value =" +finalConsultation.getInmFijacionTipoCll() + ">" +finalConsultation.getInmFijacionTipoCll() + "</option>\n" +
 					"                                  </select>                                </div>\n" +
 					"                            </fieldset>\n" +
 					"                          </div>\n" +
@@ -883,14 +877,9 @@ public class PatientController {
 					"                      <div class=\"col-lg-4 col-md-4 col-sm-4\">\n" +
 					"                        <fieldset disabled>\n" +
 					"                          <div class=\"form-group\">\n" +
-					"                            <label for=\"Toxicidad_Renal\">Respuesta a tratamiento</label>\n" +
-					"                            <select id=\"Toxicidad_Renal\" class=\"form-control\" name=\"repuestaATratamiento\" value =" +finalConsultation.getRepuestaATratamiento() + " \">\n" +
-					"                              <option value=\"RCs\">RCs</option>\n" +
-					"                              <option value=\"RC\">RC</option>\n" +
-					"                              <option value=\"MBRP\">MBRP</option>\n" +
-					"                              <option value=\"RP\">RP</option>\n" +
-					"                              <option value=\"EE\">EE</option>\n" +
-					"                              <option value=\"PE\">PE</option>\n" +
+					"                            <label for=\"resTrat\">Respuesta a tratamiento</label>\n" +
+					"                            <select id=\"resTrat\" class=\"form-control\" name=\"repuestaATratamiento\"  \">\n" +
+					"                              <option selected value =" +finalConsultation.getRepuestaATratamiento() + ">" +finalConsultation.getRepuestaATratamiento() + "</option>\n" +
 					"                            </select>                          </div>\n" +
 					"                        </fieldset>\n" +
 					"                      </div>\n" +

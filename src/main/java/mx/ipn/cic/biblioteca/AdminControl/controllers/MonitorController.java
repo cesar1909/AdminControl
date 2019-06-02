@@ -131,19 +131,292 @@ public class MonitorController {
 
     }
 
-    @PostMapping(path = "/editFinalConsultation")
-    public @ResponseBody String testForm(@RequestBody FinalConsultation finalConsultation) throws Exception{
-        if (finalConsultation == null){
-            System.out.println("El parametro no llegó");
+//    @PostMapping(path = "/editFinalConsultation")
+//    public @ResponseBody String testForm(@RequestBody FinalConsultation finalConsultation) throws Exception{
+//        if (finalConsultation == null){
+//            System.out.println("El parametro no llegó");
+//        }
+//        else {
+//            System.out.println(finalConsultation.getIdPatient());
+//            System.out.println(finalConsultation.getDateOfRealization());
+//            System.out.println(finalConsultation.getAlbumin());
+//            System.out.println(finalConsultation.getComentariosExtrax());
+//        }
+//        return "todo bien";
+//    }
+
+
+
+
+    @GetMapping(path = "/getMonthlyInfotoEdit")
+    public @ResponseBody String getMonthlyInfotoEdit(@RequestParam("idConsulta") Integer idConsulta, @RequestParam("idPaciente") Integer idPaciente){
+        String respuesta = "No data";
+        PatientModel userFound = this.userService.findById(idPaciente);
+        LinkedList<MonthlyConsultation> monthlyConsultations = this.monthlyConsultationService.findByPatientId(userFound);
+        MonthlyConsultation selectedConsultation = null;
+        for(MonthlyConsultation tmp : monthlyConsultations){
+            if (tmp.getTreatmentCycleNum().equals(idConsulta.toString())){
+                selectedConsultation = tmp;
+                break;
+            }
+            else {
+                continue;
+            }
+        }
+        if (selectedConsultation == null){
+            respuesta = "<h3>NO SE LOCALIZO LA CONUSLTA CON ESE NUMERO DE TRATAMIENTO</h3>";
         }
         else {
-            System.out.println(finalConsultation.getIdPatient());
-            System.out.println(finalConsultation.getDateOfRealization());
-            System.out.println(finalConsultation.getAlbumin());
-            System.out.println(finalConsultation.getComentariosExtrax());
+            respuesta = "<input type=\"text\" id=\"numCiclo\" class=\"form-control\" hidden=\"true\" name=\"ciclo\" value =" +selectedConsultation.getTreatmentCycleNum() + ">\n " +
+                    "<input type=\"text\" id=\"idPatient\" class=\"form-control\" hidden=\"true\" name=\"id\" value =" +selectedConsultation.getIdpatient() + ">\n  " +
+                    "          <div class=\"row\">\n" +
+                    "                      <div class=\"col-lg-4 col-md-4 col-sm-4\">\n" +
+                    "                        <fieldset enabled>\n" +
+                    "                            <div class=\"form-group\">\n" +
+                    "                              <label for=\"txtFechaValoracionCiclo\">Fecha de Valoración</label>\n" +
+                    "                              <input type=\"text\" id=\"txtFechaValoracionCiclo\" class=\"form-control\" value =" + selectedConsultation.getDateOfRealization() + ">\n" +
+                    "                            </div>\n" +
+                    "                        </fieldset>\n" +
+                    "                      </div>\n" +
+                    "                      <div class=\"col-lg-4 col-md-4 col-sm-4\">\n" +
+                    "                        <fieldset enabled>\n" +
+                    "                            <div class=\"form-group\">\n" +
+                    "                              <label for=\"txtAlbuminaCiclo\">Albumina (g/dL)</label>\n" +
+                    "                              <input type=\"text\" id=\"txtAlbuminaCiclo\" class=\"form-control\" value =" + selectedConsultation.getAlbumin() + ">\n" +
+                    "                            </div>\n" +
+                    "                        </fieldset>\n" +
+                    "                      </div>\n" +
+                    "                      <div class=\"col-lg-4 col-md-4 col-sm-4\">\n" +
+                    "                        <fieldset enabled>\n" +
+                    "                            <div class=\"form-group\">\n" +
+                    "                              <label for=\"txtCalcioSericoCiclo\">Calcio sérico (mg/dL)</label>\n" +
+                    "                              <input type=\"text\" id=\"txtCalcioSericoCiclo\" class=\"form-control\" value =" + selectedConsultation.getSerumCalcium() + ">\n" +
+                    "                            </div>\n" +
+                    "                        </fieldset>\n" +
+                    "                      </div>\n" +
+                    "                    </div>\n" +
+                    "                    <br/>\n" +
+                    "                    <div class=\"row\">\n" +
+                    "                      <div class=\"col-lg-4 col-md-4 col-sm-4\">\n" +
+                    "                        <fieldset enabled>\n" +
+                    "                            <div class=\"form-group\">\n" +
+                    "                              <label for=\"txtDeshidrogenasaLacticaCiclo\">Deshidrogenasa Lactica (U/L)</label>\n" +
+                    "                              <input type=\"text\" id=\"txtDeshidrogenasaLacticaCiclo\" class=\"form-control\" value =" + selectedConsultation.getLacticDehydrogenase() + ">\n" +
+                    "                            </div>\n" +
+                    "                        </fieldset>\n" +
+                    "                      </div>\n" +
+                    "                      <div class=\"col-lg-4 col-md-4 col-sm-4\">\n" +
+                    "                        <fieldset enabled>\n" +
+                    "                            <div class=\"form-group\">\n" +
+                    "                              <label for=\"txtHemoglobinaCiclo\">Hemoglobina (g/dL)</label>\n" +
+                    "                              <input type=\"text\" id=\"txtHemoglobinaCiclo\" class=\"form-control\" value =" + selectedConsultation.getHemoglobin() + ">\n" +
+                    "                            </div>\n" +
+                    "                        </fieldset>\n" +
+                    "                      </div>\n" +
+                    "                      <div class=\"col-lg-4 col-md-4 col-sm-4\">\n" +
+                    "                        <fieldset enabled>\n" +
+                    "                            <div class=\"form-group\">\n" +
+                    "                              <label for=\"txtHematocritoCiclo\">Hematocrito (%)</label>\n" +
+                    "                              <input type=\"text\" id=\"txtHematocritoCiclo\" class=\"form-control\" value =" + selectedConsultation.getHematocrit() + ">\n" +
+                    "                            </div>\n" +
+                    "                        </fieldset>\n" +
+                    "                      </div>\n" +
+                    "                    </div>\n" +
+                    "                    <br />\n" +
+                    "                    <div class=\"row\">\n" +
+                    "                      <div class=\"col-lg-4 col-md-4 col-sm-4\">\n" +
+                    "                        <fieldset enabled>\n" +
+                    "                            <div class=\"form-group\">\n" +
+                    "                              <label for=\"txtLeucocitosCiclo\">Leucocitos (cels x 10(3)/uL)</label>\n" +
+                    "                              <input type=\"text\" id=\"txtLeucocitosCiclo\" class=\"form-control\" value =" + selectedConsultation.getLeukocytes() + ">\n" +
+                    "                            </div>\n" +
+                    "                        </fieldset>\n" +
+                    "                      </div>\n" +
+                    "                      <div class=\"col-lg-4 col-md-4 col-sm-4\">\n" +
+                    "                        <fieldset enabled>\n" +
+                    "                            <div class=\"form-group\">\n" +
+                    "                              <label for=\"txtLinfocitosCiclo\">Linfocitos (cels x 10(3)/uL)</label>\n" +
+                    "                              <input type=\"text\" id=\"txtLinfocitosCiclo\" class=\"form-control\" value =" + selectedConsultation.getLymphocytes() + ">\n" +
+                    "                            </div>\n" +
+                    "                        </fieldset>\n" +
+                    "                      </div>\n" +
+                    "                      <div class=\"col-lg-4 col-md-4 col-sm-4\">\n" +
+                    "                        <fieldset enabled>\n" +
+                    "                            <div class=\"form-group\">\n" +
+                    "                              <label for=\"txtNeutrofilosCiclo\">Neutrofilos (cels x 10(3)/uL)</label>\n" +
+                    "                              <input type=\"text\" id=\"txtNeutrofilosCiclo\" class=\"form-control\" value =" + selectedConsultation.getNeutrophils() + ">\n" +
+                    "                            </div>\n" +
+                    "                        </fieldset>\n" +
+                    "                      </div>\n" +
+                    "                    </div>\n" +
+                    "                    <br/>\n" +
+                    "                    <div class=\"row\">\n" +
+                    "                      <div class=\"col-lg-4 col-md-4 col-sm-4\">\n" +
+                    "                        <fieldset enabled>\n" +
+                    "                            <div class=\"form-group\">\n" +
+                    "                              <label for=\"txtPlaquetasCiclo\">Plaquetas (cels x 10(3)/uL)</label>\n" +
+                    "                              <input type=\"text\" id=\"txtPlaquetasCiclo\" class=\"form-control\" value =" + selectedConsultation.getPlatelets() + ">\n" +
+                    "                            </div>\n" +
+                    "                        </fieldset>\n" +
+                    "                      </div>\n" +
+                    "                      <div class=\"col-lg-4 col-md-4 col-sm-4\">\n" +
+                    "                        <fieldset enabled>\n" +
+                    "                            <div class=\"form-group\">\n" +
+                    "                              <label for=\"txtIgGCiclo\">IgG (mg/dL)</label>\n" +
+                    "                              <input type=\"text\" id=\"txtIgGCiclo\" class=\"form-control\" value =" + selectedConsultation.getIgG() + ">\n" +
+                    "                            </div>\n" +
+                    "                        </fieldset>\n" +
+                    "                      </div>\n" +
+                    "                      <div class=\"col-lg-4 col-md-4 col-sm-4\">\n" +
+                    "                        <fieldset enabled>\n" +
+                    "                            <div class=\"form-group\">\n" +
+                    "                              <label for=\"txtIgACiclo\">IgA (mg/dL)</label>\n" +
+                    "                              <input type=\"text\" id=\"txtIgACiclo\" class=\"form-control\" value =" + selectedConsultation.getIgA() + ">\n" +
+                    "                            </div>\n" +
+                    "                        </fieldset>\n" +
+                    "                      </div>\n" +
+                    "                    </div>\n" +
+                    "                    <br />\n" +
+                    "                    <div class=\"row\">\n" +
+                    "                      <div class=\"col-lg-4 col-md-4 col-sm-4\">\n" +
+                    "                        <fieldset enabled>\n" +
+                    "                            <div class=\"form-group\">\n" +
+                    "                              <label for=\"txtIgMCiclo\">IgM (mg/dL)</label>\n" +
+                    "                              <input type=\"text\" id=\"txtIgMCiclo\" class=\"form-control\" value =" + selectedConsultation.getIgM() + ">\n" +
+                    "                            </div>\n" +
+                    "                        </fieldset>\n" +
+                    "                      </div>\n" +
+                    "                      <div class=\"col-lg-4 col-md-4 col-sm-4\">\n" +
+                    "                        <fieldset enabled>\n" +
+                    "                            <div class=\"form-group\">\n" +
+                    "                              <label for=\"txtCadenasKappaCiclo\">Cadenas Ligeras Kappa (mg/L)</label>\n" +
+                    "                              <input type=\"text\" id=\"txtCadenasKappaCiclo\" class=\"form-control\" value =" + selectedConsultation.getLightChainsKappa() + ">\n" +
+                    "                            </div>\n" +
+                    "                        </fieldset>\n" +
+                    "                      </div>\n" +
+                    "                      <div class=\"col-lg-4 col-md-4 col-sm-4\">\n" +
+                    "                        <fieldset enabled>\n" +
+                    "                            <div class=\"form-group\">\n" +
+                    "                              <label for=\"txtCadenasLambdaCiclo\">Cadenas Ligeras Lambda (mg/L)</label>\n" +
+                    "                              <input type=\"text\" id=\"txtCadenasLambdaCiclo\" class=\"form-control\" value =" + selectedConsultation.getLightChainsLambda() + ">\n" +
+                    "                            </div>\n" +
+                    "                        </fieldset>\n" +
+                    "                      </div>\n" +
+                    "                    </div>\n" +
+                    "                    <br/>\n" +
+                    "                    <div class=\"row\">\n" +
+                    "                      <div class=\"col-lg-4 col-md-4 col-sm-4\">\n" +
+                    "                        <fieldset enabled>\n" +
+                    "                            <div class=\"form-group\">\n" +
+                    "                              <label for=\"txtToxicidadSerieRojaCiclo\">Toxicidad Hematologica - Serie Roja</label>\n" +
+                    "                              <input type=\"text\" id=\"txtToxicidadSerieRojaCiclo\" class=\"form-control\" value =" + selectedConsultation.getToxHemtoRedSerie() + ">\n" +
+                    "                            </div>\n" +
+                    "                        </fieldset>\n" +
+                    "                      </div>\n" +
+                    "                      <div class=\"col-lg-4 col-md-4 col-sm-4\">\n" +
+                    "                        <fieldset enabled>\n" +
+                    "                            <div class=\"form-group\">\n" +
+                    "                              <label for=\"txtToxicidadNeutrofilosCiclo\">Toxicidad Hematologica - Neutrofilos</label>\n" +
+                    "                              <input type=\"text\" id=\"txtToxicidadNeutrofilosCiclo\" class=\"form-control\" value =" + selectedConsultation.getToxHemtoNeutrophils() + ">\n" +
+                    "                            </div>\n" +
+                    "                        </fieldset>\n" +
+                    "                      </div>\n" +
+                    "                      <div class=\"col-lg-4 col-md-4 col-sm-4\">\n" +
+                    "                        <fieldset enabled>\n" +
+                    "                            <div class=\"form-group\">\n" +
+                    "                              <label for=\"txtToxicidadPlaquetasCiclo\">Toxicidad Hematologica - Plaquetas</label>\n" +
+                    "                              <input type=\"text\" id=\"txtToxicidadPlaquetasCiclo\" class=\"form-control\" value =" + selectedConsultation.getToxHemtoPlatelets() + ">\n" +
+                    "                            </div>\n" +
+                    "                        </fieldset>\n" +
+                    "                      </div>\n" +
+                    "                    </div>\n" +
+                    "                    <br/>\n" +
+                    "                    <div class=\"row\">\n" +
+                    "                      <div class=\"col-lg-4 col-md-4 col-sm-4\">\n" +
+                    "                        <fieldset enabled>\n" +
+                    "                            <div class=\"form-group\">\n" +
+                    "                              <label for=\"txtToxicidadHepaticaCiclo\">Toxicidad Hepática</label>\n" +
+                    "                              <input type=\"text\" id=\"txtToxicidadHepaticaCiclo\" class=\"form-control\" value =" + selectedConsultation.getToxHepatics() + ">\n" +
+                    "                            </div>\n" +
+                    "                        </fieldset>\n" +
+                    "                      </div>\n" +
+                    "                      <div class=\"col-lg-4 col-md-4 col-sm-4\">\n" +
+                    "                        <fieldset enabled>\n" +
+                    "                            <div class=\"form-group\">\n" +
+                    "                              <label for=\"txtToxicidadRenalCiclo\">Toxicidad Renal</label>\n" +
+                    "                              <input type=\"text\" id=\"txtToxicidadRenalCiclo\" class=\"form-control\" value =" + selectedConsultation.getToxRenal() + ">\n" +
+                    "                            </div>\n" +
+                    "                        </fieldset>\n" +
+                    "                      </div>\n" +
+                    "                      <div class=\"col-lg-4 col-md-4 col-sm-4\">\n" +
+                    "                        <fieldset enabled>\n" +
+                    "                            <div class=\"form-group\">\n" +
+                    "                              <label for=\"txtToxicidadInfecciosaCiclo\">Toxicidad Infecciosa</label>\n" +
+                    "                              <input type=\"text\" id=\"txtToxicidadInfecciosaCiclo\" class=\"form-control\" value =" + selectedConsultation.getToxInfectious() + ">\n" +
+                    "                            </div>\n" +
+                    "                        </fieldset>\n" +
+                    "                      </div>\n" +
+                    "                    </div>\n" +
+                    "                    <br/>\n" +
+                    "                    <div class=\"row\">\n" +
+                    "                      <div class=\"col-lg-4 col-md-4 col-sm-4\">\n" +
+                    "                        <fieldset enabled>\n" +
+                    "                            <div class=\"form-group\">\n" +
+                    "                              <label for=\"txtSitioInfeccionCiclo\">Sitio de infección</label>\n" +
+                    "                              <input type=\"text\" id=\"txtSitioInfeccionCiclo\" class=\"form-control\" value =" + selectedConsultation.getInfectionSite() + ">\n" +
+                    "                            </div>\n" +
+                    "                        </fieldset>\n" +
+                    "                      </div>\n" +
+                    "                      <div class=\"col-lg-4 col-md-4 col-sm-4\">\n" +
+                    "                        <fieldset enabled>\n" +
+                    "                            <div class=\"form-group\">\n" +
+                    "                              <label for=\"txtToxicidadNauseaCiclo\">Toxicidad gastrointestinal - Nausea</label>\n" +
+                    "                              <input type=\"text\" id=\"txtToxicidadNauseaCiclo\" class=\"form-control\" value =" + selectedConsultation.getToxGastroNausea() + ">\n" +
+                    "                            </div>\n" +
+                    "                        </fieldset>\n" +
+                    "                      </div>\n" +
+                    "                      <div class=\"col-lg-4 col-md-4 col-sm-4\">\n" +
+                    "                        <fieldset enabled>\n" +
+                    "                            <div class=\"form-group\">\n" +
+                    "                              <label for=\"txtToxicidadDiarreaCiclo\">Toxicidad gastrointestinal - Diarrea</label>\n" +
+                    "                              <input type=\"text\" id=\"txtToxicidadDiarreaCiclo\" class=\"form-control\" value =" + selectedConsultation.getToxGastroDiarrhea() + ">\n" +
+                    "                            </div>\n" +
+                    "                        </fieldset>\n" +
+                    "                      </div>\n" +
+                    "                    </div>\n" +
+                    "                    <br/>\n" +
+                    "                    <div class=\"row\">\n" +
+                    "                      <div class=\"col-lg-4 col-md-4 col-sm-4\">\n" +
+                    "                        <fieldset enabled>\n" +
+                    "                            <div class=\"form-group\">\n" +
+                    "                              <label for=\"txtToxicidadNeuropatiaCiclo\">Toxicidad neuropatía periférica</label>\n" +
+                    "                              <input type=\"text\" id=\"txtToxicidadNeuropatiaCiclo\" class=\"form-control\" value =" + selectedConsultation.getToxNeuroatiaPerif() + ">\n" +
+                    "                            </div>\n" +
+                    "                        </fieldset>\n" +
+                    "                      </div>\n" +
+                    "                      <div class=\"col-lg-4 col-md-4 col-sm-4\">\n" +
+                    "                        <fieldset enabled>\n" +
+                    "                            <div class=\"form-group\">\n" +
+                    "                              <label for=\"txtReaccionMedicamentoCiclo\">Reacción a infusión de medicamentos</label>\n" +
+                    "                              <input type=\"text\" id=\"txtReaccionMedicamentoCiclo\" class=\"form-control\" value =" + selectedConsultation.getInfusionMedReaction() + ">\n" +
+                    "                            </div>\n" +
+                    "                        </fieldset>\n" +
+                    "                      </div>\n" +
+                    "                      <div class=\"col-lg-4 col-md-4 col-sm-4\">\n" +
+                    "                        <fieldset enabled>\n" +
+                    "                            <div class=\"form-group\">\n" +
+                    "                              <label for=\"txtReaccionAdversaCiclo\">Reaccion adversa otra</label>\n" +
+                    "                              <input type=\"text\" id=\"txtReaccionAdversaCiclo\" class=\"form-control\" value =" + selectedConsultation.getAdverseReaction() + ">\n" +
+                    "                            </div>\n" +
+                    "                        </fieldset>\n" +
+                    "                      </div>\n" +
+                    "                    </div>";
         }
-        return "todo bien";
+
+        return respuesta;
     }
+
+
 
     @GetMapping(path = "/getFinalInfoToEdit")
     public @ResponseBody String getFinalInfotoEdit(@RequestParam("id") Integer id){
@@ -328,7 +601,8 @@ public class MonitorController {
                     "                          <fieldset enabled>\n" +
                     "                            <div class=\"form-group\">\n" +
                     "                              <label for=\"inmunofijacionig\">Inmunofijación Tipo Ig</label>\n" +
-                    "                              <select id=\"inmunofijacionig\" class=\"form-control\" name=\"inmFijacionTipoIg\" value =" +finalConsultation.getInmFijacionTipoIg() + " \">\n" +
+                    "                              <select id=\"inmunofijacionig\" class=\"form-control\" name=\"inmFijacionTipoIg\" \">\n" +
+                    "                              <option selected hidden value =" +finalConsultation.getInmFijacionTipoIg() + ">" +finalConsultation.getInmFijacionTipoIg() + "</option>\n" +
                     "                                <option value=\"Negativa\">Negativa</option>\n" +
                     "                                <option value=\"IgA\">IgA</option>\n" +
                     "                                <option value=\"IgG\">IgG</option>\n" +
@@ -341,7 +615,8 @@ public class MonitorController {
                     "                            <fieldset enabled>\n" +
                     "                                <div class=\"form-group\">\n" +
                     "                                  <label for=\"inmunofijacioncll\">Inmunofijacion Tipo CLL</label>\n" +
-                    "                                  <select id=\"inmunofijacioncll\" class=\"form-control\" name=\"inmFijacionTipoCll\" value =" +finalConsultation.getInmFijacionTipoCll() + " \">\n" +
+                    "                                  <select id=\"inmunofijacioncll\" class=\"form-control\" name=\"inmFijacionTipoCll\" \">\n" +
+                    "                              <option selected hidden value =" +finalConsultation.getInmFijacionTipoCll() + ">" +finalConsultation.getInmFijacionTipoCll() + "</option>\n" +
                     "                                    <option value=\"Negativo\">Negativa</option>\n" +
                     "                                    <option value=\"Lambda\">Lambda</option>\n" +
                     "                                    <option value=\"Kappa\">Kappa</option>\n" +
@@ -364,7 +639,8 @@ public class MonitorController {
                     "                        <fieldset enabled>\n" +
                     "                          <div class=\"form-group\">\n" +
                     "                            <label for=\"resTrat\">Respuesta a tratamiento</label>\n" +
-                    "                            <select id=\"resTrat\" class=\"form-control\" name=\"repuestaATratamiento\" value =" +finalConsultation.getRepuestaATratamiento() + " \">\n" +
+                    "                            <select id=\"resTrat\" class=\"form-control\" name=\"repuestaATratamiento\" \">\n" +
+                    "                              <option selected hidden value =" +finalConsultation.getRepuestaATratamiento() + ">" +finalConsultation.getRepuestaATratamiento() + "</option>\n" +
                     "                              <option value=\"RCs\">RCs</option>\n" +
                     "                              <option value=\"RC\">RC</option>\n" +
                     "                              <option value=\"MBRP\">MBRP</option>\n" +
