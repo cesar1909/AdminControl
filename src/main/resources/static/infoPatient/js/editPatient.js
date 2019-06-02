@@ -46,10 +46,14 @@ function getFinalInfoJs(identificadorJs) {
         success: function(data) {
             if (data == "no data") {
                 console.log("Datos nulos");
+                $( "#divButtonsFinal" ).remove();
+                $( "#divButtonsFinal2" ).remove();
+                $( "#divButtonsFinal3" ).remove();
             }
             else {
                 console.log("Datos desde el servidor");
                 $( "#noConsultation" ).remove();
+
                 $('#result').html(data);
                 // $('#result').load('/patient/getFinalInfo', "identificador=" + identificadorJs)
             }
