@@ -93,6 +93,9 @@ public class EditarConsultaFinal {
             }else {
 			System.out.println("EDITAMOS SIN LA OPCION DE TRANSPLANTE");
 			System.out.println("ID DEL PACIENTE: " + finalConsultation.getIdPatient());
+			System.out.println("IG: " + finalConsultation.getInmFijacionTipoIg());
+			System.out.println("CLL: " + finalConsultation.getInmFijacionTipoCll());
+			System.out.println("Respuesta: " + finalConsultation.getRepuestaATratamiento());
 
 			this.finalConsultationRepository.updateFinalConsultWithoutNewVariables(
 						finalConsultation.getIdPatient(),

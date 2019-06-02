@@ -46,13 +46,49 @@ function getFinalInfoJs(identificadorJs) {
         success: function(data) {
             if (data == "no data") {
                 console.log("Datos nulos");
+                $( "#divButtonsFinal" ).remove();
+                $( "#divButtonsFinal2" ).remove();
+                $( "#divButtonsFinal3" ).remove();
             }
             else {
                 console.log("Datos desde el servidor");
                 $( "#noConsultation" ).remove();
+
                 $('#result').html(data);
                 // $('#result').load('/patient/getFinalInfo', "identificador=" + identificadorJs)
             }
+        }
+    });
+}
+
+function verifyMonthly(idPat) {
+    $.ajax({
+        url: "/patient/verifyMonthly" + "?idPaciente=" + idPat,
+        success: function(data) {
+            if (data == "no data") {
+                $( "#selectConsult" ).remove();
+                console.log("Datos nulos");
+            }
+            else {
+                console.log("Datos desde el servidor");
+                $( "#noConsultation2" ).remove();
+                //$('#result2').html(data);
+                // $('#result').load('/patient/getFinalInfo', "identificador=" + identificadorJs)
+            }
+        }
+    });
+}
+
+function getMonthlyInfotoEdit(idCon) {
+    var id = idCon.valueOf();
+    var idPatient = document.getElementById("myvarid").textContent;
+    console.log(id);
+    console.log(idPatient);
+    $.ajax({
+        url: "/monitor/getMonthlyInfotoEdit" + "?idConsulta=" + idCon + "&idPaciente=" + idPatient,
+        success: function(data) {
+            console.log("Nos comunicamos con el controlador de consulta mensual");
+            $('#result2').html(data);
         }
     });
 }
@@ -118,7 +154,6 @@ function subirForm() {
     var data = {};
     data["idPatient"] = $("#idPatient").val();
     data["dateOfRealization"] = $("#txtCalendar").val();
-    console.log(data.dateOfRealization.valueOf());
     data["albumin"] = $("#Albumina").val();
     data["serumCalcium"] = $("#Calcio_serico").val();
     data["lacticDehydrogenase"] = $("#Deshidrogenasa_Lactica").val();
@@ -136,8 +171,8 @@ function subirForm() {
     data["celPlasmaticEnMedulaOsea"] = $("#celplasmo").val();
     data["electroForesisDeProteinasSuero"] = $("#electroforesis").val();
     data["electroForesisDeProteinasOrina"] = $("#electroforesis2").val();
-    data["inmFijacionTipoIg"] = $("#inmFijacionTipoIg").val();
-    data["inmFijacionTipoCll"] = $("#inmFijacionTipoCll").val();
+    data["inmFijacionTipoIg"] = $("#inmunofijacionig").val();
+    data["inmFijacionTipoCll"] = $("#inmunofijacioncll").val();
     data["enfermedadMinimaResidual"] = $("#minres").val();
     data["repuestaATratamiento"] = $("#resTrat").val();
     data["comentariosExtrax"] = $("#comment").val();
@@ -161,6 +196,65 @@ function subirForm() {
             });
             getFinalInfoJs(data.idPatient);
 
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.log("Error en la comunicación con spring");
+            console.log(textStatus, errorThrown);
+
+        }
+    });
+}
+
+function subirFormMensual() {
+    var data = {};
+    data["idMonthlyConsultation"] = $("#idPatient").val();
+    data["treatmentCycleNum"] = $("#numCiclo").val();
+    data["dateOfRealization"] = $("#txtFechaValoracionCiclo").val();
+    data["albumin"] = $("#txtAlbuminaCiclo").val();
+    data["serumCalcium"] = $("#txtCalcioSericoCiclo").val();
+    data["lacticDehydrogenase"] = $("#txtDeshidrogenasaLacticaCiclo").val();
+    data["hemoglobin"] = $("#txtHemoglobinaCiclo").val();
+    data["hematocrit"] = $("#txtHematocritoCiclo").val();
+    data["leukocytes"] = $("#txtLeucocitosCiclo").val();
+    data["lymphocytes"] = $("#txtLinfocitosCiclo").val();
+    data["neutrophils"] = $("#txtNeutrofilosCiclo").val();
+    data["platelets"] = $("#txtPlaquetasCiclo").val();
+    data["igG"] = $("#txtIgGCiclo").val();
+    data["igA"] = $("#txtIgACiclo").val();
+    data["igM"] = $("#txtIgMCiclo").val();
+    data["lightChainsKappa"] = $("#txtCadenasKappaCiclo").val();
+    data["lightChainsLambda"] = $("#txtCadenasLambdaCiclo").val();
+    data["toxHemtoRedSerie"] = $("#txtToxicidadSerieRojaCiclo").val();
+    data["toxHemtoNeutrophils"] = $("#txtToxicidadNeutrofilosCiclo").val();
+    data["toxHemtoPlatelets"] = $("#txtToxicidadPlaquetasCiclo").val();
+    data["toxHepatics"] = $("#txtToxicidadHepaticaCiclo").val();
+    data["toxRenal"] = $("#txtToxicidadRenalCiclo").val();
+    data["toxGastroNausea"] = $("#txtToxicidadNauseaCiclo").val();
+    data["toxGastroDiarrhea"] = $("#txtToxicidadDiarreaCiclo").val();
+    data["toxNeuroatiaPerif"] = $("#txtToxicidadNeuropatiaCiclo").val();
+    data["toxInfectious"] = $("#txtToxicidadInfecciosaCiclo").val();
+    data["infectionSite"] = $("#txtSitioInfeccionCiclo").val();
+    data["infusionMedReaction"] = $("#txtReaccionMedicamentoCiclo").val();
+    data["adverseReaction"] = $("#txtReaccionAdversaCiclo").val();
+    // $("#btn-save").prop("disabled", true);
+
+    $.ajax({
+        type: "POST",
+        contentType: "application/json",
+        url: "/editpatientmothlyconsult/mensual",
+        data: JSON.stringify(data),
+        timeout: 600000,
+        success: function (response) {
+            console.log("Formulario Procesado");
+            console.log(response);
+            swal({
+                title: "Consulta Mensual Editada Correctamente",
+                icon: "success",
+                text: false,
+                button: "Ok"
+            });
+            console.log(data.treatmentCycleNum);
+            getMonthlyInfotoEdit(data.treatmentCycleNum);
         },
         error: function (jqXHR, textStatus, errorThrown) {
             console.log("Error en la comunicación con spring");
