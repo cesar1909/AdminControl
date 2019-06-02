@@ -1,7 +1,8 @@
 /*        
 ~ Autor: Julio Diaz
-~ Date: 20/03/2019
-~ Description: JavaScript for html patientsList
+~ Date: 29/05/2019
+~ Description: JavaScript for html patientsListDoctor
+
 */
 
 $(window).on('load', () => {
@@ -56,6 +57,30 @@ const patientList = (() => {
 })();
 
 
+
+ function selecTipoConsulta (idPaciente){
+     Swal.fire({
+         title: 'Seleccione el tipo de consulta',
+         // text:'' ,
+         // showCancelButton: true,
+         // cancelButtonText: 'Cancelar',
+         // confirmButtonColor: '#3085d6',
+         // cancelButtonColor: '#d33',
+         // confirmButtonText: 'Si, agregar',
+         html: "" +
+         "<br>" +
+         '<a href=/monthlyconsult/newMonthlyConsult?id='+idPaciente+' class="btn1 btn btn-info"><i class="material-icons">note_add</i> Mensual</a>' +
+         '<a href=/finalconsult/newFinForm?id='+idPaciente+' class="btn1 btn btn-info"><i class="material-icons">note_add</i> Final</a>' ,
+         showCancelButton: false,
+         showConfirmButton: false
+     }).then((result) => {
+         if (result.value) {
+            //alert("Hola");
+        }
+        })
+ }
+
+
 //Julio
 //Cuando cargue el la pag pedimos el ajax y ponemos el nombre de usuario
 $(document).ready(function() {
@@ -65,7 +90,7 @@ $(document).ready(function() {
        url: "/patient/fullname",
        success: function(data) {
               //alert(data);
-              $("#nameUSER").text("Monitor: "+data);
+              $("#nameUSER").text("Médico: "+data);
            }
    });
 

@@ -37,7 +37,7 @@ buildNumber.properties
 hs_err_pid*
 /.metadata/
 
-application.properties
+
 
 
 /.idea/*
@@ -46,3 +46,5 @@ application.properties
 \.DS_Store
 
 \.idea/
+
+exceldatabase\.xlsx

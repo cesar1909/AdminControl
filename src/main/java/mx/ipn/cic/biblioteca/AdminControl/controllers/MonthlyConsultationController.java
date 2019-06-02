@@ -12,6 +12,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.util.LinkedList;
+import java.util.List;
+
 @Controller
 @RequestMapping("/monthlyconsult")
 public class MonthlyConsultationController {
@@ -34,7 +38,9 @@ public class MonthlyConsultationController {
         System.out.println(id);
         PatientModel patientModel = this.userService.findById(id);
         ModelAndView mav = new ModelAndView("addMonthlyConsultation", "monthlyConsultationModel", new MonthlyConsultation());
+        List<MonthlyConsultation> monthly= this.consultationService.findByPatientId(patientModel);
         mav.addObject("paciente", patientModel);
+        mav.addObject("monthly", monthly);
         return mav;
     }
     //post del registro

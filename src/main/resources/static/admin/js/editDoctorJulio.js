@@ -65,14 +65,15 @@ function Validar (){
         telm.val()==""||
         cel.val()==""||
         city.val()==""||
-        email.val()=="")
+        email.val()==""//||
+        //password.val()==""||
+        //password1.val()==""
+        )
     {
         errores = errores.concat("Todos los campos deben ser llenados obligatoriamente");
     }
 
-    if(password.val() != password1.val()){
-        errores = errores.concat("-Verificar contraseña\n");
-    }
+
 
     if (errores.toString() != "")
     {
@@ -82,7 +83,7 @@ function Validar (){
         return false;
     }
     else{
-        swal("Medico Registrado", "", "success");
+        swal("Medico Modificado", "", "success");
         return true;
 
     }

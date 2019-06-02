@@ -12,6 +12,7 @@ $(window).on('load', () => {
     setTimeout(()=>{
         $("#main").removeAttr("hidden").fadeIn(200)
     }, 2400);
+    document.getElementById("btnSave_initialConsultation").disabled = true;
 });
 
 $(window).ready(() =>{
@@ -103,16 +104,9 @@ const addPatient = (() => {
     const slcAmiloidosis = $('#slcAmiloidosis');
     const txtB2Microglobulina = $('#txtB2Microglobulina');
     const txtAlbumina = $('#txtAlbumina');
+    const txtCalcioSer = $('#CalcioSer');
 
-    //Variables pantalal5 consutlta inicial parte3
 
-    const txtDeshidrogenasa = $('#txtDeshidrogenasa');
-    const txtHemoglobina = $('#txtHemoglobina');
-    const txtHematocrito = $('#txtHematocrito');
-    const txtLeucocitos = $('#txtLeucocitos');
-    const txtLinfocitos = $('#txtLinfocitos');
-    const txtNeutrofilos = $('#txtNeutrofilos');
-    const txtPlaquetas = $('#txtPlaquetas');
 
 
 
@@ -302,14 +296,7 @@ const addPatient = (() => {
             }
             swal(textoAlerta.toString());
         }
-    //     else if (slcDeabetes.val() == "0" ||
-    // slcHipertension.val() == "0" ||
-    // slcArritmias.val() == "0" ||
-    // slcCardiopatia.val() == "0" ||
-    // slcNeumopatia.val() == "0" ||
-    // slcHepatopatia.val() == "0") {
-    //         swal("Todos los campos deben ser llenados obligatoriamente");
-    //     }
+
         else
         {
             tabDisease.removeClass('active');
@@ -317,7 +304,7 @@ const addPatient = (() => {
             tabPagUnoIC.addClass('active');
             tab2.removeClass('active');
             tab1IC.addClass('active');
-        }
+       }
 
         
     });
@@ -339,10 +326,7 @@ const addPatient = (() => {
             errores = errores.concat("-Depuración creatinina fuera del rango 0 a 200\n");
         }
         if (txtECOG.val() == "" || txtECOG.val() <0 || txtECOG.val()>2  ){
-            errores = errores.concat("-Asigne un valor a ECOG entre 0 y 2\n");
-        }
-        if (txtECOG.val()>2){
-            errores = errores.concat("-ECOG mayor a 2, paciente no puede pertenecer a la investigación\n");
+            errores = errores.concat("-ECOG fuera del rango 0 a 2, paciente no puede pertenecer a la investigación\n");
         }
         if (slcActiva.val() == "Si" ) {
             errores = errores.concat("-Infección activa, debe esperar la resolución\n");
@@ -420,6 +404,10 @@ const addPatient = (() => {
         if(txtAlbumina.val()< 0.01 || txtAlbumina.val()> 6 || txtAlbumina.val() == ""){
             errores = errores.concat("-Albumina: fuera del rango 0.01 a 6\n");
         }
+        if(txtCalcioSer.val()< 5 || txtCalcioSer.val()> 20 || txtCalcioSer.val() == ""){
+                    errores = errores.concat("-Calcio sérico: fuera del rango 5 a 20\n");
+        }
+
         
         if (errores.toString() != "") 
         {
@@ -433,10 +421,12 @@ const addPatient = (() => {
             tabPagTresIC.addClass('active');
             tab2IC.removeClass('active');
             tab3IC.addClass('active');
+            document.getElementById("btnSave_initialConsultation").disabled = false;
         }
         
     });
 
+    //Se cambio por la function Validar() VER ABAJO
     //Quinta pantalla (ConsultaInicialParte3s)
     // btnSave_initialConsultation.click(()=>{
     //
@@ -510,3 +500,60 @@ const addPatient = (() => {
 
     //---------------------------//
 })();
+
+
+
+function Validar (){
+
+    //Julio
+    //Variables pantalal5 consutlta inicial parte3
+
+    const txtDeshidrogenasa = $('#txtDeshidrogenasa');
+    const txtHemoglobina = $('#txtHemoglobina');
+    const txtHematocrito = $('#txtHematocrito');
+    const txtLeucocitos = $('#txtLeucocitos');
+    const txtLinfocitos = $('#txtLinfocitos');
+    const txtNeutrofilos = $('#txtNeutrofilos');
+    const txtPlaquetas = $('#txtPlaquetas');
+
+    var errores = new String("");
+
+     if(txtDeshidrogenasa.val()< 10 || txtDeshidrogenasa.val()> 2000 || txtDeshidrogenasa.val() == ""){
+         errores = errores.concat("-Deshidrogenasa láctica: fuera del rango 10 a 2000\n");
+     }
+     if(txtHemoglobina.val()< 1 || txtHemoglobina.val()> 20 || txtHemoglobina.val() == ""){
+         errores = errores.concat("-Hemoglobina : fuera del rango 1 a 20\n");
+     }
+     if(txtHematocrito.val()< 3 || txtHematocrito.val()> 60 || txtHematocrito.val() == ""){
+         errores = errores.concat("-Hematocrito : fuera del rango 3 a 60\n");
+     }
+     if(txtLeucocitos.val()< 0 || txtLeucocitos.val()> 100000 || txtLeucocitos.val() == ""){
+         errores = errores.concat("-Leucocitos : fuera del rango 0 a 100,000\n");
+     }
+     if(txtLinfocitos.val()< 0 || txtLinfocitos.val()> 100000 || txtLinfocitos.val() == ""){
+         errores = errores.concat("-Linfocitos : fuera del rango 0 a 100,000\n");
+     }
+     if(txtNeutrofilos.val()< 0 || txtNeutrofilos.val()> 100000 || txtNeutrofilos.val() == ""){
+         errores = errores.concat("-Neutrófilos : fuera del rango 0 a 100,000\n");
+     }
+     if(txtPlaquetas.val()< 0 || txtPlaquetas.val()> 2000000 || txtPlaquetas.val() == ""){
+         errores = errores.concat("-Plaquetas : fuera del rango 0 a 2,000,000\n");
+     }
+
+    if (errores.toString() != "")
+    {
+        var aux = new String("Por favor verifique lo siguiente: \n")
+        aux = aux.concat(errores.toString());
+        swal(aux.toString());
+        return false;
+    }
+    else{
+        swal("Paciente Registrado", "", "success");
+        return true;
+
+    }
+
+
+}
+
+

@@ -19,7 +19,7 @@ public abstract class User {
     private String email;
     private String password;
 
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToMany(fetch = FetchType.EAGER)//, cascade = CascadeType.ALL
     @JoinTable(
 		name = "users_roles",
 		joinColumns = @JoinColumn(

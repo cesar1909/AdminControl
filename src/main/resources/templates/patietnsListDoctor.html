@@ -15,6 +15,10 @@
     <link th:href="@{/initial/newDesign/css/patientsAndDoctorsList.css}" rel="stylesheet"/>
     <link th:href="@{/initial/newDesign/css/plugins/sweetalert2.min.css}" rel="stylesheet"/>
     <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <!-- Para los popup JULIO -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+
 </head>
 
 <body id="body">
@@ -40,7 +44,7 @@
                     </div>
                 </div>
                 <div class="collapse navbar-collapse justify-content-end">
-                    <i class="material-icons">face</i><p class="h4">&nbsp;<span sec:authentication="principal.username">User</span></p>
+                    <i  class="material-icons">face</i><p class="h4">&nbsp;<span id = "nameUSER">Médico</span></p>
                     <a th:href="@{/logout}" id="SesonOff" >Cerrar Sesión <i class="material-icons">exit_to_app</i></a>                </div>
             </div>
         </nav>
@@ -96,8 +100,8 @@
                             <td th:text="${patient.edad}"></td>
                             <td th:text="${patient.genero}"></td>
                             <td>
-                                <a th:href="@{/finalconsult/newFinForm(id=${patient.idPaciente})}" class="btn btn-success" style="float: right;"><i class="material-icons">&#xE147;</i> <span>Consulta Final</span></a>
-                                <a th:href="@{/monthlyconsult/newMonthlyConsult(id=${patient.idPaciente})}" class="btn btn-success" style="float: right;" ><i class="material-icons">&#xE147;</i> <span>Consulta Mensual</span></a>
+
+                                <a th:onclick="${'selecTipoConsulta(' + patient.idPaciente + ');'}" class="btn btn-success" style="float: right;"><i class="material-icons" style="color: white;" >&#xE147;</i> <span style="color: white;">Agregar Consulta</span></a>
                                 <!-- <a href="#" id="btnAddConsultation" class="btn btn-info" style="float: right;"><i class="material-icons">note_add</i> <span>Agregar Consulta</span></a>-->
                                 <a th:href="@{/patient/info(id=${patient.idPaciente})}" class="btn btn-success" style="float: right;"><i class="material-icons">&#xE85D;</i> <span>Ver Detalles</span></a>
                             </td>
@@ -123,4 +127,4 @@
 <script th:src="@{/initial/newDesign/js/plugins/ohsnap.js}"></script>
 <script th:src="@{/initial/newDesign/js/plugins/sweetalert2.min.js}"></script>
 <script th:src="@{/initial/newDesign/js/constants/defaultsDataTable.js}"></script>
-<script th:src="@{/initial/newDesign/js/patientsAndDoctorsList.js}"></script>
+<script th:src="@{/initial/newDesign/js/patientsList.js}"></script>

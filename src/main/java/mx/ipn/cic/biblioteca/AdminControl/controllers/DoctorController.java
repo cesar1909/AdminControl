@@ -83,27 +83,8 @@ public class DoctorController {
 		//@GetMapping(path = "mainDoctor")
 	      Role getRol = this.roleRepositoy.findByRol(roles);
 	       
-	      if(getRol == null) {
-	  		DoctorModel dr = new DoctorModel(
-					firstName,
-					lastNameP,
-					lastNameM,
-					email,
-					password,
-					Arrays.asList(new Role(roles)),
-					birthdate,
-					gender,
-					phone,
-					mobilePhone,
-					professionalLicense,
-					city,
-					hospital
-					);
+	      if(getRol != null) {
 
-				System.out.println("REGISTRAMOS MEDICO");
-				this.doctorService.register(dr);
-	      
-			} else{
 		  		DoctorModel dr = new DoctorModel(
 						firstName,
 						lastNameP,
@@ -119,10 +100,12 @@ public class DoctorController {
 						city,
 						hospital
 						);
-
-					System.out.println("REGISTRAMOS MEDICO ROL CREADO");
+					System.out.println("REGISTRAMOS MEDICO");
 					this.doctorService.register(dr);
 			}
+	      else {
+				System.out.println("NO HAY ROLES REGISTRADOS");
+	      }
 		return "redirect:/admin/mainAdmin";
 
 	}
@@ -146,6 +129,9 @@ public class DoctorController {
 		return "NewPatientSucess";
 	}
 
+	@GetMapping("/ajaxExample")
+	public void ajaxExample(){
 
+	}
 	
 }

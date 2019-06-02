@@ -38,20 +38,18 @@ $(window).ready(() =>{
 function Validar (){
 
     //Julio
+    //alert("Hola monitor");
     const btnSave = $('#btnSave');
     const txtName = $('#txtName');
     const txtApPaterno = $('#txtApPaterno');
     const txtApMaterno = $('#txtApMaterno');
     const txtCalendar = $('#txtCalendar');
     const slcGener = $('#slcGener');
-    const site = $('#site');
     const telf = $('#telf');
     const telm = $('#telm');
-    const cel = $('#cel');
-    const city = $('#city');
     const email = $('#email');
-    const password = $('#password');
-    const password1 = $('#password1');
+    //const password = $('#password');
+    //const password1 = $('#password1');
 
     var errores = new String("");
 
@@ -60,19 +58,16 @@ function Validar (){
         txtApMaterno.val()==""||
         slcGener.val()==""||
         txtCalendar.val()==""||
-        site.val()==""||
         telf.val()==""||
         telm.val()==""||
-        cel.val()==""||
-        city.val()==""||
-        email.val()=="")
+        email.val()==""//||
+        //password.val()==""||
+        //password1.val()==""
+        )
     {
         errores = errores.concat("Todos los campos deben ser llenados obligatoriamente");
     }
 
-    if(password.val() != password1.val()){
-        errores = errores.concat("-Verificar contraseña\n");
-    }
 
     if (errores.toString() != "")
     {
@@ -82,10 +77,12 @@ function Validar (){
         return false;
     }
     else{
-        swal("Medico Registrado", "", "success");
+
+        swal("Monitor Modificado", "", "success");
         return true;
 
     }
 
 
 }
+
