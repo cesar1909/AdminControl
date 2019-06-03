@@ -240,7 +240,7 @@ function Validar (){
 
 
         if(minres.val()< 0 || minres.val()> 1000 || minres.val() == ""){
-            errores = errores.concat("-Enfermedad mínima residual (eventos: fuera del rango 0 a 1,000\n");
+            errores = errores.concat("-Enfermedad mínima residual  (eventos x10(-7)): fuera del rango 0 a 1,000\n");
         }
         if (botonMarcado == true) //Solo si se habilito el check
         {

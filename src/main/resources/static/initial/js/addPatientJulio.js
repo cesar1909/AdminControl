@@ -508,13 +508,13 @@ function Validar (){
     //Julio
     //Variables pantalal5 consutlta inicial parte3
 
-    const txtDeshidrogenasa = $('#txtDeshidrogenasa');
-    const txtHemoglobina = $('#txtHemoglobina');
-    const txtHematocrito = $('#txtHematocrito');
-    const txtLeucocitos = $('#txtLeucocitos');
-    const txtLinfocitos = $('#txtLinfocitos');
-    const txtNeutrofilos = $('#txtNeutrofilos');
-    const txtPlaquetas = $('#txtPlaquetas');
+    const txtDeshidrogenasa = $('#txtDeshidrogenasaJulio');
+    const txtHemoglobina = $('#txtHemoglobinaJulio');
+    const txtHematocrito = $('#txtHematocritoJulio');
+    const txtLeucocitos = $('#txtLeucocitosJulio');
+    const txtLinfocitos = $('#txtLinfocitosJulio');
+    const txtNeutrofilos = $('#txtNeutrofilosJulio');
+    const txtPlaquetas = $('#txtPlaquetasJulio');
 
     var errores = new String("");
 
@@ -557,3 +557,16 @@ function Validar (){
 }
 
 
+//Cuando cargue el la pag pedimos el ajax y ponemos el nombre de usuario
+$(document).ready(function() {
+   //alert("Cambia el nombre!! desde AJAX);
+   $("#nameUSER").text('Prueba');
+   $.ajax({
+       url: "/patient/fullname",
+       success: function(data) {
+              //alert(data);
+              $("#nameUSER").text("Médico: "+data);
+           }
+   });
+
+});

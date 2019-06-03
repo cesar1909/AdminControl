@@ -152,7 +152,7 @@ function getMonthlyInfotoEdit(idCon) {
 //     });
 // }
 
-
+//MANDAR FORM FINAL Y VALIDAR DATOS
 function subirForm() {
     var data = {};
     data["idPatient"] = $("#idPatient").val();
@@ -182,6 +182,120 @@ function subirForm() {
 
     // $("#btn-save").prop("disabled", true);
 
+    //Validaciones fINALES JULio
+        //Variables
+        var dateOfRealization = $("#txtCalendar").val();
+        var albumin = $("#Albumina").val();
+        var serumCalcium = $("#Calcio_serico").val();
+        var lacticDehydrogenase = $("#Deshidrogenasa_Lactica").val();
+        var hemoglobin = $("#Hemoglobina").val();
+        var hematocrit = $("#Hematocrito").val();
+        var leukocytes = $("#Leucocitos").val();
+        var lymphocytes = $("#Linfocitos").val();
+        var neutrophils = $("#Neutrofilos").val();
+        var platelets = $("#Plaquetas").val();
+        var igG = $("#IgG").val();
+        var igA = $("#IgA").val();
+        var igM = $("#IgM").val();
+        var lightChainsKappa = $("#Cadenas_Ligeras_Kappa").val();
+        var lightChainsLambda = $("#Cadenas_Ligeras_Lambda").val();
+        var celPlasmaticEnMedulaOsea = $("#celplasmo").val();
+        var electroForesisDeProteinasSuero = $("#electroforesis").val();
+        var electroForesisDeProteinasOrina = $("#electroforesis2").val();
+        var inmFijacionTipoIg = $("#inmunofijacionig").val();
+        var inmFijacionTipoCll = $("#inmunofijacioncll").val();
+        var enfermedadMinimaResidual = $("#minres").val();
+        var repuestaATratamiento = $("#resTrat").val();
+        var comentariosExtrax = $("#comment").val();
+
+        //Comparaciones FINALES
+        var errores = new String(""); //Aqui los alamacenamos
+        if(dateOfRealization == ""){
+            errores = errores.concat("-Fecha de valoracion: vacío");
+        }
+        if(Number(albumin) < 0.01 || Number(albumin) > 6 || isNaN(albumin)){
+            errores = errores.concat("-Albumina: fuera del rango 0.01 a 6\n");
+        }
+        if (Number(serumCalcium) < 5 || Number(serumCalcium) > 20 || isNaN(serumCalcium))
+        {
+           errores = errores.concat("-Calcio sérico: fuera del rango 5 a 20\n");
+        }
+        if (Number(lacticDehydrogenase) < 10 || Number(lacticDehydrogenase) > 2000 || isNaN(lacticDehydrogenase))
+        {
+           errores = errores.concat("-Deshidrogenasa láctica: fuera del rango 10 a 2,000\n");
+        }
+        if (Number(hemoglobin) < 1 || Number(hemoglobin) > 20 || isNaN(hemoglobin))
+        {
+           errores = errores.concat("-Hemoglobina: fuera del rango 1 a 20\n");
+        }
+        if (Number(hematocrit) < 3 || Number(hematocrit) > 20 || isNaN(hematocrit))
+        {
+           errores = errores.concat("-Hematocrito: fuera del rango 3 a 20\n");
+        }
+        if (Number(leukocytes) < 0 || Number(leukocytes) > 100000 || isNaN(leukocytes))
+        {
+           errores = errores.concat("-Leucocitos: fuera del rango 0 a 100,000\n");
+        }
+        if (Number(lymphocytes) < 0 || Number(lymphocytes) > 100000 || isNaN(lymphocytes))
+        {
+           errores = errores.concat("-Linfocitos: fuera del rango 0 a 100,000\n");
+        }
+        if (Number(neutrophils) < 0 || Number(neutrophils) > 100000 || isNaN(neutrophils))
+        {
+            errores = errores.concat("-Neutrofilos: fuera del rango 0 a 100,000\n");
+        }
+        if (Number(platelets) < 0 || Number(platelets) >  2000000 || isNaN(platelets))
+        {
+            errores = errores.concat("-Plaquetas: fuera del rango 0 a 2,000,000\n");
+        }
+        if (Number(igG) < 0 || Number(igG) > 15000 || isNaN(igG))
+        {
+            errores = errores.concat("-IgG: fuera del rango 0 a 15,000\n");
+        }
+        if (Number(igA) < 0 || Number(igA) > 10000 || isNaN(igA))
+        {
+            errores = errores.concat("-IgA: fuera del rango 0 a 10,000\n");
+        }
+        if (Number(igM) < 0 || Number(igM) > 500 || isNaN(igM))
+        {
+            errores = errores.concat("-IgM: fuera del rango 0 a 500\n");
+        }
+        if (Number(lightChainsKappa) < 0 || Number(lightChainsKappa) > 1000 || isNaN(lightChainsKappa))
+        {
+            errores = errores.concat("-Cadenas Ligeras Kappa: fuera del rango 0 a 1,000\n");
+        }
+        if (Number(lightChainsLambda) < 0 || Number(lightChainsLambda) > 500 || isNaN(lightChainsLambda))
+        {
+            errores = errores.concat("-Cadenas Ligeras Lambda: fuera del rango 0 a 1,000\n");
+        }
+        if (Number(celPlasmaticEnMedulaOsea) <  0 || Number(celPlasmaticEnMedulaOsea) > 100 || isNaN(celPlasmaticEnMedulaOsea))
+        {
+            errores = errores.concat("-Células plasmáticas en Médula ósea: fuera del rango 0 a 100\n");
+        }
+        if (Number(electroForesisDeProteinasSuero) < 0 || Number(electroForesisDeProteinasSuero) > 10000 || isNaN(electroForesisDeProteinasSuero))
+        {
+            errores = errores.concat("-Electroforesis de proteínas suero: fuera del rango 0 a 10,000\n");
+        }
+        if (Number(electroForesisDeProteinasOrina) < 0 || Number(electroForesisDeProteinasOrina) > 10000 || isNaN(electroForesisDeProteinasOrina))
+        {
+            errores = errores.concat("-Electroforesis de proteínas orina: fuera del rango 0 a 10,000\n");
+        }
+
+        if (Number(enfermedadMinimaResidual) < 0 || Number(enfermedadMinimaResidual) > 1000 || isNaN(enfermedadMinimaResidual))
+        {
+            errores = errores.concat("-Enfermedad mínima residual (eventos x10(-7)): fuera del rango 0 a 10,000\n");
+        }
+         //FIN VALIACIONES FINALES
+
+        if (errores.toString() != "")
+        {
+            var aux = new String("Por favor verifique lo siguiente: \n")
+            aux = aux.concat(errores.toString());
+            swal(aux.toString());
+        }
+        else //Todo bien sigue el ajax :D
+        {
+
     $.ajax({
         type: "POST",
         contentType: "application/json",
@@ -206,6 +320,8 @@ function subirForm() {
 
         }
     });
+
+        }
 }
 
 function subirFormMensual() {
@@ -241,6 +357,152 @@ function subirFormMensual() {
     data["adverseReaction"] = $("#txtReaccionAdversaCiclo").val();
     // $("#btn-save").prop("disabled", true);
 
+        //Validaciones EDIT MENSUALES JULIO
+        //Variables
+        var dateOfRealization = $('#txtFechaValoracionCiclo').val();
+        var albumin = $('#txtAlbuminaCiclo').val();
+        var serumCalcium = $('#txtCalcioSericoCiclo').val();
+        var lacticDehydrogenase = $('#txtDeshidrogenasaLacticaCiclo').val();
+        var hemoglobin = $('#txtHemoglobinaCiclo').val();
+        var hematocrit = $('#txtHematocritoCiclo').val();
+        var leukocytes = $('#txtLeucocitosCiclo').val();
+        var lymphocytes = $('#txtLinfocitosCiclo').val();
+        var neutrophils = $('#txtNeutrofilosCiclo').val();
+        var platelets = $('#txtPlaquetasCiclo').val();
+        var igG = $('#txtIgGCiclo').val();
+        var igA = $('#txtIgACiclo').val();
+        var igM = $('#txtIgMCiclo').val();
+        var lightChainsKappa = $('#txtCadenasKappaCiclo').val();
+        var lightChainsLambda = $('#txtCadenasLambdaCiclo').val();
+        var toxHemtoRedSerie = $('#txtToxicidadSerieRojaCiclo').val();
+        var toxHemtoNeutrophils = $('#txtToxicidadNeutrofilosCiclo').val();
+        var toxHemtoPlatelets = $('#txtToxicidadPlaquetasCiclo').val();
+        var toxHepatics = $('#txtToxicidadHepaticaCiclo').val();
+        var toxRenal = $('#txtToxicidadRenalCiclo').val();
+        var toxGastroNausea = $('#txtToxicidadNauseaCiclo').val();
+        var toxGastroDiarrhea = $('#txtToxicidadDiarreaCiclo').val();
+        var toxNeuroatiaPerif = $('#txtToxicidadNeuropatiaCiclo').val();
+        var toxInfectious = $('#txtToxicidadInfecciosaCiclo').val();
+        var infectionSite = $('#txtSitioInfeccionCiclo').val();
+        var infusionMedReaction = $('#txtReaccionMedicamentoCiclo').val();
+        var adverseReaction = $('#txtReaccionAdversaCiclo').val();
+
+
+        // Comparaciones
+        var errores = new String(""); //Aqui los alamacenamos
+        if(dateOfRealization == ""){
+            errores = errores.concat("-Fecha de valoracion: vacío");
+        }
+        if(Number(albumin) < 0.01 || Number(albumin) > 6 || isNaN(albumin)){
+            errores = errores.concat("-Albumina: fuera del rango 0.01 a 6\n");
+        }
+        if (Number(serumCalcium) < 5 || Number(serumCalcium) > 20 || isNaN(serumCalcium))
+        {
+           errores = errores.concat("-Calcio sérico: fuera del rango 5 a 20\n");
+        }
+        if (Number(lacticDehydrogenase) < 10 || Number(lacticDehydrogenase) > 2000 || isNaN(lacticDehydrogenase))
+        {
+           errores = errores.concat("-Deshidrogenasa láctica: fuera del rango 10 a 2,000\n");
+        }
+        if (Number(hemoglobin) < 1 || Number(hemoglobin) > 20 || isNaN(hemoglobin))
+        {
+           errores = errores.concat("-Hemoglobina: fuera del rango 1 a 20\n");
+        }
+        if (Number(hematocrit) < 3 || Number(hematocrit) > 20 || isNaN(hematocrit))
+        {
+           errores = errores.concat("-Hematocrito: fuera del rango 3 a 20\n");
+        }
+        if (Number(leukocytes) < 0 || Number(leukocytes) > 100000 || isNaN(leukocytes))
+        {
+           errores = errores.concat("-Leucocitos: fuera del rango 0 a 100,000\n");
+        }
+        if (Number(lymphocytes) < 0 || Number(lymphocytes) > 100000 || isNaN(lymphocytes))
+        {
+           errores = errores.concat("-Linfocitos: fuera del rango 0 a 100,000\n");
+        }
+        if (Number(neutrophils) < 0 || Number(neutrophils) > 100000 || isNaN(neutrophils))
+        {
+            errores = errores.concat("-Neutrofilos: fuera del rango 0 a 100,000\n");
+        }
+        if (Number(platelets) < 0 || Number(platelets) >  2000000 || isNaN(platelets))
+        {
+            errores = errores.concat("-Plaquetas: fuera del rango 0 a 2,000,000\n");
+        }
+        if (Number(igG) < 0 || Number(igG) > 15000 || isNaN(igG))
+        {
+            errores = errores.concat("-IgG: fuera del rango 0 a 15,000\n");
+        }
+        if (Number(igA) < 0 || Number(igA) > 10000 || isNaN(igA))
+        {
+            errores = errores.concat("-IgA: fuera del rango 0 a 10,000\n");
+        }
+        if (Number(igM) < 0 || Number(igM) > 500 || isNaN(igM))
+        {
+            errores = errores.concat("-IgM: fuera del rango 0 a 500\n");
+        }
+        if (Number(lightChainsKappa) < 0 || Number(lightChainsKappa) > 1000 || isNaN(lightChainsKappa))
+        {
+            errores = errores.concat("-Cadenas Ligeras Kappa: fuera del rango 0 a 1,000\n");
+        }
+        if (Number(lightChainsLambda) < 0 || Number(lightChainsLambda) > 500 || isNaN(lightChainsLambda))
+        {
+            errores = errores.concat("-Cadenas Ligeras Lambda: fuera del rango 0 a 1,000\n");
+        }
+        if (Number(toxHemtoRedSerie) < 0 || Number(toxHemtoRedSerie) > 5 || isNaN(toxHemtoRedSerie))
+        {
+            errores = errores.concat("-Toxicidad Toxicidad Hematológica - Serie Roja: fuera del rango 0 a 5\n");
+        }
+        if (Number(toxHemtoNeutrophils) < 0 || Number(toxHemtoNeutrophils) > 5 || isNaN(toxHemtoNeutrophils))
+        {
+            errores = errores.concat("-Toxicidad Hematológica – Neutrófilos: fuera del rango 0 a 5\n");
+        }
+        if (Number(toxHemtoPlatelets) < 0 || Number(toxHemtoPlatelets) > 5 || isNaN(toxHemtoPlatelets))
+        {
+            errores = errores.concat("-Toxicidad Hematologica - Plaquetas : fuera del rango 0 a 5\n");
+        }
+        if (Number(toxHepatics) < 0 || Number(toxHepatics) > 5 || isNaN(toxHepatics))
+        {
+            errores = errores.concat("-Toxicidad Hepática: fuera del rango 0 a 5\n");
+        }
+        if (Number(toxRenal) < 0 || Number(toxRenal) > 5 || isNaN(toxRenal))
+        {
+            errores = errores.concat("-Toxicidad Renal: fuera del rango 0 a 5\n");
+        }
+        if (infectionSite == "")
+        {
+            errores = errores.concat("-Sitio de infección: vacío\n");
+        }
+        if (Number(toxInfectious) < 0 || Number(toxInfectious) > 5 || isNaN(toxInfectious))
+        {
+            errores = errores.concat("-Toxicidad Infecciosa: fuera del rango 0 a 5\n");
+        }
+        if (Number(toxGastroNausea) < 0 || Number(toxGastroNausea) > 5 || isNaN(toxGastroNausea))
+        {
+            errores = errores.concat("-Toxicidad gastrointestinal - Nausea: fuera del rango 0 a 5\n");
+        }
+        if (Number(toxGastroDiarrhea) < 0 || Number(toxGastroDiarrhea) > 5 || isNaN(toxGastroDiarrhea))
+        {
+            errores = errores.concat("-Toxicidad Gastrointestinal - Nausea: fuera del rango 0 a 5\n");
+        }
+        if (Number(toxNeuroatiaPerif) < 0 || Number(toxNeuroatiaPerif) > 5 || isNaN(toxNeuroatiaPerif))
+        {
+            errores = errores.concat("-Toxicidad Toxicidad neuropatía periférica: fuera del rango 0 a 5\n");
+        }
+        if (Number(infusionMedReaction) < 0 || Number(infusionMedReaction) > 5 || isNaN(infusionMedReaction))
+        {
+            errores = errores.concat("-Reacción a infusión de medicamentos: fuera del rango 0 a 5\n");
+        }
+
+        //FIN VALIACIONES MENSUALES
+
+        if (errores.toString() != "")
+        {
+            var aux = new String("Por favor verifique lo siguiente: \n")
+            aux = aux.concat(errores.toString());
+            swal(aux.toString());
+        }
+        else //Todo bien sigue el ajax :D
+        {
     $.ajax({
         type: "POST",
         contentType: "application/json",
@@ -265,6 +527,8 @@ function subirFormMensual() {
 
         }
     });
+
+        }
 }
 
 // $(function () {

@@ -16,6 +16,8 @@
     <link th:href="@{/infoPatient/css/dashboard2.css}" rel="stylesheet" />
     <link th:href="@{/infoPatient/css/plugins/date-time-picker.css}" rel="stylesheet" >
     <link th:href="@{/infoPatient/css/addPatient.css}" rel="stylesheet" />
+    <!-- Para los popup JULIO -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 
 <body id="body">
@@ -558,8 +560,9 @@
                                                     </div>
                                                     <div class="col-lg-4 col-md-4 col-sm-4">
                                                         <div class="form-group">
-                                                            <label for="slcSelectCicle">Selecciona un ciclo</label>
+                                                            <label for="slcSelectCicle"></label>
                                                             <select class="form-control selectpicker" data-style="btn btn-link" id="slcSelectCicle" name="inptProduct" onclick="getMonthlyInfotoEdit(this.value);">
+                                                                <option value="0" disabled selected>Selecciona un ciclo...</option>
                                                                 <!--                                                    <option value="0" disabled selected>Selecciona un ciclo...</option>-->
                                                                 <!--                                                    <option value="1">1</option>-->
                                                                 <!--                                                    <option value="2">2</option>-->
