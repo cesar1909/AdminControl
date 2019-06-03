@@ -49,7 +49,7 @@ public class FinalConsultationController {
            @RequestParam(name = "dateOfRealization") String dateRealization,
            @RequestParam(name = "albumin") String albumin,
            @RequestParam(name = "serumCalcium") String serumCalcium,
-           @RequestParam(name="lacticDehydrogenase") String lacticDehydrogenase,
+           @RequestParam(name = "lacticDehydrogenase") String lacticDehydrogenase,
            @RequestParam(name = "hemoglobin") String hemoglobin,
            @RequestParam(name = "hematocrit") String hematocrit,
            @RequestParam(name = "leukocytes") String leukocytes,
@@ -73,9 +73,16 @@ public class FinalConsultationController {
            @RequestParam(name ="numberOfCD34Infused", required = false) String numberOfCD34Infused,
            @RequestParam(name ="myeloidGraftDate", required = false) String myeloidGraftDate,
            @RequestParam(name ="datePlateletGraft", required = false) String datePlateletGraft,
-           @RequestParam(name ="toxicities", required = false) String toxicities
+           @RequestParam(name = "toxHemtoRedSerie") String toxHemtoRedSerie,
+           @RequestParam(name = "toxHemtoNeutrophils") String toxHemtoNeutrophils,
+           @RequestParam(name = "toxHemtoPlatelets") String toxHemtoPlatelets,
+           @RequestParam(name = "toxHepatics") String toxHepatics,
+           @RequestParam(name = "toxRenal") String toxRenal,
+           @RequestParam(name = "toxGastroNausea") String toxGastroNausea,
+           @RequestParam(name = "toxGastroDiarrhea") String toxGastroDiarrhea,
+           @RequestParam(name = "toxNeuroatiaPerif") String toxNeuroatiaPerif,
+           @RequestParam(name = "toxInfectious") String toxInfectious
            ){
-
         // Proceso de registro
 
         if(idPatient!=0) {
@@ -114,7 +121,16 @@ public class FinalConsultationController {
                         numberOfCD34Infused,
                         myeloidGraftDate,
                         datePlateletGraft,
-                        toxicities
+                        
+                        toxHemtoRedSerie,
+                        toxHemtoNeutrophils,
+                        toxHemtoPlatelets,
+                        toxHepatics,
+                        toxRenal,
+                        toxGastroNausea,
+                        toxGastroDiarrhea,
+                        toxNeuroatiaPerif,
+                        toxInfectious
                         );
                 this.consultationService.register(consultation);
             }else {

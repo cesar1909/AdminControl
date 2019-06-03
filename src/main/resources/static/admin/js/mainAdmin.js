@@ -57,7 +57,7 @@ const patientList = (() => {
 function deseaEliminarDoctor (idDoctor){
     var resultado = false;
     swal({
-      title: "¿Desea eliminaral medico?",
+      title: "¿Desea eliminar al medico?",
       text: "Si elimina, no podrá recuperar la información!",
       icon: "warning",
       buttons: true,
@@ -111,6 +111,7 @@ function deseaEliminarMonitor (idMonitor){
         resultado = true;
 
              location.href = "/admin/deleteUser?id="+idMonitor;
+
       } else {
         swal("Eliminacion cancelada");
         resultado = false;
@@ -144,3 +145,5 @@ function deseaEliminarPaciente (idPaciente){
     });
 
 }
+
+

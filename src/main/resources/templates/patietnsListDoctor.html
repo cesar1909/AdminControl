@@ -44,7 +44,7 @@
                     </div>
                 </div>
                 <div class="collapse navbar-collapse justify-content-end">
-                    <i class="material-icons">face</i><p class="h4">&nbsp;<span sec:authentication="principal.username">User</span></p>
+                    <i  class="material-icons">face</i><p class="h4">&nbsp;<span id = "nameUSER">Médico</span></p>
                     <a th:href="@{/logout}" id="SesonOff" >Cerrar Sesión <i class="material-icons">exit_to_app</i></a>                </div>
             </div>
         </nav>
@@ -101,7 +101,7 @@
                             <td th:text="${patient.genero}"></td>
                             <td>
 
-                                <a th:onclick="${'selecTipoConsulta(' + patient.idPaciente + ');'}" class="btn btn-success" style="float: right;"><i class="material-icons">&#xE147;</i> <span>Agregar Consulta</span></a>
+                                <a th:onclick="${'selecTipoConsulta(' + patient.idPaciente + ');'}" class="btn btn-success" style="float: right;"><i class="material-icons" style="color: white;" >&#xE147;</i> <span style="color: white;">Agregar Consulta</span></a>
                                 <!-- <a href="#" id="btnAddConsultation" class="btn btn-info" style="float: right;"><i class="material-icons">note_add</i> <span>Agregar Consulta</span></a>-->
                                 <a th:href="@{/patient/info(id=${patient.idPaciente})}" class="btn btn-success" style="float: right;"><i class="material-icons">&#xE85D;</i> <span>Ver Detalles</span></a>
                             </td>

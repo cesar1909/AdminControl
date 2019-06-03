@@ -48,8 +48,8 @@ function Validar (){
     const telf = $('#telf');
     const telm = $('#telm');
     const email = $('#email');
-    const password = $('#password');
-    const password1 = $('#password1');
+    //const password = $('#password');
+    //const password1 = $('#password1');
 
     var errores = new String("");
 
@@ -60,14 +60,14 @@ function Validar (){
         txtCalendar.val()==""||
         telf.val()==""||
         telm.val()==""||
-        email.val()=="")
+        email.val()==""//||
+        //password.val()==""||
+        //password1.val()==""
+        )
     {
         errores = errores.concat("Todos los campos deben ser llenados obligatoriamente");
     }
 
-    if(password.val() != password1.val()){
-        errores = errores.concat("-Verificar contraseña\n");
-    }
 
     if (errores.toString() != "")
     {
@@ -78,7 +78,7 @@ function Validar (){
     }
     else{
 
-        swal("Monitor Registrado", "", "success");
+        swal("Monitor Modificado", "", "success");
         return true;
 
     }

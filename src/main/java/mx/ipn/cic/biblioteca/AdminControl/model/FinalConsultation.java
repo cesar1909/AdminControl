@@ -99,90 +99,82 @@ public class FinalConsultation {
     @Column(name ="fechaInjertoPlaquetario")
     private String datePlateletGraft;
     
-    @Column(name ="toxicidades")
-    private String toxicities;    
+    //Toxicidades
+    @Column(name = "toxHemtoSerieRoja")
+    private String toxHemtoRedSerie;
 
+    @Column(name = "toxHemtoNeutrofilos")
+    private String toxHemtoNeutrophils;
+
+    @Column(name = "toxHemtoPlaquetas")
+    private String toxHemtoPlatelets;
+
+    @Column(name = "toxHepatics")
+    private String toxHepatics;
+
+    @Column(name = "toxRenal")
+    private String toxRenal;
+
+    @Column(name = "toxGastroNausea")
+    private String toxGastroNausea;
+
+    @Column(name = "toxGastoDiarrea")
+    private String toxGastroDiarrhea;
+
+    @Column(name = "toxNeuroatiaPerif")
+    private String toxNeuroatiaPerif;
+
+    @Column(name = "toxInfecciosa")
+    private String toxInfectious;
     
     // Constructores
     public FinalConsultation() {
         super();
         // TODO Auto-generated constructor stub
     }
-
-//    public FinalConsultation(Integer idPatient, PatientModel patientModel, String dateOfRealization, String albumin, String serumCalcium, String leukocytes,
-//                             String hemoglobin, String hematocrit, String platelets, String lymphocytes, String neutrophils,
-//                             String igM, String igG, String igA, String lightChainsKappa, String lightChainsLambda, String lacticDehydrogenase,
-//                             String celPlasmaticEnMedulaOsea, String electroForesisDeProteinasSuero, String electroForesisDeProteinasOrina,
-//                             String inmFijacionTipoIg, String inmFijacionTipoCll, String enfermedadMinimaResidual, String repuestaATratamiento,
-//                             String comentariosExtrax) {
-//        this.idPatient = idPatient;
-//        this.patientModel=patientModel;
-//        this.dateOfRealization = dateOfRealization;
-//        this.albumin = albumin;
-//        this.serumCalcium = serumCalcium;
-//        this.leukocytes = leukocytes;
-//        this.hemoglobin = hemoglobin;
-//        this.hematocrit = hematocrit;
-//        this.platelets = platelets;
-//        this.lymphocytes = lymphocytes;
-//        this.neutrophils = neutrophils;
-//        this.igM = igM;
-//        this.igG = igG;
-//        this.igA = igA;
-//        this.lightChainsKappa = lightChainsKappa;
-//        this.lightChainsLambda = lightChainsLambda;
-//        this.lacticDehydrogenase = lacticDehydrogenase;
-//        this.celPlasmaticEnMedulaOsea = celPlasmaticEnMedulaOsea;
-//        this.electroForesisDeProteinasOrina = electroForesisDeProteinasOrina;
-//        this.electroForesisDeProteinasSuero = electroForesisDeProteinasSuero;
-//        this.inmFijacionTipoIg = inmFijacionTipoIg;
-//        this.inmFijacionTipoCll = inmFijacionTipoCll;
-//        this.enfermedadMinimaResidual = enfermedadMinimaResidual;
-//        this.repuestaATratamiento = repuestaATratamiento;
-//        this.comentariosExtrax = comentariosExtrax;
-//    }
     
-	public FinalConsultation(Integer idPatient, PatientModel patientModel, String dateOfRealization, String albumin,
-			String serumCalcium, String lacticDehydrogenase, String hemoglobin, String hematocrit, String leukocytes,
-			String lymphocytes, String neutrophils, String platelets, String igG, String igA, String igM,
-			String lightChainsKappa, String lightChainsLambda, String celPlasmaticEnMedulaOsea,
-			String electroForesisDeProteinasSuero, String electroForesisDeProteinasOrina, String inmFijacionTipoIg,
-			String inmFijacionTipoCll, String enfermedadMinimaResidual, String repuestaATratamiento,
-			String comentariosExtrax, String dateOfTransplant, String numberOfCD34Infused, String myeloidGraftDate,
-			String datePlateletGraft, String toxicities) {
-		super();
-		this.idPatient = idPatient;
-		this.patientModel = patientModel;
-		this.dateOfRealization = dateOfRealization;
-		this.albumin = albumin;
-		this.serumCalcium = serumCalcium;
-		this.lacticDehydrogenase = lacticDehydrogenase;
-		this.hemoglobin = hemoglobin;
-		this.hematocrit = hematocrit;
-		this.leukocytes = leukocytes;
-		this.lymphocytes = lymphocytes;
-		this.neutrophils = neutrophils;
-		this.platelets = platelets;
-		this.igG = igG;
-		this.igA = igA;
-		this.igM = igM;
-		this.lightChainsKappa = lightChainsKappa;
-		this.lightChainsLambda = lightChainsLambda;
-		this.celPlasmaticEnMedulaOsea = celPlasmaticEnMedulaOsea;
-		this.electroForesisDeProteinasSuero = electroForesisDeProteinasSuero;
-		this.electroForesisDeProteinasOrina = electroForesisDeProteinasOrina;
-		this.inmFijacionTipoIg = inmFijacionTipoIg;
-		this.inmFijacionTipoCll = inmFijacionTipoCll;
-		this.enfermedadMinimaResidual = enfermedadMinimaResidual;
-		this.repuestaATratamiento = repuestaATratamiento;
-		this.comentariosExtrax = comentariosExtrax;
-		this.dateOfTransplant = dateOfTransplant;
-		this.numberOfCD34Infused = numberOfCD34Infused;
-		this.myeloidGraftDate = myeloidGraftDate;
-		this.datePlateletGraft = datePlateletGraft;
-		this.toxicities = toxicities;
-	}
+//	public FinalConsultation(Integer idPatient, PatientModel patientModel, String dateOfRealization, String albumin,
+//			String serumCalcium, String lacticDehydrogenase, String hemoglobin, String hematocrit, String leukocytes,
+//			String lymphocytes, String neutrophils, String platelets, String igG, String igA, String igM,
+//			String lightChainsKappa, String lightChainsLambda, String celPlasmaticEnMedulaOsea,
+//			String electroForesisDeProteinasSuero, String electroForesisDeProteinasOrina, String inmFijacionTipoIg,
+//			String inmFijacionTipoCll, String enfermedadMinimaResidual, String repuestaATratamiento,
+//			String comentariosExtrax, String dateOfTransplant, String numberOfCD34Infused, String myeloidGraftDate,
+//			String datePlateletGraft, String toxicities) {
+//		super();
+//		this.idPatient = idPatient;
+//		this.patientModel = patientModel;
+//		this.dateOfRealization = dateOfRealization;
+//		this.albumin = albumin;
+//		this.serumCalcium = serumCalcium;
+//		this.lacticDehydrogenase = lacticDehydrogenase;
+//		this.hemoglobin = hemoglobin;
+//		this.hematocrit = hematocrit;
+//		this.leukocytes = leukocytes;
+//		this.lymphocytes = lymphocytes;
+//		this.neutrophils = neutrophils;
+//		this.platelets = platelets;
+//		this.igG = igG;
+//		this.igA = igA;
+//		this.igM = igM;
+//		this.lightChainsKappa = lightChainsKappa;
+//		this.lightChainsLambda = lightChainsLambda;
+//		this.celPlasmaticEnMedulaOsea = celPlasmaticEnMedulaOsea;
+//		this.electroForesisDeProteinasSuero = electroForesisDeProteinasSuero;
+//		this.electroForesisDeProteinasOrina = electroForesisDeProteinasOrina;
+//		this.inmFijacionTipoIg = inmFijacionTipoIg;
+//		this.inmFijacionTipoCll = inmFijacionTipoCll;
+//		this.enfermedadMinimaResidual = enfermedadMinimaResidual;
+//		this.repuestaATratamiento = repuestaATratamiento;
+//		this.comentariosExtrax = comentariosExtrax;
+//		this.dateOfTransplant = dateOfTransplant;
+//		this.numberOfCD34Infused = numberOfCD34Infused;
+//		this.myeloidGraftDate = myeloidGraftDate;
+//		this.datePlateletGraft = datePlateletGraft;
+//		this.toxicities = toxicities;
+//	}
 
+    
     public FinalConsultation(Integer idPatient, PatientModel patientModel, String dateOfRealization, String albumin,
                              String serumCalcium, String lacticDehydrogenase, String hemoglobin, String hematocrit, String leukocytes,
                              String lymphocytes, String neutrophils, String platelets, String igG, String igA, String igM,
@@ -217,9 +209,63 @@ public class FinalConsultation {
         this.repuestaATratamiento = repuestaATratamiento;
         this.comentariosExtrax = comentariosExtrax;
     }
+    
+    
 
     
-    // Métodos de acceso
+    public FinalConsultation(Integer idPatient, PatientModel patientModel, String dateOfRealization, String albumin,
+			String serumCalcium, String lacticDehydrogenase, String hemoglobin, String hematocrit, String leukocytes,
+			String lymphocytes, String neutrophils, String platelets, String igG, String igA, String igM,
+			String lightChainsKappa, String lightChainsLambda, String celPlasmaticEnMedulaOsea,
+			String electroForesisDeProteinasSuero, String electroForesisDeProteinasOrina, String inmFijacionTipoIg,
+			String inmFijacionTipoCll, String enfermedadMinimaResidual, String repuestaATratamiento,
+			String comentariosExtrax, String dateOfTransplant, String numberOfCD34Infused, String myeloidGraftDate,
+			String datePlateletGraft, String toxHemtoRedSerie, String toxHemtoNeutrophils, String toxHemtoPlatelets,
+			String toxHepatics, String toxRenal, String toxGastroNausea, String toxGastroDiarrhea,
+			String toxNeuroatiaPerif, String toxInfectious) {
+		super();
+		this.idPatient = idPatient;
+		this.patientModel = patientModel;
+		this.dateOfRealization = dateOfRealization;
+		this.albumin = albumin;
+		this.serumCalcium = serumCalcium;
+		this.lacticDehydrogenase = lacticDehydrogenase;
+		this.hemoglobin = hemoglobin;
+		this.hematocrit = hematocrit;
+		this.leukocytes = leukocytes;
+		this.lymphocytes = lymphocytes;
+		this.neutrophils = neutrophils;
+		this.platelets = platelets;
+		this.igG = igG;
+		this.igA = igA;
+		this.igM = igM;
+		this.lightChainsKappa = lightChainsKappa;
+		this.lightChainsLambda = lightChainsLambda;
+		this.celPlasmaticEnMedulaOsea = celPlasmaticEnMedulaOsea;
+		this.electroForesisDeProteinasSuero = electroForesisDeProteinasSuero;
+		this.electroForesisDeProteinasOrina = electroForesisDeProteinasOrina;
+		this.inmFijacionTipoIg = inmFijacionTipoIg;
+		this.inmFijacionTipoCll = inmFijacionTipoCll;
+		this.enfermedadMinimaResidual = enfermedadMinimaResidual;
+		this.repuestaATratamiento = repuestaATratamiento;
+		this.comentariosExtrax = comentariosExtrax;
+		//nuevas variables
+		this.dateOfTransplant = dateOfTransplant;
+		this.numberOfCD34Infused = numberOfCD34Infused;
+		this.myeloidGraftDate = myeloidGraftDate;
+		this.datePlateletGraft = datePlateletGraft;
+		this.toxHemtoRedSerie = toxHemtoRedSerie;
+		this.toxHemtoNeutrophils = toxHemtoNeutrophils;
+		this.toxHemtoPlatelets = toxHemtoPlatelets;
+		this.toxHepatics = toxHepatics;
+		this.toxRenal = toxRenal;
+		this.toxGastroNausea = toxGastroNausea;
+		this.toxGastroDiarrhea = toxGastroDiarrhea;
+		this.toxNeuroatiaPerif = toxNeuroatiaPerif;
+		this.toxInfectious = toxInfectious;
+	}
+
+	// Métodos de acceso
     public Integer getIdPatient() {
         return idPatient;
     }
@@ -453,12 +499,76 @@ public class FinalConsultation {
 		this.datePlateletGraft = datePlateletGraft;
 	}
 
-	public String getToxicities() {
-		return toxicities;
+	public String getToxHemtoRedSerie() {
+		return toxHemtoRedSerie;
 	}
 
-	public void setToxicities(String toxicities) {
-		this.toxicities = toxicities;
+	public void setToxHemtoRedSerie(String toxHemtoRedSerie) {
+		this.toxHemtoRedSerie = toxHemtoRedSerie;
+	}
+
+	public String getToxHemtoNeutrophils() {
+		return toxHemtoNeutrophils;
+	}
+
+	public void setToxHemtoNeutrophils(String toxHemtoNeutrophils) {
+		this.toxHemtoNeutrophils = toxHemtoNeutrophils;
+	}
+
+	public String getToxHemtoPlatelets() {
+		return toxHemtoPlatelets;
+	}
+
+	public void setToxHemtoPlatelets(String toxHemtoPlatelets) {
+		this.toxHemtoPlatelets = toxHemtoPlatelets;
+	}
+
+	public String getToxHepatics() {
+		return toxHepatics;
+	}
+
+	public void setToxHepatics(String toxHepatics) {
+		this.toxHepatics = toxHepatics;
+	}
+
+	public String getToxRenal() {
+		return toxRenal;
+	}
+
+	public void setToxRenal(String toxRenal) {
+		this.toxRenal = toxRenal;
+	}
+
+	public String getToxGastroNausea() {
+		return toxGastroNausea;
+	}
+
+	public void setToxGastroNausea(String toxGastroNausea) {
+		this.toxGastroNausea = toxGastroNausea;
+	}
+
+	public String getToxGastroDiarrhea() {
+		return toxGastroDiarrhea;
+	}
+
+	public void setToxGastroDiarrhea(String toxGastroDiarrhea) {
+		this.toxGastroDiarrhea = toxGastroDiarrhea;
+	}
+
+	public String getToxNeuroatiaPerif() {
+		return toxNeuroatiaPerif;
+	}
+
+	public void setToxNeuroatiaPerif(String toxNeuroatiaPerif) {
+		this.toxNeuroatiaPerif = toxNeuroatiaPerif;
+	}
+
+	public String getToxInfectious() {
+		return toxInfectious;
+	}
+
+	public void setToxInfectious(String toxInfectious) {
+		this.toxInfectious = toxInfectious;
 	}
 
 }
