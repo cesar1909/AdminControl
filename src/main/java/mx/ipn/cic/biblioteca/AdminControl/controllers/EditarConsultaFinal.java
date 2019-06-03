@@ -54,8 +54,22 @@ public class EditarConsultaFinal {
 
 
         // Proceso de registro
-        if(finalConsultation.getIdPatient()!=0 & finalConsultation.getDateOfTransplant()!=null & finalConsultation.getNumberOfCD34Infused()!=null &
-            finalConsultation.getMyeloidGraftDate()!=null & finalConsultation.getDatePlateletGraft()!=null & finalConsultation.getToxicities()!=null) {
+        if(
+			finalConsultation.getIdPatient()!=0 &
+			finalConsultation.getDateOfTransplant()!=null &
+			finalConsultation.getNumberOfCD34Infused()!=null &
+			finalConsultation.getMyeloidGraftDate()!=null &
+			finalConsultation.getDatePlateletGraft()!=null &
+			finalConsultation.getToxHemtoRedSerie()!=null &
+			finalConsultation.getToxHemtoNeutrophils()!=null &
+			finalConsultation.getToxHemtoPlatelets()!=null &
+			finalConsultation.getToxHepatics()!=null &
+			finalConsultation.getToxRenal()!=null &
+			finalConsultation.getToxGastroNausea()!=null &
+			finalConsultation.getToxGastroDiarrhea()!=null &
+			finalConsultation.getToxNeuroatiaPerif()!=null &
+			finalConsultation.getToxInfectious()!=null
+        	) {
 			System.out.println("EDITAMOS CON LA OPCION DE TRANSPLANTE");
 			System.out.println("ID DEL PACIENTE: " + finalConsultation.getIdPatient());
         	this.finalConsultationRepository.updateFinalConsult(
@@ -88,7 +102,15 @@ public class EditarConsultaFinal {
                     finalConsultation.getNumberOfCD34Infused(),
                     finalConsultation.getMyeloidGraftDate(),
                     finalConsultation.getDatePlateletGraft(),
-                    finalConsultation.getToxicities()
+                    finalConsultation.getToxHemtoRedSerie(),
+                    finalConsultation.getToxHemtoNeutrophils(),
+                    finalConsultation.getToxHemtoPlatelets(),
+                    finalConsultation.getToxHepatics(),
+                    finalConsultation.getToxRenal(),
+                    finalConsultation.getToxGastroNausea(),
+                    finalConsultation.getToxGastroDiarrhea(),
+                    finalConsultation.getToxNeuroatiaPerif(),
+                    finalConsultation.getToxInfectious()
         			);
             }else {
 			System.out.println("EDITAMOS SIN LA OPCION DE TRANSPLANTE");
