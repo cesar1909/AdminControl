@@ -48,7 +48,15 @@ public interface IFinalConsultationRepository extends JpaRepository<FinalConsult
 			+ "cf.numcd34infundidas = :numcd34infundidas, "
 			+ "cf.fecha_injerto_mieloide = :fecha_injerto_mieloide, "
 			+ "cf.fecha_injerto_plaquetario = :fecha_injerto_plaquetario, "
-			+ "cf.toxicidades = :toxicidades "
+			+ "cf.tox_hemto_serie_roja= :tox_hemto_serie_roja, "
+			+ "cf.tox_hemto_neutrofilos= :tox_hemto_neutrofilos, "
+			+ "cf.tox_hemto_plaquetas= :tox_hemto_plaquetas, "
+			+ "cf.tox_hepatics= :tox_hepatics, "
+			+ "cf.tox_renal= :tox_renal, "
+			+ "cf.tox_gastro_nausea= :tox_gastro_nausea, "
+			+ "cf.tox_gasto_diarrea= :tox_gasto_diarrea, "
+			+ "cf.tox_neuroatia_perif= :tox_neuroatia_perif, "
+			+ "cf.tox_infecciosa= :tox_infecciosa "
 			+ "WHERE cf.idpaciente = :idpatient", nativeQuery=true
 			)
 	void updateFinalConsult(
@@ -80,7 +88,15 @@ public interface IFinalConsultationRepository extends JpaRepository<FinalConsult
 		       @Param("numcd34infundidas") String numcd34infundidas,
 		       @Param("fecha_injerto_mieloide") String fecha_injerto_mieloide,
 		       @Param("fecha_injerto_plaquetario") String fecha_injerto_plaquetario,
-		       @Param("toxicidades") String toxicidades
+		       @Param("tox_hemto_serie_roja") String tox_hemto_serie_roja,
+		       @Param("tox_hemto_neutrofilos") String tox_hemto_neutrofilos,
+		       @Param("tox_hemto_plaquetas") String tox_hemto_plaquetas,
+		       @Param("tox_hepatics") String tox_hepatics,
+		       @Param("tox_renal") String tox_renal,
+		       @Param("tox_gastro_nausea") String tox_gastro_nausea,
+		       @Param("tox_gasto_diarrea") String tox_gasto_diarrea,
+		       @Param("tox_neuroatia_perif") String tox_neuroatia_perif,
+		       @Param("tox_infecciosa") String tox_infecciosa
 			);
 	
 	@Modifying
