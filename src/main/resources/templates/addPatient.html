@@ -79,7 +79,7 @@
                 </div>
                 <div class="collapse navbar-collapse justify-content-end">
 
-                    <i class="material-icons">face</i><p class="h4">&nbsp;Adm. Dra. Pamela Báez </p>
+                    <i  class="material-icons">face</i><p class="h4">&nbsp;<span id = "nameUSER">Médico</span></p>
                     <a th:href="@{/logout}" id="SesonOff" >Cerrar Sesión <i class="material-icons">exit_to_app</i></a>
                 </div>
             </div>
@@ -551,41 +551,20 @@
                                         <div class="row">
                                             <div class="col-lg-4 col-md-4 col-sm-4">
                                                 <div class="form-group">
-                                                    <label for="txtDeshidrogenasa" class="bmd-label-floating">Deshidrogenasa Lactica (U/L)</label>
-                                                    <input type="number" class="form-control" id="txtDeshidrogenasa" min="10" max="2000"  name="lacticDehydrogenase" th:field="*{lacticDehydrogenase}"/>
+                                                    <label for="txtDeshidrogenasaJulio" class="bmd-label-floating">Deshidrogenasa Lactica (U/L)</label>
+                                                    <input type="number" class="form-control" id="txtDeshidrogenasaJulio"   name="lacticDehydrogenase" th:field="*{lacticDehydrogenase}"/>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-4">
                                                 <div class="form-group">
-                                                    <label for="txtHemoglobina" class="bmd-label-floating">Hemoglobina (g/dL)</label>
-                                                    <input type="number" class="form-control" id="txtHemoglobina" min="1" max="20"  name="hemoglobin" th:field="*{hemoglobin}"/>
+                                                    <label for="txtHemoglobinaJulio" class="bmd-label-floating">Hemoglobina (g/dL)</label>
+                                                    <input type="number" class="form-control" id="txtHemoglobinaJulio"   name="hemoglobin" th:field="*{hemoglobin}"/>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-4">
                                                 <div class="form-group">
-                                                    <label for="txtHematocrito" class="bmd-label-floating">Hematocrito (%)</label>
-                                                    <input type="number" class="form-control" id="txtHematocrito" min="3" max="60"  name="hematocrit" th:field="*{hematocrit}"/>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <br/>
-                                        <div class="row">
-                                            <div class="col-lg-4 col-md-4 col-sm-4">
-                                                <div class="form-group">
-                                                    <label for="txtLeucocitos" class="bmd-label-floating">Leucocitos (cels x 10(3)/uL)</label>
-                                                    <input type="number" class="form-control" id="txtLeucocitos" min="0" max="100000"  name="leukocytes" th:field="*{leukocytes}"/>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-4 col-md-4 col-sm-4">
-                                                <div class="form-group">
-                                                    <label for="txtLinfocitos" class="bmd-label-floating">Linfocitos (cels x 10(3)/uL)</label>
-                                                    <input type="number" class="form-control" id="txtLinfocitos" min="0" max="100000"  name="lymphocytes" th:field="*{lymphocytes}"/>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-4 col-md-4 col-sm-4">
-                                                <div class="form-group">
-                                                    <label for="txtNeutrofilos" class="bmd-label-floating">Neutrófilos (cels x 10(3)/uL)</label>
-                                                    <input type="number" class="form-control" id="txtNeutrofilos" min="0" max="100000"  name="neutrophils" th:field="*{neutrophils}"/>
+                                                    <label for="txtHematocritoJulio" class="bmd-label-floating">Hematocrito (%)</label>
+                                                    <input type="number" class="form-control" id="txtHematocritoJulio"   name="hematocrit" th:field="*{hematocrit}"/>
                                                 </div>
                                             </div>
                                         </div>
@@ -593,14 +572,35 @@
                                         <div class="row">
                                             <div class="col-lg-4 col-md-4 col-sm-4">
                                                 <div class="form-group">
-                                                    <label for="txtPlaquetas" class="bmd-label-floating">Plaquetas (cels x 10(3)/uL)</label>
-                                                    <input type="number" class="form-control" id="txtPlaquetas" min="0" max="2000000"  name="platelets" th:field="*{platelets}"/>
+                                                    <label for="txtLeucocitosJulio" class="bmd-label-floating">Leucocitos (cels x 10(3)/uL)</label>
+                                                    <input type="number" class="form-control" id="txtLeucocitosJulio"   name="leukocytes" th:field="*{leukocytes}"/>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-4">
                                                 <div class="form-group">
-                                                    <label for="deletionSeventeenP">Delecion 17 p</label>
-                                                    <select class="form-control selectpicker" data-style="btn btn-link" id="deletionSeventeenP"  name="deletionSeventeenP" th:field="*{deletionSeventeenP}">
+                                                    <label for="txtLinfocitosJulio" class="bmd-label-floating">Linfocitos (cels x 10(3)/uL)</label>
+                                                    <input type="number" class="form-control" id="txtLinfocitosJulio"   name="lymphocytes" th:field="*{lymphocytes}"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                                <div class="form-group">
+                                                    <label for="txtNeutrofilosJulio" class="bmd-label-floating">Neutrófilos (cels x 10(3)/uL)</label>
+                                                    <input type="number" class="form-control" id="txtNeutrofilosJulio"   name="neutrophils" th:field="*{neutrophils}"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <br/>
+                                        <div class="row">
+                                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                                <div class="form-group">
+                                                    <label for="txtPlaquetasJulio" class="bmd-label-floating">Plaquetas (cels x 10(3)/uL)</label>
+                                                    <input type="number" class="form-control" id="txtPlaquetasJulio"   name="platelets" th:field="*{platelets}"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                                <div class="form-group">
+                                                    <label for="deletionSeventeenPJulio">Delecion 17 p</label>
+                                                    <select class="form-control selectpicker" data-style="btn btn-link" id="deletionSeventeenPJulio"  name="deletionSeventeenP" th:field="*{deletionSeventeenP}">
                                                         <option value="0" disabled selected>Selecciona una opción...</option>
                                                         <option value="Si">Si</option>
                                                         <option value="No">No</option>
@@ -609,8 +609,8 @@
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-4">
                                                 <div class="form-group">
-                                                    <label for="translocationFourToFourteen">Translocación (4;14)</label>
-                                                    <select class="form-control selectpicker" data-style="btn btn-link" id="translocationFourToFourteen"  name="translocationFourToFourteen" th:field="*{translocationFourToFourteen}">
+                                                    <label for="translocationFourToFourteenJulio">Translocación (4;14)</label>
+                                                    <select class="form-control selectpicker" data-style="btn btn-link" id="translocationFourToFourteenJulio"  name="translocationFourToFourteen" th:field="*{translocationFourToFourteen}">
                                                         <option value="0" disabled selected>Selecciona una opción...</option>
                                                         <option value="Si">Si</option>
                                                         <option value="No">No</option>
@@ -622,8 +622,8 @@
                                         <div class="row">
                                             <div class="col-lg-4 col-md-4 col-sm-4">
                                                 <div class="form-group">
-                                                    <label for="slcTranslocación1416">Translocación (14;16)</label>
-                                                    <select class="form-control selectpicker" data-style="btn btn-link" id="slcTranslocación1416"  name="translocationFourteenToSixteen" th:field="*{translocationFourteenToSixteen}">
+                                                    <label for="slcTranslocación1416Julio">Translocación (14;16)</label>
+                                                    <select class="form-control selectpicker" data-style="btn btn-link" id="slcTranslocación1416Julio"  name="translocationFourteenToSixteen" th:field="*{translocationFourteenToSixteen}">
                                                         <option value="0" disabled selected>Selecciona una opción...</option>
                                                         <option value="Si">Si</option>
                                                         <option value="No">No</option>
