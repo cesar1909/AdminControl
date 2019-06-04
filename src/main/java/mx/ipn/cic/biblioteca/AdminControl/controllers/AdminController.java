@@ -383,15 +383,16 @@ public class AdminController {
                     row.createCell(63).setCellValue(monthlyConsultations.get(0).getToxRenal());
                     row.createCell(64).setCellValue(monthlyConsultations.get(0).getToxGastroNausea());
                     row.createCell(65).setCellValue(monthlyConsultations.get(0).getToxGastroDiarrhea());
-                    row.createCell(66).setCellValue(monthlyConsultations.get(0).getToxInfectious());
-                    row.createCell(67).setCellValue(monthlyConsultations.get(0).getInfectionSite());
-                    row.createCell(68).setCellValue(monthlyConsultations.get(0).getInfusionMedReaction());
-                    row.createCell(69).setCellValue(monthlyConsultations.get(0).getAdverseReaction());
+                    row.createCell(66).setCellValue(monthlyConsultations.get(0).getToxNeuroatiaPerif());
+                    row.createCell(67).setCellValue(monthlyConsultations.get(0).getToxInfectious());
+                    row.createCell(68).setCellValue(monthlyConsultations.get(0).getInfectionSite());
+                    row.createCell(69).setCellValue(monthlyConsultations.get(0).getInfusionMedReaction());
+                    row.createCell(70).setCellValue(monthlyConsultations.get(0).getAdverseReaction());
 
 
                     //Segunda consulta mensual
-                    row.createCell(70).setCellValue(monthlyConsultations.get(1).getTreatmentCycleNum());
-                    row.createCell(71).setCellValue(monthlyConsultations.get(1).getDateOfRealization());
+                    row.createCell(71).setCellValue(monthlyConsultations.get(1).getTreatmentCycleNum());
+                    //row.createCell(71).setCellValue(monthlyConsultations.get(1).getDateOfRealization());
                     row.createCell(72).setCellValue(monthlyConsultations.get(1).getAlbumin());
                     row.createCell(73).setCellValue(monthlyConsultations.get(1).getSerumCalcium());
                     row.createCell(74).setCellValue(monthlyConsultations.get(1).getLacticDehydrogenase());
