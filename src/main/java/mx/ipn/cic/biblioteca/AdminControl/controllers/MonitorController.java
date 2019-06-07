@@ -432,7 +432,7 @@ public class MonitorController {
         if (finalConsultation == null){
             respuesta = "no data";
         }
-        else {
+        else if (finalConsultation.getMyeloidGraftDate() == null){
             respuesta = "                         <input type=\"text\" id=\"idPatient\" class=\"form-control\" hidden=\"true\" name=\"id\" value =" +finalConsultation.getIdPatient() + "\">\n " +
                     "                    <div class=\"row\">\n" +
                     "                          <div class=\"col-lg-4 col-md-4 col-sm-4\">\n" +
@@ -658,6 +658,394 @@ public class MonitorController {
                     "                                >Observaciones</label\n" +
                     "                              >\n" +
                     "                              <textarea enabled id=\"comment\" rows=\"20\" class=\"form-control\" name=\"comentariosExtrax\">" + finalConsultation.getComentariosExtrax() + "</textarea>\n" +
+
+                    "                            </div>\n" +
+                    "                          </div>\n" +
+                    "                      </div>";
+        }
+        else {
+            respuesta = "                         <input type=\"text\" id=\"idPatient\" class=\"form-control\" hidden=\"true\" name=\"id\" value =" +finalConsultation.getIdPatient() + "\">\n " +
+                    "                    <div class=\"row\">\n" +
+                    "                          <div class=\"col-lg-4 col-md-4 col-sm-4\">\n" +
+                    "                            <fieldset enabled>\n" +
+                    "                                <div class=\"form-group\">\n" +
+                    "                                  <label for=\"txtCalendar\">Fecha de Valoración Final</label>\n" +
+                    "                                  <input id=\"txtCalendar\" type=\"text\" class=\"mt10px input form-control\" name=\"dateOfRealization\" value =" +finalConsultation.getDateOfRealization() + " \">\n" +
+                    "                                </div>\n" +
+                    "                            </fieldset>\n" +
+                    "                          </div>\n" +
+                    "                          <div class=\"col-lg-4 col-md-4 col-sm-4\">\n" +
+                    "                            <fieldset enabled>\n" +
+                    "                                <div class=\"form-group\">\n" +
+                    "                                  <label for=\"Albumina\">Albumina (g/dL)</label>\n" +
+                    "                                  <input type=\"text\" class=\"form-control\" id=\"Albumina\" placeholder=\"g/dL\"name=\"albumin\" value =" +finalConsultation.getAlbumin() + " \">\n" +
+                    "                                </div>\n" +
+                    "                            </fieldset>\n" +
+                    "                          </div>\n" +
+                    "                          <div class=\"col-lg-4 col-md-4 col-sm-4\">\n" +
+                    "                            <fieldset enabled>\n" +
+                    "                                <div class=\"form-group\">\n" +
+                    "                                  <label for=\"Calcio_serico\">Calcio sérico (mg/dL)</label>\n" +
+                    "                                  <input type=\"text\" class=\"form-control\" id=\"Calcio_serico\" placeholder=\"mg/dL\" name=\"serumCalcium\" value =" +finalConsultation.getSerumCalcium() + " \">\n" +
+                    "                                </div>\n" +
+                    "                            </fieldset>\n" +
+                    "                          </div>\n" +
+                    "                      </div>\n" +
+                    "                      <br />\n" +
+                    "                      <div class=\"row\">\n" +
+                    "                          <div class=\"col-lg-4 col-md-4 col-sm-4\">\n" +
+                    "                            <fieldset enabled>\n" +
+                    "                                <div class=\"form-group\">\n" +
+                    "                                  <label for=\"Deshidrogenasa_Lactica\">Deshidrogenasa Lactica (U/L)</label>\n" +
+                    "                                  <input type=\"text\" class=\"form-control\" id=\"Deshidrogenasa_Lactica\" placeholder=\"U/L\" name=\"lacticDehydrogenase\" value =" +finalConsultation.getLacticDehydrogenase() + " \">\n" +
+                    "                                </div>\n" +
+                    "                            </fieldset>\n" +
+                    "                          </div>\n" +
+                    "                          <div class=\"col-lg-4 col-md-4 col-sm-4\">\n" +
+                    "                            <fieldset enabled>\n" +
+                    "                                <div class=\"form-group\">\n" +
+                    "                                  <label for=\"Hemoglobina\">Hemoglobina (g/dL)</label>\n" +
+                    "                                  <input type=\"text\" class=\"form-control\" id=\"Hemoglobina\" placeholder=\"g/dL\" name=\"hemoglobin\" value =" +finalConsultation.getHemoglobin() + " \">\n" +
+                    "                                </div>\n" +
+                    "                            </fieldset>\n" +
+                    "                          </div>\n" +
+                    "                          <div class=\"col-lg-4 col-md-4 col-sm-4\">\n" +
+                    "                            <fieldset enabled>\n" +
+                    "                                <div class=\"form-group\">\n" +
+                    "                                  <label for=\"Hematocrito\">Hematocrito (%)</label>\n" +
+                    "                                  <input type=\"text\" class=\"form-control\" id=\"Hematocrito\" placeholder=\"%\" name=\"hematocrit\" value =" +finalConsultation.getHematocrit() + " \">\n" +
+                    "                                </div>\n" +
+                    "                            </fieldset>\n" +
+                    "                          </div>\n" +
+                    "                      </div>\n" +
+                    "                      <br />\n" +
+                    "                      <div class=\"row\">\n" +
+                    "                          <div class=\"col-lg-4 col-md-4 col-sm-4\">\n" +
+                    "                            <fieldset enabled>\n" +
+                    "                                <div class=\"form-group\">\n" +
+                    "                                  <label for=\"Leucocitos\">Leucocitos (cels x 10(3)/uL)</label>\n" +
+                    "                                  <input type=\"text\" class=\"form-control\" id=\"Leucocitos\" placeholder=\"cels x 10(3)/uL\" name=\"leukocytes\" value =" +finalConsultation.getLeukocytes() + " \">\n" +
+                    "                                </div>\n" +
+                    "                            </fieldset>\n" +
+                    "                          </div>\n" +
+                    "                          <div class=\"col-lg-4 col-md-4 col-sm-4\">\n" +
+                    "                            <fieldset enabled>\n" +
+                    "                                <div class=\"form-group\">\n" +
+                    "                                  <label for=\"Linfocitos\">Linfocitos (cels x 10(3)/uL)</label>\n" +
+                    "                                  <input type=\"text\" class=\"form-control\" id=\"Linfocitos\" placeholder=\"cels x 10(3)/uL\" name=\"lymphocytes\" value =" +finalConsultation.getLymphocytes() + " \">\n" +
+                    "                                </div>\n" +
+                    "                            </fieldset>\n" +
+                    "                          </div>\n" +
+                    "                          <div class=\"col-lg-4 col-md-4 col-sm-4\">\n" +
+                    "                            <fieldset enabled>\n" +
+                    "                                <div class=\"form-group\">\n" +
+                    "                                  <label for=\"Neutrofilos\">Neutrofilos (cels x 10(3)/uL)</label>\n" +
+                    "                                  <input type=\"text\" class=\"form-control\" id=\"Neutrofilos\" placeholder=\"cels x 10(3)/uL\" name=\"neutrophils\" value =" +finalConsultation.getNeutrophils() + " \">\n" +
+                    "                                </div>\n" +
+                    "                            </fieldset>\n" +
+                    "                          </div>\n" +
+                    "                      </div>\n" +
+                    "                      <br />\n" +
+                    "                      <div class=\"row\">\n" +
+                    "                        <div class=\"col-lg-4 col-md-4 col-sm-4\">\n" +
+                    "                          <fieldset enabled>\n" +
+                    "                              <div class=\"form-group\">\n" +
+                    "                                <label for=\"Plaquetas\">Plaquetas (cels x 10(3)/uL)</label>\n" +
+                    "                                <input type=\"text\" class=\"form-control\" id=\"Plaquetas\" placeholder=\"cels x 10(3)/uL\" name=\"platelets\" value =" +finalConsultation.getPlatelets() + " \">\n" +
+                    "                              </div>\n" +
+                    "                          </fieldset>\n" +
+                    "                        </div>\n" +
+                    "                        <div class=\"col-lg-4 col-md-4 col-sm-4\">\n" +
+                    "                          <fieldset enabled>\n" +
+                    "                              <div class=\"form-group\">\n" +
+                    "                                <label for=\"IgG\">IgG (mg/dL)</label>\n" +
+                    "                                <input type=\"text\" class=\"form-control\" id=\"IgG\" placeholder=\"mg/dL\" name=\"igG\" value =" +finalConsultation.getIgG() + " \">\n" +
+                    "                              </div>\n" +
+                    "                          </fieldset>\n" +
+                    "                        </div>\n" +
+                    "                        <div class=\"col-lg-4 col-md-4 col-sm-4\">\n" +
+                    "                          <fieldset enabled>\n" +
+                    "                              <div class=\"form-group\">\n" +
+                    "                                <label for=\"IgA\">IgA (mg/dL)</label>\n" +
+                    "                                <input type=\"text\" class=\"form-control\" id=\"IgA\" placeholder=\"mg/dL\" name=\"igA\" value =" +finalConsultation.getIgA() + " \">\n" +
+                    "                              </div>\n" +
+                    "                          </fieldset>\n" +
+                    "                        </div>\n" +
+                    "                      </div>\n" +
+                    "                      <br />\n" +
+                    "                      <div class=\"row\">\n" +
+                    "                        <div class=\"col-lg-4 col-md-4 col-sm-4\">\n" +
+                    "                          <fieldset enabled>\n" +
+                    "                              <div class=\"form-group\">\n" +
+                    "                                <label for=\"IgM\">IgM (mg/dL)</label>\n" +
+                    "                                <input type=\"text\" class=\"form-control\" id=\"IgM\" placeholder=\"mg/dL\" name=\"igM\" value =" +finalConsultation.getIgM() + " \">\n" +
+                    "                              </div>\n" +
+                    "                          </fieldset>\n" +
+                    "                        </div>\n" +
+                    "                        <div class=\"col-lg-4 col-md-4 col-sm-4\">\n" +
+                    "                          <fieldset enabled>\n" +
+                    "                              <div class=\"form-group\">\n" +
+                    "                                <label for=\"Cadenas_Ligeras_Kappa\">Cadenas Ligeras Kappa (mg/L)</label>\n" +
+                    "                                <input type=\"text\" class=\"form-control\" id=\"Cadenas_Ligeras_Kappa\" placeholder=\"mg/dL\" name=\"lightChainsKappa\" value =" +finalConsultation.getLightChainsKappa() + " \">\n" +
+                    "                              </div>\n" +
+                    "                          </fieldset>\n" +
+                    "                        </div>\n" +
+                    "                        <div class=\"col-lg-4 col-md-4 col-sm-4\">\n" +
+                    "                          <fieldset enabled>\n" +
+                    "                              <div class=\"form-group\">\n" +
+                    "                                <label for=\"Cadenas_Ligeras_Lambda\">Cadenas Ligeras Lambda (mg/L)</label>\n" +
+                    "                                <input type=\"text\" class=\"form-control\" id=\"Cadenas_Ligeras_Lambda\" placeholder=\"%\" name=\"lightChainsLambda\" value =" +finalConsultation.getLightChainsLambda() + " \">\n" +
+                    "                              </div>\n" +
+                    "                          </fieldset>\n" +
+                    "                        </div>\n" +
+                    "                      </div>\n" +
+                    "                      <br />\n" +
+                    "                      <div class=\"row\">\n" +
+                    "                          <div class=\"col-lg-4 col-md-4 col-sm-4\">\n" +
+                    "                            <fieldset enabled>\n" +
+                    "                                <div class=\"form-group\">\n" +
+                    "                                  <label for=\"celplasmo\">Células plasmáticas en Médula ósea (%)</label>\n" +
+                    "                                  <input type=\"text\" class=\"form-control\" id=\"celplasmo\" placeholder=\"%\" name=\"celPlasmaticEnMedulaOsea\" value =" +finalConsultation.getCelPlasmaticEnMedulaOsea() + " \">\n" +
+                    "                                </div>\n" +
+                    "                            </fieldset>\n" +
+                    "                          </div>\n" +
+                    "                          <div class=\"col-lg-4 col-md-4 col-sm-4\">\n" +
+                    "                            <fieldset enabled>\n" +
+                    "                                <div class=\"form-group\">\n" +
+                    "                                  <label for=\"electroforesis\">Electroforesis de proteínas Suero</label>\n" +
+                    "                                  <input type=\"text\" class=\"form-control\" id=\"electroforesis\" placeholder=\"g/L\" name=\"electroForesisDeProteinasSuero\" value =" +finalConsultation.getElectroForesisDeProteinasSuero() + " \">\n" +
+                    "                                </div>\n" +
+                    "                            </fieldset>\n" +
+                    "                          </div>\n" +
+                    "                        <div class=\"col-lg-4 col-md-4 col-sm-4\">\n" +
+                    "                          <fieldset enabled>\n" +
+                    "                            <div class=\"form-group col-md-4\">\n" +
+                    "                              <label for=\"electroforesis2\">Electroforesis de proteínas Orina</label>\n" +
+                    "                              <input type=\"text\" class=\"form-control\" id=\"electroforesis2\" placeholder=\"g/L\" name=\"electroForesisDeProteinasOrina\" value =" +finalConsultation.getElectroForesisDeProteinasOrina() + " \">\n" +
+                    "                            </div>\n" +
+                    "                          </fieldset>\n" +
+                    "                        </div>\n" +
+                    "                      </div>\n" +
+                    "                      <br />\n" +
+                    "                      <div class=\"row\">\n" +
+                    "                        <div class=\"col-lg-4 col-md-4 col-sm-4\">\n" +
+                    "                          <fieldset enabled>\n" +
+                    "                            <div class=\"form-group\">\n" +
+                    "                              <label for=\"inmunofijacionig\">Inmunofijación Tipo Ig</label>\n" +
+                    "                              <select id=\"inmunofijacionig\" class=\"form-control\" name=\"inmFijacionTipoIg\" \">\n" +
+                    "                              <option selected hidden value =" +finalConsultation.getInmFijacionTipoIg() + ">" +finalConsultation.getInmFijacionTipoIg() + "</option>\n" +
+                    "                                <option value=\"Negativa\">Negativa</option>\n" +
+                    "                                <option value=\"IgA\">IgA</option>\n" +
+                    "                                <option value=\"IgG\">IgG</option>\n" +
+                    "                                <option value=\"No secretor\">No secretor</option>\n" +
+                    "                              </select>\n" +
+                    "                            </div>\n" +
+                    "                          </fieldset>\n" +
+                    "                        </div>\n" +
+                    "                          <div class=\"col-lg-4 col-md-4 col-sm-4\">\n" +
+                    "                            <fieldset enabled>\n" +
+                    "                                <div class=\"form-group\">\n" +
+                    "                                  <label for=\"inmunofijacioncll\">Inmunofijacion Tipo CLL</label>\n" +
+                    "                                  <select id=\"inmunofijacioncll\" class=\"form-control\" name=\"inmFijacionTipoCll\" \">\n" +
+                    "                              <option selected hidden value =" +finalConsultation.getInmFijacionTipoCll() + ">" +finalConsultation.getInmFijacionTipoCll() + "</option>\n" +
+                    "                                    <option value=\"Negativo\">Negativa</option>\n" +
+                    "                                    <option value=\"Lambda\">Lambda</option>\n" +
+                    "                                    <option value=\"Kappa\">Kappa</option>\n" +
+                    "                                    <option value=\"No secretor\">No secretor</option>\n" +
+                    "                                  </select>                                </div>\n" +
+                    "                            </fieldset>\n" +
+                    "                          </div>\n" +
+                    "                                                    <div class=\"col-lg-4 col-md-4 col-sm-4\">\n" +
+                    "                            <fieldset enabled>\n" +
+                    "                                <div class=\"form-group\">\n" +
+                    "                                  <label for=\"minres\">Enfermedad mínima residual (eventos x10(-7))</label>\n" +
+                    "                                  <input type=\"text\" class=\"form-control\" id=\"minres\" placeholder=\"0 - 1000\" name=\"enfermedadMinimaResidual\" value =" +finalConsultation.getEnfermedadMinimaResidual() + " \">\n" +
+                    "                                </div>\n" +
+                    "                            </fieldset>\n" +
+                    "                          </div>\n" +
+                    "                      </div>\n" +
+                    "                      <br />\n" +
+                    "                    <div class=\"row\">\n" +
+                    "                      <div class=\"col-lg-4 col-md-4 col-sm-4\">\n" +
+                    "                        <fieldset enabled>\n" +
+                    "                          <div class=\"form-group\">\n" +
+                    "                            <label for=\"resTrat\">Respuesta a tratamiento</label>\n" +
+                    "                            <select id=\"resTrat\" class=\"form-control\" name=\"repuestaATratamiento\" \">\n" +
+                    "                              <option selected hidden value =" +finalConsultation.getRepuestaATratamiento() + ">" +finalConsultation.getRepuestaATratamiento() + "</option>\n" +
+                    "                              <option value=\"RCs\">RCs</option>\n" +
+                    "                              <option value=\"RC\">RC</option>\n" +
+                    "                              <option value=\"MBRP\">MBRP</option>\n" +
+                    "                              <option value=\"RP\">RP</option>\n" +
+                    "                              <option value=\"EE\">EE</option>\n" +
+                    "                              <option value=\"PE\">PE</option>\n" +
+                    "                            </select>                          </div>\n" +
+                    "                        </fieldset>\n" +
+                    "                      </div>\n" +
+
+                    "						<div class=\"form-group col-md-4\">\n" +
+                    "                              <label for=\"txtDateTrasplante\">Fecha de Trasplante</label>\n" +
+                    "                              <input id=\"txtDateTrasplante\" type=\"text\" class=\"mt10px input form-control\" name=\"dateOfTransplant\" value=\" \"  value =" +finalConsultation.getDateOfTransplant() + " > \n" +
+                    "                       </div>"+
+                    "                    </div>\n" +
+                    "					<div class=\"form-row\">\n" +
+                    "                                                        <div class=\"form-group col-md-4\">\n" +
+                    "                                                            <label for=\"celCD34\">Número de CD34 infundidas</label>\n" +
+                    "                                                            <input id=\"celCD34\" type=\"number\" class=\"form-control\" placeholder=\"x10(6)\" name=\"numberOfCD34Infused\" value =" +finalConsultation.getNumberOfCD34Infused() + " >\n" +
+                    "                                                        </div>\n" +
+                    "                                                        <div class=\"form-group col-md-4\">\n" +
+                    "                                                            <label for=\"txtDateInjertoMie\">Fecha injerto mieloide</label>\n" +
+                    "                                                            <input id=\"txtDateInjertoMie\" type=\"text\" class=\"mt10px input form-control\" name=\"myeloidGraftDate\" value =" +finalConsultation.getMyeloidGraftDate() + " ><!-- th:field=\"*{}\"-->\n" +
+                    "                                                        </div>\n" +
+                    "                                                        <div class=\"form-group col-md-4\">\n" +
+                    "                                                            <label for=\"txtDateInjertoPla\">Fecha injerto plaquetario</label>\n" +
+                    "                                                            <input id=\"txtDateInjertoPla\" type=\"text\" class=\"mt10px input form-control\" name=\"datePlateletGraft\" value =" +finalConsultation.getDatePlateletGraft() + " ><!-- th:field=\"*{}\"-->\n" +
+                    "                                                        </div>\n" +
+                    "\n" +
+                    "                 </div>"+
+                    "                <div class=\"form-row\">\n" +
+                    "                                                        <div class=\"form-group col-md-4\">\n" +
+                    "                                                            <label for=\"Toxicidad_Hematologica_Plaquetas\">Toxicidad Hematológica - Plaquetas</label>\n" +
+                    "                                                            <select id=\"Toxicidad_Hematologica_Plaquetas\" class=\"form-control\"  name=\"toxHemtoPlatelets\" value =" +finalConsultation.getToxHemtoPlatelets() + " ><!-- th:field=\"*{toxHemtoPlatelets}\"-->\n" +
+                    "                                                                <option value=\"0\" selected>0</option>\n" +
+                    "                                                                <option value=\"1\">1</option>\n" +
+                    "                                                                <option value=\"2\">2</option>\n" +
+                    "                                                                <option value=\"3\">3</option>\n" +
+                    "                                                                <option value=\"4\">4</option>\n" +
+                    "                                                                <option value=\"5\">5</option>\n" +
+                    "                                                            </select>\n" +
+                    "                                                        </div>\n" +
+                    "                                                        <div class=\"form-group col-md-4\">\n" +
+                    "                                                            <label for=\"Toxicidad_Hepatica\">Toxicidad Hepática</label >\n" +
+                    "                                                            <select id=\"Toxicidad_Hepatica\" class=\"form-control\"  name=\"toxHepatics\" value =" +finalConsultation.getToxHepatics() + " ><!-- th:field=\"*{toxHepatics}\"-->\n" +
+                    "                                                                <option value=\"0\" selected>0</option>\n" +
+                    "                                                                <option value=\"1\">1</option>\n" +
+                    "                                                                <option value=\"2\">2</option>\n" +
+                    "                                                                <option value=\"3\">3</option>\n" +
+                    "                                                                <option value=\"4\">4</option>\n" +
+                    "                                                                <option value=\"5\">5</option>\n" +
+                    "                                                            </select>\n" +
+                    "                                                        </div>\n" +
+                    "                                                        <div class=\"form-group col-md-4\">\n" +
+                    "                                                            <label for=\"Toxicidad_Renal\">Toxicidad Renal</label>\n" +
+                    "                                                            <select id=\"Toxicidad_Renal\" class=\"form-control\"  name=\"toxRenal\" value =" +finalConsultation.getToxRenal() + " ><!-- th:field=\"*{toxRenal}\"-->\n" +
+                    "                                                                <option value=\"0\" selected>0</option>\n" +
+                    "                                                                <option value=\"1\">1</option>\n" +
+                    "                                                                <option value=\"2\">2</option>\n" +
+                    "                                                                <option value=\"3\">3</option>\n" +
+                    "                                                                <option value=\"4\">4</option>\n" +
+                    "                                                                <option value=\"5\">5</option>\n" +
+                    "                                                            </select>\n" +
+                    "                                                        </div>\n" +
+                    "                         </div>\n" +
+                    "                                                    <br>"+
+                    "                         <div class=\"form-row\">\n" +
+                    "                                                        <div class=\"form-group col-md-4\">\n" +
+                    "                                                            <label for=\"Toxicidad_Hematologica_Serie_Roja\">Toxicidad Hematológica - Serie Roja</label>\n" +
+                    "                                                            <select id=\"Toxicidad_Hematologica_Serie_Roja\" class=\"form-control\" name=\"toxHemtoRedSerie\" value =" +finalConsultation.getToxHemtoRedSerie() + " ><!-- th:field=\"*{toxHemtoRedSerie}\"-->\n" +
+                    "                                                                <option value=\"0\" selected>0</option>\n" +
+                    "                                                                <option value=\"1\">1</option>\n" +
+                    "                                                                <option value=\"2\">2</option>\n" +
+                    "                                                                <option value=\"3\">3</option>\n" +
+                    "                                                                <option value=\"4\">4</option>\n" +
+                    "                                                                <option value=\"5\">5</option>\n" +
+                    "                                                            </select>\n" +
+                    "                                                        </div>\n" +
+                    "                                                        <div class=\"form-group col-md-4\">\n" +
+                    "                                                            <label for=\"Toxicidad_Hematologica_Neutrofilos\">Toxicidad Hematológica - Neutrofilos</label>\n" +
+                    "                                                            <select id=\"Toxicidad_Hematologica_Neutrofilos\" class=\"form-control\" name=\"toxHemtoNeutrophils\" value =" +finalConsultation.getToxHemtoNeutrophils() + " ><!-- th:field=\"*{toxHemtoNeutrophils}\"-->\n" +
+                    "                                                                <option value=\"0\" selected>0</option>\n" +
+                    "                                                                <option value=\"1\">1</option>\n" +
+                    "                                                                <option value=\"2\">2</option>\n" +
+                    "                                                                <option value=\"3\">3</option>\n" +
+                    "                                                                <option value=\"4\">4</option>\n" +
+                    "                                                                <option value=\"5\">5</option>\n" +
+                    "                                                            </select>\n" +
+                    "                                                        </div>\n" +
+                    "                                                        <div class=\"form-group col-md-4\">\n" +
+                    "                                                            <label for=\"Toxicidad_neuropatia_periferica\">Toxicidad neuropatía periférica</label>\n" +
+                    "                                                            <select id=\"Toxicidad_neuropatia_periferica\" class=\"form-control\"  name=\"toxNeuroatiaPerif\" value =" +finalConsultation.getToxNeuroatiaPerif() + " ><!-- th:field=\"*{toxNeuroatiaPerif}\">-->\n" +
+                    "                                                                <option value=\"0\" selected>0</option>\n" +
+                    "                                                                <option value=\"1\">1</option>\n" +
+                    "                                                                <option value=\"2\">2</option>\n" +
+                    "                                                                <option value=\"3\">3</option>\n" +
+                    "                                                                <option value=\"4\">4</option>\n" +
+                    "                                                                <option value=\"5\">5</option>\n" +
+                    "                                                            </select>\n" +
+                    "                                                        </div>\n" +
+                    "\n" +
+                    "                              </div>\n" +
+                    "                              <br>"+
+                    "								<div class=\"form-row\">\n" +
+                    "                                                        <div class=\"form-group col-md-4\">\n" +
+                    "                                                            <label for=\"Sitio_de_infeccion\">Sitio de infección</label>\n" +
+                    "                                                            <select id=\"Sitio_de_infeccion\" class=\"form-control\"  name=\"infectionSite\" value =" +finalConsultation.getInfectionSite() + " ><!-- th:field=\"*{infectionSite}\">-->\n" +
+                    "                                                                <option value=\"Ninguna\" selected>Ninguna</option>\n" +
+                    "                                                                <option value=\"Vias respiratorias altas\">Vías respiratorias altas</option>\n" +
+                    "                                                                <option value=\"Neumonia\">Neumonía</option>\n" +
+                    "                                                                <option value=\"Abdominal\">Abdominal</option>\n" +
+                    "                                                                <option value=\"Tejidos blandos\">Tejidos blandos</option>\n" +
+                    "                                                                <option value=\"Urinaria\">Urinaria</option>\n" +
+                    "                                                            </select>\n" +
+                    "                                                        </div>\n" +
+                    "                                                        <div class=\"form-group col-md-4\">\n" +
+                    "                                                            <label for=\"Toxicidad_Infecciosa\">Toxicidad Infecciosa</label>\n" +
+                    "                                                            <select id=\"Toxicidad_Infecciosa\" class=\"form-control\"  name=\"toxInfectious\" value =" +finalConsultation.getToxInfectious() + " ><!-- th:field=\"*{toxInfectious}\">-->\n" +
+                    "                                                                <option value=\"0\" selected>0</option>\n" +
+                    "                                                                <option value=\"1\">1</option>\n" +
+                    "                                                                <option value=\"2\">2</option>\n" +
+                    "                                                                <option value=\"3\">3</option>\n" +
+                    "                                                                <option value=\"4\">4</option>\n" +
+                    "                                                                <option value=\"5\">5</option>\n" +
+                    "                                                            </select>\n" +
+                    "                                                        </div>\n" +
+                    "                                                        <div class=\"form-group col-md-4\">\n" +
+                    "                                                            <label for=\"Toxicidad_Gastrointestinal-Nausea\">Toxicidad Gastrointestinal-Nausea</label>\n" +
+                    "                                                            <select id=\"Toxicidad_Gastrointestinal-Nausea\" class=\"form-control\" name=\"toxGastroNausea\" value =" +finalConsultation.getToxGastroNausea() + " ><!-- th:field=\"*{toxGastroNausea}\">-->\n" +
+                    "                                                                <option value=\"0\" selected>0</option>\n" +
+                    "                                                                <option value=\"1\">1</option>\n" +
+                    "                                                                <option value=\"2\">2</option>\n" +
+                    "                                                                <option value=\"3\">3</option>\n" +
+                    "                                                                <option value=\"4\">4</option>\n" +
+                    "                                                                <option value=\"5\">5</option>\n" +
+                    "                                                            </select>\n" +
+                    "                                                        </div>\n" +
+                    "\n" +
+                    "                                     </div>\n" +
+                    "                                     <br>"+
+                    "						<div class=\"form-row\">\n" +
+                    "                                                        <div class=\"form-group col-md-4\">\n" +
+                    "                                                            <label for=\"Toxicidad_Gastrointestinal-Diarrea\">Toxicidad Gastrointestinal-Diarrea</label>\n" +
+                    "                                                            <select id=\"Toxicidad_Gastrointestinal-Diarrea\" class=\"form-control\"  name=\"toxGastroDiarrhea\" value =" +finalConsultation.getToxGastroDiarrhea() + " ><!-- th:field=\"*{toxGastroDiarrhea}\">-->\n" +
+                    "                                                                <option value=\"0\" selected>0</option>\n" +
+                    "                                                                <option value=\"1\">1</option>\n" +
+                    "                                                                <option value=\"2\">2</option>\n" +
+                    "                                                                <option value=\"3\">3</option>\n" +
+                    "                                                                <option value=\"4\">4</option>\n" +
+                    "                                                                <option value=\"5\">5</option>\n" +
+                    "                                                            </select>\n" +
+                    "                                                        </div>\n" +
+                    "\n" +
+                    "                                                        <div class=\"form-group col-md-4\">\n" +
+                    "                                                            <label for=\"Reaccion_a_infusion_de_medicamentos\">Reacción a infusión de medicamentos</label>\n" +
+                    "                                                            <select id=\"Reaccion_a_infusion_de_medicamentos\" class=\"form-control\"  name=\"infusionMedReaction\" value =" +finalConsultation.getInfusionMedReaction() + " ><!-- th:field=\"*{infusionMedReaction}\">-->\n" +
+                    "                                                                <option value=\"0\" selected>0</option>\n" +
+                    "                                                                <option value=\"1\">1</option>\n" +
+                    "                                                                <option value=\"2\">2</option>\n" +
+                    "                                                                <option value=\"3\">3</option>\n" +
+                    "                                                                <option value=\"4\">4</option>\n" +
+                    "                                                                <option value=\"5\">5</option>\n" +
+                    "                                                            </select>\n" +
+                    "                                                        </div>\n" +
+                    "\n" +
+                    "                                  </div>\n" +
+                    "                                  <br>"+
+                    "                      <div class=\"row\">\n" +
+                    "                          <div class=\"col-lg-12 col-md-12 col-sm-12\">\n" +
+                    "                            <div class=\"form-group\">\n" +
+                    "                              <label for=\"comment\"\n" +
+                    "                                >Observaciones</label\n" +
+                    "                              >\n" +
+                    "                              <textarea  id=\"comment\" rows=\"20\" class=\"form-control\" name=\"comentariosExtrax\">" + finalConsultation.getComentariosExtrax() + "</textarea>\n" +
 
                     "                            </div>\n" +
                     "                          </div>\n" +

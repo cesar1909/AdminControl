@@ -126,7 +126,12 @@ public class FinalConsultation {
 
     @Column(name = "toxInfecciosa")
     private String toxInfectious;
-    
+
+    @Column(name = "sitioInfeccion")
+    private String infectionSite;
+
+    @Column(name = "infusionMedReaction")
+    private  String infusionMedReaction;
     // Constructores
     public FinalConsultation() {
         super();
@@ -222,7 +227,7 @@ public class FinalConsultation {
 			String comentariosExtrax, String dateOfTransplant, String numberOfCD34Infused, String myeloidGraftDate,
 			String datePlateletGraft, String toxHemtoRedSerie, String toxHemtoNeutrophils, String toxHemtoPlatelets,
 			String toxHepatics, String toxRenal, String toxGastroNausea, String toxGastroDiarrhea,
-			String toxNeuroatiaPerif, String toxInfectious) {
+			String toxNeuroatiaPerif, String toxInfectious, String infectionSite, String infusionMedReaction) {
 		super();
 		this.idPatient = idPatient;
 		this.patientModel = patientModel;
@@ -263,9 +268,29 @@ public class FinalConsultation {
 		this.toxGastroDiarrhea = toxGastroDiarrhea;
 		this.toxNeuroatiaPerif = toxNeuroatiaPerif;
 		this.toxInfectious = toxInfectious;
+		this.infectionSite = infectionSite;
+		this.infusionMedReaction = infusionMedReaction;
 	}
 
 	// Métodos de acceso
+
+
+    public String getInfusionMedReaction() {
+        return infusionMedReaction;
+    }
+
+    public void setInfusionMedReaction(String infusionMedReaction) {
+        this.infusionMedReaction = infusionMedReaction;
+    }
+
+    public String getInfectionSite() {
+        return infectionSite;
+    }
+
+    public void setInfectionSite(String infectionSite) {
+        this.infectionSite = infectionSite;
+    }
+
     public Integer getIdPatient() {
         return idPatient;
     }

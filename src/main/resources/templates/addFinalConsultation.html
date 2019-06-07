@@ -290,7 +290,7 @@
                                                         </div>
                                                         <div class="form-group col-md-4">
                                                             <label for="txtDateTrasplante">Fecha de Trasplante</label>
-                                                            <input id="txtDateTrasplante" type="text" class="mt10px input form-control" name="dateOfTrasplante" value=" " disabled> <!-- th:field="*{}"-->
+                                                            <input id="txtDateTrasplante" type="text" class="mt10px input form-control" name="dateOfTransplant" value=" " th:field="*{dateOfTransplant}" disabled> <!-- th:field="*{}"-->
                                                         </div>
                                                     </div>
                                                     <br>
@@ -298,15 +298,15 @@
                                                     <div class="form-row">
                                                         <div class="form-group col-md-4">
                                                             <label for="celCD34">Número de CD34 infundidas</label>
-                                                            <input id="celCD34" type="number" class="form-control" placeholder="x10(6)" name="celCD34" value=0 disabled><!-- th:field="*{}"-->
+                                                            <input id="celCD34" type="number" class="form-control" placeholder="x10(6)" name="numberOfCD34Infused" value=0 th:field="*{numberOfCD34Infused}" disabled><!-- th:field="*{}"-->
                                                         </div>
                                                         <div class="form-group col-md-4">
                                                             <label for="txtDateInjertoMie">Fecha injerto mieloide</label>
-                                                            <input id="txtDateInjertoMie" type="text" class="mt10px input form-control" name="txtDateInjertoMie" value="" disabled><!-- th:field="*{}"-->
+                                                            <input id="txtDateInjertoMie" type="text" class="mt10px input form-control" name="myeloidGraftDate" th:field="*{myeloidGraftDate}" value="" disabled><!-- th:field="*{}"-->
                                                         </div>
                                                         <div class="form-group col-md-4">
                                                             <label for="txtDateInjertoPla">Fecha injerto plaquetario</label>
-                                                            <input id="txtDateInjertoPla" type="text" class="mt10px input form-control" name="txtDateInjertoPla" value="" disabled><!-- th:field="*{}"-->
+                                                            <input id="txtDateInjertoPla" type="text" class="mt10px input form-control" name="datePlateletGraft" th:field="*{datePlateletGraft}" value="" disabled><!-- th:field="*{}"-->
                                                         </div>
 
                                                     </div>
@@ -315,7 +315,7 @@
                                                     <div class="form-row">
                                                         <div class="form-group col-md-4">
                                                             <label for="Toxicidad_Hematologica_Plaquetas">Toxicidad Hematológica - Plaquetas</label>
-                                                            <select id="Toxicidad_Hematologica_Plaquetas" class="form-control"  name="toxHemtoPlatelets" disabled><!-- th:field="*{toxHemtoPlatelets}"-->
+                                                            <select id="Toxicidad_Hematologica_Plaquetas" class="form-control"  name="toxHemtoPlatelets" th:field="*{toxHemtoPlatelets}" disabled><!-- th:field="*{toxHemtoPlatelets}"-->
                                                                 <option value="0" selected>0</option>
                                                                 <option value="1">1</option>
                                                                 <option value="2">2</option>
@@ -326,7 +326,7 @@
                                                         </div>
                                                         <div class="form-group col-md-4">
                                                             <label for="Toxicidad_Hepatica">Toxicidad Hepática</label >
-                                                            <select id="Toxicidad_Hepatica" class="form-control"  name="toxHepatics"  disabled><!-- th:field="*{toxHepatics}"-->
+                                                            <select id="Toxicidad_Hepatica" class="form-control"  name="toxHepatics" th:field="*{toxHepatics}" disabled><!-- th:field="*{toxHepatics}"-->
                                                                 <option value="0" selected>0</option>
                                                                 <option value="1">1</option>
                                                                 <option value="2">2</option>
@@ -337,7 +337,7 @@
                                                         </div>
                                                         <div class="form-group col-md-4">
                                                             <label for="Toxicidad_Renal">Toxicidad Renal</label>
-                                                            <select id="Toxicidad_Renal" class="form-control"  name="toxRenal" disabled><!-- th:field="*{toxRenal}"-->
+                                                            <select id="Toxicidad_Renal" class="form-control"  name="toxRenal" th:field="*{toxRenal}" disabled><!-- th:field="*{toxRenal}"-->
                                                                 <option value="0" selected>0</option>
                                                                 <option value="1">1</option>
                                                                 <option value="2">2</option>
@@ -352,7 +352,7 @@
                                                     <div class="form-row">
                                                         <div class="form-group col-md-4">
                                                             <label for="Toxicidad_Hematologica_Serie_Roja">Toxicidad Hematológica - Serie Roja</label>
-                                                            <select id="Toxicidad_Hematologica_Serie_Roja" class="form-control" name="toxHemtoRedSerie"  disabled><!-- th:field="*{toxHemtoRedSerie}"-->
+                                                            <select id="Toxicidad_Hematologica_Serie_Roja" class="form-control" name="toxHemtoRedSerie" th:field="*{toxHemtoRedSerie}" disabled><!-- th:field="*{toxHemtoRedSerie}"-->
                                                                 <option value="0" selected>0</option>
                                                                 <option value="1">1</option>
                                                                 <option value="2">2</option>
@@ -363,7 +363,7 @@
                                                         </div>
                                                         <div class="form-group col-md-4">
                                                             <label for="Toxicidad_Hematologica_Neutrofilos">Toxicidad Hematológica - Neutrofilos</label>
-                                                            <select id="Toxicidad_Hematologica_Neutrofilos" class="form-control" name="toxHemtoNeutrophils"  disabled><!-- th:field="*{toxHemtoNeutrophils}"-->
+                                                            <select id="Toxicidad_Hematologica_Neutrofilos" class="form-control" name="toxHemtoNeutrophils" th:field="*{toxHemtoNeutrophils}" disabled><!-- th:field="*{toxHemtoNeutrophils}"-->
                                                                 <option value="0" selected>0</option>
                                                                 <option value="1">1</option>
                                                                 <option value="2">2</option>
@@ -374,7 +374,7 @@
                                                         </div>
                                                         <div class="form-group col-md-4">
                                                             <label for="Toxicidad_neuropatia_periferica">Toxicidad neuropatía periférica</label>
-                                                            <select id="Toxicidad_neuropatia_periferica" class="form-control"  name="toxNeuroatiaPerif" disabled><!-- th:field="*{toxNeuroatiaPerif}">-->
+                                                            <select id="Toxicidad_neuropatia_periferica" class="form-control"  name="toxNeuroatiaPerif" th:field="*{toxNeuroatiaPerif}" disabled><!-- th:field="*{toxNeuroatiaPerif}">-->
                                                                 <option value="0" selected>0</option>
                                                                 <option value="1">1</option>
                                                                 <option value="2">2</option>
@@ -390,7 +390,7 @@
                                                     <div class="form-row">
                                                         <div class="form-group col-md-4">
                                                             <label for="Sitio_de_infeccion">Sitio de infección</label>
-                                                            <select id="Sitio_de_infeccion" class="form-control"  name="infectionSite" disabled><!-- th:field="*{infectionSite}">-->
+                                                            <select id="Sitio_de_infeccion" class="form-control"  name="infectionSite" th:field="*{infectionSite}" disabled><!-- th:field="*{infectionSite}">-->
                                                                 <option value="Ninguna" selected>Ninguna</option>
                                                                 <option value="Vias respiratorias altas">Vías respiratorias altas</option>
                                                                 <option value="Neumonia">Neumonía</option>
@@ -401,7 +401,7 @@
                                                         </div>
                                                         <div class="form-group col-md-4">
                                                             <label for="Toxicidad_Infecciosa">Toxicidad Infecciosa</label>
-                                                            <select id="Toxicidad_Infecciosa" class="form-control"  name="toxInfectious" disabled><!-- th:field="*{toxInfectious}">-->
+                                                            <select id="Toxicidad_Infecciosa" class="form-control"  name="toxInfectious" th:field="*{toxInfectious}" disabled><!-- th:field="*{toxInfectious}">-->
                                                                 <option value="0" selected>0</option>
                                                                 <option value="1">1</option>
                                                                 <option value="2">2</option>
@@ -412,7 +412,7 @@
                                                         </div>
                                                         <div class="form-group col-md-4">
                                                             <label for="Toxicidad_Gastrointestinal-Nausea">Toxicidad Gastrointestinal-Nausea</label>
-                                                            <select id="Toxicidad_Gastrointestinal-Nausea" class="form-control" name="toxGastroNausea" disabled><!-- th:field="*{toxGastroNausea}">-->
+                                                            <select id="Toxicidad_Gastrointestinal-Nausea" class="form-control" name="toxGastroNausea" th:field="*{toxGastroNausea}" disabled><!-- th:field="*{toxGastroNausea}">-->
                                                                 <option value="0" selected>0</option>
                                                                 <option value="1">1</option>
                                                                 <option value="2">2</option>
@@ -428,7 +428,7 @@
                                                     <div class="form-row">
                                                         <div class="form-group col-md-4">
                                                             <label for="Toxicidad_Gastrointestinal-Diarrea">Toxicidad Gastrointestinal-Diarrea</label>
-                                                            <select id="Toxicidad_Gastrointestinal-Diarrea" class="form-control"  name="toxGastroDiarrhea"  disabled><!-- th:field="*{toxGastroDiarrhea}">-->
+                                                            <select id="Toxicidad_Gastrointestinal-Diarrea" class="form-control"  name="toxGastroDiarrhea" th:field="*{toxGastroDiarrhea}" disabled><!-- th:field="*{toxGastroDiarrhea}">-->
                                                                 <option value="0" selected>0</option>
                                                                 <option value="1">1</option>
                                                                 <option value="2">2</option>
@@ -440,7 +440,7 @@
 
                                                         <div class="form-group col-md-4">
                                                             <label for="Reaccion_a_infusion_de_medicamentos">Reacción a infusión de medicamentos</label>
-                                                            <select id="Reaccion_a_infusion_de_medicamentos" class="form-control"  name="infusionMedReaction"  disabled><!-- th:field="*{infusionMedReaction}">-->
+                                                            <select id="Reaccion_a_infusion_de_medicamentos" class="form-control"  name="infusionMedReaction" th:field="*{infusionMedReaction}" disabled><!-- th:field="*{infusionMedReaction}">-->
                                                                 <option value="0" selected>0</option>
                                                                 <option value="1">1</option>
                                                                 <option value="2">2</option>
