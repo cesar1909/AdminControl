@@ -164,7 +164,7 @@ public class MonitorController {
             }
         }
         if (selectedConsultation == null){
-            respuesta = "<h3>NO SE LOCALIZO LA CONUSLTA CON ESE NUMERO DE TRATAMIENTO</h3>";
+            respuesta = "<h3>NO SE LOCALIZÓ LA CONSULTA CON ESE NUMERO DE TRATAMIENTO</h3>";
         }
         else {
             respuesta = "<input type=\"text\" id=\"numCiclo\" class=\"form-control\" hidden=\"true\" name=\"ciclo\" value =" +selectedConsultation.getTreatmentCycleNum() + ">\n " +
