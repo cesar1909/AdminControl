@@ -83,7 +83,7 @@ function deseaEliminarDoctor (idDoctor){
                          console.log("ERROR: ", e);
                      }
                   });*/
-             location.href = "/admin/deleteUser?id="+idDoctor;
+             location.href = "/admin/deleteDoctor?id="+idDoctor;
       } else {
         swal("Eliminación cancelada");
         resultado = false;

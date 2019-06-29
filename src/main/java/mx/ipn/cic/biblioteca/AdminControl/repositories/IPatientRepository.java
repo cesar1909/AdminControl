@@ -3,10 +3,8 @@ package mx.ipn.cic.biblioteca.AdminControl.repositories;
 import java.util.List;
 
 
-
+import mx.ipn.cic.biblioteca.AdminControl.model.DoctorModel;
 import mx.ipn.cic.biblioteca.AdminControl.model.PatientModel;
-import mx.ipn.cic.biblioteca.AdminControl.projections.FindPatientsByEmailResult;
-import mx.ipn.cic.biblioteca.AdminControl.projections.FindFullNameByEmailResult;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
@@ -26,9 +24,12 @@ public interface IPatientRepository extends JpaRepository<PatientModel, Integer>
 			String lastnameP,
 			String lastnameM
 			);
+
 	List<PatientModel> findByNameContaining(
 	String name
 	);
+
+	List<PatientModel> findByIdDoctor(DoctorModel docotorModel);
 	
 	@Modifying
 	@Query(value = "UPDATE paciente ci SET "

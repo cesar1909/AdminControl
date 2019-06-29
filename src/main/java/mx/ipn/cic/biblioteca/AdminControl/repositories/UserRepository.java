@@ -13,7 +13,7 @@ import org.springframework.data.repository.query.Param;
 
 @Transactional
 public interface UserRepository extends UserBaseRepository <User>{
-	@Query(value = "DELETE FROM user WHERE id = :id", nativeQuery = true)
+	@Query(value = "DELETE FROM user u WHERE u.id = :id", nativeQuery = true)
 	void deleteUser(@Param("id") Long id);
 	
 	@Query(value="SELECT id FROM user WHERE email = :email",nativeQuery = true)

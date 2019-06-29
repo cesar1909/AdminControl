@@ -172,6 +172,12 @@ public class AdminController {
         return "redirect:/admin/mainAdmin";
     }
 
+    @GetMapping(path = "/deleteDoctor")
+    public String deleteDoctor(@RequestParam(name = "id") Long identificador){
+        this.userService.deleteDoctor(identificador);
+        return "redirect:/admin/mainAdmin";
+    }
+
     
 	  public static String getCurrentId() {
 			String username;
