@@ -83,9 +83,9 @@ function deseaEliminarDoctor (idDoctor){
                          console.log("ERROR: ", e);
                      }
                   });*/
-             location.href = "/admin/deleteUser?id="+idDoctor;
+             location.href = "/admin/deleteDoctor?id="+idDoctor;
       } else {
-        swal("Eliminacion cancelada");
+        swal("Eliminación cancelada");
         resultado = false;
         //alert(resultado);
       }
@@ -113,7 +113,7 @@ function deseaEliminarMonitor (idMonitor){
              location.href = "/admin/deleteUser?id="+idMonitor;
 
       } else {
-        swal("Eliminacion cancelada");
+        swal("Eliminación cancelada");
         resultado = false;
 
       }
@@ -138,7 +138,7 @@ function deseaEliminarPaciente (idPaciente){
 
              location.href = "/admin/deletePatient?id="+idPaciente;
       } else {
-        swal("Eliminacion cancelada");
+        swal("Eliminación cancelada");
         resultado = false;
 
       }

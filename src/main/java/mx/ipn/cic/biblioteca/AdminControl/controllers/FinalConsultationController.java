@@ -73,16 +73,18 @@ public class FinalConsultationController {
            @RequestParam(name ="numberOfCD34Infused", required = false) String numberOfCD34Infused,
            @RequestParam(name ="myeloidGraftDate", required = false) String myeloidGraftDate,
            @RequestParam(name ="datePlateletGraft", required = false) String datePlateletGraft,
-           @RequestParam(name = "toxHemtoRedSerie") String toxHemtoRedSerie,
-           @RequestParam(name = "toxHemtoNeutrophils") String toxHemtoNeutrophils,
-           @RequestParam(name = "toxHemtoPlatelets") String toxHemtoPlatelets,
-           @RequestParam(name = "toxHepatics") String toxHepatics,
-           @RequestParam(name = "toxRenal") String toxRenal,
-           @RequestParam(name = "toxGastroNausea") String toxGastroNausea,
-           @RequestParam(name = "toxGastroDiarrhea") String toxGastroDiarrhea,
-           @RequestParam(name = "toxNeuroatiaPerif") String toxNeuroatiaPerif,
-           @RequestParam(name = "toxInfectious") String toxInfectious
-           ){
+           @RequestParam(name = "toxHemtoRedSerie", required = false) String toxHemtoRedSerie,
+           @RequestParam(name = "toxHemtoNeutrophils", required = false) String toxHemtoNeutrophils,
+           @RequestParam(name = "toxHemtoPlatelets", required = false) String toxHemtoPlatelets,
+           @RequestParam(name = "toxHepatics", required = false) String toxHepatics,
+           @RequestParam(name = "toxRenal", required = false) String toxRenal,
+           @RequestParam(name = "toxGastroNausea", required = false) String toxGastroNausea,
+           @RequestParam(name = "toxGastroDiarrhea", required = false) String toxGastroDiarrhea,
+           @RequestParam(name = "toxNeuroatiaPerif", required = false) String toxNeuroatiaPerif,
+           @RequestParam(name = "toxInfectious", required = false) String toxInfectious,
+           @RequestParam(name = "infectionSite", required = false) String infectionSite,
+           @RequestParam(name = "infusionMedReaction", required = false) String infusionMedReaction)
+           {
         // Proceso de registro
 
         if(idPatient!=0) {
@@ -130,7 +132,9 @@ public class FinalConsultationController {
                         toxGastroNausea,
                         toxGastroDiarrhea,
                         toxNeuroatiaPerif,
-                        toxInfectious
+                        toxInfectious,
+                        infectionSite,
+                        infusionMedReaction
                         );
                 this.consultationService.register(consultation);
             }else {

@@ -1,6 +1,10 @@
 package mx.ipn.cic.biblioteca.AdminControl.services;
+import mx.ipn.cic.biblioteca.AdminControl.model.DoctorModel;
+import mx.ipn.cic.biblioteca.AdminControl.model.PatientModel;
 import mx.ipn.cic.biblioteca.AdminControl.model.User;
 import mx.ipn.cic.biblioteca.AdminControl.model.Role;
+import mx.ipn.cic.biblioteca.AdminControl.repositories.IDoctorRepository;
+import mx.ipn.cic.biblioteca.AdminControl.repositories.IPatientRepository;
 import mx.ipn.cic.biblioteca.AdminControl.repositories.UserRepository;
 //import mx.ipn.cic.biblioteca.AdminControl.web.dto.UserRegistrationDto;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +18,8 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
+import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -21,6 +27,12 @@ public class UserServiceImpl implements UserDetailsService {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private IPatientRepository patientRepository;
+
+    @Autowired
+    private IDoctorRepository doctorRepository;
   //descomentar para bcrypt
 //    @Autowired
   //  private BCryptPasswordEncoder passwordEncoder;
@@ -90,6 +102,16 @@ public class UserServiceImpl implements UserDetailsService {
         String name = auth.getName();
         System.out.println(name);
         return name;
+    }
+
+    public boolean deleteDoctor(Long idToDelete){
+        Optional<DoctorModel> doctor = this.doctorRepository.findById(idToDelete);
+        List<PatientModel> patients = this.patientRepository.findByIdDoctor(doctor.get());
+        for (PatientModel tmp : patients){
+            this.patientRepository.delete(tmp);
+        }
+        this.userRepository.deleteById(idToDelete);
+        return true;
     }
 
     public boolean delete(Long idToDelete){
