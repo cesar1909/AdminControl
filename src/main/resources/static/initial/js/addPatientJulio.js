@@ -524,8 +524,8 @@ function Validar (){
      if(txtHemoglobina.val()< 1 || txtHemoglobina.val()> 20 || txtHemoglobina.val() == ""){
          errores = errores.concat("-Hemoglobina : fuera del rango 1 a 20\n");
      }
-     if(txtHematocrito.val()< 3 || txtHematocrito.val()> 60 || txtHematocrito.val() == ""){
-         errores = errores.concat("-Hematocrito : fuera del rango 3 a 60\n");
+     if(txtHematocrito.val()< 10 || txtHematocrito.val()> 60 || txtHematocrito.val() == ""){
+         errores = errores.concat("-Hematocrito : fuera del rango 10 a 60\n");
      }
      if(txtLeucocitos.val()< 0 || txtLeucocitos.val()> 100000 || txtLeucocitos.val() == ""){
          errores = errores.concat("-Leucocitos : fuera del rango 0 a 100,000\n");

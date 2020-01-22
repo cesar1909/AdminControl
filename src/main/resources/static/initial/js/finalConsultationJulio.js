@@ -95,8 +95,8 @@ btnNext1.click(()=>{
         if(Hemoglobina.val()< 1 || Hemoglobina.val()> 20 || Hemoglobina.val() == ""){
             errores = errores.concat("-Hemoglobina: fuera del rango 1 a 20\n");
         }
-        if(Hematocrito.val()< 3 || Hematocrito.val()> 60 || Hematocrito.val() == ""){
-            errores = errores.concat("-Hematocrito: fuera del rango 3 a 20\n");
+        if(Hematocrito.val()< 10 || Hematocrito.val()> 60 || Hematocrito.val() == ""){
+            errores = errores.concat("-Hematocrito: fuera del rango 10 a 60\n");
         }
         if(Leucocitos.val()< 0 || Leucocitos.val()> 100000 || Leucocitos.val() == ""){
             errores = errores.concat("-Leucocitos: fuera del rango 0 a 100,000\n");

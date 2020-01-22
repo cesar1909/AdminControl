@@ -134,11 +134,11 @@
 
                                                         <div class="form-group col-md-4">
                                                             <label for="Albumina">Albumina</label>
-                                                            <input type="number" class="form-control" id="Albumina" placeholder="g/dL" name="albumin" th:field="*{albumin}">
+                                                            <input type="number" step=".01" class="form-control" id="Albumina" placeholder="g/dL" name="albumin" th:field="*{albumin}">
                                                         </div>
                                                         <div class="form-group col-md-4">
                                                             <label for="Calcio_serico">Calcio sérico</label>
-                                                            <input type="number" class="form-control" id="Calcio_serico" placeholder="mg/dL" name="serumCalcium" th:field="*{serumCalcium}">
+                                                            <input type="number" step=".01" class="form-control" id="Calcio_serico" placeholder="mg/dL" name="serumCalcium" th:field="*{serumCalcium}">
                                                         </div>
                                                     </div>
                                                 <br>
@@ -149,11 +149,11 @@
                                                         </div>
                                                         <div class="form-group col-md-4">
                                                             <label for="Hemoglobina">Hemoglobina</label>
-                                                            <input type="number" class="form-control" id="Hemoglobina" placeholder="g/dL" name="hemoglobin" th:field="*{hemoglobin}">
+                                                            <input type="number" step=".01" class="form-control" id="Hemoglobina" placeholder="g/dL" name="hemoglobin" th:field="*{hemoglobin}">
                                                         </div>
                                                         <div class="form-group col-md-4">
                                                             <label for="Hematocrito">Hematocrito</label>
-                                                            <input type="number" class="form-control" id="Hematocrito" placeholder="%" name="hematocrit" th:field="*{hematocrit}">
+                                                            <input type="number" step=".01" class="form-control" id="Hematocrito" placeholder="%" name="hematocrit" th:field="*{hematocrit}">
                                                         </div>
                                                     </div>
                                                 <br>
@@ -264,7 +264,7 @@
                                                         </div>
                                                         <div class="form-group col-md-4">
                                                             <label for="minres">Enfermedad Minima Residual</label>
-                                                            <input type="number" class="form-control" id="minres" placeholder="0 - 1000" name="enfermedadMinimaResidual" th:field="*{enfermedadMinimaResidual}">
+                                                            <input type="number" step=".01" class="form-control" id="minres" placeholder="0 - 1000" name="enfermedadMinimaResidual" th:field="*{enfermedadMinimaResidual}">
                                                         </div>
                                                         <div class="form-group col-md-4">
                                                             <label for="resptrat">Respuesta al tratamiento</label>
@@ -298,7 +298,7 @@
                                                     <div class="form-row">
                                                         <div class="form-group col-md-4">
                                                             <label for="celCD34">Número de CD34 infundidas</label>
-                                                            <input id="celCD34" type="number" class="form-control" placeholder="x10(6)" name="numberOfCD34Infused" value=0 th:field="*{numberOfCD34Infused}" disabled><!-- th:field="*{}"-->
+                                                            <input id="celCD34" type="number" step=".01" class="form-control" placeholder="x10(6)" name="numberOfCD34Infused" value=0 th:field="*{numberOfCD34Infused}" disabled><!-- th:field="*{}"-->
                                                         </div>
                                                         <div class="form-group col-md-4">
                                                             <label for="txtDateInjertoMie">Fecha injerto mieloide</label>

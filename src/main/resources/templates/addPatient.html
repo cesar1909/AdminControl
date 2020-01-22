@@ -319,13 +319,13 @@
                                             <div class="col-lg-4 col-md-4 col-sm-4">
                                                 <div class="form-group">
                                                     <label for="txtSerica" class="bmd-label-floating">Creatinina Sérica (mg/dL)</label>
-                                                    <input type="number" class="form-control" id="txtSerica" min="0" max="10" name="serumCreatinine" th:field="*{serumCreatinine}"/>
+                                                    <input type="number" class="form-control" id="txtSerica" min="0" max="10" step=".01" name="serumCreatinine" th:field="*{serumCreatinine}"/>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-4">
                                                 <div class="form-group">
                                                     <label for="txtDepuracion" class="bmd-label-floating">Depuración Creatinina (ml/min)</label>
-                                                    <input type="number" class="form-control" id="txtDepuracion" min="0" max="200" name="depCreatinine" th:field="*{depCreatinine}"/>
+                                                    <input type="number" class="form-control" id="txtDepuracion" min="0" max="200" step=".01" name="depCreatinine" th:field="*{depCreatinine}"/>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-4">
@@ -526,7 +526,7 @@
                                             <div class="col-lg-4 col-md-4 col-sm-4">
                                                 <div class="form-group">
                                                     <label for="CalcioSer" class="bmd-label-floating">Calcio Sérico (mg/dL)</label>
-                                                    <input type="number" class="form-control" id="CalcioSer" min="5" max="20"  name="serumCalcium" th:field="*{serumCalcium}"/>
+                                                    <input type="number" class="form-control" id="CalcioSer" min="5" max="20"  step=".01" name="serumCalcium" th:field="*{serumCalcium}"/>
                                                 </div>
                                             </div>
                                         </div>
@@ -558,13 +558,13 @@
                                             <div class="col-lg-4 col-md-4 col-sm-4">
                                                 <div class="form-group">
                                                     <label for="txtHemoglobinaJulio" class="bmd-label-floating">Hemoglobina (g/dL)</label>
-                                                    <input type="number" class="form-control" id="txtHemoglobinaJulio"   name="hemoglobin" th:field="*{hemoglobin}"/>
+                                                    <input type="number" step=".01" class="form-control" id="txtHemoglobinaJulio"   name="hemoglobin" th:field="*{hemoglobin}"/>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-4">
                                                 <div class="form-group">
                                                     <label for="txtHematocritoJulio" class="bmd-label-floating">Hematocrito (%)</label>
-                                                    <input type="number" class="form-control" id="txtHematocritoJulio"   name="hematocrit" th:field="*{hematocrit}"/>
+                                                    <input type="number" step=".01" class="form-control" id="txtHematocritoJulio"   name="hematocrit" th:field="*{hematocrit}"/>
                                                 </div>
                                             </div>
                                         </div>
